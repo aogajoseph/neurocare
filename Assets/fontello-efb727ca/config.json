@@ -17,6 +17,18 @@
       "css": "whatsapp",
       "code": 62002,
       "src": "fontawesome"
+    },
+    {
+      "uid": "599d6c088f4a1c64611b989459d65f6b",
+      "css": "lightbulb",
+      "code": 59392,
+      "src": "elusive"
+    },
+    {
+      "uid": "d73eceadda1f594cec0536087539afbf",
+      "css": "heart",
+      "code": 59393,
+      "src": "fontawesome"
     }
   ]
 }
