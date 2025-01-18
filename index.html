@@ -50,51 +50,51 @@
 
 		<script type='text/javascript'>
 
-			(function() {
+				(function() {
 
-				/*	check if webfonts are disabled by user setting via cookie - or user must opt in.	*/
-				var html = document.getElementsByTagName('html')[0];
-				var cookie_check = html.className.indexOf('av-cookies-needs-opt-in') >= 0 || html.className.indexOf('av-cookies-can-opt-out') >= 0;
-				var allow_continue = true;
-				var silent_accept_cookie = html.className.indexOf('av-cookies-user-silent-accept') >= 0;
+					/*	check if webfonts are disabled by user setting via cookie - or user must opt in.	*/
+					var html = document.getElementsByTagName('html')[0];
+					var cookie_check = html.className.indexOf('av-cookies-needs-opt-in') >= 0 || html.className.indexOf('av-cookies-can-opt-out') >= 0;
+					var allow_continue = true;
+					var silent_accept_cookie = html.className.indexOf('av-cookies-user-silent-accept') >= 0;
 
-				if( cookie_check && ! silent_accept_cookie )
-				{
-					if( ! document.cookie.match(/aviaCookieConsent/) || html.className.indexOf('av-cookies-session-refused') >= 0 )
+					if( cookie_check && ! silent_accept_cookie )
 					{
-						allow_continue = false;
+						if( ! document.cookie.match(/aviaCookieConsent/) || html.className.indexOf('av-cookies-session-refused') >= 0 )
+						{
+							allow_continue = false;
+						}
+						else
+						{
+							if( ! document.cookie.match(/aviaPrivacyRefuseCookiesHideBar/) )
+							{
+								allow_continue = false;
+							}
+							else if( ! document.cookie.match(/aviaPrivacyEssentialCookiesEnabled/) )
+							{
+								allow_continue = false;
+							}
+							else if( document.cookie.match(/aviaPrivacyGoogleWebfontsDisabled/) )
+							{
+								allow_continue = false;
+							}
+						}
 					}
-					else
+
+					if( allow_continue )
 					{
-						if( ! document.cookie.match(/aviaPrivacyRefuseCookiesHideBar/) )
-						{
-							allow_continue = false;
-						}
-						else if( ! document.cookie.match(/aviaPrivacyEssentialCookiesEnabled/) )
-						{
-							allow_continue = false;
-						}
-						else if( document.cookie.match(/aviaPrivacyGoogleWebfontsDisabled/) )
-						{
-							allow_continue = false;
-						}
+						var f = document.createElement('link');
+
+						f.type 	= 'text/css';
+						f.rel 	= 'stylesheet';
+						f.href 	= 'https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=auto';
+						f.id 	= 'avia-google-webfont';
+
+						document.getElementsByTagName('head')[0].appendChild(f);
 					}
-				}
+				})();
 
-				if( allow_continue )
-				{
-					var f = document.createElement('link');
-
-					f.type 	= 'text/css';
-					f.rel 	= 'stylesheet';
-					f.href 	= 'https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=auto';
-					f.id 	= 'avia-google-webfont';
-
-					document.getElementsByTagName('head')[0].appendChild(f);
-				}
-			})();
-
-		</script>
+			</script>
 		
 		<link rel='stylesheet' id='wp-block-library-css' href='https://kriesi.at/themes/enfold/wp-includes/css/dist/block-library/style.min.css?ver=6.6.2' type='text/css' media='all' />
 
@@ -1320,17 +1320,15 @@
 			document.body.className = document.body.className.replace( 'bbp-no-js', 'bbp-js' );
 		</script>
 
-
 		<div id='wrap_all'>
 
-		
 			<header id='header' class='all_colors header_color light_bg_color  av_header_top av_logo_left av_bottom_nav_header av_menu_left av_slim av_header_sticky av_header_shrinking av_header_stretch_disabled av_mobile_menu_tablet av_header_searchicon av_header_unstick_top_disabled av_alternate_logo_active av_header_border_disabled'  data-av_shrink_factor='50' role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
 
 				<div  id='header_main' class='container_wrap container_wrap_logo'>
 
 					<ul  class = 'menu-item cart_dropdown ' data-success='was added to the cart'>
 						<li class="cart_dropdown_first">
-							<a class='cart_dropdown_link' href='https://kriesi.at/themes/enfold/cart/'>
+							<a class='cart_dropdown_link' href='#'>
 								<span aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></span>
 								<span class='av-cart-counter '>0</span>
 								<span class="avia_hidden_link_text">Shopping Cart</span>
@@ -1349,19 +1347,19 @@
 					<div class='container av-logo-container'>
 						<div class='inner-container'>
 							<span class='logo avia-standard-logo'>
-								<a href='https://kriesi.at/themes/enfold/' class='' aria-label='splash-orange' title='splash-orange'>
+								<a href='index.html' class='' aria-label='splash-orange' title='splash-orange'>
 									<img src="assets/logo.png" srcset="assets/logo.png 340w, assets/logo-300x138.png 300w" sizes="(max-width: 340px) 100vw, 340px" height="100" width="300" alt='Neuro Care Logo' title='neuro care' />
 								</a>
 							</span>
 							<ul class='noLightbox social_bookmarks icon_count_1'>
 								<li class="social_bookmarks_youtube av-social-link-youtube social_icon">
-									<a target="_blank" aria-label="Link to YouTube" href="https://www.youtube.com/" aria-hidden="false" title="Subscribe">
+									<a target="_blank" aria-label="Link to YouTube" href="#" aria-hidden="false" title="Subscribe">
 										<i class="icon-youtube-play"></i>
 										<span class="avia_hidden_link_text">YouTube</span>
 									</a>
 								</li>
 								<li class='social_bookmarks_facebook av-social-link-facebook social_icon_2'>
-									<a target="_blank" aria-label="Link to Facebook" href='https://www.facebook.com/kriesi.at' aria-hidden='false' data-av_icon='' data-av_iconfont='entypo-fontello' title='Follow Us' rel="noopener">
+									<a target="_blank" aria-label="Link to Facebook" href='#' aria-hidden='false' data-av_icon='' data-av_iconfont='entypo-fontello' title='Follow Us' rel="noopener">
 										<span class='avia_hidden_link_text'>Facebook</span>
 									</a>
 								</li>
@@ -1390,7 +1388,7 @@
 								<div class="avia-menu av-main-nav-wrap">
 									<ul role="menu" class="menu av-main-nav" id="avia-menu">
 										<li role="menuitem" id="menu-item-999" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-top-level menu-item-top-level-1">
-											<a href="https://kriesi.at/themes/enfold/" itemprop="url" tabindex="0">
+											<a href="index.html" itemprop="url" tabindex="0">
 												<span class="avia-bullet"></span>
 												<span class="avia-menu-text">Home</span>
 												<span class="avia-menu-fx">
@@ -1400,225 +1398,224 @@
 												</span>
 											</a>
 										</li>
-										<li role="menuitem" id="menu-item-1001" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-4"><a href="about.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">About Us</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
-										<!-- <ul class="sub-menu">
-											<li role="menuitem" id="menu-item-2638" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/portfolio/masonry-portfolio/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Masonry Portfolio</span></a></li>
-											<li role="menuitem" id="menu-item-2310" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/portfolio/portfolio-ajax/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Portfolio Ajax</span></a></li>
-											<li role="menuitem" id="menu-item-1005" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/portfolio/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Portfolio 4 Column</span></a></li>
-											<li role="menuitem" id="menu-item-1003" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/portfolio/portfolio-3-column/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Portfolio 3 Column</span></a></li>
-											<li role="menuitem" id="menu-item-1002" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/portfolio/portfolio-2-column/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Portfolio 2 Column</span></a></li>
-											<li role="menuitem" id="menu-item-3191" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/portfolio/mixed-fullwidth-portfolio/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Mixed Fullwidth Portfolio</span></a></li>
-											<li role="menuitem" id="menu-item-1006" class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://kriesi.at/themes/enfold/portfolio-item/slider-two-third/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Single Portfolio: 2/3 Slider</span></a></li>
-											<li role="menuitem" id="menu-item-1007" class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://kriesi.at/themes/enfold/portfolio-item/lorem-ipsum/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Single Portfolio: 2/3 Gallery</span></a></li>
-											<li role="menuitem" id="menu-item-1008" class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://kriesi.at/themes/enfold/portfolio-item/portfolio-big/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Single Portfolio: Big Slider</span></a></li>
-											<li role="menuitem" id="menu-item-1009" class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://kriesi.at/themes/enfold/portfolio-item/vimeo-video/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Single Portfolio: Full Slider</span></a></li>
-										</ul> -->
-									</li>
-									</li>
-										<li role="menuitem" id="menu-item-1123" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current_page_ancestor menu-item-has-children menu-item-mega-parent  menu-item-top-level menu-item-top-level-6"><a href="https://kriesi.at/themes/enfold/pages/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Causes</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
-										<div class='avia_mega_div avia_mega4 twelve units'>
+										<li role="menuitem" id="menu-item-1001" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-4">
+											<a href="about.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">About Us</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
+											<!-- <ul class="sub-menu">
+												<li role="menuitem" id="menu-item-2638" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/portfolio/masonry-portfolio/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Masonry Portfolio</span></a></li>
+												<li role="menuitem" id="menu-item-2310" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/portfolio/portfolio-ajax/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Portfolio Ajax</span></a></li>
+												<li role="menuitem" id="menu-item-1005" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/portfolio/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Portfolio 4 Column</span></a></li>
+												<li role="menuitem" id="menu-item-1003" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/portfolio/portfolio-3-column/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Portfolio 3 Column</span></a></li>
+												<li role="menuitem" id="menu-item-1002" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/portfolio/portfolio-2-column/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Portfolio 2 Column</span></a></li>
+												<li role="menuitem" id="menu-item-3191" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/portfolio/mixed-fullwidth-portfolio/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Mixed Fullwidth Portfolio</span></a></li>
+												<li role="menuitem" id="menu-item-1006" class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://kriesi.at/themes/enfold/portfolio-item/slider-two-third/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Single Portfolio: 2/3 Slider</span></a></li>
+												<li role="menuitem" id="menu-item-1007" class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://kriesi.at/themes/enfold/portfolio-item/lorem-ipsum/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Single Portfolio: 2/3 Gallery</span></a></li>
+												<li role="menuitem" id="menu-item-1008" class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://kriesi.at/themes/enfold/portfolio-item/portfolio-big/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Single Portfolio: Big Slider</span></a></li>
+												<li role="menuitem" id="menu-item-1009" class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://kriesi.at/themes/enfold/portfolio-item/vimeo-video/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Single Portfolio: Full Slider</span></a></li>
+											</ul> -->
+										</li>
+										<li role="menuitem" id="menu-item-1123" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current_page_ancestor menu-item-has-children menu-item-mega-parent  menu-item-top-level menu-item-top-level-6">
+											<a href="causes.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Causes</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
+											<div class='avia_mega_div avia_mega4 twelve units'>
+												<ul class="sub-menu">
+													<li role="menuitem" id="menu-item-1665" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units  avia_mega_menu_columns_first"><span class='mega_menu_title heading-color av-special-font'>Advocacy & Publicity</span>
+														<ul class="sub-menu">
+															<li role="menuitem" id="menu-item-1218" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="their-words.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">In Their Words</span></a></li>
+															<li role="menuitem" id="menu-item-1220" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="their-shoes.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">In Their Shoes</span></a></li>
+															<li role="menuitem" id="menu-item-1286" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="roundtable.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">The Roundtable</span></a></li>
+															<li role="menuitem" id="menu-item-1235" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="beyond.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Beyond the Challenege</span></a></li>
+															<!-- <li role="menuitem" id="menu-item-1330" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/landing-page/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Landing Page</span></a></li>
+															<li role="menuitem" id="menu-item-1217" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/team/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Meet the Team</span></a></li>
+															<li role="menuitem" id="menu-item-1219" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/pricing/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Pricing</span></a></li>
+															<li role="menuitem" id="menu-item-1312" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/services/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Services</span></a></li> -->
+														</ul>
+													</li>
+													<li role="menuitem" id="menu-item-1663" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children avia_mega_menu_columns_4 three units "><span class='mega_menu_title heading-color av-special-font'>Capacity Building</span>
+														<ul class="sub-menu">
+															<li role="menuitem" id="menu-item-3074" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="training.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Caregiver Training</span></a></li>
+															<li role="menuitem" id="menu-item-1666" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-page-ancestor current-page-parent"><a href="skill.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Skill Development</span></a></li>
+															<li role="menuitem" id="menu-item-1667" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="education.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Educational Growth</span></a></li>
+															<li role="menuitem" id="menu-item-1670" class="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-1023 current_page_item"><a href="camps.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text"> &#8220;The Shared Journey&#8221; Camps</span></a></li>
+															<!-- <li role="menuitem" id="menu-item-1668" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/homepage/home-v3-3-column-with-blog/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">EasySlider &#8220;Move&#8221;</span></a></li>
+															<li role="menuitem" id="menu-item-1669" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/homepage/home-v4-small-slider/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">EasySlider Small</span></a></li>
+															<li role="menuitem" id="menu-item-1685" class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://kriesi.at/themes/enfold/portfolio-item/single-portfolio-fullscreen-slider-3/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">EasySlider Transparent</span></a></li>
+															<li role="menuitem" id="menu-item-2309" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/homepage/home-v7-one-page-portfolio/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Fullscreen Slider</span></a></li> -->
+														</ul>
+													</li>
+													<li role="menuitem" id="menu-item-1733" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units"><span class='mega_menu_title heading-color av-special-font'>Medical Support</span>
+														<ul class="sub-menu">
+															<li role="menuitem" id="menu-item-1272" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="supplies.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Medical Supplies</span></a></li>
+															<li role="menuitem" id="menu-item-1270" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="therapy.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Rehabilitation & Therapy</span></a></li>
+															<li role="menuitem" id="menu-item-1271" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="referral.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Referral Programs</span></a></li>
+															<li role="menuitem" id="menu-item-1271" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="research.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Collaborative Reasearch</span></a></li>
+														</ul>
+													</li>
+													<li role="menuitem" id="menu-item-1664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units avia_mega_menu_columns_last"><span class='mega_menu_title heading-color av-special-font'>Psychosocial Aid</span>
+														<ul class="sub-menu">
+															<li role="menuitem" id="menu-item-1599" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="counseling.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Counseling</span></a></li>
+															<li role="menuitem" id="menu-item-1671" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="support-groups.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Suport Groups</span></a></li>
+															<li role="menuitem" id="menu-item-1672" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="mentorship.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Peer Mentorship</span></a></li>
+															<li role="menuitem" id="menu-item-1672" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="lifeskills.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Core Life Skills</span></a></li>
+														</ul>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li role="menuitem" id="menu-item-1004" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-mega-parent  menu-item-top-level menu-item-top-level-7"><a href="resources.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Resources</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
+											<div class='avia_mega_div avia_mega4 twelve units'>
+												<ul class="sub-menu">
+													<li role="menuitem" id="menu-item-1432" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units  avia_mega_menu_columns_first">
+														<ul class="sub-menu">
+															<li role="menuitem" id="menu-item-3073" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource1.pdf" download="resource1.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Stress Management Guide</span></a></li>
+															<li role="menuitem" id="menu-item-1410" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource2.pdf" download="resource2.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Daily Care Tips</span></a></li>
+															<li role="menuitem" id="menu-item-3127" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource3.pdf" download="resource3.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Caregiving Schedule Template</span></a></li>
+															<li role="menuitem" id="menu-item-1411" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource4.pdf" download="resource4.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Spina Bifida & Hydrocephalus</span></a></li>
+															<li role="menuitem" id="menu-item-1412" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource5.pdf" download="resource5.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Understanding Neuroplasticity</span></a></li>
+															<li role="menuitem" id="menu-item-1413" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource6.pdf" download="resource6.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Seizure Management Guide</span></a></li>
+															<li role="menuitem" id="menu-item-1414" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource7.pdf" download="resource7.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Neuro Therapy Options</span></a></li>
+														</ul>
+													</li>
+													<li role="menuitem" id="menu-item-1433" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units ">
+														<ul class="sub-menu">
+															<li role="menuitem" id="menu-item-1415" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource8.pdf" download="resource8.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Understanding Rehab Therapies</span></a></li>
+															<li role="menuitem" id="menu-item-1416" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource9.pdf" download="resource9.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Finding Neurology Specialists</span></a></li>
+															<li role="menuitem" id="menu-item-1417" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource10.pdf" download="resource10.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Spina Bifida Support Groups</span></a></li>
+															<li role="menuitem" id="menu-item-3203" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource11.pdf" download="resource11.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Caregiver Networks</span></a></li>
+															<li role="menuitem" id="menu-item-1418" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource12.pdf" download="resource12.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Online Neuro Communities</span></a></li>
+															<li role="menuitem" id="menu-item-1419" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource13.pdf" download="resource13.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Mindfulness Exercises</span></a></li>
+															<li role="menuitem" id="menu-item-1420" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource14.pdf" download="resource14.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Advocacy Toolkit</span></a></li>
+														</ul>
+													</li>
+													<li role="menuitem" id="menu-item-1434" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units ">
+														<ul class="sub-menu">
+															<li role="menuitem" id="menu-item-3128" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource15.pdf" download="resource15.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">How to Raise Awareness</span></a></li>
+															<li role="menuitem" id="menu-item-2585" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource16.pdf" download="resource16.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Neuro Conditions Infographic</span></a></li>
+															<li role="menuitem" id="menu-item-1421" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource17.pdf" download="resource17.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Symptom Tracker</span></a></li>
+															<li role="menuitem" id="menu-item-2518" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource18.pdf" download="resource18.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Seizure Emergency Guide</span></a></li>
+															<li role="menuitem" id="menu-item-1422" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource19.pdf" download="resource19.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Hydrocephalus Emergency Plan</span></a></li>
+															<li role="menuitem" id="menu-item-1423" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource20.pdf" download="resource20.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">First-Aid Kit Checklist</span></a></li>
+															<li role="menuitem" id="menu-item-1424" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource21.pdf" download="resource21.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Homebased Physical Therapy</span></a></li>
+														</ul>
+													</li>
+													<li role="menuitem" id="menu-item-1435" class="menu-item menu-item-type- menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units avia_mega_menu_columns_last">
+														<ul class="sub-menu">
+															<li role="menuitem" id="menu-item-1425" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource.pdf" download="resource22.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Members' Application Form</span></a></li>
+															<li role="menuitem" id="menu-item-1426" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource23.pdf" download="resource23.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Partners' Application Form</span></a></li>
+															<li role="menuitem" id="menu-item-2334" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource24.pdf" download="resource24.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Volunteers' Application Form</span></a></li>
+															<li role="menuitem" id="menu-item-2299" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="resource25.pdf" download="resource25.pdf" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Annual Events Calendar</span></a></li>
+															<li role="menuitem" id="menu-item-2300" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="help.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Find Help</span></a></li>
+															<li role="menuitem" id="menu-item-2301" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="faq.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">FAQs</span></a></li>
+														</ul>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li role="menuitem" id="menu-item-2304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-8"><a href="https://kriesi.at/themes/enfold/shop/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Get Involved</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
 											<ul class="sub-menu">
-												<li role="menuitem" id="menu-item-1665" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units  avia_mega_menu_columns_first"><span class='mega_menu_title heading-color av-special-font'>Advocacy & Publicity</span>
-													<ul class="sub-menu">
-														<li role="menuitem" id="menu-item-1218" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/about-us/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">In Their Words</span></a></li>
-														<li role="menuitem" id="menu-item-1220" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/contact/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">In Their Shoes</span></a></li>
-														<li role="menuitem" id="menu-item-1286" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/faq/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">The Roundtable</span></a></li>
-														<li role="menuitem" id="menu-item-1235" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/help/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Beyond the Challenege</span></a></li>
-														<!-- <li role="menuitem" id="menu-item-1330" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/landing-page/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Landing Page</span></a></li>
-														<li role="menuitem" id="menu-item-1217" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/team/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Meet the Team</span></a></li>
-														<li role="menuitem" id="menu-item-1219" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/pricing/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Pricing</span></a></li>
-														<li role="menuitem" id="menu-item-1312" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/services/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Services</span></a></li> -->
-													</ul>
-												</li>
-												<li role="menuitem" id="menu-item-1663" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children avia_mega_menu_columns_4 three units "><span class='mega_menu_title heading-color av-special-font'>Capacity Building</span>
-													<ul class="sub-menu">
-														<li role="menuitem" id="menu-item-3074" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/homepage/home-v10-magazine/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Caregiver Training</span></a></li>
-														<li role="menuitem" id="menu-item-1666" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-page-ancestor current-page-parent"><a href="https://kriesi.at/themes/enfold/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Skill Development</span></a></li>
-														<li role="menuitem" id="menu-item-1667" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/homepage/home-v2-3-col-images-contact/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Educational Growth</span></a></li>
-														<li role="menuitem" id="menu-item-1670" class="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-1023 current_page_item"><a href="https://kriesi.at/themes/enfold/homepage/home-v6-classic-4-column/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text"> &#8220;The Shared Journey&#8221; Camps</span></a></li>
-														<!-- <li role="menuitem" id="menu-item-1668" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/homepage/home-v3-3-column-with-blog/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">EasySlider &#8220;Move&#8221;</span></a></li>
-														<li role="menuitem" id="menu-item-1669" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/homepage/home-v4-small-slider/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">EasySlider Small</span></a></li>
-														<li role="menuitem" id="menu-item-1685" class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://kriesi.at/themes/enfold/portfolio-item/single-portfolio-fullscreen-slider-3/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">EasySlider Transparent</span></a></li>
-														<li role="menuitem" id="menu-item-2309" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/homepage/home-v7-one-page-portfolio/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Fullscreen Slider</span></a></li> -->
-													</ul>
-												</li>
-												<li role="menuitem" id="menu-item-1733" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units "><span class='mega_menu_title heading-color av-special-font'>Medical Support</span>
-													<ul class="sub-menu">
-														<li role="menuitem" id="menu-item-1272" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/blank/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Medical Supplies</span></a></li>
-														<li role="menuitem" id="menu-item-1270" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/blank/maintenance-mode/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Rehabilitation & Therapy</span></a></li>
-														<li role="menuitem" id="menu-item-1271" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/blank/coming-soon/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Referral Programs</span></a></li>
-														<li role="menuitem" id="menu-item-1271" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/pages/blank/coming-soon/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Collaborative Reasearch</span></a></li>
-													</ul>
-												</li>
-												<li role="menuitem" id="menu-item-1664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units avia_mega_menu_columns_last"><span class='mega_menu_title heading-color av-special-font'>Psychosocial Aid</span>
-													<ul class="sub-menu">
-														<li role="menuitem" id="menu-item-1599" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://kriesi.at/themes/enfold/forums/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Counseling</span></a></li>
-														<li role="menuitem" id="menu-item-1671" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://kriesi.at/themes/enfold/?s=this" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Suport Groups</span></a></li>
-														<li role="menuitem" id="menu-item-1672" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://kriesi.at/themes/enfold/author/kriesi/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Peer Mentorship</span></a></li>
-														<li role="menuitem" id="menu-item-1672" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://kriesi.at/themes/enfold/author/kriesi/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Core Life Skills</span></a></li>
-													</ul>
-												</li>
+												<li role="menuitem" id="menu-item-2645" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="partner.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Become a Partner</span></a></li>
+												<li role="menuitem" id="menu-item-2644" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="volunteer.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Volunteer</span></a></li>
+												<li role="menuitem" id="menu-item-2644" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="donate.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Donate</span></a></li>
 											</ul>
-										</div>
-									</li>
-									<li role="menuitem" id="menu-item-1004" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-mega-parent  menu-item-top-level menu-item-top-level-7"><a href="https://kriesi.at/themes/enfold/shortcodes/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Resources</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
-										<div class='avia_mega_div avia_mega4 twelve units'>
-											<ul class="sub-menu">
-												<li role="menuitem" id="menu-item-1432" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units  avia_mega_menu_columns_first">
-												<ul class="sub-menu">
-													<li role="menuitem" id="menu-item-3073" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/homepage/home-v10-magazine/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Stress Management Guide</span></a></li>
-													<li role="menuitem" id="menu-item-1410" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/animated-image/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Daily Care Tips</span></a></li>
-													<li role="menuitem" id="menu-item-3127" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/animated-number/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Caregiving Schedule Template</span></a></li>
-													<li role="menuitem" id="menu-item-1411" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/blog-element/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Spina Bifida & Hydrocephalus</span></a></li>
-													<li role="menuitem" id="menu-item-1412" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/buttons/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Understanding Neuroplasticity</span></a></li>
-													<li role="menuitem" id="menu-item-1413" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/columns/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Seizure Management Guide</span></a></li>
-													<li role="menuitem" id="menu-item-1414" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/contact-forms/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Neuro Therapy Options</span></a></li>
-												</ul>
-											</li>
-											<li role="menuitem" id="menu-item-1433" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units ">
-												<ul class="sub-menu">
-													<li role="menuitem" id="menu-item-1415" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/easy-slider/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Understanding Rehab Therapies</span></a></li>
-													<li role="menuitem" id="menu-item-1416" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/gallery/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Finding Neurology Specialists</span></a></li>
-													<li role="menuitem" id="menu-item-1417" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/hr/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Spina Bifida Support Groups</span></a></li>
-													<li role="menuitem" id="menu-item-3203" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/images-with-hotspots/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Caregiver Networks</span></a></li>
-													<li role="menuitem" id="menu-item-1418" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/iconbox/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Online Neuro Communities</span></a></li>
-													<li role="menuitem" id="menu-item-1419" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/iconlis/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Mindfulness Exercises</span></a></li>
-													<li role="menuitem" id="menu-item-1420" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/layer-slider/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Advocacy Toolkit</span></a></li>
-												</ul>
-											</li>
-											<li role="menuitem" id="menu-item-1434" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units ">
-												<ul class="sub-menu">
-													<li role="menuitem" id="menu-item-3128" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/homepage/home-v10-magazine/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">How to Raise Awareness</span></a></li>
-													<li role="menuitem" id="menu-item-2585" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/masonry-gallery/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Neuro Conditions Infographic</span></a></li>
-													<li role="menuitem" id="menu-item-1421" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/notificatio/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Symptom Tracker</span></a></li>
-													<li role="menuitem" id="menu-item-2518" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/partnerlogo-element/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Seizure Emergency Guide</span></a></li>
-													<li role="menuitem" id="menu-item-1422" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/portfolio-shortcode/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Hydrocephalus Emergency Plan</span></a></li>
-													<li role="menuitem" id="menu-item-1423" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/post-slider/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">First-Aid Kit Checklist</span></a></li>
-													<li role="menuitem" id="menu-item-1424" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/pricing-and-data-tables/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Homebased Physical Therapy</span></a></li>
-												</ul>
-											</li>
-											<li role="menuitem" id="menu-item-1435" class="menu-item menu-item-type- menu-item-object-custom menu-item-has-children avia_mega_menu_columns_4 three units avia_mega_menu_columns_last">
-												<ul class="sub-menu">
-													<li role="menuitem" id="menu-item-1425" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/progressbars/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Members' Application Form</span></a></li>
-													<li role="menuitem" id="menu-item-1426" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/promo-box/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Partners' Application Form</span></a></li>
-													<li role="menuitem" id="menu-item-2334" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/tabs/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Volunteers' Application Form</span></a></li>
-													<li role="menuitem" id="menu-item-2299" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/team/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Annual Events Calendar</span></a></li>
-													<li role="menuitem" id="menu-item-2300" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/testimonials/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Multiple Sclerosis</span></a></li>
-													<li role="menuitem" id="menu-item-2301" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/toggles-accordions/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Neurological Symptoms Checklist</span></a></li>
-													<li role="menuitem" id="menu-item-2336" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shortcodes/video/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Speech Therapy Guide</span></a></li>
-												</ul>
-											</li>
-										</ul>
-									</div>
-								</li>
-								<li role="menuitem" id="menu-item-2304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-8"><a href="https://kriesi.at/themes/enfold/shop/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Get Involved</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
-									<ul class="sub-menu">
-										<li role="menuitem" id="menu-item-2645" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shop/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Become a Partner</span></a></li>
-										<li role="menuitem" id="menu-item-2644" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shop/masonry-shop/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Volunteer</span></a></li>
-										<li role="menuitem" id="menu-item-2644" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://kriesi.at/themes/enfold/shop/masonry-shop/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Donate</span></a></li>
+										</li>
+										<li role="menuitem" id="menu-item-2304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-8"><a href="contact.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Contact Us</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+										<li id="menu-item-search" class="noMobile menu-item menu-item-search-dropdown menu-item-avia-special" role="menuitem">
+											<a aria-label="Search" href="?s=" rel="nofollow" data-avia-search-tooltip=" &lt;search&gt; &lt;form role=&quot;search&quot; action=&quot;index.html&quot; id=&quot;searchform&quot; method=&quot;get&quot; class=&quot;&quot;&gt; &lt;div&gt; &lt;input type=&quot;submit&quot; value=&quot;&quot; id=&quot;searchsubmit&quot; class=&quot;button avia-font-entypo-fontello&quot; title=&quot;Enter at least 3 characters to show search results in a dropdown or click to route to search result page to show all results&quot; /&gt; &lt;input type=&quot;search&quot; id=&quot;s&quot; name=&quot;s&quot; value=&quot;&quot; aria-label='Search' placeholder='Search' required /&gt; &lt;/div&gt;&lt;/form&gt;&lt;/search&gt;"aria-hidden='false' data-av_icon='' data-av_iconfont='entypo-fontello'><span class="avia_hidden_link_text">Search</span></a>
+										</li>
+										<li class="av-burger-menu-main menu-item-avia-special av-small-burger-icon" role="menuitem">
+											<a href="#" aria-label="Menu" aria-hidden="false">
+												<span class="av-hamburger av-hamburger--spin av-js-hamburger">
+													<span class="av-hamburger-box">
+													<span class="av-hamburger-inner"></span>
+													<strong>Menu</strong>
+													</span>
+												</span>
+												<span class="avia_hidden_link_text">Menu</span>
+											</a>
+										</li>
 									</ul>
-								</li>
-								<li role="menuitem" id="menu-item-2304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-8"><a href="forms.html" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">Contact Us</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
-								</li>
-								<li id="menu-item-search" class="noMobile menu-item menu-item-search-dropdown menu-item-avia-special" role="menuitem">
-									<a aria-label="Search" href="?s=" rel="nofollow" data-avia-search-tooltip=" &lt;search&gt; &lt;form role=&quot;search&quot; action=&quot;index.html&quot; id=&quot;searchform&quot; method=&quot;get&quot; class=&quot;&quot;&gt; &lt;div&gt; &lt;input type=&quot;submit&quot; value=&quot;&quot; id=&quot;searchsubmit&quot; class=&quot;button avia-font-entypo-fontello&quot; title=&quot;Enter at least 3 characters to show search results in a dropdown or click to route to search result page to show all results&quot; /&gt; &lt;input type=&quot;search&quot; id=&quot;s&quot; name=&quot;s&quot; value=&quot;&quot; aria-label='Search' placeholder='Search' required /&gt; &lt;/div&gt;&lt;/form&gt;&lt;/search&gt;"aria-hidden='false' data-av_icon='' data-av_iconfont='entypo-fontello'><span class="avia_hidden_link_text">Search</span></a>
-								</li>
-								<li class="av-burger-menu-main menu-item-avia-special av-small-burger-icon" role="menuitem">
-									<a href="#" aria-label="Menu" aria-hidden="false">
-										<span class="av-hamburger av-hamburger--spin av-js-hamburger">
-											<span class="av-hamburger-box">
-											<span class="av-hamburger-inner"></span>
-											<strong>Menu</strong>
-											</span>
-										</span>
-										<span class="avia_hidden_link_text">Menu</span>
-									</a>
-								</li>
-							</ul>
+								</div>
+							</nav>
 						</div>
-					</nav>
+					</div> 
+				<!-- end container_wrap-->
 				</div>
-			</div> 
-			<!-- end container_wrap-->
-			</div>
-			<div class="header_bg"></div>
-		<!-- end header -->
-		</header>
+				<div class="header_bg"></div>
+			<!-- end header -->
+			</header>
 
-		<div id='main' class='all_colors' data-scroll-offset='88'>
+			<div id='main' class='all_colors' data-scroll-offset='88'>
 
-			<div id='full_slider_1'  class='avia-fullwidth-slider main_color avia-shadow   avia-builder-el-0  el_before_av_one_fourth  avia-builder-el-first   container_wrap fullsize'>
-				<div  class='avia-slideshow av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8 avia-slideshow-featured av_slideshow_full avia-fade-slider av-slideshow-ui av-control-default av-slideshow-manual av-loop-once av-loop-manual-endless av-default-height-applied   avia-slideshow-1' data-slideshow-options="{&quot;animation&quot;:&quot;fade&quot;,&quot;autoplay&quot;:false,&quot;loop_autoplay&quot;:&quot;once&quot;,&quot;interval&quot;:5,&quot;loop_manual&quot;:&quot;manual-endless&quot;,&quot;autoplay_stopper&quot;:false,&quot;noNavigation&quot;:false,&quot;bg_slider&quot;:false,&quot;keep_padding&quot;:false,&quot;hoverpause&quot;:false,&quot;show_slide_delay&quot;:0}"  itemprop="image" itemscope="itemscope" itemtype="https://schema.org/ImageObject" >
-					<ul class='avia-slideshow-inner ' style='padding-bottom: 28.6666666667%;'>
-						<li  class='avia-slideshow-slide av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8__0  slide-1 slide-odd'>
-							<div data-rel='slideshow-1' class='avia-slide-wrap '>
-								<div class='av-slideshow-caption av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8__0 caption_fullwidth caption_left caption_left_framed caption_framed'>
-									<div class="container caption_container">
-										<div class="slideshow_caption">
-											<div class="slideshow_inner_caption">
-												<div class="slideshow_align_caption">
-													<h2 class='avia-caption-title '  itemprop="name" >Care Matters</h2>
-													<div class='avia-caption-content '  itemprop="description">
-														<p>Promoting care, health and empowerment for individuals affected by neurological conditions.</p>
+				<div id='full_slider_1'  class='avia-fullwidth-slider main_color avia-shadow   avia-builder-el-0  el_before_av_one_fourth  avia-builder-el-first   container_wrap fullsize'>
+					<div  class='avia-slideshow av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8 avia-slideshow-featured av_slideshow_full avia-fade-slider av-slideshow-ui av-control-default av-slideshow-manual av-loop-once av-loop-manual-endless av-default-height-applied   avia-slideshow-1' data-slideshow-options="{&quot;animation&quot;:&quot;fade&quot;,&quot;autoplay&quot;:false,&quot;loop_autoplay&quot;:&quot;once&quot;,&quot;interval&quot;:5,&quot;loop_manual&quot;:&quot;manual-endless&quot;,&quot;autoplay_stopper&quot;:false,&quot;noNavigation&quot;:false,&quot;bg_slider&quot;:false,&quot;keep_padding&quot;:false,&quot;hoverpause&quot;:false,&quot;show_slide_delay&quot;:0}"  itemprop="image" itemscope="itemscope" itemtype="https://schema.org/ImageObject" >
+						<ul class='avia-slideshow-inner ' style='padding-bottom: 28.6666666667%;'>
+							<li  class='avia-slideshow-slide av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8__0  slide-1 slide-odd'>
+								<div data-rel='slideshow-1' class='avia-slide-wrap '>
+									<div class='av-slideshow-caption av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8__0 caption_fullwidth caption_left caption_left_framed caption_framed'>
+										<div class="container caption_container">
+											<div class="slideshow_caption">
+												<div class="slideshow_inner_caption">
+													<div class="slideshow_align_caption">
+														<h2 class='avia-caption-title '  itemprop="name" >Care Matters</h2>
+														<div class='avia-caption-content '  itemprop="description">
+															<p>Promoting care, health and empowerment for individuals affected by neurological conditions.</p>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
+									<img decoding="async" fetchpriority="high" class="wp-image-1614 avia-img-lazy-loading-not-1614"  src="assets/img/banner1.png" width="1500" height="430" title='banner Image1' alt='banner Image1'  itemprop="thumbnailUrl"/>
 								</div>
-								<img decoding="async" fetchpriority="high" class="wp-image-1614 avia-img-lazy-loading-not-1614"  src="assets/img/banner1.png" width="1500" height="430" title='banner Image1' alt='banner Image1'  itemprop="thumbnailUrl"/>
-							</div>
-						</li>
-						<li class='avia-slideshow-slide av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8__1  slide-2 slide-even'>
-							<div data-rel='slideshow-1' class='avia-slide-wrap'>
-								<div class='av-slideshow-caption av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8__1 caption_fullwidth caption_center'>
-									<div class="container caption_container">
-										<div class="slideshow_caption">
-											<div class="slideshow_inner_caption">
-												<div class="slideshow_align_caption">
-													<h2 class='avia-caption-title'  itemprop="name" style="margin-top: -50px;">We're Stronger Together</h2>
-													<div class='avia-caption-content'  itemprop="description">
-														<p>Uniting caregivers, families professionals and organizations to create lasting support networks.</p>
+							</li>
+							<li class='avia-slideshow-slide av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8__1  slide-2 slide-even'>
+								<div data-rel='slideshow-1' class='avia-slide-wrap'>
+									<div class='av-slideshow-caption av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8__1 caption_fullwidth caption_center'>
+										<div class="container caption_container">
+											<div class="slideshow_caption">
+												<div class="slideshow_inner_caption">
+													<div class="slideshow_align_caption">
+														<h2 class='avia-caption-title'  itemprop="name" style="margin-top: -50px;">We're Stronger Together</h2>
+														<div class='avia-caption-content'  itemprop="description">
+															<p>Uniting caregivers, families professionals and organizations to create lasting support networks.</p>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
+									<img decoding="async" fetchpriority="high" class="wp-image-1615 avia-img-lazy-loading-not-1615"  src="assets/img/banner2.png" width="1500" height="430" title='banner Image2' alt='banner Image2'  itemprop="thumbnailUrl"/>
 								</div>
-								<img decoding="async" fetchpriority="high" class="wp-image-1615 avia-img-lazy-loading-not-1615"  src="assets/img/banner2.png" width="1500" height="430" title='banner Image2' alt='banner Image2'  itemprop="thumbnailUrl"/>
-							</div>
-						</li>
-						<li  class='avia-slideshow-slide av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8__2  slide-3 slide-odd'>
-							<div data-rel='slideshow-1' class='avia-slide-wrap'>
-								<div class='av-slideshow-caption av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8__2 caption_fullwidth caption_right caption_right_framed caption_framed'>
-									<div class="container caption_container">
-										<div class="slideshow_caption">
-											<div class="slideshow_inner_caption">
-												<div class="slideshow_align_caption">
-													<h2 class='avia-caption-title' itemprop="name">Bright Futures</h2>
-													<div class='avia-caption-content' itemprop="description">
-														<p>&#8230;empowering individuals to share experiences and raise awareness.</p>
+							</li>
+							<li  class='avia-slideshow-slide av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8__2  slide-3 slide-odd'>
+								<div data-rel='slideshow-1' class='avia-slide-wrap'>
+									<div class='av-slideshow-caption av-1pnx2of-ce395502acf7265ad2b91408fbc5a6e8__2 caption_fullwidth caption_right caption_right_framed caption_framed'>
+										<div class="container caption_container">
+											<div class="slideshow_caption">
+												<div class="slideshow_inner_caption">
+													<div class="slideshow_align_caption">
+														<h2 class='avia-caption-title' itemprop="name">Bright Futures</h2>
+														<div class='avia-caption-content' itemprop="description">
+															<p>&#8230;empowering individuals to share experiences and raise awareness.</p>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
+									<img decoding="async" fetchpriority="high" class="wp-image-1616 avia-img-lazy-loading-not-1616"  src="assets/img/banner3.png" width="1500" height="430" title='banner Image3' alt='banner Image3'  itemprop="thumbnailUrl"/>
 								</div>
-								<img decoding="async" fetchpriority="high" class="wp-image-1616 avia-img-lazy-loading-not-1616"  src="assets/img/banner3.png" width="1500" height="430" title='banner Image3' alt='banner Image3'  itemprop="thumbnailUrl"/>
-							</div>
-						</li>
-					</ul>
-					<div class='avia-slideshow-arrows avia-slideshow-controls'>
-						<a href='#prev' class='prev-slide ' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  tabindex='-1'>Previous</a>
-						<a href='#next' class='next-slide ' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  tabindex='-1'>Next</a>
-					</div>
-					<div class='avia-slideshow-dots avia-slideshow-controls'>
-						<a href='#1' class='goto-slide active'>1</a>
-						<a href='#2' class='goto-slide'>2</a>
-						<a href='#3' class='goto-slide '>3</a>
+							</li>
+						</ul>
+						<div class='avia-slideshow-arrows avia-slideshow-controls'>
+							<a href='#prev' class='prev-slide ' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  tabindex='-1'>Previous</a>
+							<a href='#next' class='next-slide ' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'  tabindex='-1'>Next</a>
+						</div>
+						<div class='avia-slideshow-dots avia-slideshow-controls'>
+							<a href='#1' class='goto-slide active'>1</a>
+							<a href='#2' class='goto-slide'>2</a>
+							<a href='#3' class='goto-slide '>3</a>
+						</div>
 					</div>
 				</div>
-			</div>
 
 			<div id='after_full_slider_1'  class='main_color av_default_container_wrap container_wrap fullsize'>
 				<div class='container av-section-cont-open'>
