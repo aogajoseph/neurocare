@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Home - Open PRO",
-  description: "Page description",
+  title: "Neuro Care Africa",
+  description: "A Neurological Wellness Foundation",
 };
 
 import PageIllustration from "@/components/page-illustration";
