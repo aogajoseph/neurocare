@@ -1,7 +1,7 @@
 import Image from "next/image";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
-import FeaturesImage from "@/public/images/features.png";
+import FeaturesImage from "@/public/images/features.jpg";
 
 export default function Features() {
   return (
@@ -43,14 +43,16 @@ export default function Features() {
               An Informed & Compassionate Society
             </h2>
             <p className="text-lg text-indigo-200/65">
-              We envision an informed and compassionate society that responds to the real needs of individuals living with neurological conditions.
+              We envision an informed and compassionate society that responds to the real needs of individuals living with neurological conditions and other disabilities.
             </p>
           </div>
-          <div className="flex justify-center pb-0 md:pb-0 -mb-6" data-aos="fade-up">
+          <div className="flex justify-center pb-0 md:pb-0 -mb-2" data-aos="fade-up">
             <Image
-              className="w-full h-auto"
+              className="inline-flex"
               src={FeaturesImage}
               alt="Features"
+              width={760}
+              height={268}
             />
           </div>
         </div>

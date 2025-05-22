@@ -12,20 +12,10 @@ import TestimonialImg06 from "@/public/images/testimonial-06.jpg";
 import TestimonialImg07 from "@/public/images/testimonial-07.jpg";
 import TestimonialImg08 from "@/public/images/testimonial-08.jpg";
 import TestimonialImg09 from "@/public/images/testimonial-09.jpg";
-import ClientImg01 from "@/public/images/client-logo-01.svg";
-import ClientImg02 from "@/public/images/client-logo-02.svg";
-import ClientImg03 from "@/public/images/client-logo-03.svg";
-import ClientImg04 from "@/public/images/client-logo-04.svg";
-import ClientImg05 from "@/public/images/client-logo-05.svg";
-import ClientImg06 from "@/public/images/client-logo-06.svg";
-import ClientImg07 from "@/public/images/client-logo-07.svg";
-import ClientImg08 from "@/public/images/client-logo-08.svg";
-import ClientImg09 from "@/public/images/client-logo-09.svg";
 
 const testimonials = [
   {
     img: TestimonialImg01,
-    clientImg: ClientImg01,
     name: "Amina Yusuf",
     company: "Caregiver",
     content:
@@ -34,7 +24,6 @@ const testimonials = [
   },
   {
     img: TestimonialImg02,
-    clientImg: ClientImg02,
     name: "Grace Mwangi",
     company: "Living with Spinabifida",
     content:
@@ -43,7 +32,6 @@ const testimonials = [
   },
   {
     img: TestimonialImg03,
-    clientImg: ClientImg03,
     name: "Samuel Otieno",
     company: "Living with Hydrocephalus",
     content:
@@ -52,7 +40,6 @@ const testimonials = [
   },
   {
     img: TestimonialImg04,
-    clientImg: ClientImg04,
     name: "Dr. Ruth Njoroge",
     company: "Pediatric Neurologist",
     content:
@@ -61,7 +48,6 @@ const testimonials = [
   },
   {
     img: TestimonialImg05,
-    clientImg: ClientImg05,
     name: "Grace Njeri",
     company: "Caregiver",
     content:
@@ -70,7 +56,6 @@ const testimonials = [
   },
   {
     img: TestimonialImg06,
-    clientImg: ClientImg06,
     name: "Daniel Kofi",
     company: "Caregiver",
     content:
@@ -79,7 +64,6 @@ const testimonials = [
   },
   {
     img: TestimonialImg07,
-    clientImg: ClientImg07,
     name: "David Kimani",
     company: "Living with Multiple Sclerosis",
     content:
@@ -88,7 +72,6 @@ const testimonials = [
   },
   {
     img: TestimonialImg08,
-    clientImg: ClientImg08,
     name: "Samuel Okeke",
     company: "Regional Program Manager, HopeWell Foundation.",
     content:
@@ -97,7 +80,6 @@ const testimonials = [
   },
   {
     img: TestimonialImg09,
-    clientImg: ClientImg09,
     name: "Jane Njeri",
     company: "Living with Epilepsy",
     content:
@@ -274,7 +256,6 @@ export function Testimonial({
 }: {
   testimonial: {
     img: StaticImageData;
-    clientImg: StaticImageData;
     name: string;
     company: string;
     content: string;
@@ -288,9 +269,6 @@ export function Testimonial({
       className={`relative rounded-2xl bg-linear-to-br from-gray-900/50 via-gray-800/25 to-gray-900/50 p-5 backdrop-blur-xs transition-opacity before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] ${!testimonial.categories.includes(category) ? "opacity-30" : ""}`}
     >
       <div className="flex flex-col gap-4">
-        <div>
-          <Image src={testimonial.clientImg} height={36} alt="Client logo" />
-        </div>
         <p className="text-indigo-200/65 before:content-['“'] after:content-['”']">
           {children}
         </p>

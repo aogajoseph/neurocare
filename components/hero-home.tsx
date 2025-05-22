@@ -1,5 +1,3 @@
-import VideoThumb from "@/public/images/hero-image-01.jpg";
-import ModalVideo from "@/components/modal-video";
 
 export default function HeroHome() {
   return (
@@ -49,15 +47,25 @@ export default function HeroHome() {
             </div>
           </div>
 
-          <ModalVideo
-            thumb={VideoThumb}
-            thumbWidth={1104}
-            thumbHeight={576}
-            thumbAlt="Modal video thumbnail"
-            video="videos//video.mp4"
-            videoWidth={1920}
-            videoHeight={1080}
-          />
+          {/* Embedded YouTube Video */}
+          <div className="flex justify-center px-4">
+  <div
+    className="w-full max-w-4xl aspect-video"
+    data-aos="fade-up"
+    data-aos-delay={800}
+  >
+    <iframe
+      className="w-full h-full rounded-xl shadow-lg"
+      src="https://www.youtube.com/embed/HXHphpDJ9T0?si=2OnLzsdxQC7QeX5U"
+      title="Neuro Care Africa Video"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+    ></iframe>
+  </div>
+</div>
+
         </div>
       </div>
     </section>

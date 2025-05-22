@@ -1,7 +1,7 @@
 import Image from "next/image";
-import WorflowImg01 from "@/public/images/workflow-01.png";
-import WorflowImg02 from "@/public/images/workflow-02.png";
-import WorflowImg03 from "@/public/images/workflow-03.png";
+import WorflowImg01 from "@/public/images/workflow-01.jpg";
+import WorflowImg02 from "@/public/images/workflow-02.jpg";
+import WorflowImg03 from "@/public/images/workflow-03.jpg";
 import Spotlight from "@/components/spotlight";
 
 export default function Workflows() {
@@ -107,12 +107,12 @@ export default function Workflows() {
                   <div className="mb-3">
                     <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-gray-700/.15),--theme(--color-gray-700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
                       <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
-                        Empowering Families
+                        Building Partnerships
                       </span>
                     </span>
                   </div>
                   <p className="text-indigo-200/65">
-                    Coordinating Support to equip affected individuals and caregivers.
+                    Partnering with organizations, businesses and the government to expand impact.
                   </p>
                 </div>
               </div>
@@ -153,12 +153,12 @@ export default function Workflows() {
                   <div className="mb-3">
                     <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-gray-700/.15),--theme(--color-gray-700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
                       <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
-                        Building Partnerships
+                        Empowering Families
                       </span>
                     </span>
                   </div>
                   <p className="text-indigo-200/65">
-                    Partnering with organizations, businesses and the government to expand impact.
+                    Coordinating Support to equip affected individuals and caregivers.
                   </p>
                 </div>
               </div>
