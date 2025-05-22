@@ -167,7 +167,9 @@ export default function Footer() {
               <li>
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
+                  href="https://forms.gle/WXKzJEReHojMt21j9"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Join Us
                 </a>
@@ -175,7 +177,7 @@ export default function Footer() {
               <li>
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
+                  href="/donation-form"
                 >
                   Donate
                 </a>
@@ -207,7 +209,7 @@ export default function Footer() {
                 <li>
                   <a
                     className="flex items-center justify-center text-indigo-500 transition hover:text-indigo-400"
-                    href="https://wa.me/your-number" // Replace with your actual WhatsApp number in the format 254712345678
+                    href="https://wa.me/254725406004"
                     aria-label="WhatsApp"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -234,7 +236,7 @@ export default function Footer() {
                 <li>
                   <a
                     className="flex items-center justify-center text-indigo-500 transition hover:text-indigo-400"
-                    href="https://www.youtube.com/@YourChannel"
+                    href="https://www.youtube.com/@freeintrotemplates2823/"
                     aria-label="YouTube"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -251,7 +253,7 @@ export default function Footer() {
                 <li>
                   <a
                     className="flex items-center justify-center text-indigo-500 transition hover:text-indigo-400"
-                    href="https://www.linkedin.com/company/your-page"
+                    href="https://www.linkedin.com/in/josephaoga/"
                     aria-label="LinkedIn"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -268,7 +270,7 @@ export default function Footer() {
                 <li>
                   <a
                     className="flex items-center justify-center text-indigo-500 transition hover:text-indigo-400"
-                    href="https://www.facebook.com/your-page"
+                    href="https://web.facebook.com/ChildHelpKenya/"
                     aria-label="Facebook"
                     target="_blank"
                     rel="noopener noreferrer"

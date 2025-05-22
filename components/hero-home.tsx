@@ -25,7 +25,9 @@ export default function HeroHome() {
                 <div data-aos="fade-up" data-aos-delay={400}>
                   <a
                     className="btn group mb-4 w-full bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                    href="#0"
+                    href="https://www.youtube.com/@freeintrotemplates2823/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <span className="relative inline-flex items-center">
                       Watch Our Stories
@@ -38,9 +40,11 @@ export default function HeroHome() {
                 <div data-aos="fade-up" data-aos-delay={600}>
                   <a
                     className="btn relative w-full bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%] sm:ml-4 sm:w-auto"
-                    href="#0"
+                    href="https://forms.gle/WXKzJEReHojMt21j9"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Join Us
+                    Join the Movement
                   </a>
                 </div>
               </div>
@@ -49,23 +53,22 @@ export default function HeroHome() {
 
           {/* Embedded YouTube Video */}
           <div className="flex justify-center px-4">
-  <div
-    className="w-full max-w-4xl aspect-video"
-    data-aos="fade-up"
-    data-aos-delay={800}
-  >
-    <iframe
-      className="w-full h-full rounded-xl shadow-lg"
-      src="https://www.youtube.com/embed/HXHphpDJ9T0?si=2OnLzsdxQC7QeX5U"
-      title="Neuro Care Africa Video"
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerPolicy="strict-origin-when-cross-origin"
-      allowFullScreen
-    ></iframe>
-  </div>
-</div>
-
+            <div
+              className="w-full max-w-4xl aspect-video"
+              data-aos="fade-up"
+              data-aos-delay={800}
+            >
+              <iframe
+                className="w-full h-full rounded-xl shadow-lg"
+                src="https://www.youtube.com/embed/HXHphpDJ9T0?si=2OnLzsdxQC7QeX5U"
+                title="Neuro Care Africa Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
         </div>
       </div>
     </section>
