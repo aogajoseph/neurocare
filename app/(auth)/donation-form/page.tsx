@@ -144,7 +144,7 @@ export default function Donate() {
             <div className="mt-6 space-y-5">
               <button
                 type="submit"
-                className="btn w-full bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white hover:bg-[length:100%_150%]"
+                className="btn w-full bg-[#df0a92] py-[5px] px-4 text-white rounded shadow-sm transition duration-200 hover:bg-transparent border border-[#df0a92]"
               >
                 <a href="#">Donate Now</a>
               </button>

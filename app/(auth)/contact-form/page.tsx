@@ -79,7 +79,7 @@ export default function ContactForm() {
             <div>
               <button
                 type="submit"
-                className="btn w-full bg-gradient-to-t from-indigo-600 to-indigo-500 text-white hover:opacity-90"
+                className="btn w-full bg-[#df0a92] py-[5px] px-4 text-white rounded shadow-sm transition duration-200 hover:bg-transparent border border-[#df0a92]"
               >
                 <a href="3">Send Message</a>
               </button>
