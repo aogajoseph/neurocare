@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Neuro Care Africa",
+  title: "Home - Neuro Care Africa",
   description: "A Neurological Wellness Foundation",
 };
 

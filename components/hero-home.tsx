@@ -1,4 +1,3 @@
-
 export default function HeroHome() {
   return (
     <section>
@@ -24,14 +23,14 @@ export default function HeroHome() {
               <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
                 <div data-aos="fade-up" data-aos-delay={400}>
                   <a
-                    className="btn group mb-4 w-full bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
+                    className="btn group mb-4 w-full bg-[#df0a92] text-white border border-[#aa2078] transition duration-200 hover:bg-transparent sm:mb-0 sm:w-auto"
                     href="https://www.youtube.com/@freeintrotemplates2823/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <span className="relative inline-flex items-center">
                       Watch Our Stories
-                      <span className="ml-1 tracking-normal text-white/50 transition-transform group-hover:translate-x-0.5">
+                      <span className="ml-1 tracking-normal text-white/50 group-hover:text-[#aa2078] transition-transform group-hover:translate-x-0.5">
                         -&gt;
                       </span>
                     </span>
@@ -39,7 +38,7 @@ export default function HeroHome() {
                 </div>
                 <div data-aos="fade-up" data-aos-delay={600}>
                   <a
-                    className="btn relative w-full bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%] sm:ml-4 sm:w-auto"
+                    className="btn relative w-full bg-gray-800 text-gray-300 border border-gray-600 transition duration-200 hover:bg-transparent hover:text-white sm:ml-4 sm:w-auto"
                     href="https://forms.gle/WXKzJEReHojMt21j9"
                     target="_blank"
                     rel="noopener noreferrer"

@@ -35,7 +35,7 @@ export default function Features() {
           {/* Section header */}
           <div className="mx-auto max-w-3xl pb-4 text-center md:pb-12">
             <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50">
-              <span className="inline-flex bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
+              <span className="inline-flex bg-gradient-to-r from-[#aa2078] to-[#fffff0] bg-clip-text text-transparent">
                 Our Vision
               </span>
             </div>
@@ -61,7 +61,7 @@ export default function Features() {
         <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] md:py-20">
           <div className="mx-auto max-w-3xl pb-2 text-center md:pb-6">
             <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50">
-              <span className="inline-flex bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
+              <span className="inline-flex bg-linear-to-r from-[#aa2078] to-[#fffff0] bg-clip-text text-transparent">
                 Our Values
               </span>
             </div>
@@ -70,7 +70,8 @@ export default function Features() {
           <div className="mx-auto grid max-w-sm gap-12 sm:max-w-none sm:grid-cols-2 md:gap-x-14 md:gap-y-16 lg:grid-cols-3">
             <article>
               <svg
-                className="mb-3 fill-indigo-500"
+                className="mb-3"
+                style={{ fill: "#df0a92" }}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 width={24}
@@ -88,7 +89,8 @@ export default function Features() {
             </article>
             <article>
               <svg
-                className="mb-3 fill-indigo-500"
+                className="mb-3"
+                style={{ fill: "#df0a92" }}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 width={24}
@@ -105,7 +107,8 @@ export default function Features() {
             </article>
             <article>
               <svg
-                className="mb-3 fill-indigo-500"
+                className="mb-3"
+                style={{ fill: "#df0a92" }}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 width={24}
@@ -131,7 +134,8 @@ export default function Features() {
             </article>
             <article>
               <svg
-                className="mb-3 fill-indigo-500"
+                className="mb-3"
+                style={{ fill: "#df0a92" }}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 width={24}
@@ -152,8 +156,10 @@ export default function Features() {
             </article>
             <article>
               <svg
-                className="mb-3 fill-indigo-500"
+                className="mb-3"
+                style={{ fill: "#df0a92" }}
                 xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
                 width={24}
                 height={24}
               >
@@ -178,7 +184,7 @@ export default function Features() {
                 height={24}
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#3b82f6"   /* Indigo-500 stroke */
+                stroke="#aa2078"   /* Indigo-500 stroke */
                 strokeWidth={2}
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -187,14 +193,14 @@ export default function Features() {
                 <circle cx="12" cy="12" r="5" fill="none" />
 
                 {/* Rays filled indigo */}
-                <line x1="12" y1="1" x2="12" y2="4" stroke="#3b82f6" />
-                <line x1="12" y1="20" x2="12" y2="23" stroke="#3b82f6" />
-                <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="#3b82f6" />
-                <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="#3b82f6" />
-                <line x1="1" y1="12" x2="4" y2="12" stroke="#3b82f6" />
-                <line x1="20" y1="12" x2="23" y2="12" stroke="#3b82f6" />
-                <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="#3b82f6" />
-                <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="#3b82f6" />
+                <line x1="12" y1="1" x2="12" y2="4" stroke="#df0a92" />
+                <line x1="12" y1="20" x2="12" y2="23" stroke="#df0a92" />
+                <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="#df0a92" />
+                <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="#df0a92" />
+                <line x1="1" y1="12" x2="4" y2="12" stroke="#df0a92" />
+                <line x1="20" y1="12" x2="23" y2="12" stroke="#df0a92" />
+                <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="#df0a92" />
+                <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="#df0a92" />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
                 Hope in Motion

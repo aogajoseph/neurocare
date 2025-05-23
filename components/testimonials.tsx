@@ -111,12 +111,18 @@ export default function Testimonials() {
             <div className="relative inline-flex flex-wrap justify-center rounded-[1.25rem] bg-gray-800/40 p-1">
               {/* Button #1 */}
               <button
-                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${category === 1 ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]" : "opacity-65 transition-opacity hover:opacity-90"}`}
+                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-[#df0a92]/40 ${
+                  category === 1
+                    ? "relative bg-[#df0a92] text-white shadow-md"
+                    : "opacity-65 transition-opacity hover:opacity-90"
+                }`}
                 aria-pressed={category === 1}
                 onClick={() => setCategory(1)}
               >
                 <svg
-                  className={`fill-current ${category === 1 ? "text-indigo-500" : "text-gray-600"}`}
+                  className={`fill-current ${
+                    category === 1 ? "text-white" : "text-gray-600"
+                  }`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height={16}
@@ -127,16 +133,18 @@ export default function Testimonials() {
               </button>
               {/* Button #2 */}
               <button
-                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${
+                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-[#df0a92]/40 ${
                   category === 2
-                    ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                    ? "relative bg-[#df0a92] text-white shadow-md"
                     : "opacity-65 transition-opacity hover:opacity-90"
                 }`}
                 aria-pressed={category === 2}
                 onClick={() => setCategory(2)}
               >
                 <svg
-                  className={`fill-current ${category === 2 ? "text-indigo-500" : "text-gray-600"}`}
+                  className={`fill-current ${
+                    category === 2 ? "text-white" : "text-gray-600"
+                  }`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height="16"
@@ -148,16 +156,18 @@ export default function Testimonials() {
               </button>
               {/* Button #3 */}
               <button
-                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${
+                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-[#df0a92]/40 ${
                   category === 3
-                    ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                    ? "relative bg-[#df0a92] text-white shadow-md"
                     : "opacity-65 transition-opacity hover:opacity-90"
                 }`}
                 aria-pressed={category === 3}
                 onClick={() => setCategory(3)}
               >
                 <svg
-                  className={`fill-current ${category === 3 ? "text-indigo-500" : "text-gray-600"}`}
+                  className={`fill-current ${
+                    category === 3 ? "text-white" : "text-gray-600"
+                  }`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
@@ -186,16 +196,18 @@ export default function Testimonials() {
               </button>
               {/* Button #4 */}
               <button
-                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${
+                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-[#df0a92]/40 ${
                   category === 4
-                    ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                    ? "relative bg-[#df0a92] text-white shadow-md"
                     : "opacity-65 transition-opacity hover:opacity-90"
                 }`}
                 aria-pressed={category === 4}
                 onClick={() => setCategory(4)}
               >
                 <svg
-                  className={`fill-current ${category === 4 ? "text-indigo-500" : "text-gray-600"}`}
+                  className={`fill-current ${
+                    category === 4 ? "text-white" : "text-gray-600"
+                  }`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height="16"
@@ -208,16 +220,18 @@ export default function Testimonials() {
               </button>
               {/* Button #5 */}
               <button
-                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${
+                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-[#df0a92]/40 ${
                   category === 5
-                    ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                    ? "relative bg-[#df0a92] text-white shadow-md"
                     : "opacity-65 transition-opacity hover:opacity-90"
                 }`}
                 aria-pressed={category === 5}
                 onClick={() => setCategory(5)}
               >
                 <svg
-                  className={`fill-current ${category === 5 ? "text-indigo-500" : "text-gray-600"}`}
+                  className={`fill-current ${
+                    category === 5 ? "text-white" : "text-gray-600"
+                  }`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="22"
                   height="22"

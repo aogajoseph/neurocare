@@ -208,7 +208,7 @@ export default function Footer() {
               <ul className="inline-flex gap-3 items-center">
                 <li>
                   <a
-                    className="flex items-center justify-center text-indigo-500 transition hover:text-indigo-400"
+                    className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
                     href="https://wa.me/254725406004"
                     aria-label="WhatsApp"
                     target="_blank"
@@ -220,22 +220,22 @@ export default function Footer() {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path d="M380.9 97.1C339-3.4 239.2-32 148.1 10.7c-88.5 40.6-121.6 
-                      143.5-76.6 231.6l-35.5 103.7c-3.7 10.7 6.9 20.5 17.5 
-                      17.1l99.5-33.4c82.4 43.5 184.7 10.3 225.8-76.7 35.5-76.8 
-                      7.9-166.5-58.9-205.9zM221.3 342c-41.7 0-80.3-16.3-109.7-45.7S66 
-                      233 66 191.3s16.3-80.3 45.7-109.7S179.7 36 221.3 36s80.3 
-                      16.3 109.7 45.7S377 148.3 377 190s-16.3 80.3-45.7 
-                      109.7S263 342 221.3 342zm79.2-122.1c-1.2-1.9-4.3-3-9-5.1s-26.3-12.9-30.4-14.4c-4.1-1.5-7.1-2.2-10.1 
-                      2.2s-11.6 14.4-14.2 17.4c-2.6 2.9-5.1 3.3-9.3 1.1-4.2-2.2-17.7-6.5-33.7-20.7-12.5-11-20.9-24.6-23.4-28.7-2.5-4.1-.3-6.4 
-                      1.9-8.6 2-2 4.5-5.1 6.6-7.7 2.1-2.6 2.9-4.3 4.4-7.2s.7-5.4-.4-7.7c-1.1-2.2-10.1-24.3-13.9-33.2-3.7-8.9-7.4-7.6-10.1-7.7-2.6-.1-5.4-.1-8.3-.1s-7.6 
-                      1.1-11.5 5.4c-3.9 4.3-15.1 14.7-15.1 35.7s15.5 41.4 17.7 44.3c2.2 2.9 30.5 46.6 74 65.4 10.3 4.4 18.3 7 24.6 8.9 
-                      10.3 3.3 19.7 2.8 27.1 1.7 8.3-1.3 26-10.6 29.7-20.8s3.7-18.9 2.6-20.7z" />
+                        143.5-76.6 231.6l-35.5 103.7c-3.7 10.7 6.9 20.5 17.5 
+                        17.1l99.5-33.4c82.4 43.5 184.7 10.3 225.8-76.7 35.5-76.8 
+                        7.9-166.5-58.9-205.9zM221.3 342c-41.7 0-80.3-16.3-109.7-45.7S66 
+                        233 66 191.3s16.3-80.3 45.7-109.7S179.7 36 221.3 36s80.3 
+                        16.3 109.7 45.7S377 148.3 377 190s-16.3 80.3-45.7 
+                        109.7S263 342 221.3 342zm79.2-122.1c-1.2-1.9-4.3-3-9-5.1s-26.3-12.9-30.4-14.4c-4.1-1.5-7.1-2.2-10.1 
+                        2.2s-11.6 14.4-14.2 17.4c-2.6 2.9-5.1 3.3-9.3 1.1-4.2-2.2-17.7-6.5-33.7-20.7-12.5-11-20.9-24.6-23.4-28.7-2.5-4.1-.3-6.4 
+                        1.9-8.6 2-2 4.5-5.1 6.6-7.7 2.1-2.6 2.9-4.3 4.4-7.2s.7-5.4-.4-7.7c-1.1-2.2-10.1-24.3-13.9-33.2-3.7-8.9-7.4-7.6-10.1-7.7-2.6-.1-5.4-.1-8.3-.1s-7.6 
+                        1.1-11.5 5.4c-3.9 4.3-15.1 14.7-15.1 35.7s15.5 41.4 17.7 44.3c2.2 2.9 30.5 46.6 74 65.4 10.3 4.4 18.3 7 24.6 8.9 
+                        10.3 3.3 19.7 2.8 27.1 1.7 8.3-1.3 26-10.6 29.7-20.8s3.7-18.9 2.6-20.7z" />
                     </svg>
                   </a>
                 </li>
                 <li>
                   <a
-                    className="flex items-center justify-center text-indigo-500 transition hover:text-indigo-400"
+                    className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
                     href="https://www.youtube.com/@freeintrotemplates2823/"
                     aria-label="YouTube"
                     target="_blank"
@@ -252,7 +252,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    className="flex items-center justify-center text-indigo-500 transition hover:text-indigo-400"
+                    className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
                     href="https://www.linkedin.com/in/josephaoga/"
                     aria-label="LinkedIn"
                     target="_blank"
@@ -269,7 +269,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    className="flex items-center justify-center text-indigo-500 transition hover:text-indigo-400"
+                    className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
                     href="https://web.facebook.com/ChildHelpKenya/"
                     aria-label="Facebook"
                     target="_blank"
