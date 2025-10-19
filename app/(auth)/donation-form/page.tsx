@@ -1,9 +1,46 @@
 "use client";
 
 import { useState } from "react";
+import axios from "axios";
 
 export default function Donate() {
-  const [paymentMethod, setPaymentMethod] = useState("card");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    amount: "",
+    phoneNumber: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccess("");
+
+    try {
+      const { data } = await axios.post("/api/payment", {
+        amount: Number(formData.amount),
+        phoneNumber: formData.phoneNumber,
+        email: formData.email,
+      });
+
+      setSuccess("Please check your phone for the M-Pesa payment prompt");
+    } catch (err: any) {
+      setError(err.response?.data?.error || err.message || "Payment failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section>
@@ -19,11 +56,20 @@ export default function Donate() {
             </p>
           </div>
 
+          {error && (
+            <div className="mx-auto max-w-[400px] mb-4 p-3 bg-red-500/10 border border-red-500/20 rounded text-red-500 text-sm">
+              {error}
+            </div>
+          )}
+
+          {success && (
+            <div className="mx-auto max-w-[400px] mb-4 p-3 bg-green-500/10 border border-green-500/20 rounded text-green-500 text-sm">
+              {success}
+            </div>
+          )}
+
           {/* Donation form */}
-          <form className="mx-auto max-w-[400px]" onSubmit={(e) => {
-            e.preventDefault();
-            // Handle donation submission (e.g. API call to backend/payment processor)
-          }}>
+          <form className="mx-auto max-w-[400px]" onSubmit={handleSubmit}>
             <div className="space-y-5">
               <div>
                 <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="name">
@@ -34,6 +80,8 @@ export default function Donate() {
                   type="text"
                   className="form-input w-full"
                   placeholder="Your full name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   required
                 />
               </div>
@@ -47,6 +95,8 @@ export default function Donate() {
                   type="email"
                   className="form-input w-full"
                   placeholder="you@example.com"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
                 />
               </div>
@@ -61,92 +111,40 @@ export default function Donate() {
                   className="form-input w-full"
                   placeholder="e.g. 500"
                   min={10}
+                  value={formData.amount}
+                  onChange={handleInputChange}
                   required
                 />
               </div>
 
               <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65">
-                  Payment Method <span className="text-red-500">*</span>
+                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="phoneNumber">
+                  M-Pesa Number <span className="text-red-500">*</span>
                 </label>
-                <select
-                  className="form-select w-full"
-                  value={paymentMethod}
-                  onChange={(e) => setPaymentMethod(e.target.value)}
+                <input
+                  id="phoneNumber"
+                  type="tel"
+                  className="form-input w-full"
+                  placeholder="e.g. 0712345678"
+                  pattern="^(?:\+254|0)[17]\d{8}$"
+                  title="Please enter a valid Safaricom number (starting with +254 or 0)"
+                  value={formData.phoneNumber}
+                  onChange={handleInputChange}
                   required
-                >
-                  <option value="card">Card</option>
-                  <option value="mpesa">Mpesa</option>
-                </select>
+                />
+                <p className="mt-1 text-xs text-indigo-200/50">
+                  Enter your Safaricom number in the format: 0712345678 or +254712345678
+                </p>
               </div>
-
-              {paymentMethod === "mpesa" && (
-                <div>
-                  <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="mpesa-number">
-                    Mpesa Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="mpesa-number"
-                    type="tel"
-                    className="form-input w-full"
-                    placeholder="07XXXXXXXX"
-                    required={paymentMethod === "mpesa"}
-                  />
-                </div>
-              )}
-
-              {paymentMethod === "card" && (
-                <div className="space-y-4">
-                  <div>
-                    <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="card-number">
-                      Card Number <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="card-number"
-                      type="text"
-                      className="form-input w-full"
-                      placeholder="1234 5678 9012 3456"
-                      required={paymentMethod === "card"}
-                    />
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-1">
-                      <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="expiry">
-                        Expiry Date <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        id="expiry"
-                        type="text"
-                        className="form-input w-full"
-                        placeholder="MM/YY"
-                        required={paymentMethod === "card"}
-                      />
-                    </div>
-
-                    <div className="flex-1">
-                      <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="cvv">
-                        CVV <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        id="cvv"
-                        type="text"
-                        className="form-input w-full"
-                        placeholder="123"
-                        required={paymentMethod === "card"}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
 
             <div className="mt-6 space-y-5">
               <button
                 type="submit"
-                className="btn w-full bg-[#df0a92] py-[5px] px-4 text-white rounded shadow-sm transition duration-200 hover:bg-transparent border border-[#df0a92]"
+                disabled={loading}
+                className={`btn w-full bg-[#df0a92] py-[5px] px-4 text-white rounded shadow-sm transition duration-200 hover:bg-transparent border border-[#df0a92] disabled:opacity-50 disabled:cursor-not-allowed`}
               >
-                <a href="#">Donate Now</a>
+                {loading ? "Processing..." : "Donate via M-Pesa"}
               </button>
             </div>
           </form>

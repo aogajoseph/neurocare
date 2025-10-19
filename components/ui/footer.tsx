@@ -167,6 +167,16 @@ export default function Footer() {
               <li>
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="https://www.youtube.com/feed/you"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  NeuroConnect
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
                   href="https://forms.gle/WXKzJEReHojMt21j9"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -198,18 +208,23 @@ export default function Footer() {
                 <br />
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
+                  href="mailto:info@neurocare.africa"
                 >
                   info@neurocare.africa
                 </a>
                 <br />
-                0713 939393
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="tel:+254713939393"
+                >
+                  0713 939393
+                </a>
               </p>
               <ul className="inline-flex gap-3 items-center">
                 <li>
                   <a
                     className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
-                    href="https://wa.me/254725406004"
+                    href="https://wa.me/254713939393"
                     aria-label="WhatsApp"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -236,7 +251,7 @@ export default function Footer() {
                 <li>
                   <a
                     className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
-                    href="https://www.youtube.com/@freeintrotemplates2823/"
+                    href="https://www.youtube.com/feed/you"
                     aria-label="YouTube"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -270,7 +285,7 @@ export default function Footer() {
                 <li>
                   <a
                     className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
-                    href="https://web.facebook.com/ChildHelpKenya/"
+                    href="https://web.facebook.com/profile.php?id=61576275885197/"
                     aria-label="Facebook"
                     target="_blank"
                     rel="noopener noreferrer"

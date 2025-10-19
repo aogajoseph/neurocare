@@ -24,7 +24,7 @@ export default function HeroHome() {
                 <div data-aos="fade-up" data-aos-delay={400}>
                   <a
                     className="btn group mb-4 w-full bg-[#df0a92] text-white border border-[#aa2078] transition duration-200 hover:bg-transparent sm:mb-0 sm:w-auto"
-                    href="https://www.youtube.com/@freeintrotemplates2823/"
+                    href="https://www.youtube.com/feed/you"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
