@@ -19,7 +19,7 @@ const testimonials = [
     name: "Amina Yusuf",
     company: "Caregiver",
     content:
-      "Caring for my son, Abdiaziz, who was born with spina bifida is tough, but Neuro Care Foundation’s training and support have made a big difference. I feel more confident and less isolated. Their team truly understands what families like ours go through.",
+      "Caring for my son, Abdi, who was born with spina bifida is tough, but Neuro Care Foundation’s support has made a real difference. I now feel more confident and less alone.",
     categories: [1, 3],
   },
   {
@@ -27,7 +27,7 @@ const testimonials = [
     name: "Grace Mwangi",
     company: "Living with Spinabifida",
     content:
-      "Neuro Care Foundation has given me and my family hope. Their support has empowered me to live independently despite spina bifida. The community they’ve built makes me feel understood and never alone.",
+      "Neuro Care Foundation empowered me to live independently and gave me hope. I finally feel understood and supported.",
     categories: [1, 2],
   },
   {
@@ -35,7 +35,7 @@ const testimonials = [
     name: "Samuel Otieno",
     company: "Living with Hydrocephalus",
     content:
-      "Thanks to Neuro Care Foundation, I have access to valuable information and specialized care that I didn’t know existed before. Their advocacy efforts have improved my life and I’m grateful for their dedication to people like me.",
+      "Thanks to Neuro Care Foundation, I now have access to information and care I never knew existed. Their advocacy has truly improved my life.",
     categories: [1, 2],
   },
   {
@@ -43,7 +43,7 @@ const testimonials = [
     name: "Dr. Ruth Njoroge",
     company: "Pediatric Neurologist",
     content:
-      "Working with Neuro Care Foundation has shown me the power of community-based support. Their dedication to educating families and connecting them with care is truly transformative. I’ve witnessed improvement in patient outcomes.",
+      "Neuro Care Foundation’s community-centered approach is changing lives. Their dedication to awareness and access to care has improved outcomes for many.",
     categories: [1, 4],
   },
   {
@@ -51,7 +51,7 @@ const testimonials = [
     name: "Grace Njeri",
     company: "Caregiver",
     content:
-      "The foundation provides valuable resources that help me understand my daughter’s hydrocephalus better. Their community gives me strength and hope. Knowing I’m not alone in this journey has been reassuring.",
+      "The foundation’s resources and community have helped me better understand my daughter’s hydrocephalus and reminded me I’m not alone.",
     categories: [1, 3],
   },
   {
@@ -59,7 +59,7 @@ const testimonials = [
     name: "Daniel Kofi",
     company: "Caregiver",
     content:
-      "Thanks to Neuro Care Foundation, I’ve learned how to give better care and connect with other families facing similar challenges. It’s truly been a lifesaver. Their guidance has provided strength and clarity.",
+      "With Neuro Care Foundation’s support, I’ve grown stronger and more confident in caring for my child. Their guidance has truly been life-changing.",
     categories: [1, 3],
   },
   {
@@ -67,15 +67,15 @@ const testimonials = [
     name: "David Kimani",
     company: "Living with Multiple Sclerosis",
     content:
-      "Neuro Care Foundation gave me more than just medical support, they gave me hope and a sense of belonging. Their platform has helped me connect with others facing similar challenges and equipped me with tools to manage my condition better every day.",
+      "With Neuro Care Foundation, I found more than care. I found community, hope and the confidence to live each day with strength.",
     categories: [1, 2],
   },
   {
     img: TestimonialImg08,
     name: "Samuel Okeke",
-    company: "Regional Program Manager, HopeWell Foundation.",
+    company: "Programs Manager, Hope Well Foundation.",
     content:
-      "Supporting Neuro Care Foundation has been a rewarding partnership. Their transparency, community engagement and measurable impact make them a standout organization. We’re proud to contribute to a cause that uplifts so many lives.",
+      "Partnering with Neuro Care Foundation has been deeply rewarding. Their transparency and impact make them a trusted ally in transforming lives.",
     categories: [1, 5],
   },
   {
@@ -83,7 +83,7 @@ const testimonials = [
     name: "Jane Njeri",
     company: "Living with Epilepsy",
     content:
-      "Living with epilepsy comes with many challenges, but Neuro Care Foundation has been a beacon of hope for me. Their awareness and advocacy initiatives have helped me better manage my condition and feel less alone in this journey.",
+      "Epilepsy can be isolating, but Neuro Care Foundation’s advocacy and awareness programs have given me strength and hope.",
     categories: [1, 2],
   },
 ];
@@ -98,10 +98,10 @@ export default function Testimonials() {
         {/* Section header */}
         <div className="mx-auto max-w-3xl pb-12 text-center">
           <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-            Don't take our word for it
+            Don't just take our word for it
           </h2>
           <p className="text-lg text-indigo-200/65">
-            Hear from families, caregivers, professionals and individuals whose lives have been touched by the compassionate initiatives of Neuro Care Foundation.
+            Discover how Neuro Care Foundation’s compassion and advocacy continue to transform lives and inspire hope.
           </p>
         </div>
 

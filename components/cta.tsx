@@ -33,7 +33,7 @@ export default function Cta() {
                   href="/donation-form"
                 >
                   <span className="relative inline-flex items-center">
-                    Support Our Cause
+                    Support Our Causes
                     <span className="ml-1 tracking-normal text-white/70 group-hover:text-[#df0a92] transition-transform group-hover:translate-x-0.5">
                       -&gt;
                     </span>
@@ -49,7 +49,7 @@ export default function Cta() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Get Involved Today
+                  Join Our Mission
                 </a>
               </div>
             </div>

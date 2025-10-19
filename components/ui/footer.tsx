@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 justify-between gap-12 py-8 sm:grid-rows-[auto_auto] md:grid-cols-4 md:grid-rows-[auto_auto] md:py-12 lg:grid-cols-[repeat(4,minmax(0,140px))_1fr] lg:grid-rows-1 xl:gap-20">
           {/* 1st block */}
           <div className="space-y-2">
-            <h3 className="text-sm font-medium text-gray-200">The Foundation</h3>
+            <h3 className="text-sm font-medium text-gray-200">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a
@@ -30,14 +30,6 @@ export default function Footer() {
                   href="#0"
                 >
                   About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Programs
                 </a>
               </li>
               <li>
@@ -64,34 +56,26 @@ export default function Footer() {
                   Advisory Board
                 </a>
               </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="#0"
+                >
+                  Download Profile
+                </a>
+              </li>
             </ul>
           </div>
           {/* 2nd block */}
           <div className="space-y-2">
             <h3 className="text-sm font-medium text-gray-200">Resources</h3>
             <ul className="space-y-2 text-sm">
-              <li>
+            <li>
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
                   href="#0"
                 >
-                  Educational Materials
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Online Communities
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Support Groups
+                  FAQs
                 </a>
               </li>
               <li>
@@ -107,7 +91,23 @@ export default function Footer() {
                   className="text-indigo-200/65 transition hover:text-indigo-500"
                   href="#0"
                 >
-                  FAQs
+                  Online Communities
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="#0"
+                >
+                  Support Groups (KE)
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="#0"
+                >
+                  Educational Materials
                 </a>
               </li>
             </ul>
@@ -123,7 +123,15 @@ export default function Footer() {
                   className="text-indigo-200/65 transition hover:text-indigo-500"
                   href="#0"
                 >
-                  Terms of Service
+                  Disclaimer
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="#0"
+                >
+                  Privacy Policy
                 </a>
               </li>
               <li>
@@ -147,15 +155,7 @@ export default function Footer() {
                   className="text-indigo-200/65 transition hover:text-indigo-500"
                   href="#0"
                 >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Disclaimer
+                  Terms & Conditions
                 </a>
               </li>
             </ul>
@@ -167,11 +167,19 @@ export default function Footer() {
               <li>
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/donation-form"
+                >
+                  Donate
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
                   href="https://www.youtube.com/feed/you"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  NeuroConnect
+                  Neuro Connect
                 </a>
               </li>
               <li>
@@ -181,15 +189,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Join Us
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="/donation-form"
-                >
-                  Donate
+                  Join Our Mission
                 </a>
               </li>
             </ul>
@@ -202,15 +202,13 @@ export default function Footer() {
             <div className="text-sm">
               <p className="mb-2 text-indigo-200/65">
                 ©2025
-                <span className="text-gray-700"> · </span>
-                Neuro Care Africa
-                <span className="text-gray-700"> · </span>
+                  Neuro Care Foundation
                 <br />
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
                   href="mailto:info@neurocare.africa"
                 >
-                  info@neurocare.africa
+                  info@neurocare.foundation
                 </a>
                 <br />
                 <a

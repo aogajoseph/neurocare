@@ -1,7 +1,7 @@
 import Image from "next/image";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
-import FeaturesImage from "@/public/images/features.jpg";
+import FeaturesImage from "@/public/images/features.png";
 
 export default function Features() {
   return (
@@ -43,7 +43,7 @@ export default function Features() {
               An Informed & Compassionate Society
             </h2>
             <p className="text-lg text-indigo-200/65">
-              We envision an informed and compassionate society that responds to the real needs of individuals living with neurological conditions and other disabilities.
+              We envision an informed and compassionate society that understands and responds to the needs of those affected by neurological conditions.
             </p>
           </div>
           <div className="flex justify-center pb-0 md:pb-0 -mb-2" data-aos="fade-up">
@@ -81,10 +81,10 @@ export default function Features() {
                 <path d="M17.5 6.5a2.5 2.5 0 0 1 3.54 3.54l-3.54 3.54-3.54-3.54a2.5 2.5 0 1 1 3.54-3.54z" fillOpacity=".48" />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Dignity First
+                Compassion
               </h3>
               <p className="text-indigo-200/65">
-                We uphold the inherent worth of every individual affected by neurological conditions, ensuring they are treated with respect, empathy and humanity.
+                We act with empathy and respect for every individual and family affected.
               </p>
             </article>
             <article>
@@ -96,13 +96,13 @@ export default function Features() {
                 width={24}
                 height={24}
               >
-                <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 14 0h-2zm-5 9a7.002 7.002 0 0 0 6.93-6H18a5 5 0 0 1-9.9 0H5.07A7.002 7.002 0 0 0 12 20z" />
+                <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.782 1.402 8.173L12 18.897l-7.336 3.868 1.402-8.173L.132 9.21l8.2-1.192z" />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Authentic Voices
+                Excellence
               </h3>
               <p className="text-indigo-200/65">
-                We believe in listening to and amplifying real stories, centering the lived experiences of individuals and families affected by conditions like Spina Bifida and Hydrocephalus.
+                We commit to quality, professionalism and impact in every action.
               </p>
             </article>
             <article>
@@ -126,10 +126,10 @@ export default function Features() {
                         c-.82-1.2-2.54-2-4.5-2z"/>
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Collaborative Action
+                Collaboration
               </h3>
               <p className="text-indigo-200/65">
-                Change is stronger together. We welcome partnerships, shared efforts, and community-driven solutions that bring lasting impact.
+                We believe in the power of partnerships to drive lasting change.
               </p>
             </article>
             <article>
@@ -141,17 +141,13 @@ export default function Features() {
                 width={24}
                 height={24}
               >
-                <path d="M12 1.75L3 5.5v6c0 5.25 3.66 9.93 9 11.25
-                        5.34-1.32 9-6 9-11.25v-6L12 1.75zm0 17.55
-                        c-4.14-1.12-7-5.04-7-9.3V6.3l7-2.67 7 2.67v3.7
-                        c0 4.26-2.86 8.18-7 9.3zm-1.12-4.67L8.4 12.1l-1.06 1.06
-                        3.54 3.54 6.36-6.36-1.06-1.06-5.3 5.3z" />
+                <path d="M12 1.75L3 5.5v6c0 5.25 3.66 9.93 9 11.25 5.34-1.32 9-6 9-11.25v-6L12 1.75zm0 17.55 c-4.14-1.12-7-5.04-7-9.3V6.3l7-2.67 7 2.67v3.7 c0 4.26-2.86 8.18-7 9.3zm-1.12-4.67L8.4 12.1l-1.06 1.06 3.54 3.54 6.36-6.36-1.06-1.06-5.3 5.3z" />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Transparency & Trust
+                Integrity
               </h3>
               <p className="text-indigo-200/65">
-                We commit to honesty, accountability, and clear communication in all that we do — from advocacy to partnerships.
+                We uphold honesty, transparency and accountability in all we do.
               </p>
             </article>
             <article>
@@ -170,10 +166,10 @@ export default function Features() {
                 <path d="m7.454 2.891.891-.454L7.437.655l-.891.454a12 12 0 0 0 0 21.382l.89.454.91-1.781-.892-.455a10 10 0 0 1 0-17.818ZM17.456 1.11l-.891-.454-.909 1.782.891.454a10 10 0 0 1 0 17.819l-.89.454.908 1.781.89-.454a12 12 0 0 0 0-21.382Z" />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Equity & Inclusion
+                Inclusion
               </h3>
               <p className="text-indigo-200/65">
-                We champion a world where everyone, regardless of ability or background, has equal opportunity to thrive and contribute.
+                We promote dignity, accessibility and equal opportunities for all.
               </p>
             </article>
             <article>
@@ -203,10 +199,10 @@ export default function Features() {
                 <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="#df0a92" />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Hope in Motion
+                Innovation
               </h3>
               <p className="text-indigo-200/65">
-                We are future-focused, driven by a belief that awareness, compassion and action can create a better reality for affected individuals.
+                We embrace new ideas and solutions to improve lives.
               </p>
             </article>
           </div>

@@ -10,7 +10,7 @@ export default function HeroHome() {
               className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-4xl font-semibold text-transparent md:text-5xl"
               data-aos="fade-up"
             >
-              Neuro Care Africa
+              Neuro Care Foundation
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
@@ -18,7 +18,7 @@ export default function HeroHome() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                We are a non-profit foundation focused on advocacy and awareness for individuals affected by spina bifida and hydrocephalus. We work to inform, engage and connect communities through actionable dialogues.
+                We are a non-profit foundation dedicated to raising awareness of neurological conditions, advancing prevention and supporting affected individuals and families.
               </p>
               <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
                 <div data-aos="fade-up" data-aos-delay={400}>
@@ -29,7 +29,7 @@ export default function HeroHome() {
                     rel="noopener noreferrer"
                   >
                     <span className="relative inline-flex items-center">
-                      Watch Our Stories
+                      Neuro Connect
                       <span className="ml-1 tracking-normal text-white/50 group-hover:text-[#aa2078] transition-transform group-hover:translate-x-0.5">
                         -&gt;
                       </span>
@@ -43,7 +43,7 @@ export default function HeroHome() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Join the Movement
+                    Join Our Mission
                   </a>
                 </div>
               </div>

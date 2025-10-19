@@ -13,8 +13,8 @@ export default function ContactForm() {
             <h1 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
               Talk to Us
             </h1>
-            <p className="mt-2 text-sm text-gray-500">
-              We welcome your thoughts, suggestions, feedback or any message you'd like to share with us.
+            <p className="mt-2 px-30 text-sm text-gray-500">
+              We welcome your thoughts, suggestions, feedback or anything else you'd like to share with us.
             </p>
           </div>
 
@@ -30,14 +30,14 @@ export default function ContactForm() {
                 className="mb-1 block text-sm font-medium text-indigo-200/65"
                 htmlFor="fullName"
               >
-                Full Name
+                Full Names
               </label>
               <input
                 id="fullName"
                 name="name"
                 type="text"
                 className="form-input w-full"
-                placeholder="Your full name"
+                placeholder="John Doe"
                 required
               />
             </div>
@@ -54,7 +54,7 @@ export default function ContactForm() {
                 name="email"
                 type="email"
                 className="form-input w-full"
-                placeholder="you@example.com"
+                placeholder="johndoe@email.com"
                 required
               />
             </div>
@@ -71,7 +71,7 @@ export default function ContactForm() {
                 name="message"
                 rows={5}
                 className="form-textarea w-full"
-                placeholder="Write your message here..."
+                placeholder="Type here..."
                 required
               ></textarea>
             </div>

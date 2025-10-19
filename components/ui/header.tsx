@@ -22,7 +22,7 @@ export default function Header() {
                 href="/contact-form"
                 className="btn-sm relative bg-gray-800 bg-opacity-60 py-[5px] px-4 text-gray-300 transition duration-200 hover:bg-transparent hover:text-white border border-gray-600 rounded"
               >
-                Talk to Us
+                Contact Us
               </Link>
             </li>
 

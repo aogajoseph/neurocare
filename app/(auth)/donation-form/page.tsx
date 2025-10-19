@@ -52,7 +52,7 @@ export default function Donate() {
               Help Us Make a Difference
             </h1>
             <p className="mt-4 text-indigo-200/80 text-base max-w-xl mx-auto">
-              Your donation helps us raise awareness, coordinate support and empower individuals and families affected by neurological conditions.
+              Your donation helps us raise awareness, promote prevention and coordinate support for affected individuals and families.
             </p>
           </div>
 
@@ -73,13 +73,13 @@ export default function Donate() {
             <div className="space-y-5">
               <div>
                 <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="name">
-                  Full Name <span className="text-red-500">*</span>
+                  Full Names <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="name"
                   type="text"
                   className="form-input w-full"
-                  placeholder="Your full name"
+                  placeholder="John Doe"
                   value={formData.name}
                   onChange={handleInputChange}
                   required
@@ -94,7 +94,7 @@ export default function Donate() {
                   id="email"
                   type="email"
                   className="form-input w-full"
-                  placeholder="you@example.com"
+                  placeholder="johndoe@email.com"
                   value={formData.email}
                   onChange={handleInputChange}
                   required
@@ -103,13 +103,13 @@ export default function Donate() {
 
               <div>
                 <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="amount">
-                  Donation Amount (KES) <span className="text-red-500">*</span>
+                  Amount (KES) <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="amount"
                   type="number"
                   className="form-input w-full"
-                  placeholder="e.g. 500"
+                  placeholder="e.g., 1000"
                   min={10}
                   value={formData.amount}
                   onChange={handleInputChange}
