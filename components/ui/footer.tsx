@@ -1,10 +1,10 @@
-import Logo from "./logo";
+import FooterLogo from "./footer-logo";
 import Image from "next/image";
 import FooterIllustration from "@/public/images/footer-illustration.svg";
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="bg-gray-900 text-gray-200 relative">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         {/* Footer illustration */}
         <div
@@ -21,195 +21,13 @@ export default function Footer() {
         </div>
         <div className="grid grid-cols-2 justify-between gap-12 py-8 sm:grid-rows-[auto_auto] md:grid-cols-4 md:grid-rows-[auto_auto] md:py-12 lg:grid-cols-[repeat(4,minmax(0,140px))_1fr] lg:grid-rows-1 xl:gap-20">
           {/* 1st block */}
-          <div className="space-y-2">
-            <h3 className="text-sm font-medium text-gray-200">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Constitution
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Strategic plan
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Advisory Board
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Download Profile
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* 2nd block */}
-          <div className="space-y-2">
-            <h3 className="text-sm font-medium text-gray-200">Resources</h3>
-            <ul className="space-y-2 text-sm">
-            <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  FAQs
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Events
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Online Communities
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Support Groups (KE)
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Educational Materials
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* 3rd block */}
-          <div className="space-y-2">
-            <h3 className="text-sm font-medium text-gray-200">
-              Legal
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Disclaimer
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Child Protection
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Data Protection
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Terms & Conditions
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* 4th block */}
-          <div className="space-y-2">
-            <h3 className="text-sm font-medium text-gray-200">Get Involved</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="/donation-form"
-                >
-                  Donate
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="https://www.youtube.com/feed/you"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Neuro Connect
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="https://forms.gle/WXKzJEReHojMt21j9"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Join Our Mission
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* 5th block */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1 lg:text-left">
             <div className="mb-1">
-              <Logo />
+              <FooterLogo />
             </div>
             <div className="text-sm">
               <p className="mb-2 text-indigo-200/65">
-                ©2025
-                  Neuro Care Foundation
-                <br />
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="mailto:info@neurocare.africa"
-                >
-                  info@neurocare.foundation
-                </a>
+                ©2025 Neuro Care Foundation
                 <br />
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
@@ -217,8 +35,32 @@ export default function Footer() {
                 >
                   0713 939393
                 </a>
+                <br />
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="mailto:info@neurocare.africa"
+                >
+                  info@neurocare.foundation
+                </a>
               </p>
               <ul className="inline-flex gap-3 items-center">
+                <li>
+                  <a
+                    className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
+                    href="https://www.youtube.com/@NeuroCareFoundation/"
+                    aria-label="YouTube"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg
+                      className="w-8 h-6 fill-current"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M23.498 6.186a2.996 2.996 0 0 0-2.112-2.112C19.37 3.5 12 3.5 12 3.5s-7.37 0-9.386.574A2.996 2.996 0 0 0 .502 6.186 31.13 31.13 0 0 0 0 12a31.13 31.13 0 0 0 .502 5.814 2.996 2.996 0 0 0 2.112 2.112C4.63 20.5 12 20.5 12 20.5s7.37 0 9.386-.574a2.996 2.996 0 0 0 2.112-2.112A31.13 31.13 0 0 0 24 12a31.13 31.13 0 0 0-.502-5.814ZM9.75 15.02V8.98L15.75 12l-6 3.02Z" />
+                    </svg>
+                  </a>
+                </li>
                 <li>
                   <a
                     className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
@@ -228,7 +70,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                   >
                     <svg
-                      className="w-6 h-8 fill-current"
+                      className="w-5 h-7 fill-current"
                       viewBox="0 0 408 312"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -249,30 +91,13 @@ export default function Footer() {
                 <li>
                   <a
                     className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
-                    href="https://www.youtube.com/feed/you"
-                    aria-label="YouTube"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <svg
-                      className="w-8 h-6 fill-current"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M23.498 6.186a2.996 2.996 0 0 0-2.112-2.112C19.37 3.5 12 3.5 12 3.5s-7.37 0-9.386.574A2.996 2.996 0 0 0 .502 6.186 31.13 31.13 0 0 0 0 12a31.13 31.13 0 0 0 .502 5.814 2.996 2.996 0 0 0 2.112 2.112C4.63 20.5 12 20.5 12 20.5s7.37 0 9.386-.574a2.996 2.996 0 0 0 2.112-2.112A31.13 31.13 0 0 0 24 12a31.13 31.13 0 0 0-.502-5.814ZM9.75 15.02V8.98L15.75 12l-6 3.02Z" />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
-                    href="https://www.linkedin.com/in/josephaoga/"
+                    href="https://www.linkedin.com/company/neurocarefoundation/?viewAsMember=true/"
                     aria-label="LinkedIn"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <svg
-                      className="w-8 h-5 fill-current"
+                      className="w-6 h-5 fill-current"
                       viewBox="0 0 448 512"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -283,7 +108,7 @@ export default function Footer() {
                 <li>
                   <a
                     className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
-                    href="https://web.facebook.com/profile.php?id=61576275885197/"
+                    href="https://www.facebook.com/profile.php?id=61576724788897"
                     aria-label="Facebook"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -300,9 +125,179 @@ export default function Footer() {
                     </svg>
                   </a>
                 </li>
+                <li>
+                  <a
+                    className="flex items-center justify-center text-[#aa2078] transition hover:text-[#7d0451]"
+                    href="https://www.tiktok.com/@neurocarefoundation"
+                    aria-label="TikTok"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg
+                      className="w-6 h-4 fill-current"
+                      viewBox="0 0 256 302"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M240.3 89.6c-22.2 0-43.2-7.2-60.3-19.5V203c0 54.6-44.2 99-99 99S-18 257.6-18 203s44.2-99 99-99c5.7 0 11.3.5 16.7 1.6V139c-5.4-1.7-11.1-2.6-17-2.6-32 0-58 26-58 58s26 58 58 58 58-26 58-58V0h42.8c2 20.8 12 39.6 27.5 53.2 13.8 12 31.6 19.2 51.3 19.2v42.4z"/>
+                    </svg>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
+          {/* 2nd block */}
+          <div className="space-y-2">
+            <h3 className="text-sm font-medium text-gray-200">Quick Links</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/under-construction"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/under-construction"
+                >
+                  Programs
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/under-construction"
+                >
+                  Our Team
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/under-construction"
+                >
+                  Stories & Impact
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/under-construction"
+                >
+                  Partners & Affiliations
+                </a>
+              </li>
+            </ul>
+          </div>
+          {/* 3rd block */}
+          <div className="space-y-2">
+            <h3 className="text-sm font-medium text-gray-200">Resources</h3>
+            <ul className="space-y-2 text-sm">
+            <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/under-construction"
+                >
+                  FAQs
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/under-construction"
+                >
+                  Articles & Blog
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/under-construction"
+                >
+                  Caregiver Guide
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/under-construction"
+                >
+                  Support Services
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/under-construction"
+                >
+                  Events & Trainings
+                </a>
+              </li>
+            </ul>
+          </div>
+          {/* 4th block */}
+          <div className="space-y-2">
+            <h3 className="text-sm font-medium text-gray-200">Get Involved</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/donation-form"
+                >
+                  Donate
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/under-construction"
+                  rel="noopener noreferrer"
+                >
+                  Volunteer
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/contact-form"
+                  rel="noopener noreferrer"
+                >
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a
+                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  href="/under-construction"
+                  rel="noopener noreferrer"
+                >
+                  Neuro Connect
+                </a>
+              </li>
+            </ul>
+          </div>
+          {/* 5th block — Newsletter */}
+          <div className="space-y-3 lg:col-span-1">
+            <h3 className="text-sm font-medium text-gray-200">Newsletter</h3>
+            <p className="text-sm text-indigo-200/65">
+              Stay updated on the latest news and upcoming episodes.
+            </p>
+            <form className="flex flex-col gap-3">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full rounded-md bg-[#df0a92]/20 border border-[#df0a92]/40 px-3 py-2 text-sm text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-[#df0a92]"
+              />
+              <button
+                type="submit"
+                className="inline-flex justify-center rounded-md bg-[#df0a92] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#b50875]"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>          
         </div>
       </div>
     </footer>

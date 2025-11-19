@@ -19,11 +19,13 @@ export default function DefaultLayout({
       duration: 600,
       easing: "ease-out-sine",
     });
-  });
+  }, []); // also add [] to prevent re-initializing AOS every render
 
   return (
     <>
-      <main className="relative flex grow flex-col">{children}</main>
+      <main className="relative flex grow flex-col min-h-screen" style={{ backgroundColor: "#f5f5f5", color: "#111" }}>
+        {children}
+      </main>
 
       <Footer />
     </>

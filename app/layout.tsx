@@ -39,7 +39,7 @@ const nacelle = localFont({
 });
 
 export const metadata = {
-  title: "Donate - Neuro Care Africa",
+  title: "Donate - Neuro Care Foundation",
   description: "Help Us Make a Difference",
   icons: {
     icon: [
@@ -61,7 +61,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${nacelle.variable} bg-gray-950 font-inter text-base text-gray-200 antialiased`}
+        className={`${inter.variable} ${nacelle.variable} font-inter text-base text-gray-900 antialiased`}
+        style={{ backgroundColor: '#f5f5f5' }}
       >
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Header />

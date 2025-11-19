@@ -48,10 +48,10 @@ export default function Donate() {
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="pb-12 text-center">
-            <h1 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+            <h1 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-900),var(--color-indigo-900),var(--color-gray-900),var(--color-indigo-900),var(--color-gray-900))] bg-[length:200%_auto] bg-clip-text font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
               Help Us Make a Difference
             </h1>
-            <p className="mt-4 text-indigo-200/80 text-base max-w-xl mx-auto">
+            <p className="mt-4 text-gray-800 text-base max-w-xl mx-auto">
               Your donation helps us raise awareness, promote prevention and coordinate support for affected individuals and families.
             </p>
           </div>
@@ -72,13 +72,13 @@ export default function Donate() {
           <form className="mx-auto max-w-[400px]" onSubmit={handleSubmit}>
             <div className="space-y-5">
               <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="name">
+                <label className="mb-1 block text-sm font-medium text-gray-800" htmlFor="name">
                   Full Names <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="name"
                   type="text"
-                  className="form-input w-full"
+                  className="form-input w-full text-white caret-white border border-[#aa2078] placeholder-[#ececec] placeholder:font-normal placeholder:italic"
                   placeholder="John Doe"
                   value={formData.name}
                   onChange={handleInputChange}
@@ -87,13 +87,13 @@ export default function Donate() {
               </div>
 
               <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="email">
+                <label className="mb-1 block text-sm font-medium text-gray-800" htmlFor="email">
                   Email Address <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="email"
                   type="email"
-                  className="form-input w-full"
+                  className="form-input w-full text-white caret-white border border-[#aa2078] placeholder-[#ececec] placeholder:font-normal placeholder:italic"
                   placeholder="johndoe@email.com"
                   value={formData.email}
                   onChange={handleInputChange}
@@ -102,13 +102,13 @@ export default function Donate() {
               </div>
 
               <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="amount">
+                <label className="mb-1 block text-sm font-medium text-gray-800" htmlFor="amount">
                   Amount (KES) <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="amount"
                   type="number"
-                  className="form-input w-full"
+                  className="form-input w-full text-white caret-white border border-[#aa2078] placeholder-[#ececec] placeholder:font-normal placeholder:italic"
                   placeholder="e.g., 1000"
                   min={10}
                   value={formData.amount}
@@ -118,13 +118,13 @@ export default function Donate() {
               </div>
 
               <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="phoneNumber">
+                <label className="mb-1 block text-sm font-medium text-gray-800" htmlFor="phoneNumber">
                   M-Pesa Number <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="phoneNumber"
                   type="tel"
-                  className="form-input w-full"
+                  className="form-input w-full text-white caret-white border border-[#aa2078] placeholder-[#ececec] placeholder:font-normal placeholder:italic"
                   placeholder="e.g. 0712345678"
                   pattern="^(?:\+254|0)[17]\d{8}$"
                   title="Please enter a valid Safaricom number (starting with +254 or 0)"
@@ -132,7 +132,7 @@ export default function Donate() {
                   onChange={handleInputChange}
                   required
                 />
-                <p className="mt-1 text-xs text-indigo-200/50">
+                <p className="mt-1 text-xs text-gray-800">
                   Enter your Safaricom number in the format: 0712345678 or +254712345678
                 </p>
               </div>
@@ -142,15 +142,15 @@ export default function Donate() {
               <button
                 type="submit"
                 disabled={loading}
-                className={`btn w-full bg-[#df0a92] py-[5px] px-4 text-white rounded shadow-sm transition duration-200 hover:bg-transparent border border-[#df0a92] disabled:opacity-50 disabled:cursor-not-allowed`}
+                className={`btn w-full bg-[#df0a92] py-[5px] px-4 text-white rounded shadow-sm transition duration-200 hover:bg-transparent hover:text-black border border-[#df0a92] disabled:opacity-50 disabled:cursor-not-allowed`}
               >
-                {loading ? "Processing..." : "Donate via M-Pesa"}
+                {loading ? "Processing..." : "Donate"}
               </button>
             </div>
           </form>
 
           {/* Bottom note */}
-          <div className="mt-6 text-center text-sm text-indigo-200/65">
+          <div className="mt-6 text-center text-sm text-gray-800">
             Thank you for your generosity 💙
           </div>
         </div>

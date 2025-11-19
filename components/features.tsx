@@ -35,14 +35,16 @@ export default function Features() {
           {/* Section header */}
           <div className="mx-auto max-w-3xl pb-4 text-center md:pb-12">
             <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50">
-              <span className="inline-flex bg-gradient-to-r from-[#aa2078] to-[#fffff0] bg-clip-text text-transparent">
+              <span className="inline-flex bg-linear-to-r from-[#000000] to-[#df0a92] bg-clip-text text-transparent font-bold">
                 Our Vision
               </span>
             </div>
-            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+            <h2
+              className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,#374151,#6366f1,#4b5563,#6366f1,#374151)] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl"
+            >
               An Informed & Compassionate Society
             </h2>
-            <p className="text-lg text-indigo-200/65">
+            <p className="text-lg text-gray-700">
               We envision an informed and compassionate society that understands and responds to the needs of those affected by neurological conditions.
             </p>
           </div>
@@ -61,7 +63,7 @@ export default function Features() {
         <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] md:py-20">
           <div className="mx-auto max-w-3xl pb-2 text-center md:pb-6">
             <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50">
-              <span className="inline-flex bg-linear-to-r from-[#aa2078] to-[#fffff0] bg-clip-text text-transparent">
+              <span className="inline-flex bg-linear-to-r from-[#000000] to-[#df0a92] bg-clip-text text-transparent font-bold"> 
                 Our Values
               </span>
             </div>
@@ -80,10 +82,10 @@ export default function Features() {
                 <path d="M12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm-6 18v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z" />
                 <path d="M17.5 6.5a2.5 2.5 0 0 1 3.54 3.54l-3.54 3.54-3.54-3.54a2.5 2.5 0 1 1 3.54-3.54z" fillOpacity=".48" />
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
+              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-700">
                 Compassion
               </h3>
-              <p className="text-indigo-200/65">
+              <p className="text-gray-700">
                 We act with empathy and respect for every individual and family affected.
               </p>
             </article>
@@ -98,10 +100,10 @@ export default function Features() {
               >
                 <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.782 1.402 8.173L12 18.897l-7.336 3.868 1.402-8.173L.132 9.21l8.2-1.192z" />
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
+              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-700">
                 Excellence
               </h3>
-              <p className="text-indigo-200/65">
+              <p className="text-gray-700">
                 We commit to quality, professionalism and impact in every action.
               </p>
             </article>
@@ -125,10 +127,10 @@ export default function Features() {
                         .25.42.39.91.39 1.43V17h4.5v-2
                         c-.82-1.2-2.54-2-4.5-2z"/>
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
+              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-700">
                 Collaboration
               </h3>
-              <p className="text-indigo-200/65">
+              <p className="text-gray-700">
                 We believe in the power of partnerships to drive lasting change.
               </p>
             </article>
@@ -143,10 +145,10 @@ export default function Features() {
               >
                 <path d="M12 1.75L3 5.5v6c0 5.25 3.66 9.93 9 11.25 5.34-1.32 9-6 9-11.25v-6L12 1.75zm0 17.55 c-4.14-1.12-7-5.04-7-9.3V6.3l7-2.67 7 2.67v3.7 c0 4.26-2.86 8.18-7 9.3zm-1.12-4.67L8.4 12.1l-1.06 1.06 3.54 3.54 6.36-6.36-1.06-1.06-5.3 5.3z" />
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
+              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-700">
                 Integrity
               </h3>
-              <p className="text-indigo-200/65">
+              <p className="text-gray-700">
                 We uphold honesty, transparency and accountability in all we do.
               </p>
             </article>
@@ -165,10 +167,10 @@ export default function Features() {
                 />
                 <path d="m7.454 2.891.891-.454L7.437.655l-.891.454a12 12 0 0 0 0 21.382l.89.454.91-1.781-.892-.455a10 10 0 0 1 0-17.818ZM17.456 1.11l-.891-.454-.909 1.782.891.454a10 10 0 0 1 0 17.819l-.89.454.908 1.781.89-.454a12 12 0 0 0 0-21.382Z" />
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
+              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-700">
                 Inclusion
               </h3>
-              <p className="text-indigo-200/65">
+              <p className="text-gray-700">
                 We promote dignity, accessibility and equal opportunities for all.
               </p>
             </article>
@@ -198,10 +200,10 @@ export default function Features() {
                 <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="#df0a92" />
                 <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="#df0a92" />
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
+              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-700">
                 Innovation
               </h3>
-              <p className="text-indigo-200/65">
+              <p className="text-gray-700">
                 We embrace new ideas and solutions to improve lives.
               </p>
             </article>

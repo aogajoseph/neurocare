@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Home - Neuro Care Foundation",
-  description: "A Neurological Wellness Organzation",
+  description: "A Neurological Health Organzation",
 };
 
 import PageIllustration from "@/components/page-illustration";

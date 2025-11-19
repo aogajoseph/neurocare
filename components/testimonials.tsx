@@ -97,10 +97,12 @@ export default function Testimonials() {
       <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] md:py-20">
         {/* Section header */}
         <div className="mx-auto max-w-3xl pb-12 text-center">
-          <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-            Don't just take our word for it
-          </h2>
-          <p className="text-lg text-indigo-200/65">
+        <h2
+          className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,#374151,#6366f1,#4b5563,#6366f1,#374151)] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl"
+        >
+          Don’t just take our word for it
+        </h2>
+          <p className="text-lg text-gray-700">
             Discover how Neuro Care Foundation’s compassion and advocacy continue to transform lives and inspire hope.
           </p>
         </div>
@@ -283,7 +285,7 @@ export function Testimonial({
       className={`relative rounded-2xl bg-linear-to-br from-gray-900/50 via-gray-800/25 to-gray-900/50 p-5 backdrop-blur-xs transition-opacity before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] ${!testimonial.categories.includes(category) ? "opacity-30" : ""}`}
     >
       <div className="flex flex-col gap-4">
-        <p className="text-indigo-200/65 before:content-['“'] after:content-['”']">
+        <p className="text-gray-900 before:content-['“'] after:content-['”']">
           {children}
         </p>
         <div className="flex items-center gap-3">
@@ -294,15 +296,10 @@ export function Testimonial({
             height={36}
             alt={testimonial.name}
           />
-          <div className="text-sm font-medium text-gray-200">
+          <div className="text-sm font-medium text-gray-900">
             <span>{testimonial.name}</span>
-            <span className="text-gray-700"> - </span>
-            <a
-              className="text-indigo-200/65 transition-colors hover:text-indigo-500"
-              href="#0"
-            >
-              {testimonial.company}
-            </a>
+            <span className="text-gray-600"> — </span>
+            <span className="text-gray-700">{testimonial.company}</span>
           </div>
         </div>
       </div>
