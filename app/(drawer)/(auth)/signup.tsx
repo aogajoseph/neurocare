@@ -1,99 +1,179 @@
 // app/(drawer)/(tabs)/(auth)/signup.tsx
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, ScrollView } from 'react-native';
-import { useNavigation } from 'expo-router';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
+  Image,
+  Alert,
+} from 'react-native';
+import { useRouter } from 'expo-router';
 import { useState } from 'react';
+import { Ionicons } from '@expo/vector-icons';
+import { tokens } from '@/theme/design-tokens';
+import { demoUsers } from '@/demo/users';
 
 export default function SignupScreen() {
-  const navigation = useNavigation<any>();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const router = useRouter();
+
+  const [username, setUsername] = useState('');
+  const [emailOrPhone, setEmailOrPhone] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSignup = () => {
-    // TODO: Wire to backend signup endpoint
-    Alert.alert('Sign Up', `Name: ${name}\nEmail: ${email}`);
-    // For now, navigate to login or profile after signup
-    navigation.push('/auth/login');
+    // Demo check: reject existing usernames
+    const exists = demoUsers.some(
+      (u) => u.username.toLowerCase() === username.toLowerCase(),
+    );
+
+    if (exists) {
+      return Alert.alert('Username Taken', 'Please choose a different username.');
+    }
+
+    Alert.alert(
+      'Sign Up (Demo Mode)',
+      `Username: ${username}\nEmail/Phone: ${emailOrPhone} {\n\n}Account creation is disabled in demo mode.`,
+    );
+
+    router.replace('/(drawer)/(auth)/login');
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Create Account</Text>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      style={{ flex: 1, backgroundColor: tokens.colors.surface.soft }}
+    >
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: 'center',
+          paddingHorizontal: tokens.spacing.xl,
+          paddingBottom: tokens.spacing.xxl,
+        }}
+        keyboardShouldPersistTaps="handled"
+      >
+        {/* Logo */}
+        <Image
+          source={require('../../../assets/images/logo.png')}
+          style={{
+            width: 120,
+            height: 40,
+            resizeMode: 'contain',
+            alignSelf: 'center',
+            marginBottom: tokens.spacing.lg,
+          }}
+        />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Full Name"
-        value={name}
-        onChangeText={setName}
-      />
+        {/* Title */}
+        <Text style={styles.title}>Create Account</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-        autoCapitalize="none"
-      />
+        {/* Username */}
+        <TextInput
+          style={styles.input}
+          placeholder="Create Username"
+          value={username}
+          onChangeText={setUsername}
+          autoCapitalize="none"
+        />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
+        {/* Email / Phone */}
+        <TextInput
+          style={styles.input}
+          placeholder="Email or Phone Number"
+          value={emailOrPhone}
+          onChangeText={setEmailOrPhone}
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
 
-      <TouchableOpacity style={styles.button} onPress={handleSignup}>
-        <Text style={styles.buttonText}>Sign Up</Text>
-      </TouchableOpacity>
+        {/* Password */}
+        <View style={styles.passwordContainer}>
+          <TextInput
+            style={[styles.input, { flex: 1, marginBottom: 0 }]}
+            placeholder="Password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry={!showPassword}
+          />
+          <Pressable
+            onPress={() => setShowPassword((v) => !v)}
+            style={styles.eyeIcon}
+          >
+            <Ionicons
+              name={showPassword ? 'eye' : 'eye-off'}
+              size={22}
+              color={tokens.colors.text.muted}
+            />
+          </Pressable>
+        </View>
 
-      <TouchableOpacity onPress={() => navigation.push('/auth/login')}>
-        <Text style={styles.linkText}>Already have an account? Sign In</Text>
-      </TouchableOpacity>
-    </ScrollView>
+        {/* Sign Up button */}
+        <TouchableOpacity style={styles.button} onPress={handleSignup}>
+          <Text style={styles.buttonText}>Sign Up</Text>
+        </TouchableOpacity>
+
+        {/* Sign In link */}
+        <TouchableOpacity
+          onPress={() => router.push('/(drawer)/(auth)/login')}
+        >
+          <Text style={styles.linkText}>
+            Already have an account? Sign In
+          </Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 24,
-    flexGrow: 1,
-    justifyContent: 'center',
-    backgroundColor: '#F9FAFB',
-  },
   title: {
-    fontSize: 28,
-    fontWeight: '600',
-    marginBottom: 24,
+    fontSize: tokens.typography.size.xxl,
+    fontWeight: tokens.typography.weight.bold,
+    color: tokens.colors.brand.dark,
+    marginBottom: tokens.spacing.xl,
     textAlign: 'center',
   },
   input: {
-    backgroundColor: '#FFFFFF',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderRadius: 12,
-    marginBottom: 16,
-    fontSize: 16,
+    backgroundColor: tokens.colors.surface.card,
+    padding: tokens.spacing.md,
+    borderRadius: tokens.radius.md,
+    marginBottom: tokens.spacing.md,
     borderWidth: 1,
-    borderColor: '#E5E7EB',
+    borderColor: tokens.colors.border.subtle,
+    fontSize: tokens.typography.size.md,
+  },
+  passwordContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'relative',
+    marginBottom: tokens.spacing.md,
+  },
+  eyeIcon: {
+    position: 'absolute',
+    right: tokens.spacing.md,
   },
   button: {
-    backgroundColor: '#2563EB',
-    paddingVertical: 14,
-    borderRadius: 12,
-    marginBottom: 12,
+    backgroundColor: tokens.colors.brand.primary,
+    paddingVertical: tokens.spacing.md,
+    borderRadius: tokens.radius.md,
+    marginBottom: tokens.spacing.md,
   },
   buttonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '600',
+    color: tokens.colors.text.inverse,
+    fontWeight: tokens.typography.weight.semibold,
+    fontSize: tokens.typography.size.md,
     textAlign: 'center',
   },
   linkText: {
-    color: '#2563EB',
+    color: tokens.colors.brand.link,
     textAlign: 'center',
-    fontSize: 14,
-    fontWeight: '500',
+    fontSize: tokens.typography.size.md,
+    marginTop: tokens.spacing.sm,
   },
 });

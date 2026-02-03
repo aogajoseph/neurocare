@@ -2,12 +2,12 @@
 export const DEMO_HOME = {
   hero: {
     welcome: {
-      en: 'Welcome User',
-      sw: 'Karibu Mtumiaji',
+      en: 'Welcome',
+      sw: 'Karibu',
     },
     intro: {
-      en: 'Find clear information, practical guidance and support for neurological health.',
-      sw: 'Pata taarifa sahihi, mwongozo wa vitendo na msaada kuhusu afya ya mfumo wa neurolojia.',
+      en: 'Find clear information, support and practical guidance for neurological health.',
+      sw: 'Pata taarifa sahihi, msaada na mwongozo wa vitendo kuhusu afya ya mfumo wa neurolojia.',
     },
   },
 
