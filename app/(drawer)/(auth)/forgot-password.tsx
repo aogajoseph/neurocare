@@ -24,8 +24,8 @@ export default function ForgotPasswordScreen() {
     }
 
     Alert.alert(
-      'Password Reset (Demo Mode)',
-      'This app is currently in demo mode. {\n\n}In production, a reset link or code would be sent to your email or phone.',
+      'Password Reset',
+      'This app is currently in demo mode. Password reset will be available soon.',
       [
         {
           text: 'Back to Login',

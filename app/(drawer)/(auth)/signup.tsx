@@ -37,8 +37,8 @@ export default function SignupScreen() {
     }
 
     Alert.alert(
-      'Sign Up (Demo Mode)',
-      `Username: ${username}\nEmail/Phone: ${emailOrPhone} {\n\n}Account creation is disabled in demo mode.`,
+      'Sign Up',
+      `Username: ${username}\nEmail/Phone: ${emailOrPhone} \n\nThis app is currently in demo mode. Account creation will be available soon.`,
     );
 
     router.replace('/(drawer)/(auth)/login');
