@@ -85,10 +85,19 @@ export const elevation = {
   },
 };
 
+export const alignment = {
+  text: {
+    center: 'center' as const,
+    left: 'left' as const,
+    right: 'right' as const,
+  },
+};
+
 export const tokens = {
   colors,
   spacing,
   typography,
   radius,
   elevation,
+  alignment,
 };
