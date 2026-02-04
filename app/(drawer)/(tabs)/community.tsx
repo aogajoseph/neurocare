@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Pressable, ScrollView, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import { tokens } from '@/theme/design-tokens';
 import { communityRoles, communityReassurance } from '@/demo/community';
@@ -7,6 +7,21 @@ import { useLanguage } from '@/i18n/LanguageContext';
 export default function CommunityEntryScreen() {
   const router = useRouter();
   const { language } = useLanguage(); // 'en' | 'sw'
+
+  const handleRolePress = (roleKey: string) => {
+    switch (roleKey) {
+      case 'caregiver':
+        router.push('/(community)/caregiver'); // <- your existing caregiver.tsx
+        break;
+      default:
+        Alert.alert(
+          language === 'sw' ? 'Karibu Baadaye' : 'Coming Soon',
+          language === 'sw'
+            ? 'Sehemu hii bado haijajiandaa.'
+            : 'This section is not ready yet.'
+        );
+    }
+  };
 
   return (
     <ScrollView
@@ -24,7 +39,7 @@ export default function CommunityEntryScreen() {
         {communityRoles.map((role) => (
           <Pressable
             key={role.key}
-            onPress={() => router.push(`/community/${role.key}`)}
+            onPress={() => handleRolePress(role.key)}
             style={({ pressed }) => [
               styles.card,
               pressed && styles.cardPressed,
