@@ -1,55 +1,104 @@
-// app/(drawer)/(tabs)/community.tsx
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useLanguage } from '@/i18n/LanguageContext';
-import { useCommunity } from '@/bootstrap/CommunityContext'; // we'll create this
+import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
+import { useRouter } from 'expo-router';
 import { tokens } from '@/theme/design-tokens';
-import { ScreenLoader } from '@/ui/ScreenLoader';
-import { ErrorState } from '@/ui/ErrorState';
-import { uiCopy } from '@/i18n/ui';
-import { Card } from '@/ui/Card';
+import { communityRoles, communityReassurance } from '@/demo/community';
+import { useLanguage } from '@/i18n/LanguageContext';
 
-export default function CommunityScreen() {
-  const { language } = useLanguage();
-  const { community, loading } = useCommunity();
-  const insets = useSafeAreaInsets();
-
-  if (loading) return <ScreenLoader />;
-  if (!community) return <ErrorState message={uiCopy.errorGeneric[language]} />;
+export default function CommunityEntryScreen() {
+  const router = useRouter();
+  const { language } = useLanguage(); // 'en' | 'sw'
 
   return (
     <ScrollView
-      contentContainerStyle={[
-        styles.container,
-        { paddingBottom: insets.bottom + tokens.spacing.xl },
-      ]}
+      contentContainerStyle={styles.container}
+      showsVerticalScrollIndicator={false}
     >
-      <Text style={styles.title}>{community.title[language]}</Text>
+      <Text style={styles.subtitle}>
+        {language === 'sw'
+          ? 'Upo hapa kama nani leo?'
+          : 'Who are you here as today?'}
+      </Text>
 
-      {community.cards.map((card) => (
-        <Card key={card.id} style={styles.card}>
-          <Text style={styles.cardTitle}>{card.title[language]}</Text>
-          <Text style={styles.cardDesc}>{card.description[language]}</Text>
-        </Card>
-      ))}
+      {/* Role Options */}
+      <View style={styles.list}>
+        {communityRoles.map((role) => (
+          <Pressable
+            key={role.key}
+            onPress={() => router.push(`/community/${role.key}`)}
+            style={({ pressed }) => [
+              styles.card,
+              pressed && styles.cardPressed,
+            ]}
+          >
+            <Text style={styles.cardTitle}>
+              {role.title[language]}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
+
+      {/* Reassurance Card */}
+      <View style={styles.reassuranceCard}>
+        <Text style={styles.reassuranceMessage}>
+          {communityReassurance.message[language]}
+        </Text>
+      </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { padding: tokens.spacing.lg },
-  title: { fontSize: 24, fontWeight: '600', marginBottom: tokens.spacing.lg },
-  card: {
-    backgroundColor: tokens.colors.surface.soft,
-    padding: tokens.spacing.md,
-    borderRadius: 16,
-    marginBottom: tokens.spacing.md,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+  container: {
+    flexGrow: 1,
+    padding: tokens.spacing.xl,
+    backgroundColor: tokens.colors.surface.background,
   },
-  cardTitle: { fontSize: 18, fontWeight: '500', marginBottom: 6 },
-  cardDesc: { fontSize: 14, lineHeight: 20 },
+
+  subtitle: {
+    fontSize: tokens.typography.size.md,
+    color: tokens.colors.brand.primary,
+    textAlign: 'center',
+    fontWeight: tokens.typography.weight.bold,
+    marginBottom: tokens.spacing.xl,
+  },
+
+  list: {
+    gap: tokens.spacing.md,
+  },
+
+  card: {
+    backgroundColor: tokens.colors.surface.card,
+    padding: tokens.spacing.lg,
+    borderRadius: tokens.radius.lg,
+    borderWidth: 1,
+    borderColor: tokens.colors.border.subtle,
+  },
+
+  cardPressed: {
+    backgroundColor: tokens.colors.surface.soft,
+  },
+
+  cardTitle: {
+    fontSize: tokens.typography.size.lg,
+    textAlign: 'center',
+    fontWeight: tokens.typography.weight.semibold,
+    color: tokens.colors.text.primary,
+    marginBottom: tokens.spacing.xs,
+  },
+
+  reassuranceCard: {
+    marginTop: tokens.spacing.xxl,
+    padding: tokens.spacing.lg,
+    borderRadius: tokens.radius.lg,
+    backgroundColor: tokens.colors.brand.secondary,
+    borderWidth: 1,
+    borderColor: tokens.colors.border.subtle,
+  },
+
+  reassuranceMessage: {
+    fontSize: tokens.typography.size.sm,
+    color: tokens.colors.text.inverse,
+    textAlign: 'center',
+    lineHeight: tokens.typography.lineHeight.relaxed,
+  },
 });

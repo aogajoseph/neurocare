@@ -1,30 +1,59 @@
-// src/demo/community.ts
-export const DEMO_COMMUNITY = {
-  title: { en: 'Community', sw: 'Jumuiya' },
-  cards: [
-    {
-      id: 'support-groups',
-      title: { en: 'Support Groups', sw: 'Vikundi vya Msaada' },
-      description: {
-        en: 'Join local support groups and meet others affected by neurological conditions.',
-        sw: 'Jiunge na vikundi vya msaada vya hapa na kutana na wengine walioathiriwa na hali za neva.',
-      },
+export type CommunityRoleKey =
+  | 'caregiver'
+  | 'pwd' // Person With Disability
+  | 'professional'
+  | 'organization'
+  | 'corporate'
+  | 'visitor';
+
+export const communityRoles = [
+  {
+    key: 'caregiver' as CommunityRoleKey,
+    title: {
+      en: 'Caregiver / Family Member',
+      sw: 'Mlezi / Mwanafamilia',
     },
-    {
-      id: 'events',
-      title: { en: 'Events & Campaigns', sw: 'Matukio & Kampeni' },
-      description: {
-        en: 'Information about upcoming awareness events and campaigns.',
-        sw: 'Taarifa kuhusu matukio ya uhamasishaji yajayo na kampeni.',
-      },
+  },
+  {
+    key: 'pwd' as CommunityRoleKey,
+    title: {
+      en: 'Living with a Condition',
+      sw: 'Anaishi na Hali Fulani',
     },
-    {
-      id: 'volunteer',
-      title: { en: 'Volunteer Opportunities', sw: 'Fursa za Kujitolea' },
-      description: {
-        en: 'Ways to get involved and help Neuro Care Foundation.',
-        sw: 'Njia za kushiriki na kusaidia Neuro Care Foundation.',
-      },
+  },
+  {
+    key: 'professional' as CommunityRoleKey,
+    title: {
+      en: 'Health Professional',
+      sw: 'Mtaalamu wa Afya',
     },
-  ],
+  },
+  {
+    key: 'corporate' as CommunityRoleKey,
+    title: {
+      en: 'Corporate Partner',
+      sw: 'Mshirika wa Kibiashara',
+    },
+  },
+  {
+    key: 'organization' as CommunityRoleKey,
+    title: {
+      en: 'Organization',
+      sw: 'Shirika',
+    },
+  },
+  {
+    key: 'visitor' as CommunityRoleKey,
+    title: {
+      en: 'Just Looking',
+      sw: 'Natazama Tu',
+    },
+  },
+];
+
+export const communityReassurance = {
+  message: {
+    en: 'You can belong to multiple spaces and switch how you engage at any time.',
+    sw: 'Unaweza kushiriki katika makundi tofauti na kubadilisha namna unavyoshiriki wakati wowote.',
+  },
 };
