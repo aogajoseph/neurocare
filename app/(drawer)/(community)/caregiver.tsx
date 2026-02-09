@@ -75,7 +75,6 @@ export default function CaregiverSpacesScreen() {
           {spaces.map((space) => (
             <Pressable
               key={space.id}
-              onPress={() => router.push(`/community/caregiver/${space.id}`)}
               style={({ pressed }) => [styles.spaceCard, pressed && styles.spaceCardPressed]}
             >
               <Text style={styles.spaceTitle}>{space.title[language]}</Text>
@@ -83,9 +82,13 @@ export default function CaregiverSpacesScreen() {
 
               {/* CTA + Member Count */}
               <View style={styles.cardFooter}>
-                <Text style={styles.cta}>{language === 'sw' ? 'Tazama' : 'View'}</Text>
+                <Text 
+                  style={styles.cta} 
+                  onPress={() => router.push(`/(drawer)/(community)/caregiver/${space.id}`)}>
+                  {language === 'sw' ? 'Tazama' : 'View'}
+                </Text>
                 <Text style={styles.memberCount}>
-                  {space.members} {language === 'sw' ? 'Wajumlisho' : 'Members'}
+                  {space.memberCount} {language === 'sw' ? 'Wajumlisho' : 'Members'}
                 </Text>
               </View>
             </Pressable>

@@ -6,20 +6,66 @@ export type CommunityRoleKey =
   | 'corporate'
   | 'visitor';
 
+export type SpaceEntryMode =
+  | 'open'
+  | 'request'
+  | 'invite';
+
+export type ModerationLevel =
+  | 'light'
+  | 'moderated'
+  | 'strict';
+
 export type CommunitySpace = {
+  /** Identity */
   id: string;
   role: CommunityRoleKey;
+
+  /** Discovery & grouping */
   category: {
     en: string;
     sw: string;
   };
+
   title: {
     en: string;
     sw: string;
   };
+
   description: {
     en: string;
     sw: string;
+  };
+
+  /** Membership */
+  memberCount: number;
+  entryMode: SpaceEntryMode;
+
+  /** Interaction capabilities */
+  capabilities: {
+    canPost: boolean;
+    canReply: boolean;
+    canReact: boolean;
+    canUploadMedia: boolean;
+  };
+
+  /** Moderation & safety */
+  moderation: {
+    level: ModerationLevel;
+    showGuidelines: boolean;
+    escalationPath?: 'admin' | 'professional' | 'external';
+  };
+
+  /** System messages */
+  systemMessages?: {
+    welcome?: {
+      en: string;
+      sw: string;
+    };
+    rules?: {
+      en: string;
+      sw: string;
+    };
   };
 };
 
@@ -42,7 +88,29 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'Emotional support, counselling and guided conversations to help caregivers cope, reflect and regain balance.',
       sw: 'Msaada wa kihisia, ushauri na mazungumzo yanayoongozwa kusaidia walezi kukabiliana na changamoto na kurejesha utulivu.',
     },
-    members: 236,
+    memberCount: 236,
+    entryMode: 'open',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: false,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'professional',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'You are not alone. Share only what feels safe for you.',
+        sw: 'Hauko peke yako. Shiriki kile unachojisikia salama.',
+      },
+      rules: {
+        en: 'Be kind. No medical advice. This space is moderated.',
+        sw: 'Kuwa mpole. Hakuna ushauri wa kitabibu. Nafasi hii inasimamiwa.',
+      },
+    },
   },
 
   /**
@@ -63,7 +131,18 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'Plain-language explanations of neurological conditions, what to expect and how to navigate care confidently.',
       sw: 'Maelezo rahisi kuhusu hali za kinyurolojia, nini cha kutarajia na jinsi ya kutoa huduma kwa ujasiri.',
     },
-    members: 123,
+    memberCount: 123,
+    entryMode: 'open',
+    capabilities: {
+      canPost: false,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'light',
+      showGuidelines: false,
+    },
   },
   {
     id: 'caregiving-basics',
@@ -80,7 +159,18 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'Daily care routines, safety tips, medication reminders and practical caregiving fundamentals.',
       sw: 'Ratiba za kila siku, vidokezo vya usalama, kumbukumbu za dawa na misingi ya ulezi wa vitendo.',
     },
-    members: 106,
+    memberCount: 106,
+    entryMode: 'open',
+    capabilities: {
+      canPost: false,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'light',
+      showGuidelines: false,
+    },
   },
 
   /**
@@ -101,7 +191,18 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'Connect with other caregivers to share experiences, challenges, encouragement and small wins.',
       sw: 'Ungana na walezi wengine kushirikiana uzoefu, changamoto, faraja na mafanikio madogo.',
     },
-    members: 218,
+    memberCount: 218,
+    entryMode: 'open',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: true,
+    },
+    moderation: {
+      level: 'moderated',
+      showGuidelines: true,
+    },
   },
 
   /**
@@ -122,7 +223,18 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'Information on clinics, therapists, NGOs and community services that support caregivers and families.',
       sw: 'Taarifa kuhusu kliniki, wataalamu, mashirika na huduma za jamii zinazosaidia walezi na familia.',
     },
-    members: 114,
+    memberCount: 114,
+    entryMode: 'open',
+    capabilities: {
+      canPost: false,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'light',
+      showGuidelines: false,
+    },
   },
   {
     id: 'assistive-tools',
@@ -139,7 +251,18 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'Tools, devices and practical tips that make daily caregiving safer and more manageable.',
       sw: 'Vifaa, mbinu na vidokezo vinavyorahisisha na kuboresha ulezi wa kila siku.',
     },
-    members: 163,
+    memberCount: 163,
+    entryMode: 'open',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: true,
+    },
+    moderation: {
+      level: 'light',
+      showGuidelines: false,
+    },
   },
 
   /**
@@ -160,7 +283,19 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'Moderated Q&A sessions with a health professional for trusted guidance and clarity.',
       sw: 'Maswali na majibu yanayoongozwa na mtaalamu wa afya kwa mwongozo wa kuaminika na ufafanuzi.',
     },
-    members: 275,
+    memberCount: 275,
+    entryMode: 'request',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: false,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'strict',
+      showGuidelines: true,
+      escalationPath: 'professional',
+    },
   },
 
   /**
@@ -181,6 +316,17 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'A space focused on rest, boundaries, identity and mental wellbeing for caregivers.',
       sw: 'Eneo linalolenga mapumziko, mipaka, utambulisho na afya ya akili ya walezi.',
     },
-    members: 185,
+    memberCount: 185,
+    entryMode: 'open',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: false,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'moderated',
+      showGuidelines: true,
+    },
   },
 ];
