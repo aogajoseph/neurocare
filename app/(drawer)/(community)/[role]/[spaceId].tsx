@@ -3,6 +3,9 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { tokens } from '@/theme/design-tokens';
 import { useLanguage } from '@/i18n/LanguageContext';
 
+import { useMemo } from 'react';
+import { communitySpaces } from '@/demo/community-spaces';
+
 export default function CommunitySpaceScreen() {
   const router = useRouter();
   const { language } = useLanguage();
@@ -11,20 +14,36 @@ export default function CommunitySpaceScreen() {
     spaceId: string;
   }>();
 
+  const space = useMemo(() => {
+    return communitySpaces.find(
+      (s) => s.id === spaceId && s.role === role
+    );
+  }, [spaceId, role]);
+
+  if (!space) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>
+          {language === 'sw'
+            ? 'Nafasi haipatikani'
+            : 'Space not found'}
+        </Text>
+      </View>
+    );
+  }  
+
   return (
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Pressable onPress={() => router.back()}>
-          <Text style={styles.back}>←</Text>
-        </Pressable>
-
         <View>
           <Text style={styles.title}>
-            Community Space
+            {space.title[language]}
           </Text>
           <Text style={styles.subtitle}>
-            Members
+            {language === 'sw'
+              ? `Wanachama ${space.memberCount}`
+              : `${space.memberCount} Members`}
           </Text>
         </View>
       </View>
@@ -76,6 +95,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: tokens.spacing.lg,
     gap: tokens.spacing.md,
     padding: tokens.spacing.lg,
     borderBottomWidth: 1,
@@ -89,9 +109,22 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: tokens.typography.size.md,
-    fontWeight: tokens.typography.weight.semibold,
+    fontSize: tokens.typography.size.xl,
+    fontWeight: tokens.typography.weight.bold,
     color: tokens.colors.text.primary,
+    marginBottom: tokens.spacing.xs,
+  },
+
+  metaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
+  
+  memberCount: {
+    fontSize: tokens.typography.size.sm,
+    color: tokens.colors.text.muted,
+    fontWeight: tokens.typography.weight.medium,
   },
 
   subtitle: {
