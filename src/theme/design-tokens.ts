@@ -20,6 +20,7 @@ export const colors = {
     card: '#FFFFFF',
     subtle: '#F9FAFB',
     soft: '#F3F4F6',
+    light: '#D9E1F2'
   },
 
   border: {
