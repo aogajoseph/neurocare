@@ -8,10 +8,10 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Paperclip, Send } from 'lucide-react-native';
+import { useMemo, useState, useRef } from 'react';
 
 import { tokens } from '@/theme/design-tokens';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { useMemo, useState, useRef } from 'react';
 import { communitySpaces } from '@/demo/community-spaces';
 import { communityMessages, CommunityMessage } from '@/demo/community-messages';
 
@@ -34,7 +34,9 @@ const getDayLabel = (iso: string) => {
 export default function CommunitySpaceScreen() {
   const router = useRouter();
   const { language } = useLanguage();
-  const { role, spaceId } = useLocalSearchParams<{ role: string; spaceId: string }>();
+  const { role, spaceId } =
+    useLocalSearchParams<{ role: string; spaceId: string }>();
+
   const [isMember, setIsMember] = useState(false);
 
   // Load space metadata
@@ -46,11 +48,16 @@ export default function CommunitySpaceScreen() {
   const messages = useMemo(() => {
     return communityMessages
       .filter((msg) => msg.spaceId === spaceId && msg.author.role !== 'system')
-      .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+      .sort(
+        (a, b) =>
+          new Date(a.createdAt).getTime() -
+          new Date(b.createdAt).getTime()
+      );
   }, [spaceId]);
 
   // State for chat messages and input
-  const [chatMessages, setChatMessages] = useState<CommunityMessage[]>(messages);
+  const [chatMessages, setChatMessages] =
+    useState<CommunityMessage[]>(messages);
   const [newMessage, setNewMessage] = useState('');
   const flatListRef = useRef<FlatList>(null);
 
@@ -86,65 +93,92 @@ export default function CommunitySpaceScreen() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>
-          {language === 'sw' ? 'Nafasi haipatikani' : 'Space not found'}
+          {language === 'sw'
+            ? 'Nafasi haipatikani'
+            : 'Space not found'}
         </Text>
       </View>
     );
   }
 
   // Render each message
-  const renderMessage = ({ item, index }: { item: CommunityMessage; index: number }) => {
-    const isModerator = item.author.role === 'system' || item.author.role === 'moderator';
+  const renderMessage = ({
+    item,
+    index,
+  }: {
+    item: CommunityMessage;
+    index: number;
+  }) => {
+    const isModerator =
+      item.author.role === 'system' ||
+      item.author.role === 'moderator';
     const loggedInUserId = 'caregiver';
     const isMe = item.author.id === loggedInUserId;
 
-    // Day separator logic
     const currentDayLabel = getDayLabel(item.createdAt);
-    const nextMessage = index < chatMessages.length - 1 ? chatMessages[index + 1] : null;
-    const nextDayLabel = nextMessage ? getDayLabel(nextMessage.createdAt) : null;
+    const nextMessage =
+      index < chatMessages.length - 1
+        ? chatMessages[index + 1]
+        : null;
+    const nextDayLabel = nextMessage
+      ? getDayLabel(nextMessage.createdAt)
+      : null;
     const showDayLabel = currentDayLabel !== nextDayLabel;
 
     return (
       <>
-
-        {/* Day separator above the first message of each group */}
         {showDayLabel && (
-            <View style={styles.daySeparator}>
-              <Text style={styles.daySeparatorText}>{currentDayLabel}</Text>
-            </View>
-          )}
+          <View style={styles.daySeparator}>
+            <Text style={styles.daySeparatorText}>
+              {currentDayLabel}
+            </Text>
+          </View>
+        )}
 
         <View
           style={[
             styles.messageContainer,
-            isModerator ? styles.moderatorMessageContainer : styles.userMessageContainer,
+            isModerator
+              ? styles.moderatorMessageContainer
+              : styles.userMessageContainer,
           ]}
         >
-          {/* Avatar */}
           <View style={styles.avatarPlaceholder}>
-            <Text style={styles.avatarText}>{(item.author.name[0] || '?').toUpperCase()}</Text>
+            <Text style={styles.avatarText}>
+              {(item.author.name[0] || '?').toUpperCase()}
+            </Text>
           </View>
 
-          {/* Message bubble */}
           <View
             style={[
               styles.messageBubble,
               isMe && styles.myMessageBubble,
-              isModerator && styles.moderatorMessageBubble,
+              isModerator &&
+                styles.moderatorMessageBubble,
             ]}
           >
-            <Text style={styles.messageSender}>{item.author.name}</Text>
-            {isModerator && <Text style={styles.moderatorTag}>Moderator</Text>}
-            <Text style={styles.messageText}>{item.content[language]}</Text>
+            <Text style={styles.messageSender}>
+              {item.author.name}
+            </Text>
+            {isModerator && (
+              <Text style={styles.moderatorTag}>
+                Moderator
+              </Text>
+            )}
+            <Text style={styles.messageText}>
+              {item.content[language]}
+            </Text>
             <Text style={styles.timestamp}>
-              {new Date(item.createdAt).toLocaleTimeString([], {
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
+              {new Date(item.createdAt).toLocaleTimeString(
+                [],
+                {
+                  hour: '2-digit',
+                  minute: '2-digit',
+                }
+              )}
             </Text>
           </View>
         </View>
-
       </>
     );
   };
@@ -154,7 +188,9 @@ export default function CommunitySpaceScreen() {
       {/* Header */}
       <View style={styles.header}>
         <View style={{ flex: 1 }}>
-          <Text style={styles.title}>{space.title[language]}</Text>
+          <Text style={styles.title}>
+            {space.title[language]}
+          </Text>
           <Text style={styles.subtitle}>
             {language === 'sw'
               ? `Wanachama ${space.memberCount}`
@@ -165,9 +201,13 @@ export default function CommunitySpaceScreen() {
         <Pressable
           style={[
             styles.joinLeaveButton,
-            isMember ? styles.leaveButton : styles.joinButton,
+            isMember
+              ? styles.leaveButton
+              : styles.joinButton,
           ]}
-          onPress={() => setIsMember((prev) => !prev)}
+          onPress={() =>
+            setIsMember((prev) => !prev)
+          }
         >
           <Text
             style={[
@@ -176,8 +216,12 @@ export default function CommunitySpaceScreen() {
             ]}
           >
             {isMember
-              ? language === 'sw' ? 'Ondoka' : 'Leave'
-              : language === 'sw' ? 'Jiunge' : 'Join'}
+              ? language === 'sw'
+                ? 'Ondoka'
+                : 'Leave'
+              : language === 'sw'
+              ? 'Jiunge'
+              : 'Join'}
           </Text>
         </Pressable>
       </View>
@@ -192,23 +236,50 @@ export default function CommunitySpaceScreen() {
       />
 
       {/* Composer */}
-      <View style={styles.composer}>
-        <View style={styles.inputRow}>
-          <TextInput
-            placeholder={language === 'sw' ? 'Andika ujumbe...' : 'Type a message...'}
-            style={styles.input}
-            value={newMessage}
-            onChangeText={setNewMessage}
-          />
-          <Pressable style={styles.attachButton} onPress={() => console.log('Attach clicked')}>
-            <Paperclip size={24} color={tokens.colors.text.muted} />
+      {isMember ? (
+        <View style={styles.composer}>
+          <View style={styles.inputRow}>
+            <TextInput
+              style={styles.input}
+              value={newMessage}
+              onChangeText={setNewMessage}
+              placeholder={
+                language === 'sw'
+                  ? 'Andika ujumbe...'
+                  : 'Write a message...'
+              }
+              placeholderTextColor={
+                tokens.colors.text.muted
+              }
+            />
+
+            <Pressable style={styles.attachButton}>
+              <Paperclip
+                size={18}
+                color={tokens.colors.text.muted}
+              />
+            </Pressable>
+          </View>
+
+          <Pressable
+            style={styles.sendButton}
+            onPress={sendMessage}
+          >
+            <Send
+              size={18}
+              color={tokens.colors.text.inverse}
+            />
           </Pressable>
         </View>
-
-        <Pressable style={styles.sendButton} onPress={sendMessage}>
-          <Send size={20} color={tokens.colors.text.inverse} />
-        </Pressable>
-      </View>
+      ) : (
+        <View style={styles.composerDisabled}>
+          <Text style={styles.composerHint}>
+            {language === 'sw'
+              ? 'Jiunge ili uweze kutuma ujumbe'
+              : 'Join this space to send messages'}
+          </Text>
+        </View>
+      )}
     </View>
   );
 }
@@ -216,7 +287,6 @@ export default function CommunitySpaceScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: tokens.colors.surface.background },
 
-  // Header
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -227,56 +297,63 @@ const styles = StyleSheet.create({
     borderColor: tokens.colors.border.subtle,
     backgroundColor: tokens.colors.surface.card,
   },
+
   title: {
     fontSize: tokens.typography.size.xl,
     fontWeight: tokens.typography.weight.bold,
     color: tokens.colors.text.primary,
     marginBottom: tokens.spacing.xs,
   },
+
   subtitle: {
     fontSize: tokens.typography.size.sm,
     color: tokens.colors.text.muted,
   },
+
   joinLeaveButton: {
     paddingHorizontal: tokens.spacing.md,
     paddingVertical: tokens.spacing.sm,
     borderRadius: tokens.radius.md,
     borderWidth: 1,
   },
-  
+
   joinButton: {
     borderColor: tokens.colors.brand.primary,
     backgroundColor: tokens.colors.brand.primary,
   },
-  
+
   leaveButton: {
     borderColor: tokens.colors.border.subtle,
     backgroundColor: tokens.colors.surface.soft,
   },
-  
+
   joinLeaveText: {
     fontSize: tokens.typography.size.sm,
     fontWeight: tokens.typography.weight.semibold,
     color: tokens.colors.text.inverse,
   },
-  
+
   leaveButtonText: {
     color: tokens.colors.text.muted,
-  },  
+  },
 
-  // Messages
   messages: {
     flexGrow: 1,
     padding: tokens.spacing.lg,
   },
+
   messageContainer: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     marginBottom: tokens.spacing.md,
     maxWidth: '80%',
   },
+
   moderatorMessageContainer: { alignSelf: 'flex-start' },
-  userMessageContainer: { alignSelf: 'flex-end', flexDirection: 'row-reverse' },
+  userMessageContainer: {
+    alignSelf: 'flex-end',
+    flexDirection: 'row-reverse',
+  },
 
   moderatorTag: {
     fontStyle: 'italic',
@@ -292,10 +369,13 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.colors.brand.secondary,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: tokens.spacing.sm,
-    marginLeft: tokens.spacing.sm,
+    marginHorizontal: tokens.spacing.sm,
   },
-  avatarText: { color: tokens.colors.text.inverse, fontWeight: 'bold' },
+
+  avatarText: {
+    color: tokens.colors.text.inverse,
+    fontWeight: 'bold',
+  },
 
   messageBubble: {
     padding: tokens.spacing.md,
@@ -303,8 +383,15 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.colors.surface.soft,
     maxWidth: '85%',
   },
-  moderatorMessageBubble: { backgroundColor: tokens.colors.surface.light },
-  userMessageBubble: { backgroundColor: tokens.colors.brand.primary },
+
+  moderatorMessageBubble: {
+    backgroundColor: tokens.colors.surface.light,
+  },
+
+  userMessageBubble: {
+    backgroundColor: tokens.colors.brand.primary,
+  },
+
   myMessageBubble: {},
 
   messageSender: {
@@ -313,27 +400,30 @@ const styles = StyleSheet.create({
     marginBottom: tokens.spacing.xs,
     color: tokens.colors.text.primary,
   },
+
   messageText: {
     fontSize: tokens.typography.size.md,
     color: tokens.colors.text.primary,
   },
+
   timestamp: {
     fontSize: tokens.typography.size.xs,
     color: tokens.colors.text.muted,
     marginTop: tokens.spacing.xs,
     alignSelf: 'flex-end',
   },
+
   daySeparator: {
     alignItems: 'center',
     marginVertical: tokens.spacing.md,
   },
+
   daySeparatorText: {
     fontSize: tokens.typography.size.xs,
     color: tokens.colors.text.muted,
     fontStyle: 'italic',
   },
 
-  // Composer
   composer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -343,14 +433,22 @@ const styles = StyleSheet.create({
     borderColor: tokens.colors.border.subtle,
     backgroundColor: tokens.colors.surface.card,
   },
-  input: {
-    flex: 1,
-    backgroundColor: tokens.colors.surface.background,
-    borderRadius: tokens.radius.md,
+
+  composerDisabled: {
     padding: tokens.spacing.md,
-    fontSize: tokens.typography.size.md,
-    color: tokens.colors.text.primary,
+    borderTopWidth: 1,
+    borderColor: tokens.colors.border.subtle,
+    backgroundColor: tokens.colors.surface.soft,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
+
+  composerHint: {
+    fontSize: tokens.typography.size.sm,
+    color: tokens.colors.text.muted,
+    fontStyle: 'italic',
+  },
+
   inputRow: {
     flex: 1,
     flexDirection: 'row',
@@ -359,20 +457,24 @@ const styles = StyleSheet.create({
     borderRadius: tokens.radius.md,
     paddingHorizontal: tokens.spacing.sm,
   },
-  
-  attachButton: {
-    marginLeft: tokens.spacing.sm,
-    padding: tokens.spacing.sm,
-    justifyContent: 'center',
-    alignItems: 'center',
+
+  input: {
+    flex: 1,
+    padding: tokens.spacing.md,
+    fontSize: tokens.typography.size.md,
+    color: tokens.colors.text.primary,
   },
-  
+
+  attachButton: {
+    padding: tokens.spacing.sm,
+  },
+
   sendButton: {
     marginLeft: tokens.spacing.sm,
     backgroundColor: tokens.colors.brand.primary,
     width: 40,
     height: 40,
-    borderRadius: 20, // circular
+    borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
