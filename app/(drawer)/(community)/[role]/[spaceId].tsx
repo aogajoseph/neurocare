@@ -302,6 +302,15 @@ export default function CommunitySpaceScreen() {
         </Pressable>
       </View>
 
+      {/* Moderation Reminder */}
+      <View style={styles.moderationRibbon}>
+        <Text style={styles.moderationText}>
+          {language === 'sw'
+            ? 'Nafasi hii inadhibitiwa, tafadhali uwe na heshima.'
+            : 'This space is moderated, please be respectful.'}
+        </Text>
+      </View>
+
       {/* Messages */}
       <FlatList
         data={chatMessages}
@@ -413,6 +422,22 @@ const styles = StyleSheet.create({
   leaveButtonText: {
     color: tokens.colors.text.muted,
   },
+  
+  moderationRibbon: {
+    paddingVertical: tokens.spacing.sm,
+    paddingHorizontal: tokens.spacing.lg,
+    backgroundColor: tokens.colors.surface.soft,
+    borderBottomWidth: 1,
+    borderColor: tokens.colors.border.subtle,
+  },
+  
+  moderationText: {
+    fontSize: tokens.typography.size.sm,
+    color: tokens.colors.text.muted,
+    textAlign: 'center',
+    fontStyle: 'italic',
+  },
+  
 
   messages: {
     flexGrow: 1,
