@@ -6,6 +6,25 @@ import { useMemo } from 'react';
 import { communitySpaces } from '@/demo/community-spaces';
 import { communityMessages, CommunityMessage } from '@/demo/community-messages';
 
+// Grouped Dates helper function
+const getDayLabel = (iso: string) => {
+  const messageDate = new Date(iso);
+  const today = new Date();
+
+  const startOfToday = new Date(today.setHours(0, 0, 0, 0));
+  const startOfMessageDay = new Date(
+    messageDate.setHours(0, 0, 0, 0)
+  );
+
+  const diffInDays =
+    (startOfToday.getTime() - startOfMessageDay.getTime()) /
+    (1000 * 60 * 60 * 24);
+
+  if (diffInDays < 1) return 'Today';
+  if (diffInDays < 2) return 'Yesterday';
+  return 'A Long Time ago';
+};
+
 export default function CommunitySpaceScreen() {
   const router = useRouter();
   const { language } = useLanguage();
@@ -19,8 +38,19 @@ export default function CommunitySpaceScreen() {
   // Filter demo messages for this space and sort oldest → newest
   const messages = useMemo(() => {
     return communityMessages
-      .filter((msg) => msg.spaceId === spaceId && msg.author.role !== 'system') // ignore system
-      .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+      .filter(
+        (msg) =>
+          msg.spaceId === spaceId &&
+          msg.author.role !== 'system'
+      )
+      // IMPORTANT:
+      // Data must be oldest → newest.
+      // FlatList inverted handles visual order.
+      .sort(
+        (a, b) =>
+          new Date(a.createdAt).getTime() -
+          new Date(b.createdAt).getTime()
+      );
   }, [spaceId]);
 
   if (!space) {
@@ -33,36 +63,67 @@ export default function CommunitySpaceScreen() {
     );
   }
 
-  const renderMessage = ({ item }: { item: CommunityMessage }) => {
+  const renderMessage = ({
+      item,
+      index,
+    }: {
+      item: CommunityMessage;
+      index: number;
+    }) => {
+  
     const isModerator = item.author.role === 'system' || item.author.role === 'moderator';
     const isOtherUser = !isModerator;
+    const currentDayLabel = getDayLabel(item.createdAt);
+
+    // IMPORTANT: FlatList is inverted, so we compare with index + 1
+    const nextMessage =
+      index < messages.length - 1 ? messages[index + 1] : null;
+
+    const nextDayLabel = nextMessage
+      ? getDayLabel(nextMessage.createdAt)
+      : null;
+
+    const showDayLabel = currentDayLabel !== nextDayLabel;
+
     const loggedInUserId = 'caregiver'; // for demo
     const isMe = item.author.id === loggedInUserId;
 
     return (
-      <View
-        style={[
-          styles.messageContainer,
-          isModerator ? styles.moderatorMessageContainer : styles.userMessageContainer,
-        ]}
-      >
-        {/* Avatar */}
-        <View style={styles.avatarPlaceholder}>
-          <Text style={styles.avatarText}>
-            {(item.author.name[0] || '?').toUpperCase()}
-          </Text>
-        </View>
+      <>
+        {/* Day separator */}
+        {showDayLabel && (
+          <View style={styles.daySeparator}>
+            <Text style={styles.daySeparatorText}>
+              {currentDayLabel}
+            </Text>
+          </View>
+        )}
 
-        {/* Message bubble */}
-        <View style={[styles.messageBubble, isMe && styles.myMessageBubble, isModerator && styles.moderatorMessageBubble]}>
-          <Text style={styles.messageSender}>{item.author.name}</Text>
-          {isModerator && <Text style={styles.moderatorTag}>Moderator</Text>}
-          <Text style={styles.messageText}>{item.content[language]}</Text>
-          <Text style={styles.timestamp}>
-            {new Date(item.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-          </Text>
+        <View
+          style={[
+            styles.messageContainer,
+            isModerator ? styles.moderatorMessageContainer : styles.userMessageContainer,
+          ]}
+        >
+          {/* Avatar */}
+          <View style={styles.avatarPlaceholder}>
+            <Text style={styles.avatarText}>
+              {(item.author.name[0] || '?').toUpperCase()}
+            </Text>
+          </View>
+
+          {/* Message bubble */}
+          <View style={[styles.messageBubble, isMe && styles.myMessageBubble, isModerator && styles.moderatorMessageBubble]}>
+            <Text style={styles.messageSender}>{item.author.name}</Text>
+            {isModerator && <Text style={styles.moderatorTag}>Moderator</Text>}
+            <Text style={styles.messageText}>{item.content[language]}</Text>
+            <Text style={styles.timestamp}>
+              {new Date(item.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+            </Text>
+          </View>
         </View>
-      </View>
+        
+      </>
     );
   };
 
@@ -86,7 +147,6 @@ export default function CommunitySpaceScreen() {
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         contentContainerStyle={styles.messages}
-        inverted
       />
 
       {/* Composer */}
@@ -184,12 +244,22 @@ const styles = StyleSheet.create({
     fontSize: tokens.typography.size.md,
     color: tokens.colors.text.primary,
   },
+
   timestamp: {
     fontSize: tokens.typography.size.xs,
     color: tokens.colors.text.muted,
     marginTop: tokens.spacing.xs,
     alignSelf: 'flex-end',
   },
+  daySeparator: {
+    alignItems: 'center',
+    marginVertical: tokens.spacing.md,
+  },
+  daySeparatorText: {
+    fontSize: tokens.typography.size.xs,
+    color: tokens.colors.text.muted,
+    fontStyle: 'italic',
+  },  
 
   // Composer
   composer: {
