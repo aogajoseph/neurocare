@@ -5,6 +5,8 @@ import {
   FlatList,
   TextInput,
   Pressable,
+  Alert,
+  Platform,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Paperclip, Send } from 'lucide-react-native';
@@ -89,18 +91,53 @@ export default function CommunitySpaceScreen() {
 
   // Handle Join/Leave
   const handleJoinLeave = () => {
-    if (isMember) {
+    if (!isMember) {
       addSystemMessage(
-        language === 'sw' ? 'Umeondoka kwenye nafasi hii' : 'You left the space'
-      );
-      setIsMember(false);
-    } else {
-      addSystemMessage(
-        language === 'sw' ? 'Umejiunga na nafasi hii' : 'You joined the space'
+        language === 'sw'
+          ? 'Umejiunga na nafasi hii'
+          : 'You joined the space'
       );
       setIsMember(true);
+      return;
     }
-  };
+  
+    const confirmLeave = () => {
+      addSystemMessage(
+        language === 'sw'
+          ? 'Umeondoka kwenye nafasi hii'
+          : 'You left the space'
+      );
+      setIsMember(false);
+    };
+  
+    if (Platform.OS === 'web') {
+      const confirmed = window.confirm(
+        language === 'sw'
+          ? 'Una uhakika unataka kuondoka kwenye nafasi hii?'
+          : 'Are you sure you want to leave this space?'
+      );
+  
+      if (confirmed) confirmLeave();
+    } else {
+      Alert.alert(
+        language === 'sw' ? 'Ondoka' : 'Leave Space',
+        language === 'sw'
+          ? 'Una uhakika unataka kuondoka kwenye nafasi hii?'
+          : 'Are you sure you want to leave this space?',
+        [
+          {
+            text: language === 'sw' ? 'Hapana' : 'No',
+            style: 'cancel',
+          },
+          {
+            text: language === 'sw' ? 'Ndiyo' : 'Yes',
+            style: 'destructive',
+            onPress: confirmLeave,
+          },
+        ]
+      );
+    }
+  };    
 
   // Composer: send a new message
   const sendMessage = () => {
@@ -294,7 +331,7 @@ export default function CommunitySpaceScreen() {
 
             <Pressable style={styles.attachButton}>
               <Paperclip
-                size={18}
+                size={24}
                 color={tokens.colors.text.muted}
               />
             </Pressable>
