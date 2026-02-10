@@ -35,6 +35,7 @@ export default function CommunitySpaceScreen() {
   const router = useRouter();
   const { language } = useLanguage();
   const { role, spaceId } = useLocalSearchParams<{ role: string; spaceId: string }>();
+  const [isMember, setIsMember] = useState(false);
 
   // Load space metadata
   const space = useMemo(() => {
@@ -152,12 +153,33 @@ export default function CommunitySpaceScreen() {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <View>
+        <View style={{ flex: 1 }}>
           <Text style={styles.title}>{space.title[language]}</Text>
           <Text style={styles.subtitle}>
-            {language === 'sw' ? `Wanachama ${space.memberCount}` : `${space.memberCount} Members`}
+            {language === 'sw'
+              ? `Wanachama ${space.memberCount}`
+              : `${space.memberCount} Members`}
           </Text>
         </View>
+
+        <Pressable
+          style={[
+            styles.joinLeaveButton,
+            isMember ? styles.leaveButton : styles.joinButton,
+          ]}
+          onPress={() => setIsMember((prev) => !prev)}
+        >
+          <Text
+            style={[
+              styles.joinLeaveText,
+              isMember && styles.leaveButtonText,
+            ]}
+          >
+            {isMember
+              ? language === 'sw' ? 'Ondoka' : 'Leave'
+              : language === 'sw' ? 'Jiunge' : 'Join'}
+          </Text>
+        </Pressable>
       </View>
 
       {/* Messages */}
@@ -215,6 +237,32 @@ const styles = StyleSheet.create({
     fontSize: tokens.typography.size.sm,
     color: tokens.colors.text.muted,
   },
+  joinLeaveButton: {
+    paddingHorizontal: tokens.spacing.md,
+    paddingVertical: tokens.spacing.sm,
+    borderRadius: tokens.radius.md,
+    borderWidth: 1,
+  },
+  
+  joinButton: {
+    borderColor: tokens.colors.brand.primary,
+    backgroundColor: tokens.colors.brand.primary,
+  },
+  
+  leaveButton: {
+    borderColor: tokens.colors.border.subtle,
+    backgroundColor: tokens.colors.surface.soft,
+  },
+  
+  joinLeaveText: {
+    fontSize: tokens.typography.size.sm,
+    fontWeight: tokens.typography.weight.semibold,
+    color: tokens.colors.text.inverse,
+  },
+  
+  leaveButtonText: {
+    color: tokens.colors.text.muted,
+  },  
 
   // Messages
   messages: {
