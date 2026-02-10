@@ -61,6 +61,47 @@ export default function CommunitySpaceScreen() {
   const [newMessage, setNewMessage] = useState('');
   const flatListRef = useRef<FlatList>(null);
 
+  // Helper: Add system message
+  const addSystemMessage = (text: string) => {
+    const systemMsg: CommunityMessage = {
+      id: `sys-${Date.now()}`,
+      spaceId,
+      author: {
+        id: 'system',
+        name: 'System',
+        role: 'system',
+        profileImage: '',
+      },
+      content: {
+        en: text,
+        sw: text,
+      },
+      createdAt: new Date().toISOString(),
+    };
+
+    setChatMessages((prev) => [...prev, systemMsg]);
+
+    // scroll to bottom
+    setTimeout(() => {
+      flatListRef.current?.scrollToEnd({ animated: true });
+    }, 100);
+  };
+
+  // Handle Join/Leave
+  const handleJoinLeave = () => {
+    if (isMember) {
+      addSystemMessage(
+        language === 'sw' ? 'Umeondoka kwenye nafasi hii' : 'You left the space'
+      );
+      setIsMember(false);
+    } else {
+      addSystemMessage(
+        language === 'sw' ? 'Umejiunga na nafasi hii' : 'You joined the space'
+      );
+      setIsMember(true);
+    }
+  };
+
   // Composer: send a new message
   const sendMessage = () => {
     if (!newMessage.trim()) return;
@@ -205,9 +246,7 @@ export default function CommunitySpaceScreen() {
               ? styles.leaveButton
               : styles.joinButton,
           ]}
-          onPress={() =>
-            setIsMember((prev) => !prev)
-          }
+          onPress={handleJoinLeave}
         >
           <Text
             style={[
@@ -284,6 +323,7 @@ export default function CommunitySpaceScreen() {
   );
 }
 
+// Styles unchanged
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: tokens.colors.surface.background },
 
