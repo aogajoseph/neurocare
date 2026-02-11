@@ -31,6 +31,7 @@ import { communityMessages, CommunityMessage } from '@/demo/community-messages';
 
 import SpaceModal from '@/components/community/SpaceModal';
 import MemberListModal from '@/components/community/MemberListModal';
+import ShareModal from '@/components/community/ShareModal';
 
 // Helper: Day labels
 const getDayLabel = (iso: string) => {
@@ -58,6 +59,7 @@ export default function CommunitySpaceScreen() {
   const [showMenu, setShowMenu] = useState(false);
   const [showSpaceModal, setShowSpaceModal] = useState(false);
   const [showMembersModal, setShowMembersModal] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
 
   // Load space metadata
   const space = useMemo(() => {
@@ -184,6 +186,27 @@ export default function CommunitySpaceScreen() {
       flatListRef.current?.scrollToEnd({ animated: true });
     }, 100);
   };
+
+  // Share Space function
+  const handleShareSpace = async () => {
+    if (!space?.share) return;
+  
+    const shareText = space.share.message[language];
+  
+    try {
+      if (Platform.OS === 'web') {
+        await navigator.clipboard.writeText(shareText);
+        alert(language === 'sw' ? 'Linki imenakiliwa' : 'Link copied');
+        return;
+      }
+  
+      await Share.share({
+        message: shareText,
+      });
+    } catch (error) {
+      console.log('Share error:', error);
+    }
+  };  
 
   if (!space) {
     return (
@@ -427,8 +450,14 @@ export default function CommunitySpaceScreen() {
               </Text>
             </Pressable>
 
-            <Pressable style={styles.sheetItem}>
-              <Share2 size={18} color={tokens.colors.text.muted} />
+            <Pressable
+              style={styles.sheetItem}
+              onPress={() => {
+                setShowMenu(false);
+                setShowShareModal(true);
+              }}
+            >
+              <Share2 size={18} color={tokens.colors.text.primary} />
               <Text style={styles.sheetText}>
                 {language === 'sw' ? 'Shiriki Space Hii' : 'Share this Space'}
               </Text>
@@ -481,6 +510,15 @@ export default function CommunitySpaceScreen() {
         <MemberListModal
           spaceId={space.id}
           onClose={() => setShowMembersModal(false)}
+        />
+      )}
+
+      {showShareModal && space?.share && (
+        <ShareModal
+          visible={showShareModal}
+          message={space.share.message[language]}
+          onClose={() => setShowShareModal(false)}
+          language={language}
         />
       )}
 

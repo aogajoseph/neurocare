@@ -54,6 +54,14 @@ export type CommunitySpace = {
     canUploadMedia: boolean;
   };
 
+  /** Share metadata */
+  share?: {
+    message: {
+      en: string;
+      sw: string;
+    };
+  };
+
   /** Moderation & safety */
   moderation: {
     level: ModerationLevel;
@@ -155,6 +163,15 @@ export const communitySpaces: CommunitySpace[] = [
         createdOn: '2026-02-11',
       },
     },
+    share: {
+      message: {
+        en: `Join me in the Caregiver Guidance & Counselling space on Neuro Care. A supportive place for caregivers.
+        \n              neurocare://community/caregiver-guidance`,
+        
+        sw: `Jiunge nami kwenye Nafasi ya Mwongozo na Ushauri kwa Walezi ndani ya Neuro Care. Mahali pa msaada kwa walezi.
+        \n              neurocare://community/caregiver-guidance`,
+      },
+    },    
   },
 
   /**
