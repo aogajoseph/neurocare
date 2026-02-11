@@ -9,7 +9,7 @@ import {
   Platform,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { Paperclip, Send } from 'lucide-react-native';
+import { Paperclip, Send, MoreVertical } from 'lucide-react-native';
 import { useMemo, useState, useRef } from 'react';
 
 import { tokens } from '@/theme/design-tokens';
@@ -300,6 +300,14 @@ export default function CommunitySpaceScreen() {
               : 'Join'}
           </Text>
         </Pressable>
+
+        {/* More button */}
+        <Pressable style={styles.moreButton}>
+          <MoreVertical
+            size={20}
+            color={tokens.colors.text.muted}
+          />
+        </Pressable>
       </View>
 
       {/* Moderation Reminder */}
@@ -422,6 +430,20 @@ const styles = StyleSheet.create({
   leaveButtonText: {
     color: tokens.colors.text.muted,
   },
+
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: tokens.spacing.sm,
+  },
+  
+  moreButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },  
   
   moderationRibbon: {
     paddingVertical: tokens.spacing.sm,
