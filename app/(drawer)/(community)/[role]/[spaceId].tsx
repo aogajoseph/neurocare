@@ -30,6 +30,7 @@ import { communitySpaces } from '@/demo/community-spaces';
 import { communityMessages, CommunityMessage } from '@/demo/community-messages';
 
 import SpaceModal from '@/components/community/SpaceModal';
+import MemberListModal from '@/components/community/MemberListModal';
 
 // Helper: Day labels
 const getDayLabel = (iso: string) => {
@@ -56,6 +57,7 @@ export default function CommunitySpaceScreen() {
   const [isMember, setIsMember] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [showSpaceModal, setShowSpaceModal] = useState(false);
+  const [showMembersModal, setShowMembersModal] = useState(false);
 
   // Load space metadata
   const space = useMemo(() => {
@@ -412,8 +414,14 @@ export default function CommunitySpaceScreen() {
               </Text>
             </Pressable>
 
-            <Pressable style={styles.sheetItem}>
-              <Users size={18} color={tokens.colors.text.muted} />
+            <Pressable
+              style={styles.sheetItem}
+              onPress={() => {
+                setShowMenu(false);
+                setShowMembersModal(true);
+              }}
+            >
+              <Users size={18} color={tokens.colors.text.primary} />
               <Text style={styles.sheetText}>
                 {language === 'sw' ? 'Tazama Wanachama' : 'View Members'}
               </Text>
@@ -466,6 +474,13 @@ export default function CommunitySpaceScreen() {
           space={space} // passes the current space object
           onClose={() => setShowSpaceModal(false)}
           language={language}
+        />
+      )}
+
+      {showMembersModal && (
+        <MemberListModal
+          spaceId={space.id}
+          onClose={() => setShowMembersModal(false)}
         />
       )}
 
