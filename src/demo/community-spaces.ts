@@ -37,6 +37,11 @@ export type CommunitySpace = {
     sw: string;
   };
 
+  aboutSpace: {
+    en: string;
+    sw: string;
+  };
+
   /** Membership */
   memberCount: number;
   entryMode: SpaceEntryMode;
@@ -66,6 +71,24 @@ export type CommunitySpace = {
       en: string;
       sw: string;
     };
+    about?: {
+      en: string;
+      sw: string;
+    };
+    guidelines?: {
+      en: string[];
+      sw: string[];
+    };    
+    meta?: {
+      createdBy?: string;
+      moderators?: string[];
+      createdon?: string;
+    };    
+    visuals?: {
+      icon?: string;
+      accentColor?: string;
+    };
+    
   };
 };
 
@@ -88,6 +111,10 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'Emotional support, counselling and guided conversations to help caregivers cope, reflect and regain balance.',
       sw: 'Msaada wa kihisia, ushauri na mazungumzo yanayoongozwa kusaidia walezi kukabiliana na changamoto na kurejesha utulivu.',
     },
+    aboutSpace: {
+      en: 'This space was created to support caregivers navigating the emotional and practical challenges of caring for a loved one. It is a safe place to share experiences, seek guidance, reflect, and find encouragement from peers and professionals. It aims at helping caregivers cope, learn, and connect.',
+      sw: 'Eneo hili limetengenezwa kusaidia walezi wanaokabiliana na changamoto za kihisia na za vitendo za kulea mpendwa. Ni mahali salama pa kushiriki uzoefu, kupata mwongozo, kutafakari, na kupata faraja kutoka kwa wenzao na wataalamu. Lina lengo la kusaidia walezi kukabiliana, kujifunza, na kuungana na wengine.',
+    },
     memberCount: 236,
     entryMode: 'open',
     capabilities: {
@@ -103,12 +130,29 @@ export const communitySpaces: CommunitySpace[] = [
     },
     systemMessages: {
       welcome: {
-        en: 'You are not alone. Share only what feels safe for you.',
-        sw: 'Hauko peke yako. Shiriki kile unachojisikia salama.',
+        en: 'You\'re not alone. Feel free to express yourself, connect with others and take what helps you.',
+        sw: 'Hauko peke yako. Hisi huru kueleza hisia zako, kuungana na wengine, na kuchukua kinachokusaidia.',
       },
       rules: {
-        en: 'Be kind. No medical advice. This space is moderated.',
-        sw: 'Kuwa mpole. Hakuna ushauri wa kitabibu. Nafasi hii inasimamiwa.',
+        en: [
+          'Be kind and respectful to others.',
+          'Do not give medical advice.',
+          'This space is moderated to ensure safety.',
+          'Share only what feels safe for you.',
+          'Respect the privacy and confidentiality of others.',
+        ],
+        sw: [
+          'Kuwa mpole na heshimiana na wengine.',
+          'Usipatie ushauri wa kitabibu.',
+          'Nafasi hii inasimamiwa kuhakikisha usalama.',
+          'Shiriki tu kile unachojisikia salama kushiriki.',
+          'Heshimu faragha na siri za wengine.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. Anne Sambuli',
+        createdOn: '2026-02-11',
       },
     },
   },

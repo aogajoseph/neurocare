@@ -29,6 +29,8 @@ import { useLanguage } from '@/i18n/LanguageContext';
 import { communitySpaces } from '@/demo/community-spaces';
 import { communityMessages, CommunityMessage } from '@/demo/community-messages';
 
+import SpaceModal from '@/components/community/SpaceModal';
+
 // Helper: Day labels
 const getDayLabel = (iso: string) => {
   const messageDate = new Date(iso);
@@ -53,6 +55,7 @@ export default function CommunitySpaceScreen() {
 
   const [isMember, setIsMember] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [showSpaceModal, setShowSpaceModal] = useState(false);
 
   // Load space metadata
   const space = useMemo(() => {
@@ -396,8 +399,14 @@ export default function CommunitySpaceScreen() {
 
           <View style={styles.sheet}>
 
-            <Pressable style={styles.sheetItem}>
-              <Info size={18} color={tokens.colors.text.muted} />
+            <Pressable
+              style={styles.sheetItem}
+              onPress={() => {
+                setShowMenu(false); // close the sheet first
+                setShowSpaceModal(true); // open modal
+              }}
+            >
+              <Info size={18} color={tokens.colors.text.primary} />
               <Text style={styles.sheetText}>
                 {language === 'sw' ? 'Kuhusu Space Hii' : 'About this Space'}
               </Text>
@@ -450,6 +459,14 @@ export default function CommunitySpaceScreen() {
           </View>
 
         </View>
+      )}
+
+      {showSpaceModal && (
+        <SpaceModal
+          space={space} // passes the current space object
+          onClose={() => setShowSpaceModal(false)}
+          language={language}
+        />
       )}
 
     </View>
