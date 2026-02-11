@@ -61,6 +61,7 @@ export default function CommunitySpaceScreen() {
   const [showMembersModal, setShowMembersModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // Load space metadata
   const space = useMemo(() => {
@@ -214,15 +215,24 @@ export default function CommunitySpaceScreen() {
     const nextState = !isMuted;
     setIsMuted(nextState);
   
-    addSystemMessage(
+    showToast(
       nextState
         ? language === 'sw'
-          ? 'Arifa zimezimwa kwa nafasi hii'
-          : 'Notifications muted for this space'
+          ? 'Arifa zimezimwa'
+          : 'Notifications muted'
         : language === 'sw'
-        ? 'Arifa zimewashwa tena'
+        ? 'Arifa zimewashwa'
         : 'Notifications unmuted'
     );
+  };  
+
+  // Notifications Toast
+  const showToast = (message: string) => {
+    setToastMessage(message);
+  
+    setTimeout(() => {
+      setToastMessage(null);
+    }, 2500); // disappears after 2.5s
   };  
 
   if (!space) {
@@ -385,6 +395,13 @@ export default function CommunitySpaceScreen() {
         contentContainerStyle={styles.messages}
         ref={flatListRef}
       />
+
+      {/* Toast */}
+      {toastMessage && (
+        <View style={styles.toast}>
+          <Text style={styles.toastText}>{toastMessage}</Text>
+        </View>
+      )}
 
       {/* Composer */}
       {isMember ? (
@@ -673,6 +690,28 @@ const styles = StyleSheet.create({
 
   destructiveText: {
     color: tokens.colors.state.error,
+  },
+
+  toast: {
+    position: 'absolute',
+    bottom: 90, // sits above composer
+    alignSelf: 'center',
+    backgroundColor: tokens.colors.surface.card,
+    paddingHorizontal: tokens.spacing.lg,
+    paddingVertical: tokens.spacing.sm,
+    borderRadius: tokens.radius.full,
+    borderWidth: 1,
+    borderColor: tokens.colors.border.subtle,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  
+  toastText: {
+    fontSize: tokens.typography.size.sm,
+    color: tokens.colors.text.primary,
+    fontWeight: tokens.typography.weight.medium,
   },  
   
   moderationRibbon: {
