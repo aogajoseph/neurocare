@@ -8,8 +8,20 @@ import {
   Alert,
   Platform,
 } from 'react-native';
+
+import {
+  Info,
+  Users,
+  Share2,
+  BellOff,
+  Shield,
+  Flag,
+  Paperclip, 
+  Send, 
+  MoreVertical,
+} from 'lucide-react-native';
+
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { Paperclip, Send, MoreVertical } from 'lucide-react-native';
 import { useMemo, useState, useRef } from 'react';
 
 import { tokens } from '@/theme/design-tokens';
@@ -40,6 +52,7 @@ export default function CommunitySpaceScreen() {
     useLocalSearchParams<{ role: string; spaceId: string }>();
 
   const [isMember, setIsMember] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   // Load space metadata
   const space = useMemo(() => {
@@ -302,11 +315,11 @@ export default function CommunitySpaceScreen() {
         </Pressable>
 
         {/* More button */}
-        <Pressable style={styles.moreButton}>
-          <MoreVertical
-            size={20}
-            color={tokens.colors.text.muted}
-          />
+        <Pressable
+          style={styles.moreButton}
+          onPress={() => setShowMenu(true)}
+        >
+          <MoreVertical size={20} color={tokens.colors.text.muted} />
         </Pressable>
       </View>
 
@@ -373,6 +386,72 @@ export default function CommunitySpaceScreen() {
           </Text>
         </View>
       )}
+
+      {showMenu && (
+        <View style={styles.sheetOverlay}>
+          <Pressable
+            style={styles.sheetBackdrop}
+            onPress={() => setShowMenu(false)}
+          />
+
+          <View style={styles.sheet}>
+
+            <Pressable style={styles.sheetItem}>
+              <Info size={18} color={tokens.colors.text.muted} />
+              <Text style={styles.sheetText}>
+                {language === 'sw' ? 'Kuhusu Space Hii' : 'About this Space'}
+              </Text>
+            </Pressable>
+
+            <Pressable style={styles.sheetItem}>
+              <Users size={18} color={tokens.colors.text.muted} />
+              <Text style={styles.sheetText}>
+                {language === 'sw' ? 'Tazama Wanachama' : 'View Members'}
+              </Text>
+            </Pressable>
+
+            <Pressable style={styles.sheetItem}>
+              <Share2 size={18} color={tokens.colors.text.muted} />
+              <Text style={styles.sheetText}>
+                {language === 'sw' ? 'Shiriki Space Hii' : 'Share this Space'}
+              </Text>
+            </Pressable>
+
+            <Pressable style={styles.sheetItem}>
+              <BellOff size={18} color={tokens.colors.text.muted} />
+              <Text style={styles.sheetText}>
+                {language === 'sw' ? 'Nyamazisha Arifa' : 'Mute Notifications'}
+              </Text>
+            </Pressable>
+
+            <Pressable style={styles.sheetItem}>
+              <Shield size={18} color={tokens.colors.text.muted} />
+              <Text style={styles.sheetText}>
+                {language === 'sw' ? 'Zana za Uangalizi' : 'Moderation Tools'}
+              </Text>
+            </Pressable>
+
+            <Pressable style={styles.sheetItem}>
+              <Flag size={18} color={tokens.colors.state.error} />
+              <Text style={[styles.sheetText, styles.destructiveText]}>
+                {language === 'sw' ? 'Ripoti Tatizo' : 'Report an Issue'}
+              </Text>
+            </Pressable>
+
+            <Pressable
+              style={[styles.sheetItem, styles.sheetCancel]}
+              onPress={() => setShowMenu(false)}
+            >
+              <Text style={styles.sheetCancelText}>
+                {language === 'sw' ? 'Ghairi' : 'Cancel'}
+              </Text>
+            </Pressable>
+
+          </View>
+
+        </View>
+      )}
+
     </View>
   );
 }
@@ -443,6 +522,55 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  sheetOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
+  },
+  
+  sheetBackdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.2)',
+  },
+  
+  sheet: {
+    backgroundColor: tokens.colors.surface.card,
+    paddingBottom: tokens.spacing.lg,
+    borderTopLeftRadius: tokens.radius.lg,
+    borderTopRightRadius: tokens.radius.lg,
+  },
+
+  sheetItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: tokens.spacing.sm,
+    paddingVertical: tokens.spacing.md,
+    paddingHorizontal: tokens.spacing.lg,
+  },
+  
+  sheetText: {
+    fontSize: tokens.typography.size.md,
+    color: tokens.colors.text.primary,
+  },
+  
+  sheetCancel: {
+    marginTop: tokens.spacing.sm,
+    borderTopWidth: 1,
+    justifyContent: 'center',
+    borderColor: tokens.colors.border.subtle,
+  },
+  
+  sheetCancelText: {
+    fontSize: tokens.typography.size.md,
+    fontWeight: tokens.typography.weight.semibold,
+    color: tokens.colors.text.muted,
+    textAlign: 'center',
+    flex: 1,
+  },
+
+  destructiveText: {
+    color: tokens.colors.state.error,
   },  
   
   moderationRibbon: {
