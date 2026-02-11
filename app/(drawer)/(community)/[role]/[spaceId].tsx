@@ -60,6 +60,7 @@ export default function CommunitySpaceScreen() {
   const [showSpaceModal, setShowSpaceModal] = useState(false);
   const [showMembersModal, setShowMembersModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
 
   // Load space metadata
   const space = useMemo(() => {
@@ -206,6 +207,22 @@ export default function CommunitySpaceScreen() {
     } catch (error) {
       console.log('Share error:', error);
     }
+  };  
+
+  // Toggle Notifications
+  const handleToggleMute = () => {
+    const nextState = !isMuted;
+    setIsMuted(nextState);
+  
+    addSystemMessage(
+      nextState
+        ? language === 'sw'
+          ? 'Arifa zimezimwa kwa nafasi hii'
+          : 'Notifications muted for this space'
+        : language === 'sw'
+        ? 'Arifa zimewashwa tena'
+        : 'Notifications unmuted'
+    );
   };  
 
   if (!space) {
@@ -463,10 +480,25 @@ export default function CommunitySpaceScreen() {
               </Text>
             </Pressable>
 
-            <Pressable style={styles.sheetItem}>
-              <BellOff size={18} color={tokens.colors.text.muted} />
+            <Pressable
+              style={styles.sheetItem}
+              onPress={() => {
+                setShowMenu(false);
+                handleToggleMute();
+              }}
+            >
+              <BellOff
+                size={18}
+                color={isMuted ? tokens.colors.brand.primary : tokens.colors.text.muted}
+              />
               <Text style={styles.sheetText}>
-                {language === 'sw' ? 'Nyamazisha Arifa' : 'Mute Notifications'}
+                {isMuted
+                  ? language === 'sw'
+                    ? 'Washa Arifa'
+                    : 'Unmute Notifications'
+                  : language === 'sw'
+                  ? 'Nyamazisha Arifa'
+                  : 'Mute Notifications'}
               </Text>
             </Pressable>
 
