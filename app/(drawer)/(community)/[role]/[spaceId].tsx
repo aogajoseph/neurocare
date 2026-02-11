@@ -32,6 +32,7 @@ import { communityMessages, CommunityMessage } from '@/demo/community-messages';
 import SpaceModal from '@/components/community/SpaceModal';
 import MemberListModal from '@/components/community/MemberListModal';
 import ShareModal from '@/components/community/ShareModal';
+import ReportIssueModal from '@/components/community/ReportIssueModal';
 
 // Helper: Day labels
 const getDayLabel = (iso: string) => {
@@ -62,6 +63,7 @@ export default function CommunitySpaceScreen() {
   const [showShareModal, setShowShareModal] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [showReportModal, setShowReportModal] = useState(false);
 
   // Load space metadata
   const space = useMemo(() => {
@@ -526,7 +528,13 @@ export default function CommunitySpaceScreen() {
               </Text>
             </Pressable>
 
-            <Pressable style={styles.sheetItem}>
+            <Pressable
+              style={styles.sheetItem}
+              onPress={() => {
+                setShowMenu(false);
+                setShowReportModal(true);
+              }}
+            >
               <Flag size={18} color={tokens.colors.state.error} />
               <Text style={[styles.sheetText, styles.destructiveText]}>
                 {language === 'sw' ? 'Ripoti Tatizo' : 'Report an Issue'}
@@ -570,6 +578,12 @@ export default function CommunitySpaceScreen() {
           language={language}
         />
       )}
+
+      <ReportIssueModal
+        visible={showReportModal}
+        onClose={() => setShowReportModal(false)}
+        language={language}
+      />
 
     </View>
   );
