@@ -29,10 +29,12 @@ import { useLanguage } from '@/i18n/LanguageContext';
 import { communitySpaces } from '@/demo/community-spaces';
 import { communityMessages, CommunityMessage } from '@/demo/community-messages';
 
+// Modals
 import SpaceModal from '@/components/community/SpaceModal';
 import MemberListModal from '@/components/community/MemberListModal';
 import ShareModal from '@/components/community/ShareModal';
 import ReportIssueModal from '@/components/community/ReportIssueModal';
+import ModerationToolsModal from '@/components/community/ModerationToolsModal';
 
 // Helper: Day labels
 const getDayLabel = (iso: string) => {
@@ -55,7 +57,9 @@ export default function CommunitySpaceScreen() {
   const { language } = useLanguage();
   const { role, spaceId } =
     useLocalSearchParams<{ role: string; spaceId: string }>();
+  const isModerator = role === 'moderator';  
 
+  // State
   const [isMember, setIsMember] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [showSpaceModal, setShowSpaceModal] = useState(false);
@@ -64,6 +68,7 @@ export default function CommunitySpaceScreen() {
   const [isMuted, setIsMuted] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [showReportModal, setShowReportModal] = useState(false);
+  const [showModerationModal, setShowModerationModal] = useState(false);
 
   // Load space metadata
   const space = useMemo(() => {
@@ -257,7 +262,7 @@ export default function CommunitySpaceScreen() {
     item: CommunityMessage;
     index: number;
   }) => {
-    const isModerator =
+    const isMessageModerator =
       item.author.role === 'system' ||
       item.author.role === 'moderator';
     const loggedInUserId = 'caregiver';
@@ -286,7 +291,7 @@ export default function CommunitySpaceScreen() {
         <View
           style={[
             styles.messageContainer,
-            isModerator
+            isMessageModerator
               ? styles.moderatorMessageContainer
               : styles.userMessageContainer,
           ]}
@@ -301,14 +306,14 @@ export default function CommunitySpaceScreen() {
             style={[
               styles.messageBubble,
               isMe && styles.myMessageBubble,
-              isModerator &&
+              isMessageModerator &&
                 styles.moderatorMessageBubble,
             ]}
           >
             <Text style={styles.messageSender}>
               {item.author.name}
             </Text>
-            {isModerator && (
+            {isMessageModerator && (
               <Text style={styles.moderatorTag}>
                 Moderator
               </Text>
@@ -380,7 +385,7 @@ export default function CommunitySpaceScreen() {
         </Pressable>
       </View>
 
-      {/* Moderation Reminder */}
+      {/* Moderation Notice */}
       <View style={styles.moderationRibbon}>
         <Text style={styles.moderationText}>
           {language === 'sw'
@@ -521,8 +526,14 @@ export default function CommunitySpaceScreen() {
               </Text>
             </Pressable>
 
-            <Pressable style={styles.sheetItem}>
-              <Shield size={18} color={tokens.colors.text.muted} />
+            <Pressable
+              style={styles.sheetItem}
+              onPress={() => {
+                setShowMenu(false);
+                setShowModerationModal(true);
+              }}
+            >
+              <Shield size={18} color={tokens.colors.text.primary} />
               <Text style={styles.sheetText}>
                 {language === 'sw' ? 'Zana za Uangalizi' : 'Moderation Tools'}
               </Text>
@@ -582,6 +593,13 @@ export default function CommunitySpaceScreen() {
       <ReportIssueModal
         visible={showReportModal}
         onClose={() => setShowReportModal(false)}
+        language={language}
+      />
+
+      <ModerationToolsModal
+        visible={showModerationModal}
+        onClose={() => setShowModerationModal(false)}
+        isModerator={role === 'moderator'}
         language={language}
       />
 
