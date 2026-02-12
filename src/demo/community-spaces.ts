@@ -67,6 +67,7 @@ export type CommunitySpace = {
     level: ModerationLevel;
     showGuidelines: boolean;
     escalationPath?: 'admin' | 'professional' | 'external';
+    status?: 'active' | 'frozen';
   };
 
   /** System messages */
@@ -119,6 +120,7 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'Emotional support, counselling and guided conversations to help caregivers cope, reflect and regain balance.',
       sw: 'Msaada wa kihisia, ushauri na mazungumzo yanayoongozwa kusaidia walezi kukabiliana na changamoto na kurejesha utulivu.',
     },
+    status: 'active',
     aboutSpace: {
       en: 'This space was created to support caregivers navigating the emotional and practical challenges of caring for a loved one. It is a safe place to share experiences, seek guidance, reflect, and find encouragement from peers and professionals. It aims at helping caregivers cope, learn, and connect.',
       sw: 'Eneo hili limetengenezwa kusaidia walezi wanaokabiliana na changamoto za kihisia na za vitendo za kulea mpendwa. Ni mahali salama pa kushiriki uzoefu, kupata mwongozo, kutafakari, na kupata faraja kutoka kwa wenzao na wataalamu. Lina lengo la kusaidia walezi kukabiliana, kujifunza, na kuungana na wengine.',

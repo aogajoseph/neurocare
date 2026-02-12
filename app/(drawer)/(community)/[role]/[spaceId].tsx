@@ -75,6 +75,11 @@ export default function CommunitySpaceScreen() {
     return communitySpaces.find((s) => s.id === spaceId && s.role === role);
   }, [spaceId, role]);
 
+  const [spaceStatus, setSpaceStatus] = useState<'active' | 'frozen'>(
+    space.status ?? 'active'
+  );
+  const isFrozen = spaceStatus === 'frozen';
+
   // Filter demo messages for this space, sort oldest → newest
   const messages = useMemo(() => {
     return communityMessages
@@ -170,8 +175,10 @@ export default function CommunitySpaceScreen() {
 
   // Composer: send a new message
   const sendMessage = () => {
-    if (!newMessage.trim()) return;
-
+    if (!isMember) return;          // safety guard
+    if (isFrozen) return;           // prevent sending when frozen
+    if (!newMessage.trim()) return; // empty message guard
+  
     const newMsg: CommunityMessage = {
       id: `msg-${Date.now()}`,
       spaceId,
@@ -187,14 +194,14 @@ export default function CommunitySpaceScreen() {
       },
       createdAt: new Date().toISOString(),
     };
-
-    setChatMessages((prev) => [...prev, newMsg]);
+  
+    setChatMessages(prev => [...prev, newMsg]);
     setNewMessage('');
-
+  
     setTimeout(() => {
       flatListRef.current?.scrollToEnd({ animated: true });
     }, 100);
-  };
+  };  
 
   // Share Space function
   const handleShareSpace = async () => {
@@ -231,6 +238,57 @@ export default function CommunitySpaceScreen() {
         ? 'Arifa zimewashwa'
         : 'Notifications unmuted'
     );
+  };  
+
+  // Freeze Space handler
+  const handleFreezeSpace = () => {
+    if (!isModerator) return;
+  
+    setSpaceStatus(prevStatus => {
+      const nextStatus = prevStatus === 'frozen' ? 'active' : 'frozen';
+  
+      addSystemMessage(
+        nextStatus === 'frozen'
+          ? language === 'sw'
+            ? 'Nafasi hii imegandishwa kwa muda na msimamizi'
+            : 'This space has been frozen by the moderator'
+          : language === 'sw'
+          ? 'Nafasi hii imefunguliwa tena'
+          : 'This space has been reopened'
+      );
+  
+      return nextStatus;
+    });
+  };  
+
+  // Toggle Freeze Space function
+  const toggleFreezeSpace = () => {
+    setIsFrozen(prev => {
+      const nextState = !prev;
+  
+      // Add system message
+      setMessages(current => [
+        ...current,
+        {
+          id: `system-${Date.now()}`,
+          text:
+            language === 'sw'
+              ? nextState
+                ? 'Nafasi imegandishwa na msimamizi.'
+                : 'Nafasi imeondolewa kwenye hali ya kugandishwa.'
+              : nextState
+                ? 'This space has been frozen by a moderator.'
+                : 'This space has been unfrozen.',
+          createdAt: new Date().toISOString(),
+          author: { role: 'system' },
+        },
+      ]);
+  
+      return nextState;
+    });
+  
+    // Optional UI cleanup
+    setShowModerationModal(false);
   };  
 
   // Notifications Toast
@@ -394,6 +452,17 @@ export default function CommunitySpaceScreen() {
         </Text>
       </View>
 
+      {/* Space Frozen Banner */}
+      {isFrozen && (
+        <View style={styles.frozenBanner}>
+          <Text style={styles.frozenText}>
+            {language === 'sw'
+              ? 'Nafasi hii imegandishwa na msimamizi'
+              : 'This space is currently frozen by the moderator'}
+          </Text>
+        </View>
+      )}
+
       {/* Messages */}
       <FlatList
         data={chatMessages}
@@ -412,23 +481,34 @@ export default function CommunitySpaceScreen() {
 
       {/* Composer */}
       {isMember ? (
-        <View style={styles.composer}>
+        <View
+          style={[
+            styles.composer,
+            isFrozen && styles.composerFrozen,
+          ]}
+        >
           <View style={styles.inputRow}>
             <TextInput
               style={styles.input}
               value={newMessage}
               onChangeText={setNewMessage}
+              editable={!isFrozen}   // ✅ KEY CHANGE
               placeholder={
-                language === 'sw'
-                  ? 'Andika ujumbe...'
-                  : 'Write a message...'
+                isFrozen
+                  ? language === 'sw'
+                    ? 'Nafasi imegandishwa'
+                    : 'Space is frozen'
+                  : language === 'sw'
+                    ? 'Andika ujumbe...'
+                    : 'Write a message...'
               }
-              placeholderTextColor={
-                tokens.colors.text.muted
-              }
+              placeholderTextColor={tokens.colors.text.muted}
             />
 
-            <Pressable style={styles.attachButton}>
+            <Pressable
+              style={styles.attachButton}
+              disabled={isFrozen}    // ✅ disable attachments
+            >
               <Paperclip
                 size={24}
                 color={tokens.colors.text.muted}
@@ -437,8 +517,12 @@ export default function CommunitySpaceScreen() {
           </View>
 
           <Pressable
-            style={styles.sendButton}
+            style={[
+              styles.sendButton,
+              isFrozen && styles.sendButtonDisabled,
+            ]}
             onPress={sendMessage}
+            disabled={isFrozen}      // ✅ disable send
           >
             <Send
               size={18}
@@ -600,6 +684,11 @@ export default function CommunitySpaceScreen() {
         visible={showModerationModal}
         onClose={() => setShowModerationModal(false)}
         isModerator={role === 'moderator'}
+        onFreezeSpace={handleFreezeSpace}
+        isFrozen={isFrozen}
+        onFreezeToggle={() =>
+          setSpaceStatus(prev => (prev === 'frozen' ? 'active' : 'frozen'))
+        }
         language={language}
       />
 
@@ -787,6 +876,19 @@ const styles = StyleSheet.create({
     marginBottom: tokens.spacing.xs,
   },
 
+  frozenBanner: {
+    backgroundColor: tokens.colors.state.warning,
+    paddingVertical: tokens.spacing.sm,
+    paddingHorizontal: tokens.spacing.md,
+    alignItems: 'center',
+  },
+  
+  frozenText: {
+    fontSize: tokens.typography.size.sm,
+    color: tokens.colors.state.text,
+    fontWeight: tokens.typography.weight.medium,
+  },    
+
   avatarPlaceholder: {
     width: 36,
     height: 36,
@@ -903,4 +1005,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  composerFrozen: {
+    opacity: 0.6,
+  },
+  
+  sendButtonDisabled: {
+    backgroundColor: tokens.colors.surface.disabled,
+  },
+  
 });

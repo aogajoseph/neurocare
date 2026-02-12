@@ -1,17 +1,15 @@
+// src/components/community/ModerationToolsModal.tsx
 import React from 'react';
-import {
-  View,
-  Text,
-  Pressable,
-  StyleSheet,
-} from 'react-native';
+import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { Snowflake, UserX, Lock } from 'lucide-react-native';
 import { tokens } from '@/theme/design-tokens';
-import { Shield, Trash2, UserX, Snowflake } from 'lucide-react-native';
 
 type Props = {
   visible: boolean;
   onClose: () => void;
   isModerator: boolean;
+  onFreezeSpace: () => void;
+  isFrozen: boolean;
   language?: 'en' | 'sw';
 };
 
@@ -19,92 +17,101 @@ export default function ModerationToolsModal({
   visible,
   onClose,
   isModerator,
+  onFreezeSpace,
+  isFrozen,
   language = 'en',
 }: Props) {
   if (!visible) return null;
 
-  const disabled = !isModerator;
+  const disabledStyle = !isModerator ? styles.itemDisabled : null;
 
   return (
     <View style={styles.overlay}>
       <View style={styles.container}>
-
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>
             {language === 'sw'
-              ? 'Zana za Usimamizi (Wasimamizi Pekee)'
+              ? 'Zana za Uangalizi (Wanasimamizi Pekee)'
               : 'Moderation Tools (Moderators Only)'}
           </Text>
-
           <Pressable onPress={onClose}>
             <Text style={styles.close}>✕</Text>
           </Pressable>
         </View>
 
-        {/* Options */}
-        <View style={styles.content}>
+        {/* Freeze Space */}
+        <Pressable
+          style={[styles.item, disabledStyle]}
+          disabled={!isModerator}
+          onPress={onFreezeSpace}
+        >
+          <Snowflake
+            size={18}
+            color={!isModerator
+              ? tokens.colors.text.muted
+              : tokens.colors.text.primary}
+          />
 
-          <Pressable
-            style={[styles.item, disabled && styles.itemDisabled]}
-            disabled={disabled}
-          >
-            <Trash2 size={18} color={tokens.colors.text.primary} />
-            <View>
-              <Text style={styles.label}>
-                {language === 'sw' ? 'Ondoa Ujumbe' : 'Remove Message'}
-              </Text>
-              <Text style={styles.description}>
-                {language === 'sw'
-                  ? 'Futa ujumbe usiofaa'
-                  : 'Delete inappropriate content'}
-              </Text>
-            </View>
-          </Pressable>
+          <View>
+            <Text style={styles.label}>
+              {language === 'sw'
+                ? isFrozen
+                  ? 'Fungua Nafasi'
+                  : 'Gandisha Nafasi'
+                : isFrozen
+                  ? 'Unfreeze Space'
+                  : 'Freeze Space'}
+            </Text>
 
-          <Pressable
-            style={[styles.item, disabled && styles.itemDisabled]}
-            disabled={disabled}
-          >
-            <UserX size={18} color={tokens.colors.text.primary} />
-            <View>
-              <Text style={styles.label}>
-                {language === 'sw' ? 'Ondoa Mtumiaji' : 'Remove User'}
-              </Text>
-              <Text style={styles.description}>
-                {language === 'sw'
-                  ? 'Zuia au ondoa mshiriki'
-                  : 'Restrict or remove a member'}
-              </Text>
-            </View>
-          </Pressable>
-
-          <Pressable
-            style={[styles.item, disabled && styles.itemDisabled]}
-            disabled={disabled}
-          >
-            <Snowflake size={18} color={tokens.colors.text.primary} />
-            <View>
-              <Text style={styles.label}>
-                {language === 'sw' ? 'Gandisha Space' : 'Freeze Space'}
-              </Text>
-              <Text style={styles.description}>
-                {language === 'sw'
-                  ? 'Simamisha shughuli za muda'
+            <Text style={styles.description}>
+              {language === 'sw'
+                ? isFrozen
+                  ? 'Ruhusu shughuli kuendelea'
+                  : 'Simamisha shughuli za muda'
+                : isFrozen
+                  ? 'Allow activity to resume'
                   : 'Temporarily pause activity'}
-              </Text>
-            </View>
-          </Pressable>
+            </Text>
+          </View>
+        </Pressable>
 
-        </View>
+        {/* Remove Message */}
+        <Pressable style={[styles.item, disabledStyle]} disabled={!isModerator}>
+          <UserX size={18} color={tokens.colors.text.primary} />
+          <View>
+            <Text style={styles.label}>
+              {language === 'sw' ? 'Futa Ujumbe' : 'Remove Message'}
+            </Text>
+            <Text style={styles.description}>
+              {language === 'sw'
+                ? 'Ondoa ujumbe ulioingizwa'
+                : 'Remove a specific message'}
+            </Text>
+          </View>
+        </Pressable>
 
-        {/* Footer */}
-        <Pressable style={styles.button} onPress={onClose}>
-          <Text style={styles.buttonText}>
+        {/* Freeze User */}
+        <Pressable style={[styles.item, disabledStyle]} disabled={!isModerator}>
+          <Lock size={18} color={tokens.colors.text.primary} />
+          <View>
+            <Text style={styles.label}>
+              {language === 'sw' ? 'Funga Mtumiaji' : 'Freeze User'}
+            </Text>
+            <Text style={styles.description}>
+              {language === 'sw'
+                ? 'Zuia mtumiaji kuandika'
+                : 'Temporarily block a user from posting'}
+            </Text>
+          </View>
+        </Pressable>
+
+        {/* Close Button */}
+        <Pressable style={styles.closeButton} onPress={onClose}>
+          <Text style={styles.closeButtonText}>
             {language === 'sw' ? 'Funga' : 'Close'}
           </Text>
         </Pressable>
-
       </View>
     </View>
   );
@@ -121,17 +128,18 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.colors.surface.card,
     borderRadius: tokens.radius.lg,
     overflow: 'hidden',
+    maxHeight: '80%',
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
     padding: tokens.spacing.md,
     borderBottomWidth: 1,
     borderColor: tokens.colors.border.subtle,
+    alignItems: 'center',
   },
   title: {
-    fontSize: tokens.typography.size.md,
+    fontSize: tokens.typography.size.lg,
     fontWeight: tokens.typography.weight.bold,
     color: tokens.colors.text.primary,
     flex: 1,
@@ -140,35 +148,32 @@ const styles = StyleSheet.create({
     fontSize: tokens.typography.size.lg,
     color: tokens.colors.text.muted,
   },
-  content: {
-    paddingVertical: tokens.spacing.sm,
-  },
   item: {
     flexDirection: 'row',
+    alignItems: 'center',
     gap: tokens.spacing.sm,
     paddingVertical: tokens.spacing.md,
     paddingHorizontal: tokens.spacing.lg,
-    alignItems: 'center',
   },
   itemDisabled: {
     opacity: 0.4,
   },
   label: {
-    fontSize: tokens.typography.size.sm,
+    fontSize: tokens.typography.size.md,
     fontWeight: tokens.typography.weight.semibold,
     color: tokens.colors.text.primary,
   },
   description: {
-    fontSize: tokens.typography.size.xs,
+    fontSize: tokens.typography.size.sm,
     color: tokens.colors.text.muted,
   },
-  button: {
+  closeButton: {
     padding: tokens.spacing.md,
     borderTopWidth: 1,
     borderColor: tokens.colors.border.subtle,
     alignItems: 'center',
   },
-  buttonText: {
+  closeButtonText: {
     fontSize: tokens.typography.size.md,
     fontWeight: tokens.typography.weight.semibold,
     color: tokens.colors.text.primary,

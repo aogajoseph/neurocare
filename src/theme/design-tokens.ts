@@ -33,6 +33,7 @@ export const colors = {
     warning: '#D97706',
     error: '#B91C1C',
     info: '#2563EB',
+    text: '#111827',
   },
 };
 
