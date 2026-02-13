@@ -1,5 +1,6 @@
 // src/components/community/ModerationToolsModal.tsx
 import React from 'react';
+import { useState } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { Snowflake, UserX, Lock } from 'lucide-react-native';
 import { tokens } from '@/theme/design-tokens';
@@ -8,6 +9,9 @@ type Props = {
   visible: boolean;
   onClose: () => void;
   isModerator: boolean;
+  onFreezeUser: (userId: string) => void;
+  isUserFrozen: boolean;
+  loggedInUserId: string;
   onFreezeSpace: () => void;
   isFrozen: boolean;
   language?: 'en' | 'sw';
@@ -23,7 +27,11 @@ export default function ModerationToolsModal({
 }: Props) {
   if (!visible) return null;
 
+  const [frozenUsers ] = useState<string[]>([]);
+  const loggedInUserId = 'caregiver';
+
   const disabledStyle = !isModerator ? styles.itemDisabled : null;
+  const isUserFrozen = frozenUsers.includes(loggedInUserId);
 
   return (
     <View style={styles.overlay}>
@@ -92,16 +100,28 @@ export default function ModerationToolsModal({
         </Pressable>
 
         {/* Freeze User */}
-        <Pressable style={[styles.item, disabledStyle]} disabled={!isModerator}>
-          <Lock size={18} color={tokens.colors.text.primary} />
+        <Pressable
+          style={[styles.item, !isModerator && styles.itemDisabled]}
+          disabled={!isModerator}
+          onPress={() => onFreezeUser(loggedInUserId)}
+        >
+          <Snowflake size={18} color={tokens.colors.text.primary} />
+
           <View>
             <Text style={styles.label}>
-              {language === 'sw' ? 'Funga Mtumiaji' : 'Freeze User'}
+              {language === 'sw'
+                ? isUserFrozen
+                  ? 'Fungua Mtumiaji'
+                  : 'Gandisha Mtumiaji'
+                : isUserFrozen
+                  ? 'Unfreeze User'
+                  : 'Freeze User'}
             </Text>
+
             <Text style={styles.description}>
               {language === 'sw'
-                ? 'Zuia mtumiaji kuandika'
-                : 'Temporarily block a user from posting'}
+                ? 'Zuia au ruhusu kushiriki'
+                : 'Restrict or restore participation'}
             </Text>
           </View>
         </Pressable>

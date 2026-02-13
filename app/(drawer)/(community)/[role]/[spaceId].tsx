@@ -74,6 +74,7 @@ export default function CommunitySpaceScreen() {
   const [messageToRemove, setMessageToRemove] = useState<string | null>(null);
   const [recentlyRemoved, setRecentlyRemoved] = useState<CommunityMessage | null>(null);
   const [showUndo, setShowUndo] = useState(false);
+  const [frozenUsers, setFrozenUsers] = useState<string[]>([]);
 
   useEffect(() => {
     if (!messageToRemove) return;
@@ -110,7 +111,10 @@ export default function CommunitySpaceScreen() {
   const [spaceStatus, setSpaceStatus] = useState<'active' | 'frozen'>(
     space.status ?? 'active'
   );
+
   const isFrozen = spaceStatus === 'frozen';
+  const loggedInUserId = 'caregiver'; // demo user identity
+  const isUserFrozen = frozenUsers.includes(loggedInUserId);
 
   // Filter demo messages for this space, sort oldest → newest
   const messages = useMemo(() => {
@@ -293,6 +297,29 @@ export default function CommunitySpaceScreen() {
     });
   };  
 
+  // Freeze User handler
+  const handleFreezeUser = (userId: string) => {
+    if (!isModerator) return;
+  
+    const alreadyFrozen = frozenUsers.includes(userId);
+  
+    setFrozenUsers(prev =>
+      alreadyFrozen
+        ? prev.filter(id => id !== userId) // unfreeze
+        : [...prev, userId]                // freeze
+    );
+  
+    addSystemMessage(
+      alreadyFrozen
+        ? language === 'sw'
+          ? 'Mtumiaji ameruhusiwa kushiriki tena'
+          : 'User has been unfrozen by moderator'
+        : language === 'sw'
+          ? 'Mtumiaji amezuiwa kushiriki'
+          : 'User has been frozen by moderator'
+    );
+  };  
+
   // Toggle Freeze Space function
   const toggleFreezeSpace = () => {
     setIsFrozen(prev => {
@@ -345,9 +372,6 @@ export default function CommunitySpaceScreen() {
   }
 
   // Remove Message with Undo
-  const [recentlyRemoved, setRecentlyRemoved] = useState<CommunityMessage | null>(null);
-  const [showUndo, setShowUndo] = useState(false);
-
   const handleRemoveMessage = (messageId: string) => {
     if (!isModerator) return;
 
@@ -599,7 +623,7 @@ export default function CommunitySpaceScreen() {
         <View
           style={[
             styles.composer,
-            isFrozen && styles.composerFrozen,
+            (isFrozen || isUserFrozen) && styles.composerFrozen,
           ]}
         >
           <View style={styles.inputRow}>
@@ -607,22 +631,26 @@ export default function CommunitySpaceScreen() {
               style={styles.input}
               value={newMessage}
               onChangeText={setNewMessage}
-              editable={!isFrozen}   // ✅ KEY CHANGE
+              editable={!isFrozen && !isUserFrozen}
               placeholder={
                 isFrozen
                   ? language === 'sw'
                     ? 'Nafasi imegandishwa'
                     : 'Space is frozen'
-                  : language === 'sw'
-                    ? 'Andika ujumbe...'
-                    : 'Write a message...'
+                  : isUserFrozen
+                    ? language === 'sw'
+                      ? 'Umezuiwa kushiriki'
+                      : 'You are restricted'
+                    : language === 'sw'
+                      ? 'Andika ujumbe...'
+                      : 'Write a message...'
               }
               placeholderTextColor={tokens.colors.text.muted}
             />
 
             <Pressable
               style={styles.attachButton}
-              disabled={isFrozen}    // ✅ disable attachments
+              disabled={isFrozen || isUserFrozen}
             >
               <Paperclip
                 size={24}
@@ -634,10 +662,10 @@ export default function CommunitySpaceScreen() {
           <Pressable
             style={[
               styles.sendButton,
-              isFrozen && styles.sendButtonDisabled,
+              (isFrozen || isUserFrozen) && styles.sendButtonDisabled,
             ]}
             onPress={sendMessage}
-            disabled={isFrozen}      // ✅ disable send
+            disabled={isFrozen || isUserFrozen}
           >
             <Send
               size={18}
@@ -648,9 +676,13 @@ export default function CommunitySpaceScreen() {
       ) : (
         <View style={styles.composerDisabled}>
           <Text style={styles.composerHint}>
-            {language === 'sw'
-              ? 'Jiunge ili uweze kutuma ujumbe'
-              : 'Join this space to send messages'}
+            {isUserFrozen
+              ? language === 'sw'
+                ? 'Umezuiwa kushiriki kwenye mazungumzo'
+                : 'You are restricted from participating'
+              : language === 'sw'
+                ? 'Jiunge ili uweze kutuma ujumbe'
+                : 'Join this space to send messages'}
           </Text>
         </View>
       )}
@@ -831,6 +863,9 @@ export default function CommunitySpaceScreen() {
         visible={showModerationModal}
         onClose={() => setShowModerationModal(false)}
         isModerator={role === 'moderator'}
+        onFreezeUser={handleFreezeUser}
+        isUserFrozen={isUserFrozen}
+        loggedInUserId={loggedInUserId}
         onFreezeSpace={handleFreezeSpace}
         isFrozen={isFrozen}
         onFreezeToggle={() =>
