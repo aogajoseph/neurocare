@@ -69,6 +69,8 @@ export default function CommunitySpaceScreen() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [showReportModal, setShowReportModal] = useState(false);
   const [showModerationModal, setShowModerationModal] = useState(false);
+  const [selectedMessage, setSelectedMessage] = useState<CommunityMessage | null>(null);
+  const [showMessageActions, setShowMessageActions] = useState(false); 
 
   // Load space metadata
   const space = useMemo(() => {
@@ -312,6 +314,21 @@ export default function CommunitySpaceScreen() {
     );
   }
 
+  // Remove Message function
+  const handleRemoveMessage = (messageId: string) => {
+    if (!isModerator) return;
+  
+    setChatMessages(prev =>
+      prev.filter(msg => msg.id !== messageId)
+    );
+  
+    addSystemMessage(
+      language === 'sw'
+        ? 'Ujumbe umeondolewa na msimamizi'
+        : 'Message removed by moderator'
+    );
+  };  
+
   // Render each message
   const renderMessage = ({
     item,
@@ -323,6 +340,7 @@ export default function CommunitySpaceScreen() {
     const isMessageModerator =
       item.author.role === 'system' ||
       item.author.role === 'moderator';
+
     const loggedInUserId = 'caregiver';
     const isMe = item.author.id === loggedInUserId;
 
@@ -331,9 +349,11 @@ export default function CommunitySpaceScreen() {
       index < chatMessages.length - 1
         ? chatMessages[index + 1]
         : null;
+
     const nextDayLabel = nextMessage
       ? getDayLabel(nextMessage.createdAt)
       : null;
+
     const showDayLabel = currentDayLabel !== nextDayLabel;
 
     return (
@@ -346,50 +366,60 @@ export default function CommunitySpaceScreen() {
           </View>
         )}
 
-        <View
-          style={[
-            styles.messageContainer,
-            isMessageModerator
-              ? styles.moderatorMessageContainer
-              : styles.userMessageContainer,
-          ]}
-        >
-          <View style={styles.avatarPlaceholder}>
-            <Text style={styles.avatarText}>
-              {(item.author.name[0] || '?').toUpperCase()}
-            </Text>
-          </View>
+        <Pressable
+          onLongPress={() => {
+            if (!isModerator) return;
 
+            setSelectedMessage(item);
+            setShowMessageActions(true);
+          }}
+          delayLongPress={250}
+        >
           <View
             style={[
-              styles.messageBubble,
-              isMe && styles.myMessageBubble,
-              isMessageModerator &&
-                styles.moderatorMessageBubble,
+              styles.messageContainer,
+              isMessageModerator
+                ? styles.moderatorMessageContainer
+                : styles.userMessageContainer,
             ]}
           >
-            <Text style={styles.messageSender}>
-              {item.author.name}
-            </Text>
-            {isMessageModerator && (
-              <Text style={styles.moderatorTag}>
-                Moderator
+            <View style={styles.avatarPlaceholder}>
+              <Text style={styles.avatarText}>
+                {(item.author.name[0] || '?').toUpperCase()}
               </Text>
-            )}
-            <Text style={styles.messageText}>
-              {item.content[language]}
-            </Text>
-            <Text style={styles.timestamp}>
-              {new Date(item.createdAt).toLocaleTimeString(
-                [],
-                {
+            </View>
+
+            <View
+              style={[
+                styles.messageBubble,
+                isMe && styles.myMessageBubble,
+                isMessageModerator &&
+                  styles.moderatorMessageBubble,
+              ]}
+            >
+              <Text style={styles.messageSender}>
+                {item.author.name}
+              </Text>
+
+              {isMessageModerator && (
+                <Text style={styles.moderatorTag}>
+                  Moderator
+                </Text>
+              )}
+
+              <Text style={styles.messageText}>
+                {item.content[language]}
+              </Text>
+
+              <Text style={styles.timestamp}>
+                {new Date(item.createdAt).toLocaleTimeString([], {
                   hour: '2-digit',
                   minute: '2-digit',
-                }
-              )}
-            </Text>
+                })}
+              </Text>
+            </View>
           </View>
-        </View>
+        </Pressable>
       </>
     );
   };
@@ -674,6 +704,39 @@ export default function CommunitySpaceScreen() {
         />
       )}
 
+      {showMessageActions && selectedMessage && (
+        <View style={styles.messageActionsOverlay}>
+          <View style={styles.messageActionsSheet}>
+
+            <Pressable
+              style={styles.messageActionItem}
+              onPress={() => {
+                handleRemoveMessage(selectedMessage.id);
+                setShowMessageActions(false);
+                setSelectedMessage(null);
+              }}
+            >
+              <Text style={styles.removeText}>
+                {language === 'sw' ? 'Ondoa Ujumbe' : 'Remove Message'}
+              </Text>
+            </Pressable>
+
+            <Pressable
+              style={styles.messageActionItem}
+              onPress={() => {
+                setShowMessageActions(false);
+                setSelectedMessage(null);
+              }}
+            >
+              <Text>
+                {language === 'sw' ? 'Ghairi' : 'Cancel'}
+              </Text>
+            </Pressable>
+
+          </View>
+        </View>
+      )}
+
       <ReportIssueModal
         visible={showReportModal}
         onClose={() => setShowReportModal(false)}
@@ -868,6 +931,29 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     flexDirection: 'row-reverse',
   },
+
+  messageActionsOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.25)',
+    justifyContent: 'flex-end',
+  },
+  
+  messageActionsSheet: {
+    backgroundColor: tokens.colors.surface.card,
+    paddingBottom: tokens.spacing.lg,
+    borderTopLeftRadius: tokens.radius.lg,
+    borderTopRightRadius: tokens.radius.lg,
+  },
+  
+  messageActionItem: {
+    paddingVertical: tokens.spacing.md,
+    paddingHorizontal: tokens.spacing.lg,
+  },
+  
+  removeText: {
+    color: tokens.colors.state.error,
+    fontWeight: tokens.typography.weight.semibold,
+  },  
 
   moderatorTag: {
     fontStyle: 'italic',
