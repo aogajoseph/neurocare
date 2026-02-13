@@ -22,7 +22,7 @@ import {
 } from 'lucide-react-native';
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { useMemo, useState, useRef } from 'react';
+import { useMemo, useState, useRef, useEffect } from 'react';
 
 import { tokens } from '@/theme/design-tokens';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -59,7 +59,7 @@ export default function CommunitySpaceScreen() {
     useLocalSearchParams<{ role: string; spaceId: string }>();
   const isModerator = role === 'moderator';  
 
-  // State
+  // Hooks
   const [isMember, setIsMember] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [showSpaceModal, setShowSpaceModal] = useState(false);
@@ -71,6 +71,34 @@ export default function CommunitySpaceScreen() {
   const [showModerationModal, setShowModerationModal] = useState(false);
   const [selectedMessage, setSelectedMessage] = useState<CommunityMessage | null>(null);
   const [showMessageActions, setShowMessageActions] = useState(false); 
+  const [messageToRemove, setMessageToRemove] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!messageToRemove) return;
+  
+    Alert.alert(
+      language === 'sw' ? 'Ondoa Ujumbe' : 'Remove Message',
+      language === 'sw'
+        ? 'Una uhakika unataka kuondoa ujumbe huu?'
+        : 'Are you sure you want to remove this message?',
+      [
+        {
+          text: language === 'sw' ? 'Ghairi' : 'Cancel',
+          style: 'cancel',
+          onPress: () => setMessageToRemove(null),
+        },
+        {
+          text: language === 'sw' ? 'Ondoa' : 'Remove',
+          style: 'destructive',
+          onPress: () => {
+            handleRemoveMessage(messageToRemove);
+            setMessageToRemove(null);
+            setSelectedMessage(null);
+          },
+        },
+      ]
+    );
+  }, [messageToRemove]);  
 
   // Load space metadata
   const space = useMemo(() => {
@@ -711,10 +739,9 @@ export default function CommunitySpaceScreen() {
             <Pressable
               style={styles.messageActionItem}
               onPress={() => {
-                handleRemoveMessage(selectedMessage.id);
+                setMessageToRemove(selectedMessage.id);
                 setShowMessageActions(false);
-                setSelectedMessage(null);
-              }}
+              }}              
             >
               <Text style={styles.removeText}>
                 {language === 'sw' ? 'Ondoa Ujumbe' : 'Remove Message'}
