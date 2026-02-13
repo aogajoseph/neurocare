@@ -72,6 +72,8 @@ export default function CommunitySpaceScreen() {
   const [selectedMessage, setSelectedMessage] = useState<CommunityMessage | null>(null);
   const [showMessageActions, setShowMessageActions] = useState(false); 
   const [messageToRemove, setMessageToRemove] = useState<string | null>(null);
+  const [recentlyRemoved, setRecentlyRemoved] = useState<CommunityMessage | null>(null);
+  const [showUndo, setShowUndo] = useState(false);
 
   useEffect(() => {
     if (!messageToRemove) return;
@@ -342,20 +344,61 @@ export default function CommunitySpaceScreen() {
     );
   }
 
-  // Remove Message function
+  // Remove Message with Undo
+  const [recentlyRemoved, setRecentlyRemoved] = useState<CommunityMessage | null>(null);
+  const [showUndo, setShowUndo] = useState(false);
+
   const handleRemoveMessage = (messageId: string) => {
     if (!isModerator) return;
-  
+
+    // Find the message being removed
+    const msgToRemove = chatMessages.find(m => m.id === messageId);
+    if (!msgToRemove) return;
+
+    // Remove it from the UI
     setChatMessages(prev =>
       prev.filter(msg => msg.id !== messageId)
     );
-  
+
+    // Store temporarily for Undo
+    setRecentlyRemoved(msgToRemove);
+    setShowUndo(true);
+
+    // Add system message about removal
     addSystemMessage(
       language === 'sw'
         ? 'Ujumbe umeondolewa na msimamizi'
         : 'Message removed by moderator'
     );
-  };  
+
+    // Auto-hide undo after 5 seconds
+    setTimeout(() => {
+      setShowUndo(false);
+      setRecentlyRemoved(null);
+    }, 5000);
+  };
+
+  // Undo handler
+  const handleUndoRemove = () => {
+    if (!recentlyRemoved) return;
+
+    setChatMessages(prev =>
+      [...prev, recentlyRemoved].sort(
+        (a, b) =>
+          new Date(a.createdAt).getTime() -
+          new Date(b.createdAt).getTime()
+      )
+    );
+
+    setShowUndo(false);
+    setRecentlyRemoved(null);
+
+    addSystemMessage(
+      language === 'sw'
+        ? 'Ujumbe umerejeshwa'
+        : 'Message restored'
+    );
+  };
 
   // Render each message
   const renderMessage = ({
@@ -534,6 +577,20 @@ export default function CommunitySpaceScreen() {
       {toastMessage && (
         <View style={styles.toast}>
           <Text style={styles.toastText}>{toastMessage}</Text>
+        </View>
+      )}
+
+      {showUndo && (
+        <View style={styles.undoBanner}>
+          <Text style={styles.undoText}>
+            {language === 'sw' ? 'Ujumbe umeondolewa' : 'Message removed'}
+          </Text>
+
+          <Pressable onPress={handleUndoRemove}>
+            <Text style={styles.undoAction}>
+              {language === 'sw' ? 'TENGUA' : 'UNDO'}
+            </Text>
+          </Pressable>
         </View>
       )}
 
@@ -980,6 +1037,27 @@ const styles = StyleSheet.create({
   removeText: {
     color: tokens.colors.state.error,
     fontWeight: tokens.typography.weight.semibold,
+  },
+
+  undoBanner: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: tokens.spacing.md,
+    backgroundColor: tokens.colors.surface.soft,
+    borderTopWidth: 1,
+    borderColor: tokens.colors.border.subtle,
+  },
+  
+  undoText: {
+    fontSize: tokens.typography.size.sm,
+    color: tokens.colors.text.primary,
+  },
+  
+  undoAction: {
+    fontSize: tokens.typography.size.sm,
+    fontWeight: tokens.typography.weight.bold,
+    color: tokens.colors.brand.primary,
   },  
 
   moderatorTag: {
