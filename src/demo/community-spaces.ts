@@ -103,7 +103,7 @@ export type CommunitySpace = {
 
 export const communitySpaces: CommunitySpace[] = [
   /**
-   * 🧭 Guidance & Counselling
+   *  Guidance & Counselling
    */
   {
     id: 'caregiver-guidance',
@@ -177,7 +177,7 @@ export const communitySpaces: CommunitySpace[] = [
   },
 
   /**
-   * 🧠 Understanding Conditions & Care
+   *  Understanding Conditions & Care
    */
   {
     id: 'understanding-neuro-care',
@@ -249,6 +249,10 @@ export const communitySpaces: CommunitySpace[] = [
       },
     },
   },
+
+  /**
+   *  Caregiving Basics
+   */
   {
     id: 'caregiving-basics',
     role: 'caregiver',
@@ -261,8 +265,12 @@ export const communitySpaces: CommunitySpace[] = [
       sw: 'Misingi ya Ulezi',
     },
     description: {
-      en: 'Daily care routines, safety tips, medication reminders and practical caregiving fundamentals.',
-      sw: 'Ratiba za kila siku, vidokezo vya usalama, kumbukumbu za dawa na misingi ya ulezi wa vitendo.',
+      en: 'Practical guidance on daily care routines, safety, medication support and essential caregiving skills.',
+      sw: 'Mwongozo wa vitendo kuhusu ratiba za kila siku, usalama, usaidizi wa dawa na ujuzi muhimu wa ulezi.',
+    },
+    aboutSpace: {
+      en: 'This space was created to support caregivers with the practical aspects of everyday care. It focuses on routines, safety, medication management and simple strategies that make caregiving more manageable. It is a place to learn, share practical tips and build confidence in providing daily support.',
+      sw: 'Eneo hili limetengenezwa kusaidia walezi katika mambo ya vitendo ya ulezi wa kila siku. Linaangazia ratiba, usalama, usimamizi wa dawa na mbinu rahisi zinazorahisisha ulezi. Ni mahali pa kujifunza, kushirikiana vidokezo vya vitendo na kujenga ujasiri katika kutoa msaada wa kila siku.',
     },
     memberCount: 106,
     entryMode: 'open',
@@ -273,10 +281,46 @@ export const communitySpaces: CommunitySpace[] = [
       canUploadMedia: false,
     },
     moderation: {
-      level: 'light',
-      showGuidelines: false,
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'professional',
+      status: 'active',
     },
-  },
+    systemMessages: {
+      welcome: {
+        en: 'Explore practical caregiving tips, daily routines, and safety guidance designed to support you in everyday care.',
+        sw: 'Chunguza vidokezo vya ulezi, ratiba za kila siku, na mwongozo wa usalama ulioundwa kukusaidia katika ulezi wa kila siku.',
+      },
+      rules: {
+        en: [
+          'Be respectful and supportive.',
+          'Share practical experiences and tips.',
+          'Avoid giving medical diagnoses or prescriptions.',
+          'Remember that care needs vary for each person.',
+        ],
+        sw: [
+          'Kuwa na heshima na msaada kwa wengine.',
+          'Shiriki uzoefu na vidokezo vya vitendo.',
+          'Epuka kutoa uchunguzi au maagizo ya dawa.',
+          'Kumbuka mahitaji ya huduma hutofautiana kwa kila mtu.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. George Kisiangani',
+        createdOn: '2026-02-11',
+      },
+    },
+    share: {
+      message: {
+        en: `Join me in the Caregiving Basics space on Neuro Care. Helpful daily caregiving tips and guidance.
+        \n              neurocare://community/caregiving-basics`,
+  
+        sw: `Jiunge nami kwenye Nafasi ya Misingi ya Ulezi ndani ya Neuro Care. Vidokezo na mwongozo wa ulezi wa kila siku.
+        \n              neurocare://community/caregiving-basics`,
+      },
+    },
+  },  
 
   /**
    * 🤝 Peer Support

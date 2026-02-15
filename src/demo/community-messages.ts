@@ -253,4 +253,121 @@ export const communityMessages: CommunityMessage[] = [
     createdAt: '2026-02-14T11:18:00Z',
   },
 
+  /*
+  |--------------------------------------------------------------------------
+  | Caregiving Basics – Demo Messages
+  |--------------------------------------------------------------------------
+  */
+  {
+    id: 'cb-1',
+    spaceId: 'caregiving-basics',
+    author: {
+      id: 'moderator-george',
+      name: 'Dr. George Kisiangani',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Welcome to Caregiving Basics. This space focuses on practical daily care, safety, routines and simple strategies to make caregiving more manageable.',
+      sw: 'Karibu kwenye Misingi ya Ulezi. Nafasi hii inalenga ulezi wa kila siku, usalama, ratiba na mbinu rahisi za kurahisisha ulezi.',
+    },
+    createdAt: '2026-02-10T09:00:00Z',
+  },
+  
+  {
+    id: 'cb-2',
+    spaceId: 'caregiving-basics',
+    author: {
+      id: 'caregiver-Lorna',
+      name: 'Lorna',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Does anyone have tips for reminding someone to take medication without causing frustration?',
+      sw: 'Je, kuna mtu ana vidokezo vya kumkumbusha mtu kutumia dawa bila kusababisha kukasirika?',
+    },
+    createdAt: '2026-02-11T10:15:00Z',
+  },
+  
+  {
+    id: 'cb-3',
+    spaceId: 'caregiving-basics',
+    author: {
+      id: 'moderator-george',
+      name: 'Dr. George Kisiangani',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Great question, Lorna. Gentle reminders, linking medication to daily routines and using pill organizers can help reduce tension.',
+      sw: 'Swali zuri, Lorna. Vikumbusho vya upole, kuunganisha dawa na ratiba za kila siku na kutumia visanduku vya dawa vinaweza kusaidia kupunguza msongo.',
+    },
+    createdAt: '2026-02-12T10:22:00Z',
+  },
+  
+  {
+    id: 'cb-4',
+    spaceId: 'caregiving-basics',
+    author: {
+      id: 'caregiver-diana',
+      name: 'Diana Kwamboka',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'My mother resists bathing some days. Any advice on handling this calmly?',
+      sw: 'Mama yangu hukataa kuoga siku zingine. Ushauri wa kushughulikia hali hii kwa utulivu?',
+    },
+    createdAt: '2026-02-13T07:40:00Z',
+  },
+  
+  {
+    id: 'cb-5',
+    spaceId: 'caregiving-basics',
+    author: {
+      id: 'moderator-george',
+      name: 'Dr. George Kisiangani',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'That’s a common challenge, Diana. Choosing a different time of day, keeping the environment warm, and offering reassurance can sometimes help.',
+      sw: 'Hilo ni changamoto ya kawaida, Diana. Kuchagua muda mwingine wa siku, kuhakikisha mazingira ni ya joto, na kutoa uhakikisho kunaweza kusaidia.',
+    },
+    createdAt: '2026-02-14T07:52:00Z',
+  },
+  
+  {
+    id: 'cb-6',
+    spaceId: 'caregiving-basics',
+    author: {
+      id: 'caregiver-caroline',
+      name: 'Caro',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'How do you manage caregiver fatigue when rest isn’t always possible?',
+      sw: 'Mnashughulikiaje uchovu wa ulezi wakati mapumziko hayawezekani kila wakati?',
+    },
+    createdAt: '2026-02-15T11:05:00Z',
+  },
+  
+  {
+    id: 'cb-7',
+    spaceId: 'caregiving-basics',
+    author: {
+      id: 'moderator-george',
+      name: 'Dr. George Kisiangani',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Small breaks matter, Caro. Even short moments to breathe, hydrate, or step outside can help reset your energy.',
+      sw: 'Mapumziko mafupi yana umuhimu, Caro. Hata dakika chache za kupumua, kunywa maji, au kutoka nje zinaweza kusaidia kurejesha nguvu.',
+    },
+    createdAt: '2026-02-15T11:18:00Z',
+  },
+  
 ];
