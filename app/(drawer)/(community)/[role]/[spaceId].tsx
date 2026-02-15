@@ -75,6 +75,7 @@ export default function CommunitySpaceScreen() {
   const [recentlyRemoved, setRecentlyRemoved] = useState<CommunityMessage | null>(null);
   const [showUndo, setShowUndo] = useState(false);
   const [frozenUsers, setFrozenUsers] = useState<string[]>([]);
+  const [userToFreeze, setUserToFreeze] = useState<string | null>(null);
 
   useEffect(() => {
     if (!messageToRemove) return;
@@ -101,7 +102,55 @@ export default function CommunitySpaceScreen() {
         },
       ]
     );
-  }, [messageToRemove]);  
+  }, [messageToRemove]); 
+
+  useEffect(() => {
+    if (!userToFreeze) return;
+  
+    const alreadyFrozen = frozenUsers.includes(userToFreeze);
+  
+    Alert.alert(
+      language === 'sw'
+        ? alreadyFrozen
+          ? 'Fungua Mtumiaji'
+          : 'Gandisha Mtumiaji'
+        : alreadyFrozen
+          ? 'Unfreeze User'
+          : 'Freeze User',
+  
+      language === 'sw'
+        ? alreadyFrozen
+          ? 'Una uhakika unataka kumruhusu mtumiaji huyu kushiriki tena?'
+          : 'Una uhakika unataka kumgandisha mtumiaji huyu? Hataweza kutuma ujumbe.'
+        : alreadyFrozen
+          ? 'Are you sure you want to allow this user to participate again?'
+          : 'Are you sure you want to freeze this user? They will not be able to send messages.',
+  
+      [
+        {
+          text: language === 'sw' ? 'Ghairi' : 'Cancel',
+          style: 'cancel',
+          onPress: () => setUserToFreeze(null),
+        },
+        {
+          text: language === 'sw'
+            ? alreadyFrozen
+              ? 'Fungua'
+              : 'Gandisha'
+            : alreadyFrozen
+              ? 'Unfreeze'
+              : 'Freeze',
+  
+          style: alreadyFrozen ? 'default' : 'destructive',
+  
+          onPress: () => {
+            handleFreezeUser(userToFreeze);
+            setUserToFreeze(null);
+          },
+        },
+      ]
+    );
+  }, [userToFreeze]);  
 
   // Load space metadata
   const space = useMemo(() => {
@@ -863,7 +912,10 @@ export default function CommunitySpaceScreen() {
         visible={showModerationModal}
         onClose={() => setShowModerationModal(false)}
         isModerator={role === 'moderator'}
-        onFreezeUser={handleFreezeUser}
+        onFreezeUser={(userId) => {
+          if (!isModerator) return;
+          setUserToFreeze(userId);
+        }}
         isUserFrozen={isUserFrozen}
         loggedInUserId={loggedInUserId}
         onFreezeSpace={handleFreezeSpace}
