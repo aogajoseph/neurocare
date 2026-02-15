@@ -369,5 +369,122 @@ export const communityMessages: CommunityMessage[] = [
     },
     createdAt: '2026-02-15T11:18:00Z',
   },
+
+  /*
+  |--------------------------------------------------------------------------
+  | Caregiver Peer Support – Demo Messages
+  |--------------------------------------------------------------------------
+  */
+  {
+    id: 'pc-1',
+    spaceId: 'caregiver-peer-support',
+    author: {
+      id: 'moderator-christabel',
+      name: 'Ms. Christabel Naimoi',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Welcome to the Caregivers’ Peer Circle 💛 This is a space to connect, share experiences and support one another through the ups and downs of caregiving.',
+      sw: 'Karibu kwenye Mduara wa Walezi 💛 Hii ni nafasi ya kuungana, kushirikiana uzoefu na kusaidiana katika changamoto na mafanikio ya ulezi.',
+    },
+    createdAt: '2026-02-10T09:00:00Z',
+  },
+  
+  {
+    id: 'pc-2',
+    spaceId: 'caregiver-peer-support',
+    author: {
+      id: 'caregiver-faith',
+      name: 'Faith',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Some days reminding my dad about medication turns into tension. Anyone else struggle with this?',
+      sw: 'Siku zingine kumkumbusha baba yangu kutumia dawa hugeuka kuwa mvutano. Kuna mwingine anayepitia hali kama hii?',
+    },
+    createdAt: '2026-02-11T10:15:00Z',
+  },
+  
+  {
+    id: 'pc-3',
+    spaceId: 'caregiver-peer-support',
+    author: {
+      id: 'moderator-christabel',
+      name: 'Ms. Christabel Naimoi',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'You’re definitely not alone, Faith. Many caregivers experience this. Sometimes changing the tone, timing or linking meds to a routine can ease the friction.',
+      sw: 'Hauko peke yako, Faith. Walezi wengi hupitia hali kama hii. Wakati mwingine kubadilisha namna ya kukumbusha, muda au kuunganisha dawa na ratiba kunaweza kusaidia.',
+    },
+    createdAt: '2026-02-12T10:22:00Z',
+  },
+  
+  {
+    id: 'pc-4',
+    spaceId: 'caregiver-peer-support',
+    author: {
+      id: 'caregiver-nabila',
+      name: 'Nabila Ahmed',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Bath time has become stressful lately. My mum resists and I end up feeling guilty and exhausted.',
+      sw: 'Muda wa kuoga umekuwa wa msongo hivi karibuni. Mama yangu hukataa na mimi hubaki na hatia na uchovu.',
+    },
+    createdAt: '2026-02-13T07:40:00Z',
+  },
+  
+  {
+    id: 'pc-5',
+    spaceId: 'caregiver-peer-support',
+    author: {
+      id: 'moderator-christabel',
+      name: 'Ms. Christabel Naimoi',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'That sounds really tough, Nabila. Please be gentle with yourself. Many caregivers face similar moments — you’re doing the best you can.',
+      sw: 'Hilo linaonekana kuwa gumu sana, Nabila. Tafadhali jione huruma. Walezi wengi hupitia hali kama hii — unafanya kadri ya uwezo wako.',
+    },
+    createdAt: '2026-02-14T07:52:00Z',
+  },
+  
+  {
+    id: 'pc-6',
+    spaceId: 'caregiver-peer-support',
+    author: {
+      id: 'caregiver-mwanasiti',
+      name: 'Mwanasiti',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'How do you cope when you’re tired but still have to keep going?',
+      sw: 'Mnajikabilije wakati mmechoka lakini bado mnalazimika kuendelea?',
+    },
+    createdAt: '2026-02-15T11:05:00Z',
+  },
+  
+  {
+    id: 'pc-7',
+    spaceId: 'caregiver-peer-support',
+    author: {
+      id: 'moderator-christabel',
+      name: 'Ms. Christabel Naimoi',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Such an honest question, Mwanasiti 💛 Even small pauses — a few deep breaths, a sip of water, a moment outside — can make a difference.',
+      sw: 'Swali la kweli sana, Mwanasiti 💛 Hata mapumziko mafupi — pumzi chache za kina, kunywa maji, au dakika nje — yanaweza kusaidia.',
+    },
+    createdAt: '2026-02-15T11:18:00Z',
+  },  
   
 ];

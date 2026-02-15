@@ -323,7 +323,7 @@ export const communitySpaces: CommunitySpace[] = [
   },  
 
   /**
-   * 🤝 Peer Support
+   * Caregiver Peer Support
    */
   {
     id: 'caregiver-peer-support',
@@ -337,10 +337,14 @@ export const communitySpaces: CommunitySpace[] = [
       sw: 'Mduara wa Walezi',
     },
     description: {
-      en: 'Connect with other caregivers to share experiences, challenges, encouragement and small wins.',
-      sw: 'Ungana na walezi wengine kushirikiana uzoefu, changamoto, faraja na mafanikio madogo.',
+      en: 'A supportive space for caregivers to share experiences, challenges, encouragement and small wins.',
+      sw: 'Nafasi ya msaada kwa walezi kushirikiana uzoefu, changamoto, faraja na mafanikio madogo.',
     },
-    memberCount: 218,
+    aboutSpace: {
+      en: 'This space was created to connect caregivers through shared experiences and mutual support. It is a place to speak openly, exchange encouragement and learn from others who understand the realities of caregiving. Conversations here focus on empathy, connection and community.',
+      sw: 'Eneo hili limetengenezwa kuwaunganisha walezi kupitia uzoefu wa pamoja na kusaidiana. Ni mahali pa kuzungumza kwa uwazi, kubadilishana faraja na kujifunza kutoka kwa wengine wanaoelewa hali halisi ya ulezi. Mazungumzo hapa yanahusu huruma, uhusiano na jamii.',
+    },
+    memberCount: 618,
     entryMode: 'open',
     capabilities: {
       canPost: true,
@@ -351,8 +355,44 @@ export const communitySpaces: CommunitySpace[] = [
     moderation: {
       level: 'moderated',
       showGuidelines: true,
+      escalationPath: 'professional',
+      status: 'active',
     },
-  },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome to the Caregivers’ Peer Circle. You are among people who understand the caregiving journey. Share, connect and support one another.',
+        sw: 'Karibu kwenye Mduara wa Walezi. Uko pamoja na watu wanaoelewa safari ya ulezi. Shiriki, ungana na saidianeni.',
+      },
+      rules: {
+        en: [
+          'Be kind, respectful and supportive.',
+          'Share experiences, not medical advice.',
+          'Respect privacy and confidentiality.',
+          'Different caregiving journeys are valid.',
+        ],
+        sw: [
+          'Kuwa mpole, na heshima, na msaada.',
+          'Shiriki uzoefu, si ushauri wa kitabibu.',
+          'Heshimu faragha na siri za wengine.',
+          'Safari za ulezi hutofautiana na zote ni halali.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Ms. Christabel Naimoi',
+        createdOn: '2026-02-11',
+      },
+    },
+    share: {
+      message: {
+        en: `Join me in the Caregivers’ Peer Circle on Neuro Care. A space for connection, support, and shared caregiving experiences.
+        \n              neurocare://community/caregiver-peer-support`,
+  
+        sw: `Jiunge nami kwenye Mduara wa Walezi ndani ya Neuro Care. Nafasi ya uhusiano, msaada, na uzoefu wa pamoja wa ulezi.
+        \n              neurocare://community/caregiver-peer-support`,
+      },
+    },
+  },  
 
   /**
    * 🧰 Practical Help & Resources
