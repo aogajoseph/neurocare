@@ -900,7 +900,187 @@ export const communityMessages: CommunityMessage[] = [
       sw: 'Mitchell, baadhi ya dawa zinaweza kusababisha mabadiliko ya hisia. Rekodi dalili, angalia muda wake, na jadili na daktari wake ili kurekebisha matibabu kwa usalama.',
     },
     createdAt: '2026-02-16T11:15:00Z',
-  }
+  },
   
+  /*
+  |--------------------------------------------------------------------------
+  | Ask a Health Professional – Demo Messages
+  |--------------------------------------------------------------------------
+  */
+  {
+    id: 'cfc-1',
+    spaceId: 'caring-for-caregiver',
+    author: {
+      id: 'moderator-phoebe',
+      name: 'Dr. Phoebe Achieng',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Welcome to Caring for the Caregiver 💛 This space is dedicated to supporting your wellbeing, stress management, and self-care while you care for others.',
+      sw: 'Karibu kwenye Kujali Mlezi 💛 Nafasi hii imejitolea kusaidia ustawi wako, usimamizi wa msongo, na kujitunza wakati unasaidia wengine.',
+    },
+    createdAt: '2026-02-10T09:00:00Z',
+  },
+  
+  {
+    id: 'cfc-2',
+    spaceId: 'caring-for-caregiver',
+    author: {
+      id: 'caregiver-wilikister',
+      name: 'Wilikister',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Lately I feel exhausted and guilty when I can’t keep up with my caregiving duties. How can I cope?',
+      sw: 'Hivi karibuni nimekuwa nimechoka na kujiona na hatia nikishindwa kufuata wajibu wangu wa ulezi. Ninawezaje kushughulikia hili?',
+    },
+    createdAt: '2026-02-11T10:15:00Z',
+  },
+  
+  {
+    id: 'cfc-3',
+    spaceId: 'caring-for-caregiver',
+    author: {
+      id: 'moderator-phoebe',
+      name: 'Dr. Phoebe Achieng',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Wilikister, it’s normal to feel this way. Take small breaks, prioritize tasks, and practice self-compassion. Remember, caring for yourself helps you care for others better.',
+      sw: 'Wilikister, ni kawaida kuhisi hivi. Pumzika kidogo, weka vipaumbele vya kazi, na jifunze kujitunza kwa huruma. Kumbuka, kujali wewe mwenyewe kunasaidia zaidi katika kulea wengine.',
+    },
+    createdAt: '2026-02-12T10:22:00Z',
+  },
+  
+  {
+    id: 'cfc-4',
+    spaceId: 'caring-for-caregiver',
+    author: {
+      id: 'caregiver-concepta',
+      name: 'Concepta',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'I often feel anxious before doctor appointments for my patients. Any tips for staying calm?',
+      sw: 'Mara nyingi ninahisi wasiwasi kabla ya miadi ya daktari kwa wagonjwa wangu. Kuna vidokezo vya kutulia?',
+    },
+    createdAt: '2026-02-13T07:40:00Z',
+  },
+  
+  {
+    id: 'cfc-5',
+    spaceId: 'caring-for-caregiver',
+    author: {
+      id: 'moderator-phoebe',
+      name: 'Dr. Phoebe Achieng',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Concepta, practice deep breathing, prepare ahead, and have a support person if possible. Familiar routines and positive self-talk can reduce anxiety.',
+      sw: 'Concepta, fanya pumzi za kina, jiandae mapema, na kuwa na mtu wa kusaidia ikiwa inawezekana. Ratiba za kawaida na mazungumzo chanya na mwenyewe yanaweza kupunguza wasiwasi.',
+    },
+    createdAt: '2026-02-14T07:52:00Z',
+  },
+  
+  {
+    id: 'cfc-6',
+    spaceId: 'caring-for-caregiver',
+    author: {
+      id: 'caregiver-moureen',
+      name: 'Moureen',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'How can I manage my stress when multiple caregiving responsibilities overlap?',
+      sw: 'Ninawezaje kudhibiti msongo wakati majukumu mbalimbali ya ulezi yanapokutana?',
+    },
+    createdAt: '2026-02-15T11:05:00Z',
+  },
+  
+  {
+    id: 'cfc-7',
+    spaceId: 'caring-for-caregiver',
+    author: {
+      id: 'moderator-phoebe',
+      name: 'Dr. Phoebe Achieng',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Moureen, break tasks into smaller steps, ask for help when needed, and practice mindfulness or short relaxation exercises. This helps reduce overwhelm.',
+      sw: 'Moureen, gawanya majukumu kuwa hatua ndogo, omba msaada unapohitaji, na fanya mazoezi mafupi ya kutulia au kufuatilia akili. Hii husaidia kupunguza mzigo.',
+    },
+    createdAt: '2026-02-15T11:18:00Z',
+  },
+  
+  {
+    id: 'cfc-8',
+    spaceId: 'caring-for-caregiver',
+    author: {
+      id: 'caregiver-lilian',
+      name: 'Lilian',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'I feel guilty taking time for myself while my loved one needs constant care. How can I overcome this?',
+      sw: 'Ninaona hatia kuchukua muda kwa ajili yangu wakati mpendwa wangu anahitaji huduma ya mara kwa mara. Ninawezaje kushinda hili?',
+    },
+    createdAt: '2026-02-16T09:30:00Z',
+  },
+  
+  {
+    id: 'cfc-9',
+    spaceId: 'caring-for-caregiver',
+    author: {
+      id: 'moderator-phoebe',
+      name: 'Dr. Phoebe Achieng',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Lilian, self-care is not selfish. Set boundaries, schedule personal time, and remind yourself that taking breaks improves the quality of care you provide.',
+      sw: 'Lilian, kujitunza si ubinafsi. Weka mipaka, panga muda wako binafsi, na jikumbushe kuwa kupumzika kunaboresha ubora wa huduma unayotoa.',
+    },
+    createdAt: '2026-02-16T09:45:00Z',
+  },
+  
+  {
+    id: 'cfc-10',
+    spaceId: 'caring-for-caregiver',
+    author: {
+      id: 'caregiver-joseph',
+      name: 'Joseph',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Sometimes I feel isolated and unsupported while caring for my family. What can I do to feel more connected?',
+      sw: 'Mara nyingine ninajiona peke yangu na sina msaada wakati nikiwalea familia yangu. Nifanye nini kujiona nikiwa na uhusiano zaidi?',
+    },
+    createdAt: '2026-02-16T11:00:00Z',
+  },
+  
+  {
+    id: 'cfc-11',
+    spaceId: 'caring-for-caregiver',
+    author: {
+      id: 'moderator-phoebe',
+      name: 'Dr. Phoebe Achieng',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Joseph, connect with caregiver support groups, reach out to friends or family, and schedule small social breaks. Sharing your experiences can reduce isolation and increase support.',
+      sw: 'Joseph, ungana na makundi ya msaada kwa walezi, wasiliana na marafiki au familia, na panga mapumziko madogo ya kijamii. Kushirikiana uzoefu wako kunaweza kupunguza upweke na kuongeza msaada.',
+    },
+    createdAt: '2026-02-16T11:15:00Z',
+  }
   
 ];

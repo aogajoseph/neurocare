@@ -609,36 +609,75 @@ export const communitySpaces: CommunitySpace[] = [
     },
   },
   
-
   /**
-   * 🌱 Caregiver Wellbeing
+   *  Caregiver Wellbeing
    */
   {
-    id: 'caregiver-wellbeing',
+    id: 'caring-for-caregiver',
     role: 'caregiver',
     category: {
-      en: 'Caregiver Wellbeing',
-      sw: 'Ustawi wa Mlezi',
+      en: 'Caregiver Support',
+      sw: 'Msaada kwa Walezi',
     },
     title: {
       en: 'Caring for the Caregiver',
       sw: 'Kujali Mlezi',
     },
     description: {
-      en: 'A space focused on rest, boundaries, identity and mental wellbeing for caregivers.',
-      sw: 'Eneo linalolenga mapumziko, mipaka, utambulisho na afya ya akili ya walezi.',
+      en: 'A space dedicated to supporting caregivers’ wellbeing, stress management, emotional health and self-care practices.',
+      sw: 'Nafasi iliyojitolea kusaidia ustawi wa walezi, usimamizi wa msongo, afya ya hisia na mbinu za kujitunza.',
     },
-    memberCount: 185,
+    aboutSpace: {
+      en: 'This space was created to focus on the health, resilience, and emotional wellbeing of caregivers. Discussions include stress relief strategies, self-care routines, mental health, and tips for maintaining balance while supporting others. It is a safe place to share experiences, ask for advice, and learn ways to care for yourself while caring for someone else.',
+      sw: 'Eneo hili limetengenezwa kuzingatia afya, uimara, na ustawi wa hisia wa walezi. Mazungumzo yanahusu mbinu za kupunguza msongo, ratiba za kujitunza, afya ya akili, na vidokezo vya kudumisha usawa wakati unasaidia wengine. Ni mahali salama kushirikiana uzoefu, kuuliza ushauri, na kujifunza njia za kujitunza unapojali mtu mwingine.',
+    },
+    memberCount: 128,
     entryMode: 'open',
     capabilities: {
       canPost: true,
       canReply: true,
-      canReact: false,
+      canReact: true,
       canUploadMedia: false,
     },
     moderation: {
       level: 'moderated',
       showGuidelines: true,
+      escalationPath: 'professional',
+      status: 'active',
     },
-  },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome to Caring for the Caregiver. Share your experiences, ask for advice, and discover ways to maintain your wellbeing while providing care.',
+        sw: 'Karibu kwenye Kujali Mlezi. Shiriki uzoefu wako, uliza ushauri, na gundua njia za kudumisha ustawi wako wakati unatoa huduma.',
+      },
+      rules: {
+        en: [
+          'Be supportive and respectful of all members.',
+          'Share experiences and self-care tips, not medical diagnoses.',
+          'Respect privacy and confidentiality.',
+          'Acknowledge that every caregiver’s journey is unique.',
+        ],
+        sw: [
+          'Kuwa msaada na heshima kwa wanajamii wote.',
+          'Shiriki uzoefu na vidokezo vya kujitunza, si uchunguzi wa kitabibu.',
+          'Heshimu faragha na siri za wengine.',
+          'Tambua kuwa safari ya kila mlezi ni ya kipekee.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. Phoebe Achieng',
+        createdOn: '2026-02-11',
+      },
+    },
+    share: {
+      message: {
+        en: `Join me in the Caring for the Caregiver space on Neuro Care. Learn, share, and discover ways to nurture yourself while caring for others.
+        \n              neurocare://community/caring-for-caregiver`,
+        sw: `Jiunge nami kwenye Nafasi ya Kujali Mlezi ndani ya Neuro Care. Jifunze, shiriki, na gundua njia za kujitunza wakati unasaidia wengine.
+        \n              neurocare://community/caring-for-caregiver`,
+      },
+    },
+  }
+  
 ];

@@ -6,4 +6,5 @@ export const spaceMembers: Record<string, string[]> = {
   'care-resources': ['m5', 'c21', 'c22', 'c23', 'c24', 'c25'],
   'assistive-tools': ['m6', 'c26', 'c27', 'c28', 'c29', 'c30'],
   'ask-health-pro': ['m7', 'c31', 'c32', 'c33', 'c34', 'c35'],
+  'caring-for-caregiver': ['m8', 'c36', 'c37', 'c38', 'c39', 'c40'],
 };

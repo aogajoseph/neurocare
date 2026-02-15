@@ -216,4 +216,34 @@ export const communityMembers: CommunityMember[] = [
     name: 'Mitchelle Msalami',
     role: 'caregiver',
   },
+  {
+    id: 'm8',
+    name: 'Dr. Phoebe Achieng',
+    role: 'moderator',
+  },
+  {
+    id: 'c36',
+    name: 'Wilikister Shimoli',
+    role: 'caregiver',
+  },
+  {
+    id: 'c37',
+    name: 'Concepta Manyasi',
+    role: 'caregiver',
+  },
+  {
+    id: 'c38',
+    name: 'Moureen Ngugi',
+    role: 'caregiver',
+  },
+  {
+    id: 'c39',
+    name: 'Lilian Wayua',
+    role: 'caregiver',
+  },
+  {
+    id: 'c40',
+    name: 'Joseph Kuraru',
+    role: 'caregiver',
+  },
 ];
