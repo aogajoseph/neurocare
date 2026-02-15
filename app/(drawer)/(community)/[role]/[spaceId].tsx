@@ -318,10 +318,10 @@ export default function CommunitySpaceScreen() {
       nextState
         ? language === 'sw'
           ? 'Arifa zimezimwa'
-          : 'Notifications muted'
+          : 'Notifications Disabled'
         : language === 'sw'
         ? 'Arifa zimewashwa'
-        : 'Notifications unmuted'
+        : 'Notifications Enabled'
     );
   };  
 
@@ -541,15 +541,25 @@ export default function CommunitySpaceScreen() {
                   styles.moderatorMessageBubble,
               ]}
             >
-              <Text style={styles.messageSender}>
-                {item.author.name}
-              </Text>
-
-              {isMessageModerator && (
-                <Text style={styles.moderatorTag}>
-                  Moderator
+              <View style={styles.senderRow}>
+                <Text style={styles.messageSender}>
+                  {item.author.name}
                 </Text>
-              )}
+
+                {isMessageModerator && (
+                  <Text style={styles.moderatorTag}>
+                    Moderator
+                  </Text>
+                )}
+
+                {frozenUsers.includes(item.author.id) && (
+                  <View style={styles.frozenBadge}>
+                    <Text style={styles.frozenBadgeText}>
+                      {language === 'sw' ? 'Imefungwa' : 'Frozen'}
+                    </Text>
+                  </View>
+                )}
+              </View>
 
               <Text style={styles.messageText}>
                 {item.content[language]}
@@ -1290,5 +1300,24 @@ const styles = StyleSheet.create({
   sendButtonDisabled: {
     backgroundColor: tokens.colors.surface.disabled,
   },
+  senderRow: {
+    flexDirection: 'column',
+    alignItems: 'left',
+    gap: tokens.spacing.xs,
+    marginBottom: tokens.spacing.xs,
+  },
+  
+  frozenBadge: {
+    backgroundColor: tokens.colors.state.warningSubtle,
+    paddingHorizontal: tokens.spacing.xs,
+    paddingVertical: 2,
+    borderRadius: tokens.radius.sm,
+  },
+  
+  frozenBadgeText: {
+    fontSize: tokens.typography.size.xs,
+    color: tokens.colors.state.warning,
+    fontWeight: tokens.typography.weight.semibold,
+  },  
   
 });

@@ -31,6 +31,7 @@ export const colors = {
   state: {
     success: '#15803D',
     warning: '#D97706',
+    warningSubtle: '#FFF4E5',
     error: '#B91C1C',
     info: '#2563EB',
     text: '#111827',
