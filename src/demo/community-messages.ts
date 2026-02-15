@@ -720,6 +720,187 @@ export const communityMessages: CommunityMessage[] = [
     },
     createdAt: '2026-02-15T11:18:00Z',
   },
+
+  /*
+  |--------------------------------------------------------------------------
+  | Ask a Health Professional – Demo Messages
+  |--------------------------------------------------------------------------
+  */
+  {
+    id: 'ahp-1',
+    spaceId: 'ask-health-pro',
+    author: {
+      id: 'moderator-geoffrey',
+      name: 'Dr. Geoffrey Mong\'are',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Welcome to Ask a Health Professional 💡 This is a space to ask questions, get guidance and receive reliable health advice from qualified experts on caregiving and neurological wellness.',
+      sw: 'Karibu kwenye Uliza Kwa Mtaalamu wa Afya 💡 Hii ni nafasi ya kuuliza maswali, kupata mwongozo na ushauri wa kuaminika kutoka kwa wataalamu waliyoidhinishwa kuhusu ulezi na ustawi wa kinyurolojia.',
+    },
+    createdAt: '2026-02-10T09:00:00Z',
+  },
+  
+  {
+    id: 'ahp-2',
+    spaceId: 'ask-health-pro',
+    author: {
+      id: 'caregiver-simon',
+      name: 'Simon',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Dr. Mong’are, what are safe ways to manage my father’s tremors at home?',
+      sw: 'Dkt. Mong’are, ni njia zipi salama za kudhibiti mtetemeko wa baba yangu nyumbani?',
+    },
+    createdAt: '2026-02-11T10:15:00Z',
+  },
+  
+  {
+    id: 'ahp-3',
+    spaceId: 'ask-health-pro',
+    author: {
+      id: 'moderator-geoffrey',
+      name: 'Dr. Geoffrey Mong\'are',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Good question, Simon. Tremor management can include medication adherence, gentle exercises, using weighted utensils, and minimizing stress. Always consult your healthcare provider before changing routines.',
+      sw: 'Swali nzuri, Simon. Kudhibiti mtetemeko kunaweza kujumuisha kuchukua dawa ipasavyo, mazoezi mepesi, kutumia vyombo vyenye uzito, na kupunguza msongo. Kila wakati wasiliana na mtoa huduma wa afya kabla ya kubadilisha ratiba.',
+    },
+    createdAt: '2026-02-12T10:22:00Z',
+  },
+  
+  {
+    id: 'ahp-4',
+    spaceId: 'ask-health-pro',
+    author: {
+      id: 'caregiver-janet',
+      name: 'Janet',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'My mother has frequent headaches and confusion. Could this be related to her medication?',
+      sw: 'Mama yangu ana maumivu ya kichwa mara kwa mara na mkanganyiko. Je, hili linaweza kuwa kutokana na dawa yake?',
+    },
+    createdAt: '2026-02-13T07:40:00Z',
+  },
+  
+  {
+    id: 'ahp-5',
+    spaceId: 'ask-health-pro',
+    author: {
+      id: 'moderator-geoffrey',
+      name: 'Dr. Geoffrey Mong\'are',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Janet, some medications can cause headaches or confusion. Keep a symptom diary and discuss it with her doctor before making any changes.',
+      sw: 'Janet, baadhi ya dawa zinaweza kusababisha maumivu ya kichwa au mkanganyiko. Andika dalili zake katika daftari na jadili na daktari wake kabla ya kufanya mabadiliko yoyote.',
+    },
+    createdAt: '2026-02-14T07:52:00Z',
+  },
+  
+  {
+    id: 'ahp-6',
+    spaceId: 'ask-health-pro',
+    author: {
+      id: 'caregiver-ruth',
+      name: 'Ruth',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'How can I safely help my father with mobility without causing him discomfort?',
+      sw: 'Ninaweza kumsaidia baba yangu kuhamia salama bila kumletea usumbufu vipi?',
+    },
+    createdAt: '2026-02-15T11:05:00Z',
+  },
+  
+  {
+    id: 'ahp-7',
+    spaceId: 'ask-health-pro',
+    author: {
+      id: 'moderator-geoffrey',
+      name: 'Dr. Geoffrey Mong\'are',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Ruth, use proper lifting techniques, support devices like walkers, and ensure he wears non-slip shoes. Encourage slow, steady movements and frequent rests.',
+      sw: 'Ruth, tumia mbinu sahihi za kuinua, vifaa vya kusaidia kama vile waika, na hakikisha anavaa viatu visivyoelea. Himiza mwendo polepole na wa thabiti pamoja na mapumziko mara kwa mara.',
+    },
+    createdAt: '2026-02-15T11:18:00Z',
+  },
+  
+  {
+    id: 'ahp-8',
+    spaceId: 'ask-health-pro',
+    author: {
+      id: 'caregiver-esther',
+      name: 'Esther',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'My brother gets very anxious before appointments. Any tips to calm him down?',
+      sw: 'Kaka yangu anakuwa na wasiwasi sana kabla ya miadi. Kuna vidokezo vya kumtuliza?',
+    },
+    createdAt: '2026-02-16T09:30:00Z',
+  },
+  
+  {
+    id: 'ahp-9',
+    spaceId: 'ask-health-pro',
+    author: {
+      id: 'moderator-geoffrey',
+      name: 'Dr. Geoffrey Mong\'are',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Esther, practice deep breathing, gentle conversation, and familiar routines before appointments. Positive reinforcement and reassurance can reduce anxiety.',
+      sw: 'Esther, fanya pumzi za kina, mazungumzo mepesi, na ratiba za kawaida kabla ya miadi. Kuhimiza na kutoa uhakikisho kunaweza kupunguza wasiwasi.',
+    },
+    createdAt: '2026-02-16T09:45:00Z',
+  },
+  
+  {
+    id: 'ahp-10',
+    spaceId: 'ask-health-pro',
+    author: {
+      id: 'caregiver-mitchell',
+      name: 'Mitchell',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Is it normal for my mother to have sudden mood swings after taking her new medication?',
+      sw: 'Je, ni kawaida kwa mama yangu kuwa na mabadiliko ya ghafla ya hisia baada ya kutumia dawa mpya?',
+    },
+    createdAt: '2026-02-16T11:00:00Z',
+  },
+  
+  {
+    id: 'ahp-11',
+    spaceId: 'ask-health-pro',
+    author: {
+      id: 'moderator-geoffrey',
+      name: 'Dr. Geoffrey Mong\'are',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Mitchell, some medications can cause mood changes. Track symptoms, note timing, and discuss with her doctor to adjust treatment safely.',
+      sw: 'Mitchell, baadhi ya dawa zinaweza kusababisha mabadiliko ya hisia. Rekodi dalili, angalia muda wake, na jadili na daktari wake ili kurekebisha matibabu kwa usalama.',
+    },
+    createdAt: '2026-02-16T11:15:00Z',
+  }
   
   
 ];

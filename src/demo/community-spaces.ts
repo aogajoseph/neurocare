@@ -539,37 +539,76 @@ export const communitySpaces: CommunitySpace[] = [
   },
 
   /**
-   * 🧑‍⚕️ Ask a Professional
+   *  Ask a Professional
    */
   {
-    id: 'ask-a-professional',
+    id: 'ask-health-pro',
     role: 'caregiver',
     category: {
-      en: 'Professional Support',
-      sw: 'Msaada wa Kitaalamu',
+      en: 'Professional Guidance',
+      sw: 'Mwongozo wa Kitaalamu',
     },
     title: {
       en: 'Ask a Health Professional',
-      sw: 'Uliza Mtaalamu wa Afya',
+      sw: 'Uliza Kwa Mtaalamu wa Afya',
     },
     description: {
-      en: 'Moderated Q&A sessions with a health professional for trusted guidance and clarity.',
-      sw: 'Maswali na majibu yanayoongozwa na mtaalamu wa afya kwa mwongozo wa kuaminika na ufafanuzi.',
+      en: 'A space to ask questions and get guidance from qualified health professionals on caregiving, neurological conditions and wellness.',
+      sw: 'Nafasi ya kuuliza maswali na kupata mwongozo kutoka kwa wataalamu wa afya waliyoidhinishwa kuhusu ulezi, hali za kinyurolojia, na ustawi.',
     },
-    memberCount: 275,
-    entryMode: 'request',
+    aboutSpace: {
+      en: 'This space was created to connect caregivers with health professionals who can provide evidence-based guidance. Discussions focus on neurological conditions, symptoms, treatments medication management and strategies to support patient wellbeing. It is a safe place to ask questions and gain reliable professional insights.',
+      sw: 'Eneo hili limetengenezwa kuunganisha walezi na wataalamu wa afya wanaoweza kutoa mwongozo unaotegemea ushahidi. Mazungumzo yanahusu hali za kinyurolojia, dalili, matibabu, usimamizi wa dawa na mbinu za kusaidia ustawi wa mgonjwa. Ni mahali salama kuuliza maswali na kupata maarifa ya kitaalamu yanayoaminika.',
+    },
+    memberCount: 132,
+    entryMode: 'open',
     capabilities: {
       canPost: true,
       canReply: true,
-      canReact: false,
+      canReact: true,
       canUploadMedia: false,
     },
     moderation: {
-      level: 'strict',
+      level: 'moderated',
       showGuidelines: true,
       escalationPath: 'professional',
+      
+    },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome to Ask a Health Professional. Post your caregiving questions and get guidance from qualified health experts.',
+        sw: 'Karibu kwenye Uliza Kwa Mtaalamu wa Afya. Chapisha maswali yako kuhusu ulezi na pata mwongozo kutoka kwa wataalamu wa afya waliyoidhinishwa.',
+      },
+      rules: {
+        en: [
+          'Ask clear and specific questions.',
+          'Do not share personal medical records publicly.',
+          'Respect the advice and expertise of professionals.',
+          'Be courteous and patient while waiting for responses.',
+        ],
+        sw: [
+          'Uliza maswali yaliyo wazi na maalum.',
+          'Usishiriki rekodi za afya za kibinafsi hadharani.',
+          'Heshimu ushauri na ujuzi wa wataalamu.',
+          'Kuwa na heshima na subira wakati unasubiri majibu.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. Geoffrey Mong\'are',
+        createdOn: '2026-02-11',
+      },
+    },
+    share: {
+      message: {
+        en: `Join me in the Ask a Health Professional space on Neuro Care. Get reliable guidance and answers to your caregiving questions.
+        \n              neurocare://community/ask-health-pro`,
+        sw: `Jiunge nami kwenye Nafasi ya Uliza Kwa Mtaalamu wa Afya ndani ya Neuro Care. Pata mwongozo wa kuaminika na majibu ya maswali yako ya ulezi.
+        \n              neurocare://community/ask-health-pro`,
+      },
     },
   },
+  
 
   /**
    * 🌱 Caregiver Wellbeing
