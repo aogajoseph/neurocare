@@ -126,4 +126,64 @@ export const communityMembers: CommunityMember[] = [
     name: 'Sheila Morara',
     role: 'caregiver',
   },
+  {
+    id: 'm5',
+    name: 'Dr. Olivia Otieno',
+    role: 'moderator',
+  },
+  {
+    id: 'c21',
+    name: 'Lister Mogaka',
+    role: 'caregiver',
+  },
+  {
+    id: 'c22',
+    name: 'Antonina Moraa',
+    role: 'caregiver',
+  },
+  {
+    id: 'c23',
+    name: 'Christine Awino',
+    role: 'caregiver',
+  },
+  {
+    id: 'c24',
+    name: 'Joan Njeri',
+    role: 'caregiver',
+  },
+  {
+    id: 'c25',
+    name: 'Deborah Karani',
+    role: 'caregiver',
+  },
+  {
+    id: 'm6',
+    name: 'Dr. Jackson Kibagendi',
+    role: 'moderator',
+  },
+  {
+    id: 'c26',
+    name: 'Noordin Abdi',
+    role: 'caregiver',
+  },
+  {
+    id: 'c27',
+    name: 'Felistus Adhiambo',
+    role: 'caregiver',
+  },
+  {
+    id: 'c28',
+    name: 'Jane Wairimu',
+    role: 'caregiver',
+  },
+  {
+    id: 'c29',
+    name: 'Angela Hamisi',
+    role: 'caregiver',
+  },
+  {
+    id: 'c30',
+    name: 'Linda Otsembo',
+    role: 'caregiver',
+  },
 ];

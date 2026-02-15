@@ -486,5 +486,240 @@ export const communityMessages: CommunityMessage[] = [
     },
     createdAt: '2026-02-15T11:18:00Z',
   },  
+
+  /*
+  |--------------------------------------------------------------------------
+  | Care Resources & Services – Demo Messages
+  |--------------------------------------------------------------------------
+  */
+  {
+    id: 'cr-1',
+    spaceId: 'care-resources',
+    author: {
+      id: 'moderator-olivia',
+      name: 'Dr. Olivia Otieno',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Welcome to Care Resources & Services. This space helps caregivers discover and share information about clinics, therapists, support organizations and community services.',
+      sw: 'Karibu kwenye Rasilimali na Huduma za Ulezi. Nafasi hii inasaidia walezi kugundua na kushirikiana taarifa kuhusu kliniki, wataalamu, mashirika na huduma za jamii.',
+    },
+    createdAt: '2026-02-10T09:00:00Z',
+  },
+  
+  {
+    id: 'cr-2',
+    spaceId: 'care-resources',
+    author: {
+      id: 'caregiver-listar',
+      name: 'Lister',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Can anyone recommend a clinic or specialist experienced with long-term neurological care?',
+      sw: 'Kuna mtu anaweza kupendekeza kliniki au mtaalamu mwenye uzoefu na huduma ya muda mrefu ya magonjwa ya neva?',
+    },
+    createdAt: '2026-02-11T10:15:00Z',
+  },
+  
+  {
+    id: 'cr-3',
+    spaceId: 'care-resources',
+    author: {
+      id: 'moderator-olivia',
+      name: 'Dr. Olivia Otieno',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Great question, Lister. When sharing recommendations, please include location, type of service and what made the experience helpful.',
+      sw: 'Swali zuri, Lister. Tafadhali unaposhiriki mapendekezo, taja eneo, aina ya huduma na kilichosaidia kwenye uzoefu wako.',
+    },
+    createdAt: '2026-02-12T10:22:00Z',
+  },
+  
+  {
+    id: 'cr-4',
+    spaceId: 'care-resources',
+    author: {
+      id: 'caregiver-antonina',
+      name: 'Antonina',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Looking for affordable home-based physiotherapy services. Any leads?',
+      sw: 'Natafuta huduma nafuu za tiba ya viungo nyumbani. Kuna mapendekezo?',
+    },
+    createdAt: '2026-02-13T07:40:00Z',
+  },
+  
+  {
+    id: 'cr-5',
+    spaceId: 'care-resources',
+    author: {
+      id: 'moderator-olivia',
+      name: 'Dr. Olivia Otieno',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Thanks for asking, Antonina. Community members may share providers or organizations. Please remember to avoid posting private contact details publicly.',
+      sw: 'Asante kwa swali, Antonina. Wanajamii wanaweza kushiriki watoa huduma au mashirika. Tafadhali epuka kuchapisha mawasiliano binafsi hadharani.',
+    },
+    createdAt: '2026-02-14T07:52:00Z',
+  },
+  
+  {
+    id: 'cr-6',
+    spaceId: 'care-resources',
+    author: {
+      id: 'caregiver-christine',
+      name: 'Christine',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Are there any NGOs offering caregiver training or respite support?',
+      sw: 'Je, kuna mashirika yanayotoa mafunzo kwa walezi au msaada wa mapumziko?',
+    },
+    createdAt: '2026-02-15T11:05:00Z',
+  },
+  
+  {
+    id: 'cr-7',
+    spaceId: 'care-resources',
+    author: {
+      id: 'moderator-olivia',
+      name: 'Dr. Olivia Otieno',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Helpful question, Christine. Members are welcome to share verified programs, organizations or experiences accessing caregiver support services.',
+      sw: 'Swali muhimu, Christine. Wanajamii wanakaribishwa kushiriki programu, mashirika au uzoefu wa kupata huduma za msaada kwa walezi.',
+    },
+    createdAt: '2026-02-15T11:18:00Z',
+  },
+
+  /*
+  |--------------------------------------------------------------------------
+  | Assistive Tools & Daily Living Tips – Demo Messages
+  |--------------------------------------------------------------------------
+  */
+  {
+    id: 'at-1',
+    spaceId: 'assistive-tools',
+    author: {
+      id: 'moderator-jackson',
+      name: 'Jackson Kibagendi',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Welcome to Assistive Tools & Daily Living Tips 💡 This space is for sharing devices, tools and practical strategies that make daily caregiving safer, easier and more manageable.',
+      sw: 'Karibu kwenye Vifaa Saidizi na Vidokezo vya Maisha ya Kila Siku 💡 Hii ni nafasi ya kushirikiana vifaa, zana na mbinu rahisi zinazorahisisha ulezi wa kila siku na kuongeza usalama na urahisi.',
+    },
+    createdAt: '2026-02-10T09:00:00Z',
+  },
+  
+  {
+    id: 'at-2',
+    spaceId: 'assistive-tools',
+    author: {
+      id: 'caregiver-noordin',
+      name: 'Noordin',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Does anyone have recommendations for mobility aids that are safe for elderly care at home?',
+      sw: 'Kuna mtu anaweza kupendekeza vifaa vya usaidizi wa uhamaji vinavyosalama kwa walezi wa wazee nyumbani?',
+    },
+    createdAt: '2026-02-11T10:15:00Z',
+  },
+  
+  {
+    id: 'at-3',
+    spaceId: 'assistive-tools',
+    author: {
+      id: 'moderator-jackson',
+      name: 'Jackson Kibagendi',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Great question, Noordin. When recommending tools, please mention the type of device, ease of use and any safety tips that worked for you.',
+      sw: 'Swali zuri, Noordin. Unapopendekeza vifaa, tafadhali taja aina ya kifaa, urahisi wa matumizi na vidokezo vya usalama vilivyokusaidia.',
+    },
+    createdAt: '2026-02-12T10:22:00Z',
+  },
+  
+  {
+    id: 'at-4',
+    spaceId: 'assistive-tools',
+    author: {
+      id: 'caregiver-felistus',
+      name: 'Felistus',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'I’m looking for affordable grab bars and bath aids for home use. Any suggestions?',
+      sw: 'Natafuta mikono ya kushika na vifaa vya kuoga nyumbani kwa bei nafuu. Kuna mapendekezo?',
+    },
+    createdAt: '2026-02-13T07:40:00Z',
+  },
+  
+  {
+    id: 'at-5',
+    spaceId: 'assistive-tools',
+    author: {
+      id: 'moderator-jackson',
+      name: 'Jackson Kibagendi',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Thanks for asking, Felistus. Community members can share what has worked for them, but please avoid posting private vendor contacts publicly.',
+      sw: 'Asante kwa kuuliza, Felistus. Wanajamii wanaweza kushirikiana kile kilichowasaidia, lakini tafadhali epuka kuchapisha mawasiliano binafsi ya wauzaji hadharani.',
+    },
+    createdAt: '2026-02-14T07:52:00Z',
+  },
+  
+  {
+    id: 'at-6',
+    spaceId: 'assistive-tools',
+    author: {
+      id: 'caregiver-jane',
+      name: 'Jane',
+      role: 'caregiver',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Does anyone use adaptive utensils or plates for feeding? I’m looking for tips to make mealtime easier.',
+      sw: 'Kuna mtu anayetumia vyombo vya chakula vilivyorekebishwa? Natafuta vidokezo vya kurahisisha muda wa chakula.',
+    },
+    createdAt: '2026-02-15T11:05:00Z',
+  },
+  
+  {
+    id: 'at-7',
+    spaceId: 'assistive-tools',
+    author: {
+      id: 'moderator-jackson',
+      name: 'Jackson Kibagendi',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Helpful question, Jane. Adaptive utensils, non-slip mats, and simple plate guards can make a big difference during meals. Share what has worked for you!',
+      sw: 'Swali zuri, Jane. Vyombo vilivyorekebishwa, zulia lisiloelea, na kinga rahisi za sahani vinaweza kurahisisha muda wa chakula. Shiriki kile kilichokusaidia!',
+    },
+    createdAt: '2026-02-15T11:18:00Z',
+  },
+  
   
 ];

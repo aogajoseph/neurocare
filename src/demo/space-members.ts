@@ -3,4 +3,6 @@ export const spaceMembers: Record<string, string[]> = {
   'understanding-neuro-care': ['m2', 'c6', 'c7', 'c8', 'c9', 'c10'], 
   'caregiving-basics': ['m3', 'c11', 'c12', 'c13', 'c14', 'c15'], 
   'caregiver-peer-support': ['m4', 'c16', 'c17', 'c18', 'c19', 'c20'],
+  'care-resources': ['m5', 'c21', 'c22', 'c23', 'c24', 'c25'],
+  'assistive-tools': ['m6', 'c26', 'c27', 'c28', 'c29', 'c30'],
 };

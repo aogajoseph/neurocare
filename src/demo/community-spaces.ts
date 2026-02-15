@@ -395,7 +395,7 @@ export const communitySpaces: CommunitySpace[] = [
   },  
 
   /**
-   * 🧰 Practical Help & Resources
+   *  Care Resources & Services
    */
   {
     id: 'care-resources',
@@ -412,35 +412,83 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'Information on clinics, therapists, NGOs and community services that support caregivers and families.',
       sw: 'Taarifa kuhusu kliniki, wataalamu, mashirika na huduma za jamii zinazosaidia walezi na familia.',
     },
+    aboutSpace: {
+      en: 'This space was created to help caregivers discover and share trusted information about care-related services. Discussions focus on clinics, therapy options, support organizations, assistive services and navigating access to care. It is a place to exchange helpful resources and practical recommendations.',
+      sw: 'Eneo hili limetengenezwa kusaidia walezi kugundua na kushirikiana taarifa za kuaminika kuhusu huduma za ulezi. Mazungumzo yanahusu kliniki, tiba, mashirika ya msaada, huduma saidizi na jinsi ya kupata huduma. Ni mahali pa kubadilishana rasilimali na mapendekezo ya vitendo.',
+    },
     memberCount: 114,
     entryMode: 'open',
     capabilities: {
-      canPost: false,
+      canPost: true,
       canReply: true,
       canReact: true,
       canUploadMedia: false,
     },
     moderation: {
-      level: 'light',
-      showGuidelines: false,
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'professional',
+      status: 'active',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome to Care Resources & Services. Share helpful information about clinics, therapists, organizations and services that may support fellow caregivers.',
+        sw: 'Karibu kwenye Rasilimali na Huduma za Ulezi. Shiriki taarifa muhimu kuhusu kliniki, wataalamu, mashirika na huduma zinazoweza kusaidia walezi wengine.',
+      },
+      rules: {
+        en: [
+          'Share accurate and helpful information.',
+          'Avoid medical diagnoses or prescriptions.',
+          'No spam, advertising, or self-promotion.',
+          'Respect privacy and confidentiality.',
+        ],
+        sw: [
+          'Shiriki taarifa sahihi na zenye msaada.',
+          'Epuka uchunguzi au maagizo ya dawa.',
+          'Hakuna spam au matangazo ya kibiashara.',
+          'Heshimu faragha na siri za wengine.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. Olivia Otieno',
+        createdOn: '2026-02-11',
+      },
+    },
+    share: {
+      message: {
+        en: `Join me in the Care Resources & Services space on Neuro Care. Discover and share helpful care-related services and support options.
+        \n              neurocare://community/care-resources`,
+  
+        sw: `Jiunge nami kwenye Nafasi ya Rasilimali na Huduma za Ulezi ndani ya Neuro Care. Gundua na shiriki huduma na msaada wa ulezi.
+        \n              neurocare://community/care-resources`,
+      },
     },
   },
+  
+  /**
+   *  Assistive Tools
+   */
   {
     id: 'assistive-tools',
     role: 'caregiver',
     category: {
-      en: 'Resources & Support',
-      sw: 'Rasilimali na Msaada',
+      en: 'Daily Care & Support',
+      sw: 'Huduma na Msaada wa Kila Siku',
     },
     title: {
       en: 'Assistive Tools & Daily Living Tips',
       sw: 'Vifaa Saidizi na Vidokezo vya Maisha ya Kila Siku',
     },
     description: {
-      en: 'Tools, devices and practical tips that make daily caregiving safer and more manageable.',
-      sw: 'Vifaa, mbinu na vidokezo vinavyorahisisha na kuboresha ulezi wa kila siku.',
+      en: 'Tools, devices, and practical tips that make daily caregiving safer and more manageable.',
+      sw: 'Vifaa, zana, na vidokezo vya vitendo vinavyorahisisha na kuboresha usalama wa ulezi wa kila siku.',
     },
-    memberCount: 163,
+    aboutSpace: {
+      en: 'This space was created to help caregivers discover and share helpful assistive tools, adaptive devices and practical strategies for everyday care. Discussions focus on mobility aids, safety tools, home adjustments and simple tips that reduce strain and improve daily routines.',
+      sw: 'Eneo hili limetengenezwa kusaidia walezi kugundua na kushirikiana vifaa saidizi, zana za marekebisho na mbinu za vitendo kwa ulezi wa kila siku. Mazungumzo yanahusu vifaa vya uhamaji, usalama, marekebisho ya nyumbani na vidokezo vinavyorahisisha ratiba za kila siku.',
+    },
+    memberCount: 114,
     entryMode: 'open',
     capabilities: {
       canPost: true,
@@ -449,8 +497,44 @@ export const communitySpaces: CommunitySpace[] = [
       canUploadMedia: true,
     },
     moderation: {
-      level: 'light',
-      showGuidelines: false,
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'professional',
+      status: 'active',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome to Assistive Tools & Daily Living Tips. Share devices, tools and practical caregiving tips that improve safety, comfort and independence.',
+        sw: 'Karibu kwenye Vifaa Saidizi na Vidokezo vya Maisha ya Kila Siku. Shiriki vifaa, zana na vidokezo vya ulezi vinavyoboresha usalama, faraja na kujitegemea.',
+      },
+      rules: {
+        en: [
+          'Share practical, experience-based tips.',
+          'Avoid medical diagnoses or prescriptions.',
+          'Be honest about what worked and what didn’t.',
+          'Respect privacy and individual differences.',
+        ],
+        sw: [
+          'Shiriki vidokezo vya vitendo kutokana na uzoefu.',
+          'Epuka uchunguzi au maagizo ya dawa.',
+          'Eleza kwa uaminifu kilichosaidia au hakikusaidia.',
+          'Heshimu faragha na tofauti za kila mtu.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. Jackson Kibagendi',
+        createdOn: '2026-02-11',
+      },
+    },
+    share: {
+      message: {
+        en: `Join me in the Assistive Tools & Daily Living Tips space on Neuro Care. Discover tools and smart caregiving ideas that make daily care easier.
+        \n              neurocare://community/assistive-tools`,
+  
+        sw: `Jiunge nami kwenye Nafasi ya Vifaa Saidizi na Vidokezo vya Maisha ya Kila Siku ndani ya Neuro Care. Gundua zana na mbinu rahisi za ulezi.
+        \n              neurocare://community/assistive-tools`,
+      },
     },
   },
 
