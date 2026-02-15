@@ -120,7 +120,6 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'Emotional support, counselling and guided conversations to help caregivers cope, reflect and regain balance.',
       sw: 'Msaada wa kihisia, ushauri na mazungumzo yanayoongozwa kusaidia walezi kukabiliana na changamoto na kurejesha utulivu.',
     },
-    status: 'active',
     aboutSpace: {
       en: 'This space was created to support caregivers navigating the emotional and practical challenges of caring for a loved one. It is a safe place to share experiences, seek guidance, reflect, and find encouragement from peers and professionals. It aims at helping caregivers cope, learn, and connect.',
       sw: 'Eneo hili limetengenezwa kusaidia walezi wanaokabiliana na changamoto za kihisia na za vitendo za kulea mpendwa. Ni mahali salama pa kushiriki uzoefu, kupata mwongozo, kutafakari, na kupata faraja kutoka kwa wenzao na wataalamu. Lina lengo la kusaidia walezi kukabiliana, kujifunza, na kuungana na wengine.',
@@ -137,6 +136,7 @@ export const communitySpaces: CommunitySpace[] = [
       level: 'moderated',
       showGuidelines: true,
       escalationPath: 'professional',
+      status: 'active',
     },
     systemMessages: {
       welcome: {
@@ -180,7 +180,7 @@ export const communitySpaces: CommunitySpace[] = [
    * 🧠 Understanding Conditions & Care
    */
   {
-    id: 'understanding-conditions',
+    id: 'understanding-neuro-care',
     role: 'caregiver',
     category: {
       en: 'Understanding Care',
@@ -194,6 +194,10 @@ export const communitySpaces: CommunitySpace[] = [
       en: 'Plain-language explanations of neurological conditions, what to expect and how to navigate care confidently.',
       sw: 'Maelezo rahisi kuhusu hali za kinyurolojia, nini cha kutarajia na jinsi ya kutoa huduma kwa ujasiri.',
     },
+    aboutSpace: {
+      en: 'This space was created to help caregivers better understand neurological conditions, treatments and care journeys. It offers clear, plain-language explanations, trusted insights and supportive discussions that build confidence in navigating care. It is a place to learn, ask questions and gain clarity about what to expect.',
+      sw: 'Eneo hili limetengenezwa kusaidia walezi kuelewa vyema hali za kinyurolojia, matibabu na safari ya huduma. Linatoa maelezo rahisi na yanayoeleweka, maarifa ya kuaminika na majadiliano yanayosaidia kujenga ujasiri katika kutoa na kusimamia huduma. Ni mahali pa kujifunza, kuuliza maswali na kupata ufafanuzi kuhusu nini cha kutarajia.',
+    },
     memberCount: 123,
     entryMode: 'open',
     capabilities: {
@@ -203,8 +207,46 @@ export const communitySpaces: CommunitySpace[] = [
       canUploadMedia: false,
     },
     moderation: {
-      level: 'light',
-      showGuidelines: false,
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'professional',
+      status: 'active',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'You\'re not alone. Feel free to express yourself, connect with others and take what helps you.',
+        sw: 'Hauko peke yako. Hisi huru kueleza hisia zako, kuungana na wengine, na kuchukua kinachokusaidia.',
+      },
+      rules: {
+        en: [
+          'Be kind and respectful to others.',
+          'Do not give medical advice.',
+          'This space is moderated to ensure safety.',
+          'Share only what feels safe for you.',
+          'Respect the privacy and confidentiality of others.',
+        ],
+        sw: [
+          'Kuwa mpole na heshimiana na wengine.',
+          'Usipatie ushauri wa kitabibu.',
+          'Nafasi hii inasimamiwa kuhakikisha usalama.',
+          'Shiriki tu kile unachojisikia salama kushiriki.',
+          'Heshimu faragha na siri za wengine.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Prof. Amina Mohammed',
+        createdOn: '2026-02-11',
+      },
+    },
+    share: {
+      message: {
+        en: `Join me in the Caregiver Guidance & Counselling space on Neuro Care. A supportive place for caregivers.
+        \n              neurocare://community/understanding-care`,
+        
+        sw: `Jiunge nami kwenye Nafasi ya Mwongozo na Ushauri kwa Walezi ndani ya Neuro Care. Mahali pa msaada kwa walezi.
+        \n              neurocare://community/understanding-care`,
+      },
     },
   },
   {
