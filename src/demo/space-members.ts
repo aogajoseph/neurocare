@@ -11,4 +11,5 @@ export const spaceMembers: Record<string, string[]> = {
   'living-well': ['m10', 'c46', 'c47', 'c48', 'c49', 'c50'],
   'symptoms-daily-life': ['m11', 'c51', 'c52', 'c53', 'c54', 'c55'],
   'clinical-practitioners': ['m12', 'c56', 'c57', 'c58', 'c59', 'c60'],
+  'rehab-support': ['m13', 'c61', 'c62', 'c63', 'c64', 'c65'],
 };

@@ -1696,8 +1696,6 @@ export const communityMessages: CommunityMessage[] = [
 
   /**
    *  Rehabilitation & Support Space
-   *  Moderator: Dr. Benard Njoroge
-   *  Members: Prof. Mary Wambui, Dr. John Mwangi, Dr. Patricia Nduta, Dr. Richard Ochieng, Dr. Angela Kimani
    */
   {
     id: 'rs-1',
