@@ -254,27 +254,27 @@ export const communityMembers: CommunityMember[] = [
   {
     id: 'c41',
     name: 'Yolanda Yollo',
-    role: 'caregiver',
+    role: 'pwd',
   },
   {
     id: 'c42',
     name: 'Dave Obong',
-    role: 'caregiver',
+    role: 'pwd',
   },
   {
     id: 'c43',
     name: 'Calvins Juma',
-    role: 'caregiver',
+    role: 'pwd',
   },
   {
     id: 'c44',
     name: 'Joy Penina',
-    role: 'caregiver',
+    role: 'pwd',
   },
   {
     id: 'c45',
     name: 'Mercy Nduko',
-    role: 'caregiver',
+    role: 'pwd',
   },
   {
     id: 'm10',
@@ -284,27 +284,57 @@ export const communityMembers: CommunityMember[] = [
   {
     id: 'c46',
     name: 'Francis Amimo',
-    role: 'caregiver',
+    role: 'pwd',
   },
   {
     id: 'c47',
     name: 'Cornelius Ikoo',
-    role: 'caregiver',
+    role: 'pwd',
   },
   {
     id: 'c48',
     name: 'Agatha Wekesa',
-    role: 'caregiver',
+    role: 'pwd',
   },
   {
     id: 'c49',
     name: 'Moses Muiruri',
-    role: 'caregiver',
+    role: 'pwd',
   },
   {
     id: 'c50',
     name: 'Nancy Adhiambo',
-    role: 'caregiver',
+    role: 'pwd',
+  },
+  {
+    id: 'm11',
+    name: 'Dr. Erastus Seda',
+    role: 'moderator',
+  },
+  {
+    id: 'c51',
+    name: 'Allan Kimani',
+    role: 'pwd',
+  },
+  {
+    id: 'c52',
+    name: 'Joyce Ndunge',
+    role: 'pwd',
+  },
+  {
+    id: 'c53',
+    name: 'Eunice Adhiambo',
+    role: 'pwd',
+  },
+  {
+    id: 'c54',
+    name: 'Lavender Imani',
+    role: 'pwd',
+  },
+  {
+    id: 'c55',
+    name: 'Immaculate Wambui',
+    role: 'pwd',
   },
 
 ];

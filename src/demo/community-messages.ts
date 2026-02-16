@@ -1443,6 +1443,171 @@ export const communityMessages: CommunityMessage[] = [
       sw: 'Nancy, mifano ni: usingizi wa utaratibu, mwendo wa taratibu, muda wa kupumzika, mawasiliano ya kijamii, na kujijali. Hatua ndogo huleta mabadiliko ya kudumu.',
     },
     createdAt: '2026-02-16T12:18:00Z',
-  }
+  },
+
+  /*
+  |--------------------------------------------------------------------------
+  | Symptoms & Daily Life – Demo Messages
+  |--------------------------------------------------------------------------
+  */
+  {
+    id: 'sdl-1',
+    spaceId: 'symptoms-daily-life',
+    author: {
+      id: 'moderator-erastus',
+      name: 'Dr. Erastus Seda',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Welcome to Symptoms & Daily Life 🌱 This space is for sharing real experiences, coping strategies, and everyday adjustments related to symptoms and functioning.',
+      sw: 'Karibu kwenye Symptoms & Daily Life 🌱 Nafasi hii ni ya kushiriki uzoefu halisi, mbinu za kukabiliana, na marekebisho ya kila siku yanayohusiana na dalili na maisha ya kawaida.',
+    },
+    createdAt: '2026-02-10T09:10:00Z',
+  },
+  
+  {
+    id: 'sdl-2',
+    spaceId: 'symptoms-daily-life',
+    author: {
+      id: 'member-allan',
+      name: 'Allan',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Some days my symptoms are unpredictable. It’s hard to plan work or social activities. How do others manage this?',
+      sw: 'Siku nyingine dalili zangu hubadilika bila kutarajiwa. Ni vigumu kupanga kazi au shughuli za kijamii. Wengine wanakabiliana vipi na hili?',
+    },
+    createdAt: '2026-02-11T08:25:00Z',
+  },
+  
+  {
+    id: 'sdl-3',
+    spaceId: 'symptoms-daily-life',
+    author: {
+      id: 'moderator-erastus',
+      name: 'Dr. Erastus Seda',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Allan, flexibility is key. Consider “buffer time,” lighter schedules, and communicating boundaries. Planning with room for adjustment can reduce stress.',
+      sw: 'Allan, kubadilika ni muhimu. Fikiria muda wa ziada, ratiba nyepesi, na kuwasiliana mipaka yako. Kupanga kwa nafasi ya marekebisho hupunguza msongo.',
+    },
+    createdAt: '2026-02-11T08:50:00Z',
+  },
+  
+  {
+    id: 'sdl-4',
+    spaceId: 'symptoms-daily-life',
+    author: {
+      id: 'member-joyce',
+      name: 'Joyce',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Fatigue affects my productivity and mood. I feel guilty resting. Any advice?',
+      sw: 'Uchovu huathiri kazi yangu na hisia zangu. Najihisi na hatia nikipumzika. Ushauri wowote?',
+    },
+    createdAt: '2026-02-12T11:40:00Z',
+  },
+  
+  {
+    id: 'sdl-5',
+    spaceId: 'symptoms-daily-life',
+    author: {
+      id: 'moderator-erastus',
+      name: 'Dr. Erastus Seda',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Joyce, rest is a medical necessity, not a weakness. Try pacing activities and recognizing early signs of exhaustion.',
+      sw: 'Joyce, kupumzika ni hitaji la kiafya, si udhaifu. Jaribu kupanga shughuli kwa hatua na kutambua dalili za uchovu mapema.',
+    },
+    createdAt: '2026-02-12T12:05:00Z',
+  },
+  
+  {
+    id: 'sdl-6',
+    spaceId: 'symptoms-daily-life',
+    author: {
+      id: 'member-eunice',
+      name: 'Eunice',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'My symptoms are invisible, but people assume I’m fine. It’s frustrating.',
+      sw: 'Dalili zangu hazionekani, lakini watu hudhani niko sawa. Inakatisha tamaa.',
+    },
+    createdAt: '2026-02-13T07:30:00Z',
+  },
+  
+  {
+    id: 'sdl-7',
+    spaceId: 'symptoms-daily-life',
+    author: {
+      id: 'moderator-erastus',
+      name: 'Dr. Erastus Seda',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Eunice, that’s a common challenge. Educating close contacts and advocating for your needs can help reduce misunderstanding.',
+      sw: 'Eunice, hilo ni changamoto ya kawaida. Kuelimisha watu wa karibu na kutetea mahitaji yako kunaweza kusaidia.',
+    },
+    createdAt: '2026-02-13T07:55:00Z',
+  },
+  
+  {
+    id: 'sdl-8',
+    spaceId: 'symptoms-daily-life',
+    author: {
+      id: 'member-lavender',
+      name: 'Lavender',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Stress seems to worsen my symptoms. How can I break that cycle?',
+      sw: 'Msongo huonekana kuongeza dalili zangu. Ninawezaje kuvunja mzunguko huo?',
+    },
+    createdAt: '2026-02-15T10:15:00Z',
+  },
+  
+  {
+    id: 'sdl-9',
+    spaceId: 'symptoms-daily-life',
+    author: {
+      id: 'moderator-erastus',
+      name: 'Dr. Erastus Seda',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Lavender, explore stress-reduction techniques like breathing exercises, structured routines, and gentle relaxation practices.',
+      sw: 'Lavender, jaribu mbinu za kupunguza msongo kama mazoezi ya pumzi, ratiba thabiti, na mbinu za kutulia.',
+    },
+    createdAt: '2026-02-15T10:35:00Z',
+  },
+  
+  {
+    id: 'sdl-10',
+    spaceId: 'symptoms-daily-life',
+    author: {
+      id: 'member-immaculate',
+      name: 'Immaculate',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'What small adjustments have helped others function better day-to-day?',
+      sw: 'Ni marekebisho gani madogo yamewasaidia wengine kuishi vizuri kila siku?',
+    },
+    createdAt: '2026-02-16T09:50:00Z',
+  },
   
 ];
