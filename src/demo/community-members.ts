@@ -336,5 +336,36 @@ export const communityMembers: CommunityMember[] = [
     name: 'Immaculate Wambui',
     role: 'pwd',
   },
+  {
+    id: 'm12',
+    name: 'Dr. Alice Kamau',
+    role: 'moderator',
+  },
+  {
+    id: 'c56',
+    name: 'Dr. Grace Wanjiru',
+    role: 'professional',
+  },
+  {
+    id: 'c57',
+    name: 'Dr. Samuel Oloo',
+    role: 'professional',
+  },
+  {
+    id: 'c58',
+    name: 'Dr. Beatrice Njeri',
+    role: 'professional',
+  },
+  {
+    id: 'c59',
+    name: 'Dr. Kelvin Mwangi',
+    role: 'professional',
+  },
+  {
+    id: 'c60',
+    name: 'Dr. Robinson Smith',
+    role: 'professional',
+  },
+  
 
 ];

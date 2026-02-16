@@ -1609,5 +1609,261 @@ export const communityMessages: CommunityMessage[] = [
     },
     createdAt: '2026-02-16T09:50:00Z',
   },
+
+  /**
+   *  Clinical Practitioners Space
+   */
+  {
+    id: 'cp-1',
+    spaceId: 'clinical-practitioners',
+    author: {
+      id: 'moderator-alice',
+      name: 'Dr. Alice Kamau',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Welcome to Clinical Practitioners 💼 This space is for sharing case insights, discussing protocols, and exchanging evidence-based clinical practices safely.',
+      sw: 'Karibu kwenye Wataalamu wa Kliniki 💼 Hii ni nafasi ya kushirikiana uzoefu wa kesi, majadiliano ya taratibu, na kubadilishana mbinu bora za kliniki kwa usalama.',
+    },
+    createdAt: '2026-02-16T09:00:00Z',
+  },
+
+  {
+    id: 'cp-2',
+    spaceId: 'clinical-practitioners',
+    author: {
+      id: 'dr-michael',
+      name: 'Dr. Michael Otieno',
+      role: 'professional',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'I recently managed a complex Parkinson’s case with multiple comorbidities. Curious to hear how others approach polypharmacy in elderly patients.',
+      sw: 'Hivi karibuni nilisimamia kesi tata ya Parkinson yenye magonjwa mengine pamoja. Nina hamu ya kusikia jinsi wengine wanavyoshughulikia polypharmacy kwa wagonjwa wazee.',
+    },
+    createdAt: '2026-02-16T10:15:00Z',
+  },
+
+  {
+    id: 'cp-3',
+    spaceId: 'clinical-practitioners',
+    author: {
+      id: 'moderator-alice',
+      name: 'Dr. Alice Kamau',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Dr. Michael, thanks for sharing. When discussing polypharmacy, consider medication reconciliation, monitoring side effects, and patient adherence strategies.',
+      sw: 'Dr. Michael, asante kwa kushiriki. Unapojadili polypharmacy, zingatia kuratibu dawa, kufuatilia madhara, na mbinu za kuhakikisha wagonjwa wanatumia dawa ipasavyo.',
+    },
+    createdAt: '2026-02-16T10:30:00Z',
+  },
+
+  {
+    id: 'cp-4',
+    spaceId: 'clinical-practitioners',
+    author: {
+      id: 'dr-grace',
+      name: 'Dr. Grace Wanjiru',
+      role: 'professional',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'What protocols do others follow for rapid assessment of stroke patients in the ER?',
+      sw: 'Ni taratibu zipi zingine mnafuata kwa tathmini ya haraka ya wagonjwa wa stroke katika chumba cha dharura?',
+    },
+    createdAt: '2026-02-16T11:00:00Z',
+  },
+
+  {
+    id: 'cp-5',
+    spaceId: 'clinical-practitioners',
+    author: {
+      id: 'moderator-alice',
+      name: 'Dr. Alice Kamau',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Dr. Grace, ensure NIHSS scoring is done promptly, stabilize vitals, and follow hospital-specific thrombolysis protocols. Share local adaptations you find effective.',
+      sw: 'Dr. Grace, hakikisha alama ya NIHSS inafanywa haraka, thibitisha vigezo vya afya, na fuata taratibu za thrombolysis za hospitali. Shiriki mabadiliko ya hapa uliyoona yanafaa.',
+    },
+    createdAt: '2026-02-16T11:15:00Z',
+  },
+
+
+  /**
+   *  Rehabilitation & Support Space
+   *  Moderator: Dr. Benard Njoroge
+   *  Members: Prof. Mary Wambui, Dr. John Mwangi, Dr. Patricia Nduta, Dr. Richard Ochieng, Dr. Angela Kimani
+   */
+  {
+    id: 'rs-1',
+    spaceId: 'rehab-support',
+    author: {
+      id: 'moderator-benard',
+      name: 'Dr. Benard Njoroge',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Welcome to Rehabilitation & Support 🏥 This space is for therapists, nutritionists, psychologists, and rehab specialists to share interventions and holistic patient support strategies.',
+      sw: 'Karibu kwenye Urejeshaji na Msaada 🏥 Hii ni nafasi ya wataalamu wa tiba, lishe, saikolojia na wengine kushirikiana mbinu za upatanisho na msaada wa jumla kwa wagonjwa.',
+    },
+    createdAt: '2026-02-16T09:00:00Z',
+  },
+
+  {
+    id: 'rs-2',
+    spaceId: 'rehab-support',
+    author: {
+      id: 'prof-mary',
+      name: 'Prof. Mary Wambui',
+      role: 'professional',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'I am exploring cognitive rehabilitation techniques for post-stroke patients. Which approaches have others found effective?',
+      sw: 'Ninachunguza mbinu za urejeshaji wa utambuzi kwa wagonjwa baada ya stroke. Ni mbinu zipi zingine mmeona zinafanikiwa?',
+    },
+    createdAt: '2026-02-16T10:15:00Z',
+  },
+
+  {
+    id: 'rs-3',
+    spaceId: 'rehab-support',
+    author: {
+      id: 'moderator-benard',
+      name: 'Dr. Benard Njoroge',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Prof. Mary, cognitive exercises, structured routines, and family involvement often yield good results. Track progress and adapt strategies per patient needs.',
+      sw: 'Prof. Mary, mazoezi ya utambuzi, ratiba zilizopangwa, na ushiriki wa familia mara nyingi huzaa matokeo mazuri. Fuatilia maendeleo na badilisha mbinu kulingana na mahitaji ya mgonjwa.',
+    },
+    createdAt: '2026-02-16T10:30:00Z',
+  },
+
+  {
+    id: 'rs-4',
+    spaceId: 'rehab-support',
+    author: {
+      id: 'dr-john',
+      name: 'Dr. John Mwangi',
+      role: 'professional',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Nutrition-wise, which supplements have you found helpful for patients recovering from neurosurgery?',
+      sw: 'Kuhusu lishe, ni virutubisho gani mmeona vinasaidia wagonjwa wanaopona baada ya upasuaji wa neva?',
+    },
+    createdAt: '2026-02-16T11:00:00Z',
+  },
+
+  {
+    id: 'rs-5',
+    spaceId: 'rehab-support',
+    author: {
+      id: 'moderator-benard',
+      name: 'Dr. Benard Njoroge',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Dr. John, protein-rich diets and vitamin supplementation, combined with regular monitoring, often help recovery. Share observations on patient tolerance and outcomes.',
+      sw: 'Dr. John, lishe lenye protini na virutubisho vya vitamini, pamoja na ufuatiliaji wa mara kwa mara, mara nyingi husaidia urejeshaji. Shiriki maoni kuhusu uvumilivu na matokeo ya mgonjwa.',
+    },
+    createdAt: '2026-02-16T11:15:00Z',
+  },
+
+
+  /**
+   *  Learning & Knowledge Exchange Space
+   *  Moderator: Dr. Carol Wanjiku
+   *  Members: Dr. Peter Kimani, Dr. Faith Achieng, Prof. David Ouma, Dr. Lydia Mwikali, Dr. Samuel Kariuki
+   */
+  {
+    id: 'pl-1',
+    spaceId: 'professional-learning',
+    author: {
+      id: 'moderator-carol',
+      name: 'Dr. Carol Wanjiku',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Welcome to Learning & Knowledge Exchange 📚 This space is for professionals to share research insights, new treatments, and collaborate on clinical learning.',
+      sw: 'Karibu kwenye Kujifunza na Kubadilishana Maarifa 📚 Hii ni nafasi ya wataalamu kushirikiana maarifa ya utafiti, matibabu mapya, na kushirikiana kujifunza.',
+    },
+    createdAt: '2026-02-16T09:00:00Z',
+  },
+
+  {
+    id: 'pl-2',
+    spaceId: 'professional-learning',
+    author: {
+      id: 'dr-peter',
+      name: 'Dr. Peter Kimani',
+      role: 'professional',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'I recently reviewed a paper on early intervention in neurodegenerative diseases. Curious if others apply these protocols in practice.',
+      sw: 'Hivi karibuni nilipitia makala kuhusu uingiliaji wa mapema katika magonjwa yanayoharibu neva. Nina hamu ya kujua kama wengine wanautekeleza taratibu hizi katika vitendo.',
+    },
+    createdAt: '2026-02-16T10:15:00Z',
+  },
+
+  {
+    id: 'pl-3',
+    spaceId: 'professional-learning',
+    author: {
+      id: 'moderator-carol',
+      name: 'Dr. Carol Wanjiku',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Dr. Peter, sharing your approach and outcomes can help peers adapt strategies. Always highlight patient safety considerations.',
+      sw: 'Dr. Peter, kushiriki mbinu na matokeo yako kunaweza kusaidia wenzako kubadilisha mbinu. Kila wakati eleza tahadhari za usalama wa mgonjwa.',
+    },
+    createdAt: '2026-02-16T10:30:00Z',
+  },
+
+  {
+    id: 'pl-4',
+    spaceId: 'professional-learning',
+    author: {
+      id: 'prof-david',
+      name: 'Prof. David Ouma',
+      role: 'professional',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Has anyone integrated telemedicine for patient follow-ups in neurology clinics? What platforms work best?',
+      sw: 'Je, kuna aliyeunganisha telemedicine kwa ufuatiliaji wa wagonjwa katika kliniki za neva? Ni majukwaa gani yanayofaa zaidi?',
+    },
+    createdAt: '2026-02-16T11:00:00Z',
+  },
+
+  {
+    id: 'pl-5',
+    spaceId: 'professional-learning',
+    author: {
+      id: 'moderator-carol',
+      name: 'Dr. Carol Wanjiku',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Prof. David, telemedicine platforms like Zoom Health and Doxy.me are widely used. Consider patient accessibility, data security, and integration with EMR.',
+      sw: 'Prof. David, majukwaa ya telemedicine kama Zoom Health na Doxy.me yanatumika sana. Zingatia ufikikaji wa mgonjwa, usalama wa data, na ulinganifu na EMR.',
+    },
+    createdAt: '2026-02-16T11:15:00Z',
+  },
+
   
 ];

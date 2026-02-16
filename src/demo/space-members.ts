@@ -10,4 +10,5 @@ export const spaceMembers: Record<string, string[]> = {
   'pwd-peer-circle': ['m9', 'c41', 'c42', 'c43', 'c44', 'c45'],
   'living-well': ['m10', 'c46', 'c47', 'c48', 'c49', 'c50'],
   'symptoms-daily-life': ['m11', 'c51', 'c52', 'c53', 'c54', 'c55'],
+  'clinical-practitioners': ['m12', 'c56', 'c57', 'c58', 'c59', 'c60'],
 };
