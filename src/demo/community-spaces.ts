@@ -893,5 +893,218 @@ export const communitySpaces: CommunitySpace[] = [
     },
   },
 
+  /**
+   *  Clinical Practitioners
+   */
+  {
+    id: 'clinical-practitioners',
+    role: 'professional',
+    category: {
+      en: 'Clinical Practice',
+      sw: 'Utekelezaji wa Kliniki',
+    },
+    title: {
+      en: 'Clinical Practitioners',
+      sw: 'Wataalamu wa Kliniki',
+    },
+    description: {
+      en: 'Discuss diagnosis, treatment, acute care and clinical best practices.',
+      sw: 'Jadili uchunguzi, matibabu, huduma ya dharura na mbinu bora za kliniki.',
+    },
+    aboutSpace: {
+      en: 'This space is for doctors, nurses, neurosurgeons and frontline clinicians to share case insights, discuss protocols and exchange evidence-based practices safely.',
+      sw: 'Eneo hili ni kwa madaktari, wauguzi, wanasayansi wa neva na wataalamu wa kliniki kushiriki uzoefu wa kesi, majadiliano ya taratibu na kubadilishana mbinu bora zinazotegemea ushahidi.',
+    },
+    memberCount: 102,
+    entryMode: 'request',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'admin',
+      status: 'active',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome 💼 Share insights, protocols and best practices with fellow clinical professionals.',
+        sw: 'Karibu 💼 Shiriki maarifa, taratibu na mbinu bora na wenzako wataalamu wa kliniki.',
+      },
+      rules: {
+        en: [
+          'Keep patient information de-identified.',
+          'Focus on evidence-based discussion.',
+          'Respect peer opinions and expertise.',
+          'Stay professional and courteous.',
+        ],
+        sw: [
+          'Hakikisha taarifa za mgonjwa hazionekani.',
+          'Lenga kwenye majadiliano yanayotegemea ushahidi.',
+          'Heshimu maoni na ujuzi wa wenzako.',
+          'Kaa mtaalamu na mpole.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. Alice Kamau',
+        createdOn: '2026-02-16',
+      },
+    },
+    share: {
+      message: {
+        en: `Join me in the Clinical Practitioners space on Neuro Care. Exchange knowledge and discuss best practices.
+        \n              neurocare://community/clinical-practitioners`,
+        sw: `Jiunge nami kwenye Nafasi ya Wataalamu wa Kliniki ndani ya Neuro Care. Badilishana maarifa na jadili mbinu bora.
+        \n              neurocare://community/clinical-practitioners`,
+      },
+    },
+  },
+
+  /**
+   *  Rehabilitation & Support
+   */
+  {
+    id: 'rehab-support',
+    role: 'professional',
+    category: {
+      en: 'Rehabilitation & Support',
+      sw: 'Rehabilitation na Msaada',
+    },
+    title: {
+      en: 'Rehabilitation & Support',
+      sw: 'Urejeshaji na Msaada',
+    },
+    description: {
+      en: 'Discuss therapy approaches, nutrition, psychology and holistic patient support.',
+      sw: 'Jadili mbinu za tiba, lishe, saikolojia na msaada wa jumla kwa wagonjwa.',
+    },
+    aboutSpace: {
+      en: 'Therapists, nutritionists, psychologists, and other rehab specialists share strategies, interventions, and resources to optimize recovery and patient wellbeing.',
+      sw: 'Wataalamu wa tiba, lishe, saikolojia, na wengine hushirikiana mbinu, upatanisho, na rasilimali ili kuboresha urejeshaji na ustawi wa mgonjwa.',
+    },
+    memberCount: 88,
+    entryMode: 'request',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'admin',
+      status: 'active',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome 🏥 Share rehabilitation strategies, interventions, and patient support insights.',
+        sw: 'Karibu 🏥 Shiriki mbinu za urejeshaji, upatanisho na maarifa ya msaada wa wagonjwa.',
+      },
+      rules: {
+        en: [
+          'Respect confidentiality of patients.',
+          'Share practical and evidence-based strategies.',
+          'Encourage multidisciplinary discussion.',
+          'Maintain professional conduct.',
+        ],
+        sw: [
+          'Heshimu usiri wa wagonjwa.',
+          'Shiriki mbinu za vitendo na zinazotegemea ushahidi.',
+          'Himiza majadiliano ya idara nyingi.',
+          'Kaa mtaalamu.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. Benard Njoroge',
+        createdOn: '2026-02-16',
+      },
+    },
+    share: {
+      message: {
+        en: `Join me in the Rehabilitation & Support space on Neuro Care. Collaborate and share patient care strategies.
+        \n              neurocare://community/rehab-support`,
+        sw: `Jiunge nami kwenye Nafasi ya Urejeshaji na Msaada ndani ya Neuro Care. Shirikiana na shiriki mbinu za huduma kwa wagonjwa.
+        \n              neurocare://community/rehab-support`,
+      },
+    },
+  },
+
+  /**
+   *  Learning & Knowledge Exchange
+   */
+  {
+    id: 'professional-learning',
+    role: 'professional',
+    category: {
+      en: 'Learning & Collaboration',
+      sw: 'Kujifunza na Kushirikiana',
+    },
+    title: {
+      en: 'Knowledge Exchange',
+      sw: 'Kubadilishana Maarifa',
+    },
+    description: {
+      en: 'An open space for professionals to share research, trends, and lessons learned.',
+      sw: 'Eneo wazi kwa wataalamu kushirikiana utafiti, mitindo na masomo yaliyojifunza.',
+    },
+    aboutSpace: {
+      en: 'All health professionals can discuss research, new treatments, and collaborate on knowledge sharing. The focus is on peer learning, mentorship, and professional development.',
+      sw: 'Wataalamu wote wa afya wanaweza kujadili utafiti, matibabu mapya, na kushirikiana maarifa. Lengo ni kujifunza pamoja, ushauri, na maendeleo ya kitaaluma.',
+    },
+    memberCount: 96,
+    entryMode: 'request',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'admin',
+      status: 'active',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome 📚 Share research insights, trends, and learning experiences with peers.',
+        sw: 'Karibu 📚 Shiriki maarifa ya utafiti, mitindo, na uzoefu wa kujifunza na wenzako.',
+      },
+      rules: {
+        en: [
+          'Stay professional and constructive.',
+          'Focus on learning and knowledge sharing.',
+          'Respect diverse opinions and expertise.',
+          'Avoid patient-identifiable information.',
+        ],
+        sw: [
+          'Kaa mtaalamu na chanya.',
+          'Lenga kujifunza na kushirikiana maarifa.',
+          'Heshimu maoni na ujuzi tofauti.',
+          'Epuka taarifa zinazotambulisha wagonjwa.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. Carol Wanjiku',
+        createdOn: '2026-02-16',
+      },
+    },
+    share: {
+      message: {
+        en: `Join me in the Learning & Knowledge Exchange space on Neuro Care. Collaborate, learn, and share insights.
+        \n              neurocare://community/professional-learning`,
+        sw: `Jiunge nami kwenye Nafasi ya Kujifunza na Kubadilishana Maarifa ndani ya Neuro Care. Shirikiana, jifunze, na shiriki maarifa.
+        \n              neurocare://community/professional-learning`,
+      },
+    },
+  },
+
   
 ];

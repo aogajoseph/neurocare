@@ -16,6 +16,9 @@ export default function CommunityEntryScreen() {
       case 'pwd':
           router.push('/(community)/pwd'); // <- your existing pwd.tsx
           break;
+      case 'professional':
+          router.push('/(community)/professional'); // <- your existing professional.tsx
+          break;
       default:
         Alert.alert(
           language === 'sw' ? 'Karibu Baadaye' : 'Coming Soon',
