@@ -1780,8 +1780,6 @@ export const communityMessages: CommunityMessage[] = [
 
   /**
    *  Learning & Knowledge Exchange Space
-   *  Moderator: Dr. Carol Wanjiku
-   *  Members: Dr. Peter Kimani, Dr. Faith Achieng, Prof. David Ouma, Dr. Lydia Mwikali, Dr. Samuel Kariuki
    */
   {
     id: 'pl-1',

@@ -12,4 +12,5 @@ export const spaceMembers: Record<string, string[]> = {
   'symptoms-daily-life': ['m11', 'c51', 'c52', 'c53', 'c54', 'c55'],
   'clinical-practitioners': ['m12', 'c56', 'c57', 'c58', 'c59', 'c60'],
   'rehab-support': ['m13', 'c61', 'c62', 'c63', 'c64', 'c65'],
+  'professional-learning': ['m14', 'c66', 'c67', 'c68', 'c69', 'c70'],
 };
