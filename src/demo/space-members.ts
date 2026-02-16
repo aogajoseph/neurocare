@@ -8,4 +8,5 @@ export const spaceMembers: Record<string, string[]> = {
   'ask-health-pro': ['m7', 'c31', 'c32', 'c33', 'c34', 'c35'],
   'caring-for-caregiver': ['m8', 'c36', 'c37', 'c38', 'c39', 'c40'],
   'pwd-peer-circle': ['m9', 'c41', 'c42', 'c43', 'c44', 'c45'],
+  'living-well': ['m10', 'c46', 'c47', 'c48', 'c49', 'c50'],
 };

@@ -811,13 +811,13 @@ export const communitySpaces: CommunitySpace[] = [
         moderatedBy: 'Dr. Victor Menya',
         createdOn: '2026-02-16',
       },
-      share: {
-        message: {
-          en: `Join me in the Caring for the Caregiver space on Neuro Care. Learn, share, and discover ways to nurture yourself while caring for others.
-          \n              neurocare://community/living-well`,
-          sw: `Jiunge nami kwenye Nafasi ya Kujali Mlezi ndani ya Neuro Care. Jifunze, shiriki, na gundua njia za kujitunza wakati unasaidia wengine.
-          \n              neurocare://community/living-well`,
-        },
+    },
+    share: {
+      message: {
+        en: `Join me in the Caring for the Caregiver space on Neuro Care. Learn, share, and discover ways to nurture yourself while caring for others.
+        \n              neurocare://community/living-well`,
+        sw: `Jiunge nami kwenye Nafasi ya Kujali Mlezi ndani ya Neuro Care. Jifunze, shiriki, na gundua njia za kujitunza wakati unasaidia wengine.
+        \n              neurocare://community/living-well`,
       },
     },
   },

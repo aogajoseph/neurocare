@@ -1264,5 +1264,185 @@ export const communityMessages: CommunityMessage[] = [
     createdAt: '2026-02-16T11:15:00Z',
   },
   
-
+  /*
+  |--------------------------------------------------------------------------
+  | Living Well & Wellness – Demo Messages
+  |--------------------------------------------------------------------------
+  */
+  {
+    id: 'lww-1',
+    spaceId: 'living-well',
+    author: {
+      id: 'moderator-victor',
+      name: 'Dr. Victor Menya',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Welcome to Living Well & Wellness 🌿 This space focuses on healthy routines, emotional balance, lifestyle adjustments, and small habits that improve quality of life.',
+      sw: 'Karibu kwenye Living Well & Wellness 🌿 Nafasi hii inalenga mazoea yenye afya, usawa wa kihisia, mabadiliko ya mtindo wa maisha, na tabia ndogo zinazoboresha ubora wa maisha.',
+    },
+    createdAt: '2026-02-10T08:30:00Z',
+  },
+  
+  {
+    id: 'lww-2',
+    spaceId: 'living-well',
+    author: {
+      id: 'member-francis',
+      name: 'Francis',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'I struggle with maintaining a consistent sleep routine. My symptoms worsen when I don’t rest well. Any tips?',
+      sw: 'Ninapata shida kudumisha ratiba ya usingizi. Dalili zangu huongezeka nisipopumzika vizuri. Kuna vidokezo?',
+    },
+    createdAt: '2026-02-11T06:45:00Z',
+  },
+  
+  {
+    id: 'lww-3',
+    spaceId: 'living-well',
+    author: {
+      id: 'moderator-victor',
+      name: 'Dr. Victor Menya',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Francis, try setting a fixed bedtime, reducing screen time before sleep, and creating a calming pre-sleep ritual. Consistency matters more than perfection.',
+      sw: 'Francis, jaribu kuweka muda maalum wa kulala, kupunguza matumizi ya simu kabla ya usingizi, na kuwa na utaratibu wa kutulia kabla ya kulala. Uthabiti ni muhimu kuliko ukamilifu.',
+    },
+    createdAt: '2026-02-11T07:10:00Z',
+  },
+  
+  {
+    id: 'lww-4',
+    spaceId: 'living-well',
+    author: {
+      id: 'member-cornelius',
+      name: 'Cornelius',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'How do you stay motivated to exercise when fatigue keeps holding you back?',
+      sw: 'Mnabaki vipi na motisha ya kufanya mazoezi wakati uchovu unawarudisha nyuma?',
+    },
+    createdAt: '2026-02-12T10:05:00Z',
+  },
+  
+  {
+    id: 'lww-5',
+    spaceId: 'living-well',
+    author: {
+      id: 'moderator-victor',
+      name: 'Dr. Victor Menya',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Cornelius, think “gentle movement” instead of intense workouts. Short walks, stretching, or light activity can be beneficial without overwhelming your body.',
+      sw: 'Cornelius, fikiria “mwendo wa taratibu” badala ya mazoezi makali. Kutembea kidogo, kunyoosha misuli, au shughuli nyepesi zinaweza kusaidia bila kuuchosha mwili.',
+    },
+    createdAt: '2026-02-12T10:25:00Z',
+  },
+  
+  {
+    id: 'lww-6',
+    spaceId: 'living-well',
+    author: {
+      id: 'member-agatha',
+      name: 'Agatha',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'I’ve been trying mindfulness but my mind keeps racing. Am I doing it wrong?',
+      sw: 'Nimejaribu mindfulness lakini mawazo yangu yanakimbia sana. Je, nafanya vibaya?',
+    },
+    createdAt: '2026-02-13T14:20:00Z',
+  },
+  
+  {
+    id: 'lww-7',
+    spaceId: 'living-well',
+    author: {
+      id: 'moderator-victor',
+      name: 'Dr. Victor Menya',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Agatha, not at all. A wandering mind is normal. Mindfulness is about gently returning attention, not forcing stillness.',
+      sw: 'Agatha, hapana kabisa. Mawazo kutangatanga ni kawaida. Mindfulness ni kurudisha umakini kwa upole, si kulazimisha utulivu.',
+    },
+    createdAt: '2026-02-13T14:35:00Z',
+  },
+  
+  {
+    id: 'lww-8',
+    spaceId: 'living-well',
+    author: {
+      id: 'member-moses',
+      name: 'Moses',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Nutrition feels overwhelming. There’s too much advice online. Where should I start?',
+      sw: 'Lishe inanichanganya. Kuna ushauri mwingi sana mtandaoni. Nianzie wapi?',
+    },
+    createdAt: '2026-02-15T09:10:00Z',
+  },
+  
+  {
+    id: 'lww-9',
+    spaceId: 'living-well',
+    author: {
+      id: 'moderator-victor',
+      name: 'Dr. Victor Menya',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Moses, start simple: regular meals, hydration, and balanced portions. Sustainable habits are more valuable than drastic changes.',
+      sw: 'Moses, anza kwa urahisi: milo ya kawaida, maji ya kutosha, na chakula chenye uwiano. Mazoea endelevu ni bora kuliko mabadiliko makubwa.',
+    },
+    createdAt: '2026-02-15T09:28:00Z',
+  },
+  
+  {
+    id: 'lww-10',
+    spaceId: 'living-well',
+    author: {
+      id: 'member-nancy',
+      name: 'Nancy',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'What are small daily habits that genuinely improve wellbeing?',
+      sw: 'Ni mazoea gani madogo ya kila siku yanayoweza kuboresha ustawi?',
+    },
+    createdAt: '2026-02-16T12:00:00Z',
+  },
+  
+  {
+    id: 'lww-11',
+    spaceId: 'living-well',
+    author: {
+      id: 'moderator-victor',
+      name: 'Dr. Victor Menya',
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Nancy, examples include: consistent sleep, gentle movement, moments of rest, social connection, and self-kindness. Small steps build lasting change.',
+      sw: 'Nancy, mifano ni: usingizi wa utaratibu, mwendo wa taratibu, muda wa kupumzika, mawasiliano ya kijamii, na kujijali. Hatua ndogo huleta mabadiliko ya kudumu.',
+    },
+    createdAt: '2026-02-16T12:18:00Z',
+  }
+  
 ];
