@@ -737,16 +737,16 @@ export const communitySpaces: CommunitySpace[] = [
       },
       meta: {
         createdBy: 'Neuro Care Foundation',
-        moderatedBy: ['Dr. Winny Othuon'],
+        moderatedBy: ['Dr. Winny Ochieng'],
         createdOn: '2026-02-16',
       },
-      share: {
-        message: {
-          en: `Join me in the Caring for the Caregiver space on Neuro Care. Learn, share, and discover ways to nurture yourself while caring for others.
-          \n              neurocare://community/pwd-peer-circle`,
-          sw: `Jiunge nami kwenye Nafasi ya Kujali Mlezi ndani ya Neuro Care. Jifunze, shiriki, na gundua njia za kujitunza wakati unasaidia wengine.
-          \n              neurocare://community/pwd-peer-circle`,
-        },
+    },
+    share: {
+      message: {
+        en: `Join me in the Caring for the Caregiver space on Neuro Care. Learn, share, and discover ways to nurture yourself while caring for others.
+        \n              neurocare://community/pwd-peer-circle`,
+        sw: `Jiunge nami kwenye Nafasi ya Kujali Mlezi ndani ya Neuro Care. Jifunze, shiriki, na gundua njia za kujitunza wakati unasaidia wengine.
+        \n              neurocare://community/pwd-peer-circle`,
       },
     },
   },

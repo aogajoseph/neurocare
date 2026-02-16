@@ -1081,6 +1081,188 @@ export const communityMessages: CommunityMessage[] = [
       sw: 'Joseph, ungana na makundi ya msaada kwa walezi, wasiliana na marafiki au familia, na panga mapumziko madogo ya kijamii. Kushirikiana uzoefu wako kunaweza kupunguza upweke na kuongeza msaada.',
     },
     createdAt: '2026-02-16T11:15:00Z',
-  }
+  },
+
+  /*
+  |--------------------------------------------------------------------------
+  | PWD Peer Circle – Demo Messages
+  |--------------------------------------------------------------------------
+  */
+  {
+    id: 'pwd-1',
+    spaceId: 'pwd-peer-circle',
+    author: {
+      id: 'moderator-winny',
+      name: "Dr. Winny Ochieng'",
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Welcome to PWD Peer Circle 💛 This space is here to support you in navigating daily challenges, emotions, treatment experiences, and self-advocacy. You are not alone here.',
+      sw: 'Karibu kwenye PWD Peer Circle 💛 Nafasi hii ipo kukuunga mkono unapokabiliana na changamoto za kila siku, hisia, uzoefu wa matibabu, na kujitetea. Hauko peke yako hapa.',
+    },
+    createdAt: '2026-02-10T09:00:00Z',
+  },
   
+  {
+    id: 'pwd-2',
+    spaceId: 'pwd-peer-circle',
+    author: {
+      id: 'pwd-yollo',
+      name: 'Yollo',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Lately I feel frustrated with my body. Some days I have energy, other days I can barely function. How do you cope with this unpredictability?',
+      sw: 'Hivi karibuni ninahisi kukasirishwa na mwili wangu. Siku zingine nina nguvu, zingine siwezi hata kufanya mambo ya kawaida. Mnashughulikiaje hali hii isiyotabirika?',
+    },
+    createdAt: '2026-02-11T10:15:00Z',
+  },
+  
+  {
+    id: 'pwd-3',
+    spaceId: 'pwd-peer-circle',
+    author: {
+      id: 'moderator-winny',
+      name: "Dr. Winny Ochieng'",
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Yollo, what you’re describing is very common. Try pacing your activities, celebrating small wins, and being gentle with yourself on low-energy days. Your worth is not defined by productivity.',
+      sw: 'Yollo, unachosema ni cha kawaida sana. Jaribu kupanga shughuli zako kwa utaratibu, kusherehekea mafanikio madogo, na kujihurumia siku zenye nguvu ndogo. Thamani yako haipimwi kwa uzalishaji.',
+    },
+    createdAt: '2026-02-12T10:22:00Z',
+  },
+  
+  {
+    id: 'pwd-4',
+    spaceId: 'pwd-peer-circle',
+    author: {
+      id: 'pwd-dave',
+      name: 'Dave',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'I get anxious before medical appointments. I worry about what they’ll find or say. Any advice for managing that fear?',
+      sw: 'Ninahisi wasiwasi kabla ya miadi ya hospitali. Huwa naogopa watapata au watasema nini. Kuna ushauri wa kudhibiti hofu hiyo?',
+    },
+    createdAt: '2026-02-13T07:40:00Z',
+  },
+  
+  {
+    id: 'pwd-5',
+    spaceId: 'pwd-peer-circle',
+    author: {
+      id: 'moderator-winny',
+      name: "Dr. Winny Ochieng'",
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Dave, consider writing down your concerns beforehand, practicing slow breathing, and bringing someone you trust if possible. Remember, appointments are meant to support you, not judge you.',
+      sw: 'Dave, jaribu kuandika maswali yako mapema, fanya pumzi za polepole, na nenda na mtu unayemwamini ikiwezekana. Kumbuka, miadi ipo kukusaidia, si kukuhukumu.',
+    },
+    createdAt: '2026-02-14T07:52:00Z',
+  },
+  
+  {
+    id: 'pwd-6',
+    spaceId: 'pwd-peer-circle',
+    author: {
+      id: 'pwd-calvins',
+      name: 'Calvins',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'How do you deal with people who say “but you don’t look sick”? It makes me feel invisible.',
+      sw: 'Mnashughulikiaje watu wanaosema “huonekani mgonjwa”? Hunifanya nijihisi kama sionekani.',
+    },
+    createdAt: '2026-02-15T11:05:00Z',
+  },
+  
+  {
+    id: 'pwd-7',
+    spaceId: 'pwd-peer-circle',
+    author: {
+      id: 'moderator-winny',
+      name: "Dr. Winny Ochieng'",
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Calvins, that experience can be deeply invalidating. You’re allowed to set boundaries, educate when you have the energy, or simply not explain. Your condition is real regardless of visibility.',
+      sw: 'Calvins, hali hiyo inaweza kuumiza sana. Una haki ya kuweka mipaka, kueleza ukiwa na nguvu, au hata kutoeleza. Hali yako ni halisi hata kama haionekani.',
+    },
+    createdAt: '2026-02-15T11:18:00Z',
+  },
+  
+  {
+    id: 'pwd-8',
+    spaceId: 'pwd-peer-circle',
+    author: {
+      id: 'pwd-joy',
+      name: 'Joy',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Some days I feel emotionally drained from managing symptoms. Is this normal?',
+      sw: 'Siku zingine ninahisi nimechoka kihisia kwa sababu ya kudhibiti dalili. Je, hii ni kawaida?',
+    },
+    createdAt: '2026-02-16T09:30:00Z',
+  },
+  
+  {
+    id: 'pwd-9',
+    spaceId: 'pwd-peer-circle',
+    author: {
+      id: 'moderator-winny',
+      name: "Dr. Winny Ochieng'",
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Joy, yes — it’s completely normal. Living with a condition requires constant adjustment. Rest, emotional support, and self-kindness are essential parts of care.',
+      sw: 'Joy, ndio — ni kawaida kabisa. Kuishi na hali ya kiafya kunahitaji kujirekebisha kila mara. Kupumzika, msaada wa kihisia, na kujijali ni sehemu muhimu ya huduma.',
+    },
+    createdAt: '2026-02-16T09:45:00Z',
+  },
+  
+  {
+    id: 'pwd-10',
+    spaceId: 'pwd-peer-circle',
+    author: {
+      id: 'pwd-mercy',
+      name: 'Mercy',
+      role: 'pwd',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'I sometimes feel alone in this journey, even around family. How can I feel less isolated?',
+      sw: 'Wakati mwingine ninajihisi peke yangu katika safari hii hata nikiwa na familia. Ninawezaje kupunguza upweke?',
+    },
+    createdAt: '2026-02-16T11:00:00Z',
+  },
+  
+  {
+    id: 'pwd-11',
+    spaceId: 'pwd-peer-circle',
+    author: {
+      id: 'moderator-winny',
+      name: "Dr. Winny Ochieng'",
+      role: 'moderator',
+      profileImage: '/assets/default-avatar.png',
+    },
+    content: {
+      en: 'Mercy, connecting with peer communities, support groups, or safe spaces like this can help. Sharing your experience often reminds you that others truly understand.',
+      sw: 'Mercy, kuungana na jamii za wenzao, makundi ya msaada, au nafasi salama kama hii kunaweza kusaidia. Kushiriki uzoefu wako hukumbusha kuwa wengine wanaelewa kwa kweli.',
+    },
+    createdAt: '2026-02-16T11:15:00Z',
+  },
+  
+
 ];
