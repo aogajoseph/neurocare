@@ -103,8 +103,8 @@ export type CommunitySpace = {
 
 export const communitySpaces: CommunitySpace[] = [
   /**
-   *  Guidance & Counselling
-   */
+    * Guidance & Counselling
+  */
   {
     id: 'caregiver-guidance',
     role: 'caregiver',
@@ -177,8 +177,8 @@ export const communitySpaces: CommunitySpace[] = [
   },
 
   /**
-   *  Understanding Conditions & Care
-   */
+    * Understanding Conditions & Care
+  */
   {
     id: 'understanding-neuro-care',
     role: 'caregiver',
@@ -251,8 +251,8 @@ export const communitySpaces: CommunitySpace[] = [
   },
 
   /**
-   *  Caregiving Basics
-   */
+    * Caregiving Basics
+  */
   {
     id: 'caregiving-basics',
     role: 'caregiver',
@@ -323,8 +323,8 @@ export const communitySpaces: CommunitySpace[] = [
   },  
 
   /**
-   * Caregiver Peer Support
-   */
+    * Caregiver Peer Support
+  */
   {
     id: 'caregiver-peer-support',
     role: 'caregiver',
@@ -395,8 +395,8 @@ export const communitySpaces: CommunitySpace[] = [
   },  
 
   /**
-   *  Care Resources & Services
-   */
+    * Care Resources & Services
+  */
   {
     id: 'care-resources',
     role: 'caregiver',
@@ -467,8 +467,8 @@ export const communitySpaces: CommunitySpace[] = [
   },
   
   /**
-   *  Assistive Tools
-   */
+    * Assistive Tools
+  */
   {
     id: 'assistive-tools',
     role: 'caregiver',
@@ -539,8 +539,8 @@ export const communitySpaces: CommunitySpace[] = [
   },
 
   /**
-   *  Ask a Professional
-   */
+    * Ask a Professional
+  */
   {
     id: 'ask-health-pro',
     role: 'caregiver',
@@ -610,8 +610,8 @@ export const communitySpaces: CommunitySpace[] = [
   },
   
   /**
-   *  Caregiver Wellbeing
-   */
+    * Caregiver Wellbeing
+  */
   {
     id: 'caring-for-caregiver',
     role: 'caregiver',
@@ -678,6 +678,220 @@ export const communitySpaces: CommunitySpace[] = [
         \n              neurocare://community/caring-for-caregiver`,
       },
     },
-  }
+  },
+
+  /**
+    *  PWD – Peer Circle
+  */
+  {
+    id: 'pwd-peer-circle',
+    role: 'pwd',
+    category: {
+      en: 'Peer Support',
+      sw: 'Msaada wa Kijamii',
+    },
+    title: {
+      en: 'PWD Peer Circle',
+      sw: 'Mduara wa Wanaoishi na Hali',
+    },
+    description: {
+      en: 'A supportive space to connect, share experiences and encourage one another.',
+      sw: 'Nafasi ya msaada ya kuungana, kushirikiana uzoefu na kutiana moyo.',
+    },
+    aboutSpace: {
+      en: 'This space was created for people living with neurological conditions to connect through shared experiences. It is a place to speak openly, exchange encouragement and find understanding within a supportive community.',
+      sw: 'Eneo hili limetengenezwa kwa watu wanaoishi na hali za kinyurolojia kuungana kupitia uzoefu wa pamoja. Ni mahali pa kuzungumza kwa uwazi, kubadilishana faraja na kupata uelewa katika jamii yenye msaada.',
+    },
+    memberCount: 342,
+    entryMode: 'open',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: true,
+    },
+    moderation: {
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'professional',
+      status: 'active',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome to the PWD Peer Circle 💛 Share your journey, connect with others and support one another.',
+        sw: 'Karibu kwenye Mduara wa Wanaoishi na Hali 💛 Shiriki safari yako, ungana na wengine na saidianeni.',
+      },
+      rules: {
+        en: [
+          'Be kind, respectful and supportive.',
+          'Share lived experiences, not medical advice.',
+          'Respect privacy and confidentiality.',
+          'Every journey is valid.',
+        ],
+        sw: [
+          'Kuwa mpole, na heshima, na msaada.',
+          'Shiriki uzoefu wa maisha, si ushauri wa kitabibu.',
+          'Heshimu faragha na siri za wengine.',
+          'Kila safari ni halali.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: ['Dr. Winny Othuon'],
+        createdOn: '2026-02-16',
+      },
+      share: {
+        message: {
+          en: `Join me in the Caring for the Caregiver space on Neuro Care. Learn, share, and discover ways to nurture yourself while caring for others.
+          \n              neurocare://community/pwd-peer-circle`,
+          sw: `Jiunge nami kwenye Nafasi ya Kujali Mlezi ndani ya Neuro Care. Jifunze, shiriki, na gundua njia za kujitunza wakati unasaidia wengine.
+          \n              neurocare://community/pwd-peer-circle`,
+        },
+      },
+    },
+  },
+
+  /**
+    *  Living Well
+  */
+  {
+    id: 'living-well',
+    role: 'pwd',
+    category: {
+      en: 'Wellbeing & Lifestyle',
+      sw: 'Ustawi na Maisha',
+    },
+    title: {
+      en: 'Living Well & Wellness',
+      sw: 'Kuishi Vizuri na Ustawi',
+    },
+    description: {
+      en: 'Conversations on mental wellbeing, routines, motivation and self-care.',
+      sw: 'Mazungumzo kuhusu afya ya akili, ratiba, motisha na kujitunza.',
+    },
+    aboutSpace: {
+      en: 'This space focuses on emotional wellbeing, resilience and quality of life. Members share coping strategies, small wins, daily routines and encouragement for navigating life with a condition.',
+      sw: 'Eneo hili linaangazia ustawi wa kihisia, uimara na ubora wa maisha. Wanachama hushirikiana mbinu za kujikabiliana, mafanikio madogo, ratiba za kila siku na faraja.',
+    },
+    memberCount: 198,
+    entryMode: 'open',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'professional',
+      status: 'active',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome 💛 This is your space to talk about wellbeing, mindset and daily life.',
+        sw: 'Karibu 💛 Hii ni nafasi yako ya kuzungumzia ustawi na maisha ya kila siku.',
+      },
+      rules: {
+        en: [
+          'Be kind, respectful and supportive.',
+          'Share lived experiences, not medical advice.',
+          'Respect privacy and confidentiality.',
+          'Every journey is valid.',
+        ],
+        sw: [
+          'Kuwa mpole, na heshima, na msaada.',
+          'Shiriki uzoefu wa maisha, si ushauri wa kitabibu.',
+          'Heshimu faragha na siri za wengine.',
+          'Kila safari ni halali.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. Victor Menya',
+        createdOn: '2026-02-16',
+      },
+      share: {
+        message: {
+          en: `Join me in the Caring for the Caregiver space on Neuro Care. Learn, share, and discover ways to nurture yourself while caring for others.
+          \n              neurocare://community/living-well`,
+          sw: `Jiunge nami kwenye Nafasi ya Kujali Mlezi ndani ya Neuro Care. Jifunze, shiriki, na gundua njia za kujitunza wakati unasaidia wengine.
+          \n              neurocare://community/living-well`,
+        },
+      },
+    },
+  },
+
+  /**
+    *  Symptoms & Daily Life
+  */
+  {
+    id: 'symptoms-daily-life',
+    role: 'pwd',
+    category: {
+      en: 'Condition & Symptoms',
+      sw: 'Hali na Dalili',
+    },
+    title: {
+      en: 'Symptoms & Daily Life',
+      sw: 'Dalili na Maisha ya Kila Siku',
+    },
+    description: {
+      en: 'Discuss symptom experiences, patterns and practical coping tips.',
+      sw: 'Jadili uzoefu wa dalili, mabadiliko na mbinu za kujikabiliana.',
+    },
+    aboutSpace: {
+      en: 'Members share personal experiences with symptoms, triggers and daily challenges. The focus is on understanding, shared learning and practical adaptation — not diagnosis.',
+      sw: 'Wanachama hushirikiana uzoefu wa dalili, vichocheo na changamoto za kila siku. Lengo ni uelewa na kujifunza pamoja — si uchunguzi.',
+    },
+    memberCount: 257,
+    entryMode: 'open',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'professional',
+      status: 'active',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome 💛 This is your space to talk about symptoms and daily life.',
+        sw: 'Karibu 💛 Hii ni nafasi yako ya kuzungumzia dalili na maisha ya kila siku.',
+      },
+      rules: {
+        en: [
+          'Be kind, respectful and supportive.',
+          'Share lived experiences, not medical advice.',
+          'Respect privacy and confidentiality.',
+          'Every journey is valid.',
+        ],
+        sw: [
+          'Kuwa mpole, na heshima, na msaada.',
+          'Shiriki uzoefu wa maisha, si ushauri wa kitabibu.',
+          'Heshimu faragha na siri za wengine.',
+          'Kila safari ni halali.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. Erastus Seda',
+        createdOn: '2026-02-16',
+      },
+      share: {
+        message: {
+          en: `Join me in the Caring for the Caregiver space on Neuro Care. Learn, share, and discover ways to nurture yourself while caring for others.
+          \n              neurocare://community/symptoms`,
+          sw: `Jiunge nami kwenye Nafasi ya Kujali Mlezi ndani ya Neuro Care. Jifunze, shiriki, na gundua njia za kujitunza wakati unasaidia wengine.
+          \n              neurocare://community/symptoms`,
+        },
+      },      
+    },
+  },
+
   
 ];
