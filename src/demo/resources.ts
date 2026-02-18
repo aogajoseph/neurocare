@@ -11,6 +11,9 @@ export type ResourceEntry = {
   subtitle: { en: string; sw: string }; 
   icon: string; 
   route: string; 
+
+  intro?: string;
+  highlights?: string[];  
   items: ResourceItem[];
 };
 
@@ -24,10 +27,42 @@ export const resources: ResourceEntry[] = [
     subtitle: { en: 'Insights, education & awareness', sw: 'Maarifa, elimu na uelewa' },
     icon: 'document-text-outline',
     route: '/(drawer)/(content)/resources/articles',
+
+    intro: 'Explore educational reads designed to improve understanding of neurological conditions, caregiving, recovery, and wellbeing.',
+
     items: [
-      { id: 'art-1', title: 'Understanding Neurological Disorders', description: 'Basics of neurology for patients and families.' },
-      { id: 'art-2', title: 'Managing Caregiver Stress', description: 'Tips and guidance for family members caring for patients.' },
-    ],
+      {
+        id: 'art-1',
+        title: 'Overcoming Spina Bifida',
+        description:
+          'Spina bifida is a congenital neurological condition that occurs when the spinal cord does not develop properly during early pregnancy. Its effects vary widely, ranging from mild physical limitations to complex mobility, bladder, bowel, and sensory challenges. Understanding the condition helps families and individuals plan for care, independence, and long-term wellbeing.\n\n' +
+    
+          'Daily life with spina bifida often involves coordinated medical care, assistive devices, and adaptive strategies. Many individuals lead active, fulfilling lives when supported with appropriate therapies, accessible environments, and social inclusion. Education, early intervention, and community support play a crucial role in improving outcomes.\n\n' +
+    
+          'Beyond medical aspects, emotional resilience and self-advocacy are essential. Encouraging autonomy, celebrating milestones, and fostering confidence can significantly enhance quality of life. With the right resources and support systems, people living with spina bifida can thrive academically, socially, and professionally.',
+      },
+      {
+        id: 'art-2',
+        title: 'Managing Caregiver Stress',
+        description:
+          'Caregiving is deeply meaningful, yet it can also be physically and emotionally demanding. Many caregivers experience fatigue, anxiety, guilt, or burnout, especially when balancing multiple responsibilities. Recognizing stress early is the first step toward protecting both caregiver wellbeing and the quality of care provided.\n\n' +
+    
+          'Healthy coping strategies include setting realistic expectations, taking restorative breaks, and seeking help when needed. Small habits — such as sleep hygiene, brief relaxation exercises, and maintaining social connections — can create significant improvements in resilience and mood over time.\n\n' +
+    
+          'Importantly, self-care is not selfish. A supported, emotionally balanced caregiver is better equipped to provide compassionate, sustainable care. Building a support network and practicing self-compassion helps transform caregiving from a draining duty into a manageable, shared journey.',
+      },
+      {
+        id: 'art-3',
+        title: 'Recovery & Rehabilitation',
+        description:
+          'Recovery following neurological illness or injury is rarely linear. Progress may be gradual, with periods of improvement, plateau, and adjustment. Rehabilitation focuses on restoring function, enhancing independence, and adapting to new realities rather than chasing perfection.\n\n' +
+    
+          'Therapies such as physiotherapy, occupational therapy, speech therapy, and psychological support work together to rebuild skills and confidence. Consistency, patience, and goal-setting are key components of successful rehabilitation journeys.\n\n' +
+    
+          'Equally important is mindset. Celebrating small gains, maintaining motivation, and accepting fluctuations can reduce frustration and discouragement. Recovery is not just physical — it is emotional, social, and deeply personal.',
+      },
+    ],    
+
   },
   {
     slug: 'questionnaires',
