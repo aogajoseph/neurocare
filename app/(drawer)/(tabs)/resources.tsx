@@ -1,13 +1,36 @@
 import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
-import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { tokens } from '@/theme/design-tokens';
+import { useRouter } from 'expo-router';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { resourcesMeta, resourcesSections } from '@/demo/resources';
+import { tokens } from '@/theme/design-tokens';
+import { resources } from '@/demo/resources';
 
 export default function ResourcesScreen() {
   const router = useRouter();
   const { language } = useLanguage();
+
+  const sections = [
+    {
+      id: 'explore',
+      title: { en: 'Explore', sw: 'Chunguza' },
+      slugs: ['articles', 'questionnaires', 'talks', 'training-videos'],
+    },
+    {
+      id: 'media',
+      title: { en: 'Media', sw: 'Vyombo vya Habari' },
+      slugs: ['recorded-webinars', 'podcast'],
+    },
+    {
+      id: 'get-involved',
+      title: { en: 'Get Involved', sw: 'Shiriki' },
+      slugs: ['donate', 'volunteer', 'partnerships', 'events'],
+    },
+    {
+      id: 'ncf',
+      title: { en: 'Neuro Care Foundation', sw: 'Neuro Care Foundation' },
+      slugs: ['about-ncf'],
+    },
+  ];
 
   return (
     <ScrollView
@@ -16,54 +39,62 @@ export default function ResourcesScreen() {
     >
       {/* Header */}
       <Text style={styles.title}>
-        {resourcesMeta.title[language]}
+        {language === 'sw' ? 'Rasilimali' : 'Resources'}
       </Text>
 
       <Text style={styles.subtitle}>
-        {resourcesMeta.subtitle[language]}
+        {language === 'sw'
+          ? 'Jifunze, chunguza na gundua maarifa na msaada'
+          : 'Learn, explore and discover supportive tools & knowledge'}
       </Text>
 
       {/* Sections */}
-      {resourcesSections.map((section) => (
-        <View key={section.id} style={styles.section}>
-          <Text style={styles.sectionTitle}>
-            {section.title[language]}
-          </Text>
+      {sections.map((section) => {
+        const sectionResources = resources.filter((r) =>
+          section.slugs.includes(r.slug)
+        );
 
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.horizontalList}
-          >
-            {section.cards.map((card) => (
-              <Pressable
-                key={card.id}
-                onPress={() => router.push(card.route)}
-                style={({ pressed }) => [
-                  styles.card,
-                  pressed && styles.cardPressed,
-                ]}
-              >
-                <View style={styles.iconWrapper}>
-                  <Ionicons
-                    name={card.icon as any}
-                    size={22}
-                    color={tokens.colors.brand.primary}
-                  />
-                </View>
+        return (
+          <View key={section.id} style={styles.section}>
+            <Text style={styles.sectionTitle}>
+              {section.title[language]}
+            </Text>
 
-                <Text style={styles.cardTitle}>
-                  {card.title[language]}
-                </Text>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.horizontalList}
+            >
+              {sectionResources.map((item) => (
+                <Pressable
+                  key={item.slug}
+                  onPress={() => router.push(item.route)}
+                  style={({ pressed }) => [
+                    styles.card,
+                    pressed && styles.cardPressed,
+                  ]}
+                >
+                  <View style={styles.iconWrapper}>
+                    <Ionicons
+                      name={item.icon as any}
+                      size={22}
+                      color={tokens.colors.brand.primary}
+                    />
+                  </View>
 
-                <Text style={styles.cardSubtitle}>
-                  {card.subtitle[language]}
-                </Text>
-              </Pressable>
-            ))}
-          </ScrollView>
-        </View>
-      ))}
+                  <Text style={styles.cardTitle}>
+                    {item.title[language]}
+                  </Text>
+
+                  <Text style={styles.cardSubtitle}>
+                    {item.subtitle[language]}
+                  </Text>
+                </Pressable>
+              ))}
+            </ScrollView>
+          </View>
+        );
+      })}
     </ScrollView>
   );
 }
@@ -122,7 +153,6 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: tokens.radius.md,
-    backgroundColor: tokens.colors.surface.subtle,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: tokens.spacing.sm,

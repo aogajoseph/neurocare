@@ -1,100 +1,65 @@
-export type ResourceCard = {
+// src/demo/resources.ts
+export type ResourceItem = {
   id: string;
-  title: {
-    en: string;
-    sw: string;
-  };
-  subtitle: {
-    en: string;
-    sw: string;
-  };
-  icon: string;
-  route: string;
+  title: string;
+  description: string;
 };
 
-export type ResourceSection = {
-  id: string;
-  title: {
-    en: string;
-    sw: string;
-  };
-  cards: ResourceCard[];
+export type ResourceEntry = {
+  slug: string;
+  title: { en: string; sw: string };
+  subtitle: { en: string; sw: string }; 
+  icon: string; 
+  route: string; 
+  items: ResourceItem[];
 };
 
-export const resourcesMeta = {
-  title: {
-    en: 'Resources',
-    sw: 'Rasilimali',
-  },
-  subtitle: {
-    en: 'Learn, explore and discover supportive tools & knowledge',
-    sw: 'Jifunze, chunguza na gundua maarifa na msaada',
-  },
-};
-
-export const resourcesSections: ResourceSection[] = [
+export const resources: ResourceEntry[] = [
   /**
    * 📚 Explore
    */
   {
-    id: 'explore',
-    title: {
-      en: 'Explore',
-      sw: 'Chunguza',
-    },
-    cards: [
-      {
-        id: 'articles',
-        title: {
-          en: 'Articles',
-          sw: 'Makala',
-        },
-        subtitle: {
-          en: 'Insights, education & awareness',
-          sw: 'Maarifa, elimu na uelewa',
-        },
-        icon: 'document-text-outline',
-        route: '/(drawer)/(resources)/articles',
-      },
-      {
-        id: 'questionnaires',
-        title: {
-          en: 'Questionnaires',
-          sw: 'Dodoso',
-        },
-        subtitle: {
-          en: 'Self-check tools & assessments',
-          sw: 'Zana za kujipima',
-        },
-        icon: 'help-circle-outline',
-        route: '/(drawer)/(resources)/questionnaires',
-      },
-      {
-        id: 'talks',
-        title: {
-          en: 'Talks',
-          sw: 'Majadiliano',
-        },
-        subtitle: {
-          en: 'Expert discussions & insights',
-          sw: 'Majadiliano ya wataalamu',
-        },
-        icon: 'chatbubbles-outline',
-        route: '/(drawer)/(resources)/talks',
-      },
-      {
-        id: 'training-videos',
-        title: {
-          en: 'Training Videos',
-          sw: 'Video za Mafunzo',
-        },
-        subtitle: {
-          en: 'Practical skills & guidance',
-          sw: 'Ujuzi na mwongozo wa vitendo',
-        },
-        icon: 'play-circle-outline',
-        route: '/(drawer)/(resources)/training-videos',
-      },
+    slug: 'articles',
+    title: { en: 'Articles', sw: 'Makala' },
+    subtitle: { en: 'Insights, education & awareness', sw: 'Maarifa, elimu na uelewa' },
+    icon: 'document-text-outline',
+    route: '/(drawer)/(content)/resources/articles',
+    items: [
+      { id: 'art-1', title: 'Understanding Neurological Disorders', description: 'Basics of neurology for patients and families.' },
+      { id: 'art-2', title: 'Managing Caregiver Stress', description: 'Tips and guidance for family members caring for patients.' },
+    ],
+  },
+  {
+    slug: 'questionnaires',
+    title: { en: 'Questionnaires', sw: 'Dodoso' },
+    subtitle: { en: 'Self-check tools & assessments', sw: 'Zana za kujipima' },
+    icon: 'help-circle-outline',
+    route: '/(drawer)/(content)/resources/questionnaires',
+    items: [
+      { id: 'q-1', title: 'Daily Symptom Tracker', description: 'Log your symptoms each day for better insights.' },
+      { id: 'q-2', title: 'Caregiver Wellbeing Assessment', description: 'Evaluate your mental and physical health while caring for others.' },
+    ],
+  },
+  {
+    slug: 'talks',
+    title: { en: 'Talks', sw: 'Majadiliano' },
+    subtitle: { en: 'Expert discussions & insights', sw: 'Majadiliano ya wataalamu' },
+    icon: 'chatbubbles-outline',
+    route: '/(drawer)/(content)/resources/talks',
+    items: [
+      { id: 't-1', title: 'Neurology Q&A', description: 'Ask doctors about common neurological concerns.' },
+      { id: 't-2', title: 'Mental Health Awareness', description: 'Psychologists discuss stress and coping strategies.' },
+    ],
+  },
+  {
+    slug: 'training-videos',
+    title: { en: 'Training Videos', sw: 'Video za Mafunzo' },
+    subtitle: { en: 'Practical skills & guidance', sw: 'Ujuzi na mwongozo wa vitendo' },
+    icon: 'play-circle-outline',
+    route: '/(drawer)/(content)/resources/training-videos',
+    items: [
+      { id: 'tv-1', title: 'Safe Patient Handling', description: 'Learn proper lifting and mobility techniques.' },
+      { id: 'tv-2', title: 'Nutrition & Meal Planning', description: 'Practical tips for balanced diets.' },
     ],
   },
 
@@ -102,38 +67,25 @@ export const resourcesSections: ResourceSection[] = [
    * 🎥 Media
    */
   {
-    id: 'media',
-    title: {
-      en: 'Media',
-      sw: 'Vyombo vya Habari',
-    },
-    cards: [
-      {
-        id: 'recorded-webinars',
-        title: {
-          en: 'Recorded Webinars',
-          sw: 'Webina Zilizorekodiwa',
-        },
-        subtitle: {
-          en: 'Watch expert-led sessions',
-          sw: 'Tazama vipindi vya wataalamu',
-        },
-        icon: 'videocam-outline',
-        route: '/(drawer)/(resources)/webinars',
-      },
-      {
-        id: 'podcast',
-        title: {
-          en: 'Neuro Connect',
-          sw: 'Podkasti ya Neuro Connect',
-        },
-        subtitle: {
-          en: 'Stories, insights & conversations',
-          sw: 'Hadithi na mazungumzo',
-        },
-        icon: 'mic-outline',
-        route: '/(drawer)/(resources)/podcast',
-      },
+    slug: 'recorded-webinars',
+    title: { en: 'Recorded Webinars', sw: 'Webina Zilizorekodiwa' },
+    subtitle: { en: 'Watch expert-led sessions', sw: 'Tazama vipindi vya wataalamu' },
+    icon: 'videocam-outline',
+    route: '/(drawer)/(content)/resources/recorded-webinars',
+    items: [
+      { id: 'w-1', title: 'Neurology Basics', description: 'Recorded webinar on neurological conditions.' },
+      { id: 'w-2', title: 'Caregiver Self-Care', description: 'Learn stress management techniques for caregivers.' },
+    ],
+  },
+  {
+    slug: 'podcast',
+    title: { en: 'Neuro Connect Podcast', sw: 'Podkasti ya Neuro Connect' },
+    subtitle: { en: 'Stories, insights & conversations', sw: 'Hadithi na mazungumzo' },
+    icon: 'mic-outline',
+    route: '/(drawer)/(content)/resources/podcast',
+    items: [
+      { id: 'p-1', title: 'Episode 1: Life with Parkinson’s', description: 'Patient stories and expert tips.' },
+      { id: 'p-2', title: 'Episode 2: Mental Health Awareness', description: 'Coping strategies and advice.' },
     ],
   },
 
@@ -141,64 +93,46 @@ export const resourcesSections: ResourceSection[] = [
    * 🤝 Get Involved
    */
   {
-    id: 'get-involved',
-    title: {
-      en: 'Get Involved',
-      sw: 'Shiriki',
-    },
-    cards: [
-      {
-        id: 'donate',
-        title: {
-          en: 'Donate',
-          sw: 'Changia',
-        },
-        subtitle: {
-          en: 'Support patients & programs',
-          sw: 'Saidia wagonjwa na programu',
-        },
-        icon: 'heart-outline',
-        route: '/(drawer)/(resources)/donate',
-      },
-      {
-        id: 'volunteer',
-        title: {
-          en: 'Volunteer',
-          sw: 'Jitolee',
-        },
-        subtitle: {
-          en: 'Offer your time & skills',
-          sw: 'Toa muda na ujuzi wako',
-        },
-        icon: 'people-outline',
-        route: '/(drawer)/(resources)/volunteer',
-      },
-      {
-        id: 'partnerships',
-        title: {
-          en: 'Partnerships',
-          sw: 'Ushirikiano',
-        },
-        subtitle: {
-          en: 'Collaborate with NCF',
-          sw: 'Shirikiana na NCF',
-        },
-        icon: 'handshake-outline',
-        route: '/(drawer)/(resources)/partnerships',
-      },
-      {
-        id: 'events',
-        title: {
-          en: 'Events',
-          sw: 'Matukio',
-        },
-        subtitle: {
-          en: 'Upcoming & past activities',
-          sw: 'Matukio yajayo na yaliyopita',
-        },
-        icon: 'calendar-outline',
-        route: '/(drawer)/(resources)/events',
-      },
+    slug: 'donate',
+    title: { en: 'Donate', sw: 'Changia' },
+    subtitle: { en: 'Support patients & programs', sw: 'Saidia wagonjwa na programu' },
+    icon: 'heart-outline',
+    route: '/(drawer)/(content)/resources/donate',
+    items: [
+      { id: 'd-1', title: 'One-Time Donation', description: 'Support individual programs.' },
+      { id: 'd-2', title: 'Monthly Giving', description: 'Sustain our activities long-term.' },
+    ],
+  },
+  {
+    slug: 'volunteer',
+    title: { en: 'Volunteer', sw: 'Jitolee' },
+    subtitle: { en: 'Offer your time & skills', sw: 'Toa muda na ujuzi wako' },
+    icon: 'people-outline',
+    route: '/(drawer)/(content)/resources/volunteer',
+    items: [
+      { id: 'v-1', title: 'Community Outreach', description: 'Participate in local initiatives.' },
+      { id: 'v-2', title: 'Virtual Support', description: 'Assist patients remotely.' },
+    ],
+  },
+  {
+    slug: 'partnerships',
+    title: { en: 'Partnerships', sw: 'Ushirikiano' },
+    subtitle: { en: 'Collaborate with NCF', sw: 'Shirikiana na NCF' },
+    icon: 'handshake-outline',
+    route: '/(drawer)/(content)/resources/partnerships',
+    items: [
+      { id: 'pa-1', title: 'Corporate Collaboration', description: 'Partner with NCF to support programs.' },
+    ],
+  },
+  {
+    slug: 'events',
+    title: { en: 'Events', sw: 'Matukio' },
+    subtitle: { en: 'Upcoming & past activities', sw: 'Matukio yajayo na yaliyopita' },
+    icon: 'calendar-outline',
+    route: '/(drawer)/(content)/resources/events',
+    items: [
+      { id: 'e-1', title: 'Annual Neurology Conference', description: 'Summarizing key insights.' },
+      { id: 'e-2', title: 'Caregiver Workshop', description: 'Interactive session for families.' },
     ],
   },
 
@@ -206,25 +140,14 @@ export const resourcesSections: ResourceSection[] = [
    * 🏛 Neuro Care Foundation
    */
   {
-    id: 'ncf',
-    title: {
-      en: 'Neuro Care Foundation',
-      sw: 'Neuro Care Foundation',
-    },
-    cards: [
-      {
-        id: 'about',
-        title: {
-          en: 'About',
-          sw: 'Kuhusu',
-        },
-        subtitle: {
-          en: 'Who we are & what we do',
-          sw: 'Sisi ni nani na tunafanya nini',
-        },
-        icon: 'information-circle-outline',
-        route: '/(drawer)/(resources)/about-ncf',
-      },
+    slug: 'about-ncf',
+    title: { en: 'About Neuro Care Foundation', sw: 'Kuhusu' },
+    subtitle: { en: 'Who we are & what we do', sw: 'Sisi ni nani na tunafanya nini' },
+    icon: 'information-circle-outline',
+    route: '/(drawer)/(content)/resources/about-ncf',
+    items: [
+      { id: 'ncf-1', title: 'Our Mission', description: 'Providing neurological care and support.' },
+      { id: 'ncf-2', title: 'Our Programs', description: 'Caregiver support, PWD guidance, training, and advocacy.' },
     ],
   },
 ];
