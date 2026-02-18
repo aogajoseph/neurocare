@@ -1106,5 +1106,217 @@ export const communitySpaces: CommunitySpace[] = [
     },
   },
 
+  /**
+   * Parent-Led Organizations
+   */
+  {
+    id: 'parent-led-network',
+    role: 'organization',
+    category: {
+      en: 'Parent-Led Organizations',
+      sw: 'Mashirika Yanayoongozwa na Wazazi',
+    },
+    title: {
+      en: 'Hope for Neuro Families',
+      sw: 'Tumaini kwa Familia za Neuro',
+    },
+    description: {
+      en: 'A Nairobi-based parent-led support organization for families raising children with neurological conditions.',
+      sw: 'Shirika la wazazi lililoko Nairobi linalosaidia familia zenye watoto walio na hali za kinyurolojia.',
+    },
+    aboutSpace: {
+      en: 'Hope for Neuro Families is a parent-driven community offering peer support, caregiver education, and emotional resilience programs. This space allows collaboration with other parent-led groups, sharing lived insights and grassroots solutions.',
+      sw: 'Hope for Neuro Families ni jamii inayoongozwa na wazazi inayotoa msaada wa wenzao, elimu ya ulezi, na programu za ustahimilivu wa kihisia.',
+    },
+    memberCount: 34,
+    entryMode: 'request',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'admin',
+      status: 'active',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome 🤝 Connect with fellow parent-led organizations and share community-driven solutions.',
+        sw: 'Karibu 🤝 Ungana na mashirika yanayoongozwa na wazazi.',
+      },
+      rules: {
+        en: [
+          'Promote collaboration and shared learning.',
+          'Respect diverse caregiving journeys.',
+          'Avoid medical misinformation.',
+          'Maintain confidentiality.',
+        ],
+        sw: [
+          'Himiza mashirikiano na kujifunza pamoja.',
+          'Heshimu safari tofauti za ulezi.',
+          'Epuka taarifa zisizo sahihi za afya.',
+          'Linda faragha.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Prof. Lydia Njeri',
+        createdOn: '2026-02-16',
+      },
+    },
+    share: {
+      message: {
+        en: `Join Hope for Neuro Families on Neuro Care.
+        \n              neurocare://community/parent-led-network`,
+        sw: `Jiunge na Tumaini kwa Familia za Neuro ndani ya Neuro Care.
+        \n              neurocare://community/parent-led-network`,
+      },
+    },
+  },
+
+  /**
+   * Advocacy Organizations
+   */
+  {
+    id: 'advocacy-alliance',
+    role: 'organization',
+    category: {
+      en: 'Advocacy Organizations',
+      sw: 'Mashirika ya Utetezi',
+    },
+    title: {
+      en: 'Neuro Rights Africa',
+      sw: 'Haki za Neuro Afrika',
+    },
+    description: {
+      en: 'A regional advocacy organization championing awareness, dignity, and policy change in neurological health.',
+      sw: 'Shirika la utetezi la kikanda linalopigania uhamasishaji na mabadiliko ya sera katika afya ya neva.',
+    },
+    aboutSpace: {
+      en: 'Neuro Rights Africa works to reduce stigma, influence inclusive policies, and amplify the voices of persons living with neurological conditions. This space supports dialogue on campaigns, partnerships, and systemic change initiatives.',
+      sw: 'Neuro Rights Africa hufanya kazi kupunguza unyanyapaa, kushawishi sera jumuishi, na kukuza sauti za watu wanaoishi na hali za kinyurolojia.',
+    },
+    memberCount: 21,
+    entryMode: 'request',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'admin',
+      status: 'active',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome 📢 Collaborate on advocacy, awareness, and social impact initiatives.',
+        sw: 'Karibu 📢 Shirikiana kwenye utetezi na uhamasishaji.',
+      },
+      rules: {
+        en: [
+          'Keep discussions mission-aligned.',
+          'Share verified information only.',
+          'No political campaigning.',
+          'Respect organizational diversity.',
+        ],
+        sw: [
+          'Weka majadiliano kulingana na dhamira.',
+          'Shiriki taarifa zilizothibitishwa.',
+          'Hakuna kampeni za kisiasa.',
+          'Heshimu utofauti wa mashirika.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. Samuel Otieno',
+        createdOn: '2026-02-16',
+      },
+    },
+    share: {
+      message: {
+        en: `Join Neuro Rights Africa on Neuro Care.
+        \n              neurocare://community/advocacy-alliance`,
+        sw: `Jiunge na Haki za Neuro Afrika ndani ya Neuro Care.
+        \n              neurocare://community/advocacy-alliance`,
+      },
+    },
+  },
+
+  /**
+   * Service Delivery
+   */
+  {
+    id: 'service-delivery-hub',
+    role: 'organization',
+    category: {
+      en: 'Service Delivery',
+      sw: 'Utoaji wa Huduma',
+    },
+    title: {
+      en: 'Synapse Rehabilitation Centre',
+      sw: 'Kituo cha Ukarabati Synapse',
+    },
+    description: {
+      en: 'A multidisciplinary rehabilitation centre providing therapy and functional support for neurological recovery.',
+      sw: 'Kituo cha ukarabati kinachotoa tiba na msaada wa utendaji kwa watu wenye changamoto za neva.',
+    },
+    aboutSpace: {
+      en: 'Synapse Rehabilitation Centre offers physiotherapy, occupational therapy, speech therapy, and neuro-rehabilitation services. This space connects with partner organizations to strengthen referral pathways, care coordination, and shared best practices.',
+      sw: 'Synapse Rehabilitation Centre hutoa huduma za tiba ya mwili, tiba ya kazi, tiba ya usemi, na ukarabati wa neva.',
+    },
+    memberCount: 18,
+    entryMode: 'request',
+    capabilities: {
+      canPost: true,
+      canReply: true,
+      canReact: true,
+      canUploadMedia: false,
+    },
+    moderation: {
+      level: 'moderated',
+      showGuidelines: true,
+      escalationPath: 'admin',
+      status: 'active',
+    },
+    systemMessages: {
+      welcome: {
+        en: 'Welcome 🧩 Connect, collaborate, and enhance service delivery pathways.',
+        sw: 'Karibu 🧩 Ungana na uimarishe utoaji wa huduma.',
+      },
+      rules: {
+        en: [
+          'Share evidence-based practices.',
+          'Avoid direct advertising.',
+          'Respect professional boundaries.',
+          'Protect client confidentiality.',
+        ],
+        sw: [
+          'Shiriki mbinu zilizothibitishwa.',
+          'Epuka matangazo ya moja kwa moja.',
+          'Heshimu mipaka ya kitaaluma.',
+          'Linda faragha ya wateja.',
+        ],
+      },
+      meta: {
+        createdBy: 'Neuro Care Foundation',
+        moderatedBy: 'Dr. Anita Muthoni',
+        createdOn: '2026-02-16',
+      },
+    },
+    share: {
+      message: {
+        en: `Join Synapse Rehabilitation Centre on Neuro Care.
+        \n              neurocare://community/service-delivery-hub`,
+        sw: `Jiunge na Kituo cha Ukarabati Synapse ndani ya Neuro Care.
+        \n              neurocare://community/service-delivery-hub`,
+      },
+    },
+  },
   
 ];

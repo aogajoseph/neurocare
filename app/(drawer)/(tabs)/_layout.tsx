@@ -39,17 +39,17 @@ export default function TabsLayout() {
           }}
         />
         <Tabs.Screen
+          name="resources"
+          options={{ 
+            title: 'Resources',
+            tabBarIcon: ({ color }) => <Ionicons name="library-outline" size={22} color={color} />,
+          }}
+        />
+        <Tabs.Screen
           name="neuro"
           options={{
             title: 'Neuro',
             tabBarIcon: ({ color }) => <BrainCog size={22} color={color} />,
-          }}
-        />
-        <Tabs.Screen
-          name="more"
-          options={{ 
-            title: 'More',
-            tabBarIcon: ({ color }) => <Ionicons name="ellipsis-horizontal" size={22} color={color} />,
           }}
         />
       </Tabs>

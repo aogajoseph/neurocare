@@ -14,11 +14,14 @@ export default function CommunityEntryScreen() {
         router.push('/(community)/caregiver'); // <- your existing caregiver.tsx
         break;
       case 'pwd':
-          router.push('/(community)/pwd'); // <- your existing pwd.tsx
-          break;
+        router.push('/(community)/pwd'); // <- your existing pwd.tsx
+        break;
       case 'professional':
-          router.push('/(community)/professional'); // <- your existing professional.tsx
-          break;
+        router.push('/(community)/professional'); // <- your existing professional.tsx
+        break;
+      case 'organization':
+        router.push('/(community)/organization'); // <- your existing organization.tsx
+        break;
       default:
         Alert.alert(
           language === 'sw' ? 'Karibu Baadaye' : 'Coming Soon',
