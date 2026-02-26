@@ -28,27 +28,27 @@ export const communityRoles = [
       sw: 'Mtaalamu wa Afya',
     },
   },
-  {
-    key: 'corporate' as CommunityRoleKey,
-    title: {
-      en: 'Corporate Partner',
-      sw: 'Mshirika wa Kibiashara',
-    },
-  },
-  {
-    key: 'organization' as CommunityRoleKey,
-    title: {
-      en: 'Organization',
-      sw: 'Shirika',
-    },
-  },
-  {
-    key: 'visitor' as CommunityRoleKey,
-    title: {
-      en: 'Just Looking',
-      sw: 'Natazama Tu',
-    },
-  },
+  // {
+  //   key: 'corporate' as CommunityRoleKey,
+  //   title: {
+  //     en: 'Corporate Partner',
+  //     sw: 'Mshirika wa Kibiashara',
+  //   },
+  // },
+  // {
+  //   key: 'organization' as CommunityRoleKey,
+  //   title: {
+  //     en: 'Organization',
+  //     sw: 'Shirika',
+  //   },
+  // },
+  // {
+  //   key: 'visitor' as CommunityRoleKey,
+  //   title: {
+  //     en: 'Just Looking',
+  //     sw: 'Natazama Tu',
+  //   },
+  // },
 ];
 
 export const communityReassurance = {

@@ -6,8 +6,8 @@ export const DEMO_HOME = {
       sw: 'Karibu',
     },
     intro: {
-      en: 'Find clear information, support and practical guidance for neurological health.',
-      sw: 'Pata taarifa sahihi, msaada na mwongozo wa vitendo kuhusu afya ya mfumo wa neurolojia.',
+      en: 'Find clear information, community support and practical guidance for neurological health.',
+      sw: 'Pata taarifa sahihi, msaada wa kijamii na mwongozo wa vitendo kuhusu afya ya mfumo wa neurolojia.',
     },
   },
 
@@ -32,8 +32,8 @@ export const DEMO_HOME = {
       id: 'living',
       title: { en: 'Live Well with a Condition', sw: 'Ishi Vyema na Hali' },
       description: {
-        en: 'Get Support and practical guidance to help you live a quality life every day.',
-        sw: 'Pata Msaada na mwongozo wa vitendo kukusaidia kuishi maisha yenye ubora kila siku.',
+        en: 'Get support and practical guidance to help you live a quality life every day.',
+        sw: 'Pata msaada na mwongozo wa vitendo kukusaidia kuishi maisha yenye ubora kila siku.',
       },
       route: '/(drawer)/(content)/learn/living',
     },
@@ -110,7 +110,7 @@ export const DEMO_HOME = {
   ],
 
   reassurance: {
-    en: 'You are not alone. Whether you are living with a neurological condition, caring for someone or simply seeking knowledge, Neuro Care Foundation is here to guide, support and empower you.',
-    sw: 'Hauko peke yako. Iwe unaishi na hali ya neva, unamlea mtu, au unatafuta maarifa, Neuro Care Foundation iko hapa kukuongoza, kukusaidia na kukutia nguvu.',
+    en: 'Are you living with a neurological condition, caring for someone or simply seeking knowledge? You are not alone. Neuro Care Foundation is here to guide, support and empower you.',
+    sw: 'Je unaishi na hali ya neurolojia, unamlea mtu, au unatafuta maarifa? Hauko peke yako. Neuro Care Foundation iko hapa kukuongoza, kukusaidia na kukutia nguvu.',
   },
 };

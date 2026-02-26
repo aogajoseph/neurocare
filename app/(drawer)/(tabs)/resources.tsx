@@ -44,8 +44,8 @@ export default function ResourcesScreen() {
 
       <Text style={styles.subtitle}>
         {language === 'sw'
-          ? 'Jifunze, chunguza na gundua maarifa na msaada'
-          : 'Learn, explore and discover supportive tools & knowledge'}
+          ? 'Jifunze, chunguza na gundua maarifa na vifaa vya msaada'
+          : 'Learn, explore and discover knowledge & supportive tools.'}
       </Text>
 
       {/* Sections */}

@@ -27,7 +27,7 @@ export default function IntroSecond() {
       <Animated.View style={styles.cardContainer, { opacity, transform: [{ translateY }] }}>
         <Text style={styles.title}>You’re Not Alone</Text>
         <Text style={styles.body}>
-          Caregivers, individuals, professionals, organizations and corporates. All in one space.
+          Interactive Spaces for Caregivers, PWDs and Health Professionals. All in one place.
         </Text>
 
         <Pressable style={styles.button} onPress={() => router.push('/(intro)/third')}>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     ...tokens.elevation.card,
   },
   title: {
-    fontSize: tokens.typography.size.xl,
+    fontSize: tokens.typography.size.xxl,
     fontWeight: tokens.typography.weight.bold,
     color: tokens.colors.brand.primary,
     textAlign: tokens.alignment.text.center,

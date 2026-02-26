@@ -33,12 +33,12 @@ export default function IntroThird() {
       <Animated.View style={{ opacity, transform: [{ translateY }] }}>
         <Text style={styles.title}>Built With Care</Text>
         <Text style={styles.body}>
-          Designed with empathy, accuracy and trust. Every step feels safe.
+          Empathy, Accuracy, Trust & Understanding with Safety & Security enforced at every step.
         </Text>
 
         <Pressable style={styles.button} onPress={enterApp}>
           <Text style={styles.buttonText}>
-            Enter Neuro Care <Text style={styles.arrow}>→</Text>
+            Enter Neuro Care <Text style={styles.arrow}> →</Text>
           </Text>
         </Pressable>
       </Animated.View>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: tokens.typography.size.xl,
+    fontSize: tokens.typography.size.xxl,
     fontWeight: tokens.typography.weight.bold,
     color: tokens.colors.brand.primary,
     textAlign: tokens.alignment.text.center,
@@ -78,8 +78,4 @@ const styles = StyleSheet.create({
     textAlign: tokens.alignment.text.center,
     fontSize: tokens.typography.size.md,
   },
-  arrow: {
-    fontSize: tokens.typography.size.lg,
-    fontWeight: tokens.typography.weight.bold,
-  },    
 });

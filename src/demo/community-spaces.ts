@@ -59,6 +59,10 @@ export type CommunitySpace = {
     message: {
       en: string;
       sw: string;
+    },
+    link: {
+      en: string;
+      sw: string;
     };
   };
 
@@ -109,12 +113,12 @@ export const communitySpaces: CommunitySpace[] = [
     id: 'caregiver-guidance',
     role: 'caregiver',
     category: {
-      en: 'Guidance & Counselling',
+      en: 'Emotional Wellness',
       sw: 'Mwongozo na Ushauri',
     },
     title: {
-      en: 'Caregiver Guidance & Counselling',
-      sw: 'Mwongozo na Ushauri kwa Walezi',
+      en: 'Guidance & Counselling',
+      sw: 'Mwongozo na Ushauri',
     },
     description: {
       en: 'Emotional support, counselling and guided conversations to help caregivers cope, reflect and regain balance.',
@@ -167,11 +171,13 @@ export const communitySpaces: CommunitySpace[] = [
     },
     share: {
       message: {
-        en: `Join me in the Caregiver Guidance & Counselling space on Neuro Care. A supportive place for caregivers.
-        \n              neurocare://community/caregiver-guidance`,
+        en: `Join me in the Caregiver Guidance & Counselling space on Neuro Care. A supportive place for caregivers.`,
         
-        sw: `Jiunge nami kwenye Nafasi ya Mwongozo na Ushauri kwa Walezi ndani ya Neuro Care. Mahali pa msaada kwa walezi.
-        \n              neurocare://community/caregiver-guidance`,
+        sw: `Jiunge nami kwenye Nafasi ya Mwongozo na Ushauri kwa Walezi ndani ya Neuro Care. Mahali pa msaada kwa walezi.`,
+      },
+      link: {
+        en: 'neurocare://community/caregiver-guidance',
+        sw: 'neurocare://community/caregiver-guidance'
       },
     },    
   },
@@ -187,7 +193,7 @@ export const communitySpaces: CommunitySpace[] = [
       sw: 'Kuelewa Huduma',
     },
     title: {
-      en: 'Understanding Neurological Care',
+      en: 'Understanding Care',
       sw: 'Kuelewa Huduma za Kineurolojia',
     },
     description: {

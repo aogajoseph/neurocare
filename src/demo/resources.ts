@@ -114,7 +114,7 @@ export const resources: ResourceEntry[] = [
   },
   {
     slug: 'podcast',
-    title: { en: 'Neuro Connect Podcast', sw: 'Podkasti ya Neuro Connect' },
+    title: { en: 'Neuro Connect', sw: 'Podkasti ya Neuro Connect' },
     subtitle: { en: 'Stories, insights & conversations', sw: 'Hadithi na mazungumzo' },
     icon: 'mic-outline',
     route: '/(drawer)/(content)/resources/podcast',

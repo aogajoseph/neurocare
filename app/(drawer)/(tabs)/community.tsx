@@ -37,7 +37,7 @@ export default function CommunityEntryScreen() {
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}
     >
-      <Text style={styles.subtitle}>
+      <Text style={styles.title}>
         {language === 'sw'
           ? 'Upo hapa kama nani leo?'
           : 'Who are you here as today?'}
@@ -78,8 +78,8 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.colors.surface.background,
   },
 
-  subtitle: {
-    fontSize: tokens.typography.size.md,
+  title: {
+    fontSize: tokens.typography.size.xl,
     color: tokens.colors.brand.primary,
     textAlign: 'center',
     fontWeight: tokens.typography.weight.bold,
@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
 
   reassuranceMessage: {
     fontSize: tokens.typography.size.sm,
+    fontStyle: tokens.typography.style.italic, 
     color: tokens.colors.text.inverse,
     textAlign: 'center',
     lineHeight: tokens.typography.lineHeight.relaxed,

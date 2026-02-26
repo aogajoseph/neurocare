@@ -5,8 +5,8 @@ export const platformData = {
       sw: 'Jukwaa la Neuro Care',
     },
     subtitle: {
-      en: 'A trusted digital space for neurological care, support, and empowerment.',
-      sw: 'Jukwaa la kidijitali kwa huduma, msaada na uwezeshaji wa magonjwa ya mfumo wa neva.',
+      en: 'A trusted digital space for information, guidance and community support for neurological health.',
+      sw: 'Jukwaa la kidijitali linaloaminika kwa maelezo, mwelekezo na usaidizi wa kijamii kuhusu hali za kineurolojia.',
     },
   },
 
@@ -18,10 +18,8 @@ export const platformData = {
         sw: 'Dhamira Yetu',
       },
       content: {
-        en: `Neuro Care is designed to support individuals living with neurological conditions, caregivers, families, and communities. 
-The platform exists to close information gaps, reduce isolation, and improve access to reliable care resources.`,
-        sw: `Neuro Care imeundwa kusaidia watu wanaoishi na magonjwa ya mfumo wa neva, walezi, familia na jamii.
-Jukwaa hili linalenga kuziba pengo la taarifa, kupunguza upweke, na kuboresha upatikanaji wa rasilimali za huduma.`,
+        en: `Neuro Care is designed to support individuals living with neurological conditions, caregivers, families, and communities. The platform exists to close information gaps, reduce isolation, and improve access to reliable care resources.`,
+        sw: `Neuro Care imeundwa kusaidia watu wanaoishi na magonjwa ya mfumo wa neva, walezi, familia na jamii. Jukwaa hili linalenga kuziba pengo la taarifa, kupunguza upweke, na kuboresha upatikanaji wa rasilimali za huduma.`,
       },
     },
     {
@@ -42,10 +40,8 @@ Jukwaa hili linalenga kuziba pengo la taarifa, kupunguza upweke, na kuboresha up
         sw: 'Maadili Yetu',
       },
       content: {
-        en: `Neuro Care is built on dignity, inclusion, accuracy, compassion, and accessibility. 
-Every feature is designed with respect for lived experiences and cultural context.`,
-        sw: `Neuro Care imejengwa juu ya heshima, ujumuishaji, usahihi, huruma na upatikanaji.
-Kila kipengele kimeundwa kwa kuzingatia uzoefu wa maisha halisi na muktadha wa kitamaduni.`,
+        en: `Neuro Care is built on dignity, inclusion, accuracy, compassion, and accessibility. Every feature is designed with respect for lived experiences and cultural context.`,
+        sw: `Neuro Care imejengwa juu ya heshima, ujumuishaji, usahihi, huruma na upatikanaji. Kila kipengele kimeundwa kwa kuzingatia uzoefu wa maisha halisi na muktadha wa kitamaduni.`,
       },
     },
     {
@@ -55,7 +51,7 @@ Kila kipengele kimeundwa kwa kuzingatia uzoefu wa maisha halisi na muktadha wa k
         sw: 'Uaminifu na Uwajibikaji',
       },
       content: {
-        en: `We work with medical guidance, community insight, and ethical standards to ensure content is responsible, safe, and continuously improving.`,
+        en: `We work with medical guidance, community insight, and ethical standards to ensure content is responsible, safe, and continuously improved.`,
         sw: `Tunafanya kazi kwa mwongozo wa kitabibu, uelewa wa jamii, na viwango vya maadili ili kuhakikisha maudhui ni salama, yenye uwajibikaji na yanaboreshwa kila wakati.`,
       },
     },

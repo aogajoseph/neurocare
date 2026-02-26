@@ -36,12 +36,6 @@ export default function ResourceDetailScreen() {
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}
     >
-      {/* Back Button */}
-      <Pressable onPress={() => router.back()} style={styles.backButton}>
-        <Ionicons name="arrow-back-outline" size={22} color={tokens.colors.brand.primary} />
-        <Text style={styles.backText}>Back</Text>
-      </Pressable>
-
       {/* Header */}
       <Text style={styles.title}>{resource?.title[language]}</Text>
       <Text style={styles.subtitle}>{resource?.subtitle[language]}</Text>
@@ -88,17 +82,6 @@ const styles = StyleSheet.create({
   container: {
     padding: tokens.spacing.xl,
     backgroundColor: tokens.colors.surface.background,
-  },
-  backButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: tokens.spacing.md,
-  },
-  backText: {
-    fontSize: tokens.typography.size.md,
-    fontWeight: tokens.typography.weight.semibold,
-    color: tokens.colors.brand.primary,
-    marginLeft: tokens.spacing.sm,
   },
   title: {
     fontSize: tokens.typography.size.xxl,

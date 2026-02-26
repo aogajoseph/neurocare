@@ -19,8 +19,8 @@ export const howData = {
         sw: 'Pata Taarifa Sahihi',
       },
       description: {
-        en: 'Access verified neurological information, caregiving guides, and educational resources designed for patients, caregivers, and families.',
-        sw: 'Pata taarifa zilizothibitishwa kuhusu magonjwa ya neva, miongozo ya walezi, na rasilimali za kielimu kwa wagonjwa na familia.',
+        en: 'Access verified neurological information, caregiving guides, and educational resources designed for people with conditions, caregivers, and families.',
+        sw: 'Pata taarifa zilizothibitishwa kuhusu magonjwa ya neva, miongozo ya walezi, na rasilimali za kielimu kwa walio na hali na familia.',
       },
     },
     {
@@ -52,8 +52,8 @@ export const howData = {
         sw: 'Kua Pamoja na Jukwaa',
       },
       description: {
-        en: 'Neuro Care evolves over time. New content, tools, and community features will be added to better support your journey.',
-        sw: 'Neuro Care itaendelea kukua. Maudhui, zana, na vipengele vipya vitaongezwa ili kukuunga mkono zaidi.',
+        en: 'Neuro Care evolves over time. New content, tools, and community features will be added to better support user journeys.',
+        sw: 'Neuro Care itaendelea kukua. Maudhui, zana, na vipengele vipya vitaongezwa ili kukuunga mkono zaidi watumiaji.',
       },
     },
   ],

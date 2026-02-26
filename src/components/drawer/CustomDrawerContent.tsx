@@ -54,7 +54,7 @@ export default function CustomDrawerContent(props: any) {
 
       <View style={[styles.footer, { paddingBottom: insets.bottom || 12 }]}>
         <Text style={styles.footerTitle}>Neuro Care</Text>
-        <Text style={styles.footerText}>V1.0.0</Text>
+        <Text style={styles.footerText}>v1.0.0</Text>
         <Text style={styles.footerText}>© {new Date().getFullYear()} Neuro Care Foundation</Text>
         <Text style={styles.footerText}>All Rights Reserved.</Text>
       </View>

@@ -3,8 +3,8 @@ export const neurologyData = {
   hero: {
     title: { en: "Understanding Neurology", sw: "Kuelewa Neurologia" },
     subtitle: {
-      en: "A guide to brain, nerves and movement.",
-      sw: "Mwongozo kuhusu ubongo, neva na mwendo.",
+      en: "A guide to understanding the brain and the nervous system.",
+      sw: "Mwongozo wa kuelewa ubongo na muundo wa neva.",
     },
     image: require('../../assets/images/neurology-hero.jpg'),
   },
@@ -42,7 +42,7 @@ export const neurologyData = {
           image: require('../../assets/images/epilepsy.jpg'),
         },
         {
-          slug: 'parkinsons-disease',
+          slug: 'parkinsons',
           title: { en: 'Parkinson’s Disease', sw: 'Ugonjwa wa Parkinson' },
           description: {
             en: 'Affects movement, causing tremors and stiffness.',
@@ -63,8 +63,8 @@ export const neurologyData = {
           slug: 'dementia',
           title: { en: 'Dementia', sw: 'Ukosefu wa Akili' },
           description: {
-            en: 'Conditions affecting memory, thinking and daily functioning.',
-            sw: 'Hali zinazohusisha kumbukumbu, ufahamu na utendaji wa kila siku.',
+            en: 'Conditions affecting memory and daily thinking.',
+            sw: 'Hali zinazohusisha kumbukumbu, na ufahamu wa kila siku.',
           },
           image: require('../../assets/images/dementia.jpg'),
         },

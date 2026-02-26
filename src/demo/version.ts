@@ -19,8 +19,8 @@ export const versionData = {
         sw: 'Toleo la Sasa',
       },
       description: {
-        en: 'You are currently using an early version of the Neuro Care platform. This version focuses on stability, clarity, and core features that support learning, care, and access to resources.',
-        sw: 'Kwa sasa unatumia toleo la awali la jukwaa la Neuro Care. Toleo hili linajikita kwenye uthabiti, uwazi, na vipengele vya msingi vya kujifunza, huduma, na rasilimali.',
+        en: 'You are currently using an early version of the Neuro Care platform. This version focuses on stability, clarity, and core features that support learning, care, and access to community and resources.',
+        sw: 'Kwa sasa unatumia toleo la awali la jukwaa la Neuro Care. Toleo hili linajikita kwenye uthabiti, uwazi, na vipengele vya msingi vya kujifunza, huduma, jamii na rasilimali.',
       },
     },
     {
@@ -30,8 +30,8 @@ export const versionData = {
         sw: 'Masasisho na Maboresho',
       },
       description: {
-        en: 'We regularly improve the app by fixing issues, improving performance, and adding new features. Updates may include content changes, design improvements, and expanded support tools.',
-        sw: 'Tunaboresha programu mara kwa mara kwa kurekebisha hitilafu, kuboresha utendaji, na kuongeza vipengele vipya. Masasisho yanaweza kujumuisha mabadiliko ya maudhui, maboresho ya muundo, na zana mpya za msaada.',
+        en: 'We regularly improve the platform by fixing issues, improving performance, and adding new features. Updates may include content changes, design improvements, and expanded community and support tools.',
+        sw: 'Tunaboresha jukwaa hili mara kwa mara kwa kurekebisha hitilafu, kuboresha utendaji, na kuongeza vipengele vipya. Masasisho yanaweza kujumuisha mabadiliko ya maudhui, maboresho ya muundo, jamii na zana mpya za msaada.',
       },
     },
     {
@@ -52,8 +52,8 @@ export const versionData = {
         sw: 'Kuangalia Mbele',
       },
       description: {
-        en: 'Future versions of Neuro Care will continue to expand features, accessibility, and personalization while keeping user safety and trust at the center.',
-        sw: 'Matoleo yajayo ya Neuro Care yataendelea kupanua vipengele, ufikivu, na ubinafsishaji huku usalama na uaminifu wa mtumiaji vikibaki kipaumbele.',
+        en: 'Future versions of Neuro Care will continue to expand features, accessibility, and personalization while keeping user safety and trust at the center of our concern.',
+        sw: 'Matoleo yajayo ya Neuro Care yataendelea kupanua vipengele, ufikivu, na ubinafsishaji huku usalama na uaminifu wa mtumiaji vikibaki kipaumbele kwa majukumu yetu.',
       },
     },
   ],

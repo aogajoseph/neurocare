@@ -59,15 +59,15 @@ export const livingData = {
               bullets: {
                 en: [
                   'Focus on small, consistent movements rather than intensity.',
-                  'Follow exercises recommended by a physiotherapist or health worker.',
+                  'Follow exercises recommended by a physiotherapist and health workers.',
                   'Rest when tired — fatigue is part of the condition, not weakness.',
-                  'Use assistive devices if they make movement safer or easier.',
+                  'Use assistive devices if they make movement safer and easier.',
                 ],
                 sw: [
                   'Lenga mwendo mdogo wa mara kwa mara badala ya nguvu nyingi.',
-                  'Fuata mazoezi yaliyopendekezwa na mtaalamu wa mazoezi.',
+                  'Fuata mazoezi yaliyopendekezwa na wataalamu wa afya.',
                   'Pumzika unapochoka — uchovu ni sehemu ya hali, si udhaifu.',
-                  'Tumia vifaa saidizi ikiwa vinaongeza usalama au urahisi wa mwendo.',
+                  'Tumia vifaa saidizi ikiwa vinaongeza usalama na urahisi wa mwendo.',
                 ],
               },
             },

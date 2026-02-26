@@ -69,6 +69,11 @@ export const typography = {
     normal: 22,
     relaxed: 24,
   },
+
+  style: {
+    normal: 'normal',
+    italic: 'italic',
+  },
 };
 
 export const radius = {

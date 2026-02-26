@@ -27,7 +27,7 @@ export default function IntroIndex() {
       <Animated.View style={{ opacity, transform: [{ translateY }] }}>
         <Text style={styles.title}>Welcome to Neuro Care</Text>
         <Text style={styles.body}>
-          Knowledge, support and community for neurological health.
+          Information, Guidance & Community Support for Neurological Health.
         </Text>
 
         <Pressable style={styles.button} onPress={() => router.push('/(intro)/second')}>

@@ -219,6 +219,7 @@ const styles = StyleSheet.create({
     color: tokens.colors.text.inverse,
     textAlign: 'center',
     lineHeight: tokens.typography.lineHeight.normal,
+    fontStyle: tokens.typography.style.italic,
   },
 });
 
