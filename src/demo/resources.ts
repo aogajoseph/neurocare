@@ -67,12 +67,22 @@ export const resources: ResourceEntry[] = [
   {
     slug: 'questionnaires',
     title: { en: 'Questionnaires', sw: 'Dodoso' },
-    subtitle: { en: 'Self-check tools & assessments', sw: 'Zana za kujipima' },
+    subtitle: { en: 'Tools for self-check & assessment', sw: 'Zana za kujipima' },
     icon: 'help-circle-outline',
     route: '/(drawer)/(content)/resources/questionnaires',
     items: [
-      { id: 'q-1', title: 'Daily Symptom Tracker', description: 'Log your symptoms each day for better insights.' },
-      { id: 'q-2', title: 'Caregiver Wellbeing Assessment', description: 'Evaluate your mental and physical health while caring for others.' },
+      {
+        id: 'q-1',
+        slug: 'community-needs',
+        title: 'Neurological Needs Assessment',
+        description: 'Help us understand regional needs and access gaps to improve outreach and support programs.',
+      },
+      {
+        id: 'q-2',
+        slug: 'caregiver-capacity',
+        title: 'Caregiver Capacity Survey',
+        description: 'Help us design better caregiver support programs and training initiatives.',
+      },
     ],
   },
   {
