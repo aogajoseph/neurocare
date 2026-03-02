@@ -92,8 +92,8 @@ export const resources: ResourceEntry[] = [
     icon: 'chatbubbles-outline',
     route: '/(drawer)/(content)/resources/talks',
     items: [
-      { id: 't-1', title: 'Neurology Q&A', description: 'Ask doctors about common neurological concerns.' },
-      { id: 't-2', title: 'Mental Health Awareness', description: 'Psychologists discuss stress and coping strategies.' },
+      { id: 't-1', title: 'Neurology Q&A 2026', description: 'Sposored by Neuro Care Foundation, featuring Prof. Yollanda Yolls.' },
+      { id: 't-2', title: 'Mental Health Awareness', description: 'Neurosurgeons discuss complex spinal conditions, and recovery pathways.' },
     ],
   },
   {
