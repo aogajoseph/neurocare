@@ -25,6 +25,11 @@ export default function QuestionnairesScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      {/* Back Button */}
+      <TouchableOpacity onPress={() => router.back()}>
+        <Text style={styles.back}>← Back</Text>
+      </TouchableOpacity>
+
       <Text style={styles.title}>
         {questionnairesResource.title.en}
       </Text>
@@ -55,6 +60,12 @@ const styles = StyleSheet.create({
     padding: tokens.spacing.xl,
     backgroundColor: tokens.colors.surface.background,
     padding: 20,
+  },
+  back: {
+    marginBottom: 12,
+    fontSize: tokens.typography.size.sm,
+    fontWeight: tokens.typography.weight.bold,
+    color: tokens.colors.primary,
   },
   title: {
     fontSize: tokens.typography.size.xxl,

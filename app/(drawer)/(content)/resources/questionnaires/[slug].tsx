@@ -107,10 +107,10 @@ const styles = StyleSheet.create({
   },
 
   back: {
-    marginBottom: tokens.spacing.md,
-    color: tokens.colors.brand.primary,
-    fontWeight: tokens.typography.weight.semibold,
-    fontSize: tokens.typography.size.xl,
+    marginBottom: 12,
+    fontSize: tokens.typography.size.sm,
+    fontWeight: tokens.typography.weight.bold,
+    color: tokens.colors.primary,
   },
 
   title: {

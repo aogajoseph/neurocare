@@ -1,6 +1,13 @@
 // app/(drawer)/(content)/resources/[slug].tsx
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  ScrollView, 
+  Pressable,
+  TouchableOpacity,
+} from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { tokens } from '@/theme/design-tokens';
@@ -36,6 +43,11 @@ export default function ResourceDetailScreen() {
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}
     >
+      {/* Back Button */}
+      <TouchableOpacity onPress={() => router.back()}>
+        <Text style={styles.back}>← Back</Text>
+      </TouchableOpacity>
+
       {/* Header */}
       <Text style={styles.title}>{resource?.title[language]}</Text>
       <Text style={styles.subtitle}>{resource?.subtitle[language]}</Text>
@@ -82,6 +94,12 @@ const styles = StyleSheet.create({
   container: {
     padding: tokens.spacing.xl,
     backgroundColor: tokens.colors.surface.background,
+  },
+  back: {
+    marginBottom: 12,
+    fontSize: tokens.typography.size.sm,
+    fontWeight: tokens.typography.weight.bold,
+    color: tokens.colors.primary,
   },
   title: {
     fontSize: tokens.typography.size.xxl,

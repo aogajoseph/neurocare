@@ -101,10 +101,10 @@ export const resources: ResourceEntry[] = [
     title: { en: 'Training Videos', sw: 'Video za Mafunzo' },
     subtitle: { en: 'Practical skills & guidance', sw: 'Ujuzi na mwongozo wa vitendo' },
     icon: 'play-circle-outline',
-    route: '/(drawer)/(content)/resources/training-videos',
+    route: '/(drawer)/(content)/resources/trainings',
     items: [
-      { id: 'tv-1', title: 'Safe Patient Handling', description: 'Learn proper lifting and mobility techniques.' },
-      { id: 'tv-2', title: 'Nutrition & Meal Planning', description: 'Practical tips for balanced diets.' },
+      { id: 'tv-1', title: 'Home-Based Therapy', description: 'Guided exercises to improve mobility and strength at home.' },
+      { id: 'tv-2', title: 'Understanding Neurology', description: 'Insights into brain health and managing nervous system functions.' },
     ],
   },
 
@@ -116,10 +116,10 @@ export const resources: ResourceEntry[] = [
     title: { en: 'Recorded Webinars', sw: 'Webina Zilizorekodiwa' },
     subtitle: { en: 'Watch expert-led sessions', sw: 'Tazama vipindi vya wataalamu' },
     icon: 'videocam-outline',
-    route: '/(drawer)/(content)/resources/recorded-webinars',
+    route: '/(drawer)/(content)/resources/webinars',
     items: [
-      { id: 'w-1', title: 'Neurology Basics', description: 'Recorded webinar on neurological conditions.' },
-      { id: 'w-2', title: 'Caregiver Self-Care', description: 'Learn stress management techniques for caregivers.' },
+      { id: 'w-1', title: 'Neurological Care in the Global South', description: 'Strategies for managing neurological conditions in resource-limited environments.' },
+      { id: 'w-2', title: 'The Resilient Caregiver', description: 'A masterclass on protecting your mental health while providing care.' },
     ],
   },
   {
@@ -127,10 +127,10 @@ export const resources: ResourceEntry[] = [
     title: { en: 'Neuro Connect', sw: 'Podkasti ya Neuro Connect' },
     subtitle: { en: 'Stories, insights & conversations', sw: 'Hadithi na mazungumzo' },
     icon: 'mic-outline',
-    route: '/(drawer)/(content)/resources/podcast',
+    route: '/(drawer)/(content)/resources/podcasts',
     items: [
-      { id: 'p-1', title: 'Episode 1: Life with Parkinson’s', description: 'Patient stories and expert tips.' },
-      { id: 'p-2', title: 'Episode 2: Mental Health Awareness', description: 'Coping strategies and advice.' },
+      { id: 'p-1', title: 'Neuro Connect Podcast', description: 'Neuorological health conversations featuring lived experiences and expert tips.' },
+      { id: 'p-2', title: 'Episode #1 - Susan Kioko', description: 'A mother\'s love, caring for a child with Brain Atrophy.' },
     ],
   },
 
@@ -176,8 +176,8 @@ export const resources: ResourceEntry[] = [
     icon: 'calendar-outline',
     route: '/(drawer)/(content)/resources/events',
     items: [
-      { id: 'e-1', title: 'Annual Neurology Conference', description: 'Summarizing key insights.' },
-      { id: 'e-2', title: 'Caregiver Workshop', description: 'Interactive session for families.' },
+      { id: 'e-1', title: 'Neuro Champions Awards', description: 'Celebrating excellence and honoring outstanding contributions to neurological health.', date: 'Dec 20, 2026' },
+      { id: 'e-2', title: 'World SBH Day', description: 'A day of global awareness and community activities for Spina Bifida and Hydrocephalus.', date: 'Oct 25, 2026' },
     ],
   },
 
