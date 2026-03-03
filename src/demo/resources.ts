@@ -140,7 +140,7 @@ export const resources: ResourceEntry[] = [
   {
     slug: 'donate',
     title: { en: 'Donate', sw: 'Changia' },
-    subtitle: { en: 'Support patients & programs', sw: 'Saidia wagonjwa na programu' },
+    subtitle: { en: 'Help us make a difference.', sw: 'Tusidie kufanya mabadiliko.' },
     icon: 'heart-outline',
     route: '/(drawer)/(content)/resources/donate',
     items: [
