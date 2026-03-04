@@ -8,8 +8,9 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Ionicons } from '@expo/vector-icons';
+import { tokens } from '@/theme/design-tokens';
 import { DEMO_ASSISTANT_RESPONSES } from '@/demo/neuro';
 
 type Message = {
@@ -48,12 +49,14 @@ export default function NeuroScreen() {
     {
       id: 'welcome',
       text:
-        'Hello. I am your Neuro Care Assistant. How can I help you today?',
+        'Hi, I\'m Neuro, your Neuro Care Assistant. \nAsk me about neurological health.',
       sender: 'assistant',
     },
   ]);
 
   const [input, setInput] = useState('');
+
+  const flatListRef = useRef<FlatList>(null);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -118,37 +121,52 @@ export default function NeuroScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <FlatList
+        ref={flatListRef}
+        style={{ flex: 1 }}
         data={messages}
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.chat}
-        renderItem={({ item }) => (
-          <View
-            style={[
-              styles.message,
-              item.sender === 'user' ? styles.user : styles.assistant,
-            ]}
-          >
-            <Text
+        onContentSizeChange={() =>
+          flatListRef.current?.scrollToEnd({ animated: true })
+        }
+        renderItem={({ item }) => {
+          const isWelcome = item.id === 'welcome';
+        
+          return (
+            <View
               style={[
-                styles.text,
-                item.sender === 'user' && { color: '#fff' },
+                styles.message,
+                item.sender === 'user'
+                  ? styles.user
+                  : isWelcome
+                  ? styles.welcome
+                  : styles.assistant,
               ]}
             >
-              {item.text}
-            </Text>
-          </View>
-        )}
+              <Text
+                style={[
+                  styles.text,
+                  item.sender === 'user' && styles.userText,
+                  isWelcome && styles.welcomeText,
+                ]}
+              >
+                {item.text}
+              </Text>
+            </View>
+          );
+        }}
       />
 
       <View style={styles.inputBar}>
-        <TextInput
-          style={styles.input}
-          placeholder="Ask about neurological health..."
-          value={input}
-          onChangeText={setInput}
-        />
+      <TextInput
+        style={styles.input}
+        placeholder="Ask here..."
+        placeholderTextColor={tokens.colors.text.muted}
+        value={input}
+        onChangeText={setInput}
+      />
         <TouchableOpacity onPress={sendMessage}>
-          <Ionicons name="send" size={24} color="#2563eb" />
+          <Ionicons name="send" size={22} color={tokens.colors.brand.primary} />
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -156,37 +174,79 @@ export default function NeuroScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
-  chat: { padding: 12 },
+  container: {
+    flex: 1,
+    backgroundColor: tokens.colors.surface.background,
+  },
+
+  welcome: {
+    paddingVertical: tokens.spacing.lg,
+  },
+  
+  welcomeText: {
+    fontSize: tokens.typography.size.sm,
+    fontStyle: tokens.typography.style.italic,
+    fontWeight: tokens.typography.weight.medium,
+    lineHeight: tokens.typography.lineHeight.tight,
+    textAlign: 'left',
+  },
+
+  chat: {
+    paddingHorizontal: tokens.spacing.lg,
+    paddingTop: tokens.spacing.lg,
+    paddingBottom: tokens.spacing.md,
+    flexGrow: 1,
+  },
+
   message: {
-    padding: 12,
-    borderRadius: 16,
-    marginBottom: 10,
-    maxWidth: '80%',
+    paddingVertical: tokens.spacing.md,
+    paddingHorizontal: tokens.spacing.lg,
+    borderRadius: tokens.radius.lg,
+    marginBottom: tokens.spacing.sm,
+    maxWidth: '90%',
   },
+
   assistant: {
-    backgroundColor: '#F3F4F6',
+    backgroundColor: tokens.colors.surface.soft,
     alignSelf: 'flex-start',
+    borderTopLeftRadius: 0,
   },
+
   user: {
-    backgroundColor: '#2563EB',
+    backgroundColor: tokens.colors.brand.primary,
     alignSelf: 'flex-end',
+    borderTopRightRadius: 0,
+    marginBottom: tokens.spacing.md,
   },
+
   text: {
-    color: '#000',
+    fontSize: tokens.typography.size.sm,
+    lineHeight: tokens.typography.lineHeight.tight,
+    color: tokens.colors.text.primary,
   },
+
+  userText: {
+    color: tokens.colors.text.inverse,
+  },
+
   inputBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 10,
+    paddingHorizontal: tokens.spacing.lg,
+    paddingVertical: tokens.spacing.md,
     borderTopWidth: 1,
-    borderColor: '#e5e7eb',
+    borderTopColor: tokens.colors.border.subtle,
+    backgroundColor: tokens.colors.surface.background,
   },
+
   input: {
     flex: 1,
-    padding: 10,
-    backgroundColor: '#f9fafb',
-    borderRadius: 20,
-    marginRight: 10,
+    paddingVertical: tokens.spacing.sm,
+    paddingHorizontal: tokens.spacing.lg,
+    backgroundColor: tokens.colors.surface.card,
+    borderRadius: tokens.radius.full,
+    marginRight: tokens.spacing.sm,
+    fontSize: tokens.typography.size.sm,
+    color: tokens.colors.text.primary,
   },
 });
