@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: tokens.typography.size.xl,
     fontWeight: tokens.typography.weight.bold,
-    color: tokens.colors.text.primary,
+    color: tokens.colors.brand.primary,
     lineHeight: tokens.typography.lineHeight.relaxed,
     marginBottom: tokens.spacing.sm,
   },

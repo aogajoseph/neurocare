@@ -75,7 +75,7 @@ export const resources: ResourceEntry[] = [
         id: 'q-1',
         slug: 'community-needs',
         title: 'Neurological Needs Assessment',
-        description: 'Help us understand regional needs and access gaps to improve outreach and support programs.',
+        description: 'Help us understand regional needs and access gaps to improve outreach & support programs.',
       },
       {
         id: 'q-2',
@@ -92,7 +92,7 @@ export const resources: ResourceEntry[] = [
     icon: 'chatbubbles-outline',
     route: '/(drawer)/(content)/resources/talks',
     items: [
-      { id: 't-1', title: 'Neurology Q&A 2026', description: 'Sposored by Neuro Care Foundation, featuring Prof. Yollanda Yolls.' },
+      { id: 't-1', title: 'Neurology Q&A Monthly', description: 'Sposored by Neuro Care Foundation, featuring Prof. Yollanda Yolls.' },
       { id: 't-2', title: 'Mental Health Awareness', description: 'Neurosurgeons discuss complex spinal conditions, and recovery pathways.' },
     ],
   },
@@ -144,7 +144,7 @@ export const resources: ResourceEntry[] = [
     icon: 'heart-outline',
     route: '/(drawer)/(content)/resources/donate',
     items: [
-      { id: 'd-1', title: 'One-Time Donation', description: 'Support individual programs.' },
+      { id: 'd-1', title: 'One-Time Donation', description: 'Make a single contribution.' },
       { id: 'd-2', title: 'Monthly Giving', description: 'Sustain our activities long-term.' },
     ],
   },
@@ -152,8 +152,8 @@ export const resources: ResourceEntry[] = [
     slug: 'volunteer',
   
     title: { 
-      en: 'Volunteer With Us', 
-      sw: 'Jitolee Nasi' 
+      en: 'Volunteer', 
+      sw: 'Jitolee' 
     },
   
     subtitle: { 
@@ -485,23 +485,114 @@ export const resources: ResourceEntry[] = [
     icon: 'calendar-outline',
     route: '/(drawer)/(content)/resources/events',
     items: [
-      { id: 'e-1', title: 'Neuro Champions Awards', description: 'Celebrating excellence and honoring outstanding contributions to neurological health.', date: 'Dec 20, 2026' },
-      { id: 'e-2', title: 'World SBH Day', description: 'A day of global awareness and community activities for Spina Bifida and Hydrocephalus.', date: 'Oct 25, 2026' },
+      { id: 'e-1', title: 'Neuro Champions Awards', description: 'Celebrating excellence and honoring outstanding contributions to neurological health.', date: 'Dec 20, 2026.' },
+      { id: 'e-2', title: 'World SBH Day', description: 'A day of global awareness and community activities for Spina Bifida and Hydrocephalus.', date: 'Oct 25, 2026.' },
     ],
   },
 
   /**
-   * 🏛 Neuro Care Foundation
-   */
+ * 🏛 Neuro Care Foundation
+ */
   {
     slug: 'about-ncf',
-    title: { en: 'About Neuro Care Foundation', sw: 'Kuhusu' },
-    subtitle: { en: 'Who we are & what we do', sw: 'Sisi ni nani na tunafanya nini' },
+    title: {
+      en: 'About NCF',
+      sw: 'Kuhusu NCF',
+    },
+    subtitle: {
+      en: 'Who we are, what we do, and why it matters.',
+      sw: 'Sisi ni nani, tunafanya nini, na kwa nini ni muhimu.',
+    },
     icon: 'information-circle-outline',
     route: '/(drawer)/(content)/resources/about-ncf',
-    items: [
-      { id: 'ncf-1', title: 'Our Mission', description: 'Providing neurological care and support.' },
-      { id: 'ncf-2', title: 'Our Programs', description: 'Caregiver support, PWD guidance, training, and advocacy.' },
+
+    hero: {
+      description: {
+        en: 'Neuro Care Foundation is a neurological health organization supporting people affected by neurological conditions and the public through trusted information, community support and guidance, in partnership with professionals, organizations and individuals with lived experience.',
+        sw: 'Neuro Care Foundation ni shirika la afya ya neurolojia linalosaidia watu walioathirika na hali za neurolojia na umma kwa kutoa taarifa za kuaminika, msaada wa jamii na mwongozo, kwa kushirikiana na wataalamu, mashirika na watu wenye uzoefu wa moja kwa moja.',
+  
+      },
+    },
+
+    sections: [
+      {
+        id: 'mission',
+        title: {
+          en: 'Our Mission',
+          sw: 'Dhamira Yetu',
+        },
+        description: {
+          en: 'To expand access to neurological information, community support, and coordinated care systems for individuals and families affected by neurological conditions.',
+          sw: 'Kupanua upatikanaji wa taarifa za neva, msaada wa jamii, na mifumo ya huduma iliyounganishwa kwa watu na familia zilizoathiriwa na changamoto za neva.',
+        },
+      },
+      {
+        id: 'vision',
+        title: {
+          en: 'Our Vision',
+          sw: 'Maono Yetu',
+        },
+        description: {
+          en: 'A future where every person living with a neurological condition has access to dignity, knowledge, and compassionate support.',
+          sw: 'Mustakabali ambapo kila mtu anayeishi na changamoto ya neva ana upatikanaji wa heshima, maarifa, na msaada wa huruma.',
+        },
+      },
+      {
+        id: 'programs',
+        title: {
+          en: 'Our Programs',
+          sw: 'Programu Zetu',
+        },
+        description: {
+          en: 'Caregiver support programs, community awareness initiatives, digital neurological guidance tools, advocacy campaigns, and collaborative research partnerships.',
+          sw: 'Programu za msaada kwa walezi, kampeni za uhamasishaji wa jamii, zana za kidijitali za mwongozo wa neva, kampeni za utetezi, na ushirikiano wa utafiti.',
+        },
+      },
+      {
+        id: 'approach',
+        title: {
+          en: 'Our Approach',
+          sw: 'Mbinu Yetu',
+        },
+        description: {
+          en: 'We combine technology, education, and community partnerships to build sustainable neurological care ecosystems that are locally responsive and globally informed.',
+          sw: 'Tunachanganya teknolojia, elimu, na ushirikiano wa jamii kujenga mifumo endelevu ya huduma za neva inayojibu mahitaji ya ndani na kuongozwa na maarifa ya kimataifa.',
+        },
+      },
     ],
-  },
+
+    stats: [
+      {
+        id: 'stat-1',
+        label: { en: 'Communities Engaged', sw: 'Jamii Zilizofikiwa' },
+        value: '25+',
+      },
+      {
+        id: 'stat-2',
+        label: { en: 'Caregivers Supported', sw: 'Walezi Walioungwa Mkono' },
+        value: '500+',
+      },
+      {
+        id: 'stat-3',
+        label: { en: 'Programs Launched', sw: 'Programu Zilizozinduliwa' },
+        value: '8',
+      },
+    ],
+
+    callToAction: {
+      title: {
+        en: 'Join Our Mission',
+        sw: 'Jiunge na Dhamira Yetu',
+      },
+      description: {
+        en: 'As a caregiver, living with a condition, healthcare professional, organization or supporter, there is a place for everyone in strengthening neurological care.',
+        sw: 'Kama mlezi, mtu anayepambana na hali ya kiafya, mtaalamu wa afya, shirika au msaidizi, kuna nafasi kwa kila mtu katika kuimarisha huduma za neurolojia.',
+      },
+      buttonLabel: {
+        en: 'Get Involved',
+        sw: 'Shiriki Nasi',
+      },
+      route: '/(drawer)/(content)/resources/volunteer',
+    },
+  }
 ];

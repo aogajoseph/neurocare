@@ -73,6 +73,7 @@ export default function FormField({ field, value, onChange }: Props) {
           value={value?.toString()}
           onChangeText={(text) => onChange(Number(text))}
           placeholder="Enter number"
+          placeholderTextColor={tokens.colors.text.muted}
         />
       )}
 

@@ -1,6 +1,8 @@
 export const questionnaireForms = [
   {
     slug: 'community-needs',
+    title: 'Community Needs Assessment',
+    description: 'Help us understand regional needs and access gaps to improve outreach & support programs.',
     fields: [
       {
         id: 'county',
@@ -43,6 +45,8 @@ export const questionnaireForms = [
 
   {
     slug: 'caregiver-capacity',
+    title: 'Caregiver Capacity Survey',
+    description: 'Help us design better caregiver support programs and training initiatives.',
     fields: [
       {
         id: 'relationship',
