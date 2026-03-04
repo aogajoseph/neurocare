@@ -150,14 +150,151 @@ export const resources: ResourceEntry[] = [
   },
   {
     slug: 'volunteer',
-    title: { en: 'Volunteer', sw: 'Jitolee' },
-    subtitle: { en: 'Offer your time & skills', sw: 'Toa muda na ujuzi wako' },
+  
+    title: { 
+      en: 'Volunteer With Us', 
+      sw: 'Jitolee Nasi' 
+    },
+  
+    subtitle: { 
+      en: 'Offer your time & skills to support neuro care.', 
+      sw: 'Toa muda na ujuzi wako kusaidia huduma za neva.' 
+    },
+  
     icon: 'people-outline',
+  
     route: '/(drawer)/(content)/resources/volunteer',
-    items: [
-      { id: 'v-1', title: 'Community Outreach', description: 'Participate in local initiatives.' },
-      { id: 'v-2', title: 'Virtual Support', description: 'Assist patients remotely.' },
-    ],
+  
+    // 👇 FORM CONTRACT (authoritative backend structure)
+    form: {
+      method: 'POST',
+      endpoint: '/api/resources/volunteer/apply',
+  
+      submitLabel: {
+        en: 'Submit Application',
+        sw: 'Tuma Maombi'
+      },
+  
+      successMessage: {
+        en: 'Thank you for applying to volunteer. Our team will contact you shortly.',
+        sw: 'Asante kwa kuomba kujitolea. Timu yetu itawasiliana nawe hivi karibuni.'
+      },
+  
+      fields: [
+        // PERSONAL INFORMATION
+        {
+          id: 'fullName',
+          type: 'text',
+          label: { en: 'Full Name', sw: 'Jina Kamili' },
+          required: true,
+          placeholder: { en: 'Enter your full name', sw: 'Weka jina lako kamili' }
+        },
+        {
+          id: 'email',
+          type: 'email',
+          label: { en: 'Email Address', sw: 'Barua Pepe' },
+          required: true,
+          placeholder: { en: 'you@example.com', sw: 'wewe@example.com' }
+        },
+        {
+          id: 'phone',
+          type: 'phone',
+          label: { en: 'Phone Number', sw: 'Nambari ya Simu' },
+          required: true,
+          placeholder: { en: '+254 7XX XXX XXX', sw: '+254 7XX XXX XXX' }
+        },
+        {
+          id: 'location',
+          type: 'text',
+          label: { en: 'City / Location', sw: 'Mji / Eneo' },
+          required: true,
+          placeholder: { en: 'Nairobi, Kenya', sw: 'Nairobi, Kenya' }
+        },
+  
+        // PROFESSIONAL BACKGROUND
+        {
+          id: 'profession',
+          type: 'text',
+          label: { en: 'Profession / Field of Study', sw: 'Taaluma / Masomo' },
+          required: false,
+          placeholder: { en: 'e.g., Nurse, Student, Developer', sw: 'Mfano: Muuguzi, Mwanafunzi, Msanidi' }
+        },
+        {
+          id: 'skills',
+          type: 'textarea',
+          label: { en: 'Relevant Skills', sw: 'Ujuzi Muhimu' },
+          required: true,
+          placeholder: {
+            en: 'Describe skills you can contribute (medical, tech, communication, admin, etc.)',
+            sw: 'Eleza ujuzi unaoweza kuchangia (matibabu, teknolojia, mawasiliano, usimamizi, n.k.)'
+          }
+        },
+  
+        // AVAILABILITY
+        {
+          id: 'availability',
+          type: 'select',
+          label: { en: 'Availability', sw: 'Upatikanaji' },
+          required: true,
+          options: [
+            { value: 'weekdays', label: { en: 'Weekdays', sw: 'Siku za Wiki' } },
+            { value: 'weekends', label: { en: 'Weekends', sw: 'Mwisho wa Wiki' } },
+            { value: 'flexible', label: { en: 'Flexible', sw: 'Inayobadilika' } }
+          ]
+        },
+        {
+          id: 'commitmentType',
+          type: 'select',
+          label: { en: 'Commitment Type', sw: 'Aina ya Kujitolea' },
+          required: true,
+          options: [
+            { value: 'once', label: { en: 'One-Time Event', sw: 'Tukio Moja' } },
+            { value: 'short_term', label: { en: 'Short-Term', sw: 'Muda Mfupi' } },
+            { value: 'long_term', label: { en: 'Long-Term', sw: 'Muda Mrefu' } }
+          ]
+        },
+  
+        // PREFERRED VOLUNTEER AREA
+        {
+          id: 'volunteerArea',
+          type: 'select',
+          label: { en: 'Area of Interest', sw: 'Eneo la Kujitolea' },
+          required: true,
+          options: [
+            { value: 'community_outreach', label: { en: 'Community Outreach', sw: 'Uhamasishaji wa Jamii' } },
+            { value: 'hospital_support', label: { en: 'Hospital Support', sw: 'Msaada Hospitalini' } },
+            { value: 'virtual_support', label: { en: 'Virtual Support', sw: 'Msaada wa Mtandaoni' } },
+            { value: 'fundraising', label: { en: 'Fundraising', sw: 'Uchangishaji Fedha' } },
+            { value: 'technical', label: { en: 'Technical / IT Support', sw: 'Msaada wa Teknolojia' } },
+            { value: 'other', label: { en: 'Other', sw: 'Nyingine' } }
+          ]
+        },
+  
+        // MOTIVATION
+        {
+          id: 'motivation',
+          type: 'textarea',
+          label: { en: 'Why do you want to volunteer?', sw: 'Kwa nini unataka kujitolea?' },
+          required: true,
+          placeholder: {
+            en: 'Tell us why you are interested in volunteering with Neuro Care.',
+            sw: 'Tuambie kwa nini unataka kujitolea na Neuro Care.'
+          }
+        },
+  
+        // CONSENT
+        {
+          id: 'consent',
+          type: 'checkbox',
+          consentTitle: { en: 'Consent', sw: 'Ruhusa' },
+          label: {
+            en: 'I agree to be contacted regarding volunteer opportunities.',
+            sw: 'Nakubali kuwasiliana nami kuhusu fursa za kujitolea.'
+          },
+          required: true
+        },
+      ]
+    }
   },
   {
     slug: 'partnerships',

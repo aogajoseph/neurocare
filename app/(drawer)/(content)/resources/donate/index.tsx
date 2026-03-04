@@ -63,6 +63,7 @@ export default function DonateScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      {/* Back Button */}
       <TouchableOpacity onPress={() => router.back()}>
         <Text style={styles.back}>← Back</Text>
       </TouchableOpacity>
