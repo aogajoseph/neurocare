@@ -158,7 +158,7 @@ export const resources: ResourceEntry[] = [
   
     subtitle: { 
       en: 'Offer your time & skills to support neuro care.', 
-      sw: 'Toa muda na ujuzi wako kusaidia huduma za neva.' 
+      sw: 'Toa muda na ujuzi wako kusaidia huduma za neurolojia.' 
     },
   
     icon: 'people-outline',
@@ -298,13 +298,185 @@ export const resources: ResourceEntry[] = [
   },
   {
     slug: 'partnerships',
-    title: { en: 'Partnerships', sw: 'Ushirikiano' },
-    subtitle: { en: 'Collaborate with NCF', sw: 'Shirikiana na NCF' },
-    icon: 'handshake-outline',
+    title: {
+      en: 'Partnerships',
+      sw: 'Ushirikiano',
+    },
+    subtitle: {
+      en: 'Collaborate with us to expand impact.',
+      sw: 'Shirikiana nasi kupanua athari.',
+    },
+    icon: 'business-outline',
     route: '/(drawer)/(content)/resources/partnerships',
-    items: [
-      { id: 'pa-1', title: 'Corporate Collaboration', description: 'Partner with NCF to support programs.' },
+
+    partnership: {
+      title: {
+        en: 'Our Partners',
+        sw: 'Washiriki Wetu',
+      },
+    },
+
+    partners: [
+      {
+        id: 'p-1',
+        name: '*Hadithi',
+        logo: require('../../assets/images/hadithi.png'),
+      },
+      {
+        id: 'p-3',
+        name: 'Care Link Foundation',
+        logo: require('../../assets/images/care_link.png'),
+      },
+      {
+        id: 'p-2',
+        name: 'Brain Research Trust',
+        logo: require('../../assets/images/brain_research_trust.png'),
+      },
     ],
+
+    cta: {
+      title: {
+        en: 'Become a Partner',
+        sw: 'Kuwa Mshirika',
+      },
+      description: {
+        en: 'We welcome hospitals, NGOs, research institutions, donors and corporate organizations to collaborate with us in strengthening neurological support systems.',
+        sw: 'Tunakribisha hospitali, mashirika yasiyo ya serikali, taasisi za utafiti, wafadhili na mshirika ya kibiashara kushirikiana nasi kuimarisha mifumo ya msaada wa kineurolojia.'
+      },
+    },
+
+    form: {
+      fields: [
+        {
+          id: 'organizationName',
+          type: 'text',
+          label: {
+            en: 'Oganization Name',
+            sw: 'Jina la Shirika',
+          },
+          placeholder: {
+            en: 'Enter organization name',
+            sw: 'Weka jina la shirika', 
+          },
+          required: true,
+        },
+        {
+          id: 'contactPerson',
+          type: 'text',
+          label: {
+            en: 'Contact Person',
+            sw: 'Mtu wa Mawasiliano',
+          },
+          placeholder: {
+            en: 'Enter full name',
+            sw: 'Weka jina kamili', 
+          },
+          required: true,
+        },
+        {
+          id: 'email',
+          type: 'email',
+          label: {
+            en: 'Email Address',
+            sw: 'Barua Pepe',
+          },
+          placeholder: {
+            en: 'Enter email address',
+            sw: 'Weka barua pepe', 
+          },
+          required: true,
+        },
+        {
+          id: 'phone',
+          type: 'phone',
+          label: {
+            en: 'Phone Number',
+            sw: 'Nambari ya Simu',
+          },
+          placeholder: {
+            en: 'Enter phone number',
+            sw: 'Weka nambari ya simu', 
+          },
+        },
+        {
+          id: 'organizationType',
+          type: 'select',
+          label: {
+            en: 'Organization Type',
+            sw: 'Aina ya Shirika',
+          },
+          required: true,
+          options: [
+            { 
+              value: 'hospital', 
+              label: { en: 'Hospital / Clinic', sw: 'Hospitali / Kliniki' }, 
+            }, 
+            { 
+              value: 'ngo', 
+              label: { en: 'NGO / Non-profit', sw: 'NGO / Shirika Lisilo la Kiserikali' }, 
+            }, 
+            { 
+              value: 'corporate', 
+              label: { en: 'Corporate Organization', sw: 'Shirika la Kibiashara' }, 
+            }, 
+            { 
+              value: 'research', 
+              label: { en: 'Research Institution', sw: 'Taasisi ya Utafiti' }, 
+            }, 
+            { 
+              value: 'other', 
+              label: { en: 'Other', sw: 'Nyingine' }, 
+            }, 
+          ], 
+        },
+        { 
+          id: 'partnershipInterest', 
+          type: 'multi-select', 
+          label: { 
+            en: 'Area of Interest', 
+            sw: 'Eneo la Ushirikiano', 
+          }, 
+          options: [ 
+            { 
+              value: 'funding', 
+              label: { en: 'Funding & Grants', sw: 'Ufadhili & Ruzuku' }, 
+            }, 
+            { 
+              value: 'research', 
+              label: { en: 'Research Collaboration', sw: 'Ushirikiano wa Utafiti' }, 
+            }, 
+            { 
+              value: 'community', 
+              label: { en: 'Community Outreach', sw: 'Huduma za Jamii' }, 
+            }, 
+            { 
+              value: 'technology', 
+              label: { en: 'Technology Support', sw: 'Msaada wa Teknolojia' }, 
+            }, 
+          ], 
+        }, 
+        { 
+          id: 'message', 
+          type: 'textarea', 
+          label: { en: 'Proposal / Message', sw: 'Pendekezo / Ujumbe', }, 
+          placeholder: { 
+            en: 'Briefly describe your proposed partnership...', 
+            sw: 'Elezea kwa ufupi pendekezo lako la ushirikiano...', 
+          }, 
+          required: true, 
+        }, 
+      ],
+
+      submitLabel: { 
+        en: 'Submit Partnership Inquiry', 
+        sw: 'Tuma Ombi la Ushirikiano', 
+      }, 
+      
+      successMessage: { 
+        en: 'Thank you for your interest in partnering with us. We will contact you shortly.', 
+        sw: 'Asante kwa nia yako ya kushirikiana nasi. Tutawasiliana nawe hivi karibuni.', 
+      }, 
+    }, 
   },
   {
     slug: 'events',
