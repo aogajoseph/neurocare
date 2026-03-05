@@ -6,7 +6,7 @@ export const neurologyData = {
       en: "A guide to understanding the brain and the nervous system.",
       sw: "Mwongozo wa kuelewa ubongo na muundo wa neva.",
     },
-    image: require('../../assets/images/neurology-hero.jpg'),
+    image: require('../../assets/images/neurology-hero.png'),
   },
   sections: [
     {
@@ -30,7 +30,7 @@ export const neurologyData = {
             en: 'Sudden interruption of blood flow to the brain.',
             sw: 'Kukatizwa kwa ghafla kwa mtiririko wa damu kwenda kwenye ubongo.',
           },
-          image: require('../../assets/images/stroke.jpg'),
+          image: require('../../assets/images/stroke.png'),
         },
         {
           slug: 'epilepsy',
@@ -57,7 +57,7 @@ export const neurologyData = {
             en: 'Intense, recurring headaches with nausea and sensitivity.',
             sw: 'Maumivu makali ya kichwa yanayojirudia pamoja na kichefuchefu na hisia za mwangaza.',
           },
-          image: require('../../assets/images/migraine.jpg'),
+          image: require('../../assets/images/migraine.png'),
         },
         {
           slug: 'dementia',
@@ -82,7 +82,7 @@ export const neurologyData = {
     {
       id: 'livingWith',
       type: 'video',
-      title: { en: 'Living With Neurological Conditions', sw: 'Kuishi na Hali za Neurologia' },
+      title: { en: 'Living Well with Neurological Conditions', sw: 'Kuishi na Hali za Neurologia' },
       videoUrl: require('../../assets/videos/living.mp4'),
       description: {
         en: 'Many people live full and meaningful lives with neurological conditions. Support from healthcare providers, caregivers and access to accurate information plays a vital role in improving quality of life.',

@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: tokens.typography.size.xxl,
-    fontWeight: tokens.typography.weight.semibold,
+    fontWeight: tokens.typography.weight.bold,
     color: tokens.colors.brand.primary,
     textAlign: tokens.alignment.text.center,
     marginBottom: tokens.spacing.md,
