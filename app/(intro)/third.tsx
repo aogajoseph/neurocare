@@ -33,7 +33,7 @@ export default function IntroThird() {
       <Animated.View style={{ opacity, transform: [{ translateY }] }}>
         <Text style={styles.title}>Built With Care</Text>
         <Text style={styles.body}>
-          Empathy, Accuracy, Trust & Understanding with Safety & Security enforced at every step.
+          Empathy, Accuracy, Trust & Understanding with Safety & Security at every step.
         </Text>
 
         <Pressable style={styles.button} onPress={enterApp}>

@@ -41,17 +41,9 @@ export default function IntroSecond() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: tokens.colors.surface.soft,
+    backgroundColor: tokens.colors.surface.background,
     paddingHorizontal: tokens.spacing.xl,
     justifyContent: 'center',
-  },
-  cardContainer: {
-    backgroundColor: tokens.colors.surface.card,
-    padding: tokens.spacing.xl,
-    borderRadius: tokens.radius.lg,
-    borderWidth: 1,
-    borderColor: tokens.colors.border.subtle,
-    ...tokens.elevation.card,
   },
   title: {
     fontSize: tokens.typography.size.xxl,
@@ -64,7 +56,7 @@ const styles = StyleSheet.create({
     fontSize: tokens.typography.size.md,
     color: tokens.colors.text.secondary,
     textAlign: tokens.alignment.text.center,
-    marginBottom: tokens.spacing.xl,
+    marginBottom: tokens.spacing.xxl,
     lineHeight: tokens.typography.lineHeight.relaxed,
   },
   button: {
