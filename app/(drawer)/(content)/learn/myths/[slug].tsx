@@ -3,7 +3,7 @@
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { mythsData } from '@/demo/myths';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -69,85 +69,117 @@ export default function MythsDetailScreen() {
   const blocks = buildBlocks(card.sections, language);
 
   return (
-    <ScrollView
-      contentContainerStyle={[styles.scroll, { paddingBottom: insets.bottom + tokens.spacing.xl }]}
-      showsVerticalScrollIndicator={false}
-    >
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={styles.headerRow}>
-          {card.icon && <Ionicons name={card.icon} size={24} color={tokens.colors.brand.primary} />}
-          <Text style={styles.title}>{card.title[language]}</Text>
+    <SafeAreaView style={styles.safe}>
+      <ScrollView
+        contentContainerStyle={[
+          styles.scroll,
+          {
+            paddingBottom: insets.bottom + tokens.spacing.xl,
+          },
+        ]}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Header */}
+        <View style={styles.header}>
+          <View style={styles.headerRow}>
+            {card.icon && (
+              <Ionicons
+                name={card.icon}
+                size={24}
+                color={tokens.colors.brand.primary}
+              />
+            )}
+            <Text style={styles.title}>{card.title[language]}</Text>
+          </View>
+  
+          {card.description?.[language] && (
+            <Text style={styles.description}>
+              {card.description[language]}
+            </Text>
+          )}
         </View>
-        {card.description?.[language] && <Text style={styles.description}>{card.description[language]}</Text>}
-      </View>
-
-      {/* Blocks */}
-      <View style={styles.blocks}>
-        {blocks.map((block, index) => {
-          switch (block.type) {
-            case 'text':
-              return (
-                <View key={index}>
-                  <Text style={styles.blockTitle}>{block.title[language]}</Text>
-                  <Text style={styles.body}>{block.content[language]}</Text>
-                </View>
-              );
-
-            case 'bullets':
-              return (
-                <View key={index}>
-                  <Text style={styles.blockTitle}>{block.title[language]}</Text>
-                  <View style={styles.bullets}>
-                    {block.items.map((item, i) => (
-                      <Text key={i} style={styles.body}>
-                        • {item}
-                      </Text>
-                    ))}
+  
+        {/* Blocks */}
+        <View style={styles.blocks}>
+          {blocks.map((block, index) => {
+            switch (block.type) {
+              case 'text':
+                return (
+                  <View key={index}>
+                    <Text style={styles.blockTitle}>
+                      {block.title[language]}
+                    </Text>
+                    <Text style={styles.body}>
+                      {block.content[language]}
+                    </Text>
                   </View>
-                </View>
-              );
-
-            case 'related':
-              return (
-                <View key={index}>
-                  <Text style={styles.blockTitle}>{block.title[language]}</Text>
-                  <View style={styles.related}>
-                    {block.items.map(item => (
-                      <TouchableOpacity
-                        key={item.slug}
-                        style={styles.linkRow}
-                        onPress={() => router.push(`/learn/myths/${item.slug}`)}
-                        activeOpacity={0.7}
-                      >
-                        <View style={styles.linkInline}>
-                          <Text style={styles.link}>{item.label[language]}</Text>
-                          <Ionicons
-                            name="arrow-forward-circle-outline"
-                            size={16}
-                            color={tokens.colors.brand.link}
-                            style={styles.linkIcon}
-                          />
-                        </View>
-                      </TouchableOpacity>
-                    ))}
+                );
+  
+              case 'bullets':
+                return (
+                  <View key={index}>
+                    <Text style={styles.blockTitle}>
+                      {block.title[language]}
+                    </Text>
+                    <View style={styles.bullets}>
+                      {block.items.map((item, i) => (
+                        <Text key={i} style={styles.body}>
+                          • {item}
+                        </Text>
+                      ))}
+                    </View>
                   </View>
-                </View>
-              );
-
-            case 'reassurance':
-              return (
-                <View key={index} style={styles.reassurance}>
-                  <Text style={styles.reassuranceText}>{block.content[language]}</Text>
-                </View>
-              );
-
-            default:
-              return null;
-          }
-        })}
-      </View>
-    </ScrollView>
+                );
+  
+              case 'related':
+                return (
+                  <View key={index}>
+                    <Text style={styles.blockTitle}>
+                      {block.title[language]}
+                    </Text>
+                    <View style={styles.related}>
+                      {block.items.map(item => (
+                        <TouchableOpacity
+                          key={item.slug}
+                          style={styles.linkRow}
+                          onPress={() =>
+                            router.push(`/learn/myths/${item.slug}`)
+                          }
+                          activeOpacity={0.7}
+                        >
+                          <View style={styles.linkInline}>
+                            <Text style={styles.link}>
+                              {item.label[language]}
+                            </Text>
+                            <Ionicons
+                              name="arrow-forward-circle-outline"
+                              size={16}
+                              color={tokens.colors.brand.link}
+                              style={styles.linkIcon}
+                            />
+                          </View>
+                        </TouchableOpacity>
+                      ))}
+                    </View>
+                  </View>
+                );
+  
+              case 'reassurance':
+                return (
+                  <View key={index} style={styles.reassurance}>
+                    <Text style={styles.reassuranceText}>
+                      {block.content[language]}
+                    </Text>
+                  </View>
+                );
+  
+              default:
+                return null;
+            }
+          })}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -156,6 +188,10 @@ export default function MythsDetailScreen() {
 ────────────────────────────── */
 const styles = StyleSheet.create({
   scroll: {
+    backgroundColor: tokens.colors.surface.background,
+  },
+  safe: {
+    flex: 1,
     backgroundColor: tokens.colors.surface.background,
   },
   header: {
