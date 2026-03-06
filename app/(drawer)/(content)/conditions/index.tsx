@@ -79,17 +79,6 @@ export default function ConditionsIndexScreen() {
     );
   };
 
-  const jumpToLetter = (letter: string) => {
-    const index = sections.findIndex(s => s.title === letter);
-    if (index !== -1) {
-      listRef.current?.scrollToLocation({
-        sectionIndex: index,
-        itemIndex: 0,
-        animated: true,
-      });
-    }
-  };
-
   /* ───────────────────────────────
      Render
   ─────────────────────────────── */
@@ -150,42 +139,19 @@ export default function ConditionsIndexScreen() {
           </Text>
         </View>
       ) : (
-        <>
-          {/* A–Z List */}
-          <SectionList
-            ref={listRef}
-            sections={sections}
-            keyExtractor={item => item.slug}
-            renderItem={renderItem}
-            renderSectionHeader={renderSectionHeader}
-            stickySectionHeadersEnabled
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={[
-              styles.listContent,
-              { paddingBottom: tokens.spacing.xl + insets.bottom },
-            ]}
-          />
-
-          {/* Alphabet Rail */}
-          <View
-            style={[
-              styles.alphabetRail,
-              { paddingTop: insets.top },
-            ]}
-          >
-            {sections.map(section => (
-              <TouchableOpacity
-                key={section.title}
-                onPress={() => jumpToLetter(section.title)}
-                hitSlop={8}
-              >
-                <Text style={styles.railLetter}>
-                  {section.title}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        </>
+        <SectionList
+          ref={listRef}
+          sections={sections}
+          keyExtractor={item => item.slug}
+          renderItem={renderItem}
+          renderSectionHeader={renderSectionHeader}
+          stickySectionHeadersEnabled
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={[
+            styles.listContent,
+            { paddingBottom: tokens.spacing.xl + insets.bottom },
+          ]}
+        />
       )}
     </View>
   );
@@ -264,21 +230,6 @@ const styles = StyleSheet.create({
   highlight: {
     color: tokens.colors.brand.primary,
     fontWeight: tokens.typography.weight.semibold,
-  },
-
-  alphabetRail: {
-    position: 'absolute',
-    right: tokens.spacing.sm,
-    top: 0,
-    bottom: 0,
-    justifyContent: 'center',
-  },
-
-  railLetter: {
-    fontSize: tokens.typography.size.xs,
-    paddingVertical: 2,
-    color: tokens.colors.brand.primary,
-    textAlign: 'center',
   },
 
   empty: {
