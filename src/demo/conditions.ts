@@ -222,6 +222,77 @@ export const conditionsData: Record<string, Condition> = {
   },
 
   /* ───────────────────────────────
+        SPINA BIFIDA
+  ─────────────────────────────── */
+  spinaBifida: {
+    slug: 'spinaBifida',
+    hero: {
+      title: { en: 'Spina Bifida', sw: 'Spina Bifida' },
+      subtitle: {
+        en: 'A condition where the spine and spinal cord do not form properly before birth.',
+        sw: 'Hali ambapo uti wa mgongo na neva za mgongo hazitengenezwi kikamilifu kabla ya kuzaliwa.',
+      },
+    },
+    sections: {
+      overview: {
+        content: {
+          en: `Spina bifida is a birth condition where part of the spine and spinal cord does not close properly during early pregnancy.
+
+  **Neurological Link:** Because the spinal cord carries signals between the brain and the body, damage or exposure of the nerves can affect movement, sensation, and bladder or bowel control.
+
+  **Impact:** The severity varies widely. Some people experience mild physical effects, while others may need assistive mobility devices, surgery, or long-term medical support.`,
+          sw: `Spina bifida ni hali ya kuzaliwa ambapo sehemu ya uti wa mgongo na neva za mgongo hazifungiki kikamilifu wakati wa maendeleo ya awali ya ujauzito.
+
+  **Uhusiano wa Neva:** Kwa kuwa uti wa mgongo hubeba ishara kati ya ubongo na mwili, uharibifu au kufichuka kwa neva kunaweza kuathiri harakati, hisia, na udhibiti wa kibofu au utumbo.
+
+  **Athari:** Ukali wa hali hii hutofautiana. Watu wengine hupata athari ndogo za kimwili, wakati wengine wanaweza kuhitaji vifaa vya kusaidia kutembea, upasuaji, au msaada wa matibabu wa muda mrefu.`,
+        },
+      },
+
+      symptoms: {
+        early: {
+          en: [
+            'Weakness or paralysis in the legs',
+            'Difficulty walking or delayed motor development',
+            'Loss of sensation in parts of the lower body',
+            'Problems with bladder or bowel control',
+            'Visible sac or opening on the lower back at birth',
+          ],
+          sw: [
+            'Udhaifu au kupooza kwa miguu',
+            'Ugumu wa kutembea au kuchelewa kwa maendeleo ya harakati',
+            'Kupungua kwa hisia katika sehemu za chini za mwili',
+            'Matatizo ya kudhibiti kibofu au utumbo',
+            'Mfuko au uwazi unaoonekana mgongoni wakati wa kuzaliwa',
+          ],
+        },
+      },
+
+      help: {
+        whenToSeekHelp: {
+          en: [
+            'A newborn has a visible swelling or opening on the lower back',
+            'Child shows delayed walking or difficulty moving the legs',
+            'Loss of bladder or bowel control develops',
+            'Repeated infections or pressure sores in people with limited mobility',
+          ],
+          sw: [
+            'Mtoto mchanga ana uvimbe au uwazi unaoonekana mgongoni',
+            'Mtoto ana kuchelewa kutembea au ana shida kusogeza miguu',
+            'Kupoteza udhibiti wa kibofu au utumbo',
+            'Maambukizi yanayojirudia au vidonda vya shinikizo kwa watu wenye uhamaji mdogo',
+          ],
+        },
+
+        reassurance: {
+          en: 'With early medical care, rehabilitation, and supportive devices, many people with spina bifida live active and meaningful lives.',
+          sw: 'Kwa huduma ya mapema ya matibabu, urekebishaji wa mwili, na vifaa vya kusaidia, watu wengi wenye spina bifida wanaweza kuishi maisha yenye shughuli na maana.',
+        },
+      },
+    },
+  },
+
+  /* ───────────────────────────────
         SCIATICA
     ─────────────────────────────── */
   sciatica: {
