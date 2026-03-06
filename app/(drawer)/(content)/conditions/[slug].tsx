@@ -129,19 +129,82 @@ function Bullet({ text }: { text: string }) {
 
 /* ───── Styles ───── */
 const styles = StyleSheet.create({
-  hero: { marginTop: tokens.spacing.lg, marginBottom: tokens.spacing.lg, paddingHorizontal: tokens.spacing.lg },
-  title: { fontSize: tokens.typography.size.xl, fontWeight: tokens.typography.weight.semibold, color: tokens.colors.text.primary, marginBottom: tokens.spacing.xs },
-  subtitle: { fontSize: tokens.typography.size.sm, lineHeight: tokens.typography.lineHeight.normal, color: tokens.colors.text.secondary },
-  chips: { flexDirection: 'row', gap: tokens.spacing.sm, marginBottom: tokens.spacing.md, paddingHorizontal: tokens.spacing.lg },
-  chip: { backgroundColor: tokens.colors.surface.soft, paddingHorizontal: tokens.spacing.md, paddingVertical: tokens.spacing.sm, borderRadius: tokens.radius.full },
-  chipActive: { backgroundColor: tokens.colors.brand.primary },
-  chipText: { fontSize: tokens.typography.size.xs, color: tokens.colors.brand.primary, fontWeight: tokens.typography.weight.medium },
-  chipTextActive: { color: tokens.colors.surface.background, fontWeight: tokens.typography.weight.semibold },
-  sectionTitle: { fontSize: tokens.typography.size.md, fontWeight: tokens.typography.weight.semibold, color: tokens.colors.brand.primary, marginTop: tokens.spacing.lg, marginBottom: tokens.spacing.sm },
-  paragraph: { fontSize: tokens.typography.size.sm, lineHeight: tokens.typography.lineHeight.normal, color: tokens.colors.text.secondary },
-  bullet: { fontSize: tokens.typography.size.sm, lineHeight: tokens.typography.lineHeight.normal, color: tokens.colors.text.secondary, marginBottom: tokens.spacing.xs },
-  reassurance: { marginTop: tokens.spacing.lg, padding: tokens.spacing.md, backgroundColor: tokens.colors.brand.secondary, borderRadius: tokens.radius.md },
-  reassuranceText: { fontSize: tokens.typography.size.sm, lineHeight: tokens.typography.lineHeight.normal, color: tokens.colors.text.inverse, textAlign: 'center' },
-  missingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  missingText: { fontSize: tokens.typography.size.md, color: tokens.colors.text.secondary },
+  hero: { 
+    marginBottom: tokens.spacing.lg, 
+    paddingHorizontal: tokens.spacing.lg 
+  },
+  title: { 
+    fontSize: tokens.typography.size.xl, 
+    fontWeight: tokens.typography.weight.semibold, 
+    color: tokens.colors.text.primary, 
+    marginBottom: tokens.spacing.xs 
+  },
+  subtitle: { 
+    fontSize: tokens.typography.size.sm, 
+    lineHeight: tokens.typography.lineHeight.normal, 
+    color: tokens.colors.text.secondary 
+  },
+  chips: { 
+    flexDirection: 'row', 
+    gap: tokens.spacing.sm, 
+    marginBottom: tokens.spacing.md, 
+    paddingHorizontal: tokens.spacing.lg 
+  },
+  chip: { 
+    backgroundColor: tokens.colors.surface.soft, 
+    paddingHorizontal: tokens.spacing.md, 
+    paddingVertical: tokens.spacing.sm, 
+    borderRadius: tokens.radius.full 
+  },
+  chipActive: { 
+    backgroundColor: tokens.colors.brand.primary 
+  },
+  chipText: { 
+    fontSize: tokens.typography.size.xs, 
+    color: tokens.colors.brand.primary, 
+    fontWeight: tokens.typography.weight.medium 
+  },
+  chipTextActive: { 
+    color: tokens.colors.surface.background, 
+    fontWeight: tokens.typography.weight.semibold 
+  },
+  sectionTitle: { 
+    fontSize: tokens.typography.size.md, 
+    fontWeight: tokens.typography.weight.semibold, 
+    color: tokens.colors.brand.primary, 
+    marginTop: tokens.spacing.lg, 
+    marginBottom: tokens.spacing.sm 
+  },
+  paragraph: { 
+    fontSize: tokens.typography.size.sm, 
+    lineHeight: tokens.typography.lineHeight.normal, 
+    color: tokens.colors.text.secondary 
+  },
+  bullet: { 
+    fontSize: tokens.typography.size.sm, 
+    lineHeight: tokens.typography.lineHeight.normal, 
+    color: tokens.colors.text.secondary, 
+    marginBottom: tokens.spacing.xs 
+  },
+  reassurance: { 
+    marginTop: tokens.spacing.lg, 
+    padding: tokens.spacing.md, 
+    backgroundColor: tokens.colors.brand.secondary, 
+    borderRadius: tokens.radius.md 
+  },
+  reassuranceText: { 
+    fontSize: tokens.typography.size.sm, 
+    lineHeight: tokens.typography.lineHeight.normal, 
+    color: tokens.colors.text.inverse, 
+    textAlign: 'center' 
+  },
+  missingContainer: { 
+    flex: 1,
+    justifyContent: 'center', 
+    alignItems: 'center' 
+  },
+  missingText: { 
+    fontSize: tokens.typography.size.md, 
+    color: tokens.colors.text.secondary 
+  },
 });
