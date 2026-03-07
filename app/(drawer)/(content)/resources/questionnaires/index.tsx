@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flexGrow: 1,
-    padding: tokens.spacing.md,
+    padding: tokens.spacing.lg,
   },
   title: {
     fontSize: tokens.typography.size.xxl,

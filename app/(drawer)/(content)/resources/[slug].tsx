@@ -8,8 +8,10 @@ import {
   Pressable,
   TouchableOpacity,
 } from 'react-native';
-import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useRouter, useLocalSearchParams, Stack } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
 import { Ionicons } from '@expo/vector-icons';
+
 import { tokens } from '@/theme/design-tokens';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { resources } from '@/demo/resources';
@@ -39,56 +41,71 @@ export default function ResourceDetailScreen() {
   }
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.container}
-      showsVerticalScrollIndicator={false}
-    >
-      {/* Header */}
-      <Text style={styles.title}>{resource?.title[language]}</Text>
-      <Text style={styles.subtitle}>{resource?.subtitle[language]}</Text>
+    <>
+      <Stack.Screen
+        options={{
+          title: resource?.title[language] ?? 'Resource',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()} style={{ paddingRight: 12 }}>
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      
+      <ScrollView
+        contentContainerStyle={styles.container}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Header */}
+        <Text style={styles.title}>{resource?.title[language]}</Text>
+        <Text style={styles.subtitle}>{resource?.subtitle[language]}</Text>
 
-      {/* Placeholder content for v1 */}
-      {resource.slug === 'articles' && (
-      <View style={styles.accordionList}>
-        {resource.items.map(item => {
-          const expanded = expandedId === item.id;
+        {/* Placeholder content for v1 */}
+        {resource.slug === 'articles' && (
+        <View style={styles.accordionList}>
+          {resource.items.map(item => {
+            const expanded = expandedId === item.id;
 
-          return (
-            <Pressable
-              key={item.id}
-              style={styles.accordionCard}
-              onPress={() => toggle(item.id)}
-            >
-              <View style={styles.accordionHeader}>
-                <Text style={styles.accordionTitle}>
-                  {item.title}
-                </Text>
+            return (
+              <Pressable
+                key={item.id}
+                style={styles.accordionCard}
+                onPress={() => toggle(item.id)}
+              >
+                <View style={styles.accordionHeader}>
+                  <Text style={styles.accordionTitle}>
+                    {item.title}
+                  </Text>
 
-                <Ionicons
-                  name={expanded ? 'chevron-up-outline' : 'chevron-down-outline'}
-                  size={18}
-                  color={tokens.colors.text.muted}
-                />
-              </View>
+                  <Ionicons
+                    name={expanded ? 'chevron-up-outline' : 'chevron-down-outline'}
+                    size={18}
+                    color={tokens.colors.text.muted}
+                  />
+                </View>
 
-              {expanded && (
-                <Text style={styles.accordionContent}>
-                  {item.description}
-                </Text>
-              )}
-            </Pressable>
-          );
-        })}
-      </View>
-    )}
-    </ScrollView>
+                {expanded && (
+                  <Text style={styles.accordionContent}>
+                    {item.description}
+                  </Text>
+                )}
+              </Pressable>
+            );
+          })}
+        </View>
+      )}
+      </ScrollView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: tokens.spacing.xl,
-    marginTop: tokens.spacing.xl,
+    flexGrow: 1,
+    padding: tokens.spacing.lg,
     backgroundColor: tokens.colors.surface.background,
   },
   title: {
