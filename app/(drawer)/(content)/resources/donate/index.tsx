@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useRouter, Stack } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
 
 import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
@@ -62,151 +63,158 @@ export default function DonateScreen() {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {/* Back Button */}
-      <TouchableOpacity onPress={() => router.back()}>
-        <Text style={styles.back}>← Back</Text>
-      </TouchableOpacity>
-
-      <Text style={styles.title}>{donateResource.title.en}</Text>
-      <Text style={styles.subtitle}>{donateResource.subtitle.en}</Text>
-
-      {/* Donation Type */}
-      <Text style={styles.label}>Select Donation Type</Text>
-      <View style={styles.optionRow}>
-        {donateResource.items.map((item) => (
-          <TouchableOpacity
-            key={item.id}
-            style={[
-              styles.optionCard,
-              donationType === item.id && styles.selectedCard,
-            ]}
-            onPress={() => setDonationType(item.id)}
-          >
-            <Text style={styles.optionTitle}>{item.title}</Text>
-            <Text style={styles.optionDescription}>
-              {item.description}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-
-      {/* Amount */}
-      <Text style={styles.label}>Amount (KES)</Text>
-      <TextInput
-        value={amount}
-        onChangeText={setAmount}
-        keyboardType="numeric"
-        placeholder="Enter amount"
-        placeholderTextColor={tokens.colors.text.muted}
-        style={styles.input}
+    <>
+      <Stack.Screen
+        options={{
+          title: 'Donate',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingRight: 12 }}
+            >
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          )
+        }}
       />
 
-      {/* Payment Method */}
-      <Text style={styles.label}>Payment Method</Text>
-      <View style={styles.paymentRow}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.title}>{donateResource.title.en}</Text>
+        <Text style={styles.subtitle}>{donateResource.subtitle.en}</Text>
+
+        {/* Donation Type */}
+        <Text style={styles.label}>Select Donation Type</Text>
+        <View style={styles.optionRow}>
+          {donateResource.items.map((item) => (
+            <TouchableOpacity
+              key={item.id}
+              style={[
+                styles.optionCard,
+                donationType === item.id && styles.selectedCard,
+              ]}
+              onPress={() => setDonationType(item.id)}
+            >
+              <Text style={styles.optionTitle}>{item.title}</Text>
+              <Text style={styles.optionDescription}>
+                {item.description}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
+        {/* Amount */}
+        <Text style={styles.label}>Amount (KES)</Text>
+        <TextInput
+          value={amount}
+          onChangeText={setAmount}
+          keyboardType="numeric"
+          placeholder="Enter amount"
+          placeholderTextColor={tokens.colors.text.muted}
+          style={styles.input}
+        />
+
+        {/* Payment Method */}
+        <Text style={styles.label}>Payment Method</Text>
+        <View style={styles.paymentRow}>
+          <TouchableOpacity
+            style={[
+              styles.paymentOption,
+              paymentMethod === 'mpesa' && styles.selectedCard,
+            ]}
+            onPress={() => setPaymentMethod('mpesa')}
+          >
+            <Text>M-Pesa</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[
+              styles.paymentOption,
+              paymentMethod === 'card' && styles.selectedCard,
+            ]}
+            onPress={() => setPaymentMethod('card')}
+          >
+            <Text>Card</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Dynamic Fields */}
+        {paymentMethod === 'mpesa' && (
+          <>
+            <Text style={styles.label}>M-Pesa Phone Number</Text>
+            <TextInput
+              value={phone}
+              onChangeText={setPhone}
+              keyboardType="phone-pad"
+              placeholder="07XXXXXXXX"
+              placeholderTextColor={tokens.colors.text.muted}
+              style={styles.input}
+            />
+          </>
+        )}
+
+        {paymentMethod === 'card' && (
+          <>
+            <Text style={styles.label}>Card Number</Text>
+            <TextInput
+              value={cardNumber}
+              onChangeText={setCardNumber}
+              keyboardType="numeric"
+              placeholder="1234 5678 9012 3456"
+              placeholderTextColor={tokens.colors.text.muted}
+              style={styles.input}
+            />
+
+            <Text style={styles.label}>Expiry (MM/YY)</Text>
+            <TextInput
+              value={expiry}
+              onChangeText={setExpiry}
+              placeholder="MM/YY"
+              placeholderTextColor={tokens.colors.text.muted}
+              style={styles.input}
+            />
+
+            <Text style={styles.label}>CVV</Text>
+            <TextInput
+              value={cvv}
+              onChangeText={setCvv}
+              keyboardType="numeric"
+              placeholder="123"
+              placeholderTextColor={tokens.colors.text.muted}
+              secureTextEntry
+              style={styles.input}
+            />
+          </>
+        )}
+
+        {/* Submit */}
         <TouchableOpacity
           style={[
-            styles.paymentOption,
-            paymentMethod === 'mpesa' && styles.selectedCard,
+            styles.button,
+            !isValid && styles.buttonDisabled,
           ]}
-          onPress={() => setPaymentMethod('mpesa')}
+          disabled={!isValid}
+          onPress={handleDonate}
         >
-          <Text>M-Pesa</Text>
+          <Text style={styles.buttonText}>Donate Now</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[
-            styles.paymentOption,
-            paymentMethod === 'card' && styles.selectedCard,
-          ]}
-          onPress={() => setPaymentMethod('card')}
-        >
-          <Text>Card</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Dynamic Fields */}
-      {paymentMethod === 'mpesa' && (
-        <>
-          <Text style={styles.label}>M-Pesa Phone Number</Text>
-          <TextInput
-            value={phone}
-            onChangeText={setPhone}
-            keyboardType="phone-pad"
-            placeholder="07XXXXXXXX"
-            placeholderTextColor={tokens.colors.text.muted}
-            style={styles.input}
-          />
-        </>
-      )}
-
-      {paymentMethod === 'card' && (
-        <>
-          <Text style={styles.label}>Card Number</Text>
-          <TextInput
-            value={cardNumber}
-            onChangeText={setCardNumber}
-            keyboardType="numeric"
-            placeholder="1234 5678 9012 3456"
-            placeholderTextColor={tokens.colors.text.muted}
-            style={styles.input}
-          />
-
-          <Text style={styles.label}>Expiry (MM/YY)</Text>
-          <TextInput
-            value={expiry}
-            onChangeText={setExpiry}
-            placeholder="MM/YY"
-            placeholderTextColor={tokens.colors.text.muted}
-            style={styles.input}
-          />
-
-          <Text style={styles.label}>CVV</Text>
-          <TextInput
-            value={cvv}
-            onChangeText={setCvv}
-            keyboardType="numeric"
-            placeholder="123"
-            placeholderTextColor={tokens.colors.text.muted}
-            secureTextEntry
-            style={styles.input}
-          />
-        </>
-      )}
-
-      {/* Submit */}
-      <TouchableOpacity
-        style={[
-          styles.button,
-          !isValid && styles.buttonDisabled,
-        ]}
-        disabled={!isValid}
-        onPress={handleDonate}
-      >
-        <Text style={styles.buttonText}>Donate Now</Text>
-      </TouchableOpacity>
-    </ScrollView>
+      </ScrollView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: tokens.spacing.xl,
+    flexGrow: 1,
+    padding: tokens.spacing.lg,
     backgroundColor: tokens.colors.surface.background,
-    padding: 20,
   },
   center: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: tokens.spacing.xl,
-  },
-  back: {
-    marginBottom: 12,
-    fontSize: tokens.typography.size.sm,
-    fontWeight: tokens.typography.weight.bold,
-    color: tokens.colors.primary,
   },
   title: {
     fontSize: tokens.typography.size.xxl,
