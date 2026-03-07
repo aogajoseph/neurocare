@@ -101,7 +101,7 @@ export default function ResourcesScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: tokens.spacing.xl,
+    padding: tokens.spacing.md,
     backgroundColor: tokens.colors.surface.background,
   },
 
