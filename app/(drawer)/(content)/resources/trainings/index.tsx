@@ -8,7 +8,8 @@ import {
 } from 'react-native';
 import { Platform } from 'react-native';
 import { Video, ResizeMode } from 'expo-av';
-import { useRouter } from 'expo-router';
+import { useRouter, Stack } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
 
 import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
@@ -32,83 +33,90 @@ export default function TrainingsScreen() {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {/* Back Button */}
-      <TouchableOpacity onPress={() => router.back()}>
-        <Text style={styles.back}>← Back</Text>
-      </TouchableOpacity>
+    <>
+      <Stack.Screen
+        options={{
+          title: 'Talks',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingRight: 12 }}
+            >
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          )
+        }}
+      />
 
-      {/* Title + Subtitle from backend */}
-      <Text style={styles.title}>{trainingsResource.title.en}</Text>
-      <Text style={styles.subtitle}>{trainingsResource.subtitle.en}</Text>
+      <ScrollView contentContainerStyle={styles.container}>
+        {/* Title + Subtitle from backend */}
+        <Text style={styles.title}>{trainingsResource.title.en}</Text>
+        <Text style={styles.subtitle}>{trainingsResource.subtitle.en}</Text>
 
-      {/* Video Items */}
-      {trainingsResource.items.map((item) => {
-        const source = videoSources[item.id];
+        {/* Video Items */}
+        {trainingsResource.items.map((item) => {
+          const source = videoSources[item.id];
 
-        return (
-          <View key={item.id} style={styles.card}>
-            {source ? (
-              Platform.OS === 'web' ? (
-                <video
-                  src={source}
-                  controls
-                  style={{
-                    width: '100%',
-                    borderRadius: 12,
-                    marginTop: 8,
-                  }}
-                />
+          return (
+            <View key={item.id} style={styles.card}>
+              {source ? (
+                Platform.OS === 'web' ? (
+                  <video
+                    src={source}
+                    controls
+                    style={{
+                      width: '100%',
+                      borderRadius: 12,
+                      marginTop: 8,
+                    }}
+                  />
+                ) : (
+                  <Video
+                    source={source}
+                    style={{
+                      width: '100%',
+                      aspectRatio: 16 / 9,
+                      borderRadius: 12,
+                      backgroundColor: '#000',
+                      marginTop: 8,
+                    }}
+                    useNativeControls
+                    resizeMode={ResizeMode.CONTAIN}
+                    shouldPlay={false}
+                    isLooping={false}
+                  />
+                )
               ) : (
-                <Video
-                  source={source}
-                  style={{
-                    width: '100%',
-                    aspectRatio: 16 / 9,
-                    borderRadius: 12,
-                    backgroundColor: '#000',
-                    marginTop: 8,
-                  }}
-                  useNativeControls
-                  resizeMode={ResizeMode.CONTAIN}
-                  shouldPlay={false}
-                  isLooping={false}
-                />
-              )
-            ) : (
-              <Text style={styles.missing}>
-                Video file not found for {item.id}
-              </Text>
-            )}
+                <Text style={styles.missing}>
+                  Video file not found for {item.id}
+                </Text>
+              )}
 
-            <Text style={styles.cardTitle}>{item.title}</Text>
-            <Text style={styles.cardDescription}>
-              {item.description}
-            </Text>
-          </View>
-        );
-      })}
-    </ScrollView>
+              <Text style={styles.cardTitle}>{item.title}</Text>
+              <Text style={styles.cardDescription}>
+                {item.description}
+              </Text>
+            </View>
+          );
+        })}
+      </ScrollView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: tokens.spacing.xl,
+    flexGrow: 1,
+    padding: tokens.spacing.lg,
     backgroundColor: tokens.colors.surface.background,
-    padding: 20,
   },
   center: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: tokens.spacing.xl,
-  },
-  back: {
-    marginBottom: 12,
-    fontSize: tokens.typography.size.sm,
-    fontWeight: tokens.typography.weight.bold,
-    color: tokens.colors.primary,
   },
   title: {
     fontSize: tokens.typography.size.xxl,

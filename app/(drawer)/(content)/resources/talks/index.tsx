@@ -34,7 +34,7 @@ export default function TalksScreen() {
 
   return (
     <>
-    <Stack.Screen
+      <Stack.Screen
         options={{
           title: 'Talks',
           headerShown: true,
@@ -49,6 +49,7 @@ export default function TalksScreen() {
           )
         }}
       />
+      
       <ScrollView contentContainerStyle={styles.container}>
         {/* Title + Subtitle from backend */}
         <Text style={styles.title}>{talksResource.title.en}</Text>
