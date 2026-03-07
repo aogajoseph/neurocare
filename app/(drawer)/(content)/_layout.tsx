@@ -4,7 +4,7 @@ export default function ContentLayout() {
   return (
     <Stack
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
       }}
     />
   );

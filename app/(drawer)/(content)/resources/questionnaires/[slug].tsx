@@ -7,44 +7,32 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import { useLocalSearchParams, router } from 'expo-router';
+import { useLocalSearchParams, router, Stack } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
+
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { tokens } from '@/theme/design-tokens';
 import { questionnaireForms } from '@/demo/forms';
 import FormField from '@/components/resources/FormField';
 
 export default function QuestionnaireDetailScreen() {
   const { slug } = useLocalSearchParams<{ slug?: string }>();
-
-  console.log('Received questionnaire slug:', slug);
+  const insets = useSafeAreaInsets();
 
   const form = questionnaireForms.find((f) => f.slug === slug);
-
   const [responses, setResponses] = useState<{ [key: string]: any }>({});
 
-  if (!slug) {
+  if (!slug || !form) {
     return (
       <View style={styles.center}>
-        <Text>No slug provided in route.</Text>
-      </View>
-    );
-  }
-
-  if (!form) {
-    return (
-      <View style={styles.center}>
-        <Text>Form not found for slug:</Text>
-        <Text style={{ fontWeight: 'bold', marginTop: 8 }}>
-          {slug}
-        </Text>
+        <Stack.Screen options={{ title: 'Not Found', headerShown: true }} />
+        <Text>{!slug ? 'No slug provided.' : 'Form not found.'}</Text>
       </View>
     );
   }
 
   const handleChange = (fieldId: string, value: any) => {
-    setResponses((prev) => ({
-      ...prev,
-      [fieldId]: value,
-    }));
+    setResponses((prev) => ({ ...prev, [fieldId]: value }));
   };
 
   const validate = () => {
@@ -59,96 +47,85 @@ export default function QuestionnaireDetailScreen() {
 
   const handleSubmit = () => {
     if (!validate()) return;
-
-    Alert.alert(
-      'Submission Successful',
-      'Thank you. Your responses have been recorded. This information directly supports our program planning.'
-    );
-
-    setResponses({});
+    Alert.alert('Success', 'Your responses have been recorded.');
     router.back();
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <TouchableOpacity onPress={() => router.back()}>
-        <Text style={styles.back}>← Back</Text>
-      </TouchableOpacity>
-
-      <Text style={styles.title}>{form.title}</Text>
-      <Text style={styles.description}>{form.description}</Text>
-
-      {form.fields.map((field) => (
-        <FormField
-          key={field.id}
-          field={field}
-          value={responses[field.id]}
-          onChange={(value) => handleChange(field.id, value)}
-        />
-      ))}
-
-      <TouchableOpacity
-        style={styles.submitButton}
-        onPress={handleSubmit}
+    <View style={styles.flex}>
+      <Stack.Screen
+        options={{
+          title: form.title,
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()} style={{ paddingRight: 12 }}>
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      
+      <ScrollView 
+        contentContainerStyle={[
+          styles.container, 
+          { paddingBottom: Math.max(insets.bottom, insets.top, tokens.spacing.xxl) }
+        ]}
       >
-        <Text style={styles.submitText}>Submit</Text>
-      </TouchableOpacity>
-    </ScrollView>
+        <Text style={styles.title}>{form.title}</Text>
+        <Text style={styles.description}>{form.description}</Text>
+
+        {form.fields.map((field) => (
+          <FormField
+            key={field.id}
+            field={field}
+            value={responses[field.id]}
+            onChange={(value) => handleChange(field.id, value)}
+          />
+        ))}
+
+        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+          <Text style={styles.submitText}>Submit</Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  flex: {
+    flex: 1,
+    backgroundColor: tokens.colors.surface.background,
+  },
   container: {
     flexGrow: 1,
-    backgroundColor: tokens.colors.surface.background,
-    paddingHorizontal: tokens.spacing.lg,
-    paddingTop: tokens.spacing.lg,
-    paddingBottom: tokens.spacing.xxl,
+    padding: tokens.spacing.md,
   },
-
-  back: {
-    marginBottom: 12,
-    fontSize: tokens.typography.size.sm,
-    fontWeight: tokens.typography.weight.bold,
-    color: tokens.colors.primary,
-  },
-
   title: {
     fontSize: tokens.typography.size.xl,
-    fontWeight: tokens.typography.weight.bold,
+    fontWeight: tokens.typography.weight.semibold,
     color: tokens.colors.brand.primary,
-    lineHeight: tokens.typography.lineHeight.relaxed,
     marginBottom: tokens.spacing.sm,
   },
-
   description: {
     fontSize: tokens.typography.size.sm,
-    fontWeight: tokens.typography.weight.regular,
     color: tokens.colors.text.secondary,
-    lineHeight: tokens.typography.lineHeight.normal,
     marginBottom: tokens.spacing.xl,
   },
-
   submitButton: {
     backgroundColor: tokens.colors.brand.primary,
     paddingVertical: tokens.spacing.lg,
     borderRadius: tokens.radius.md,
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: tokens.spacing.lg,
+    marginTop: tokens.spacing.sm,
   },
-
   submitText: {
     color: tokens.colors.text.inverse,
     fontWeight: tokens.typography.weight.semibold,
-    fontSize: tokens.typography.size.md,
   },
-
   center: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: tokens.spacing.lg,
-    backgroundColor: tokens.colors.surface.background,
   },
 });

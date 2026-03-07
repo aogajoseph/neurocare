@@ -6,11 +6,16 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { router } from 'expo-router';
+import { router, Stack } from 'expo-router'; 
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ChevronLeft } from 'lucide-react-native';
+
 import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
 
+
 export default function QuestionnairesScreen() {
+  const insets = useSafeAreaInsets();
   const questionnairesResource = resources.find(
     (r) => r.slug === 'questionnaires'
   );
@@ -18,58 +23,73 @@ export default function QuestionnairesScreen() {
   if (!questionnairesResource) {
     return (
       <View style={styles.center}>
+        <Stack.Screen options={{ title: 'Resources', headerShown: true }} />
         <Text>Questionnaires resource not found.</Text>
       </View>
     );
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {/* Back Button */}
-      <TouchableOpacity onPress={() => router.back()}>
-        <Text style={styles.back}>← Back</Text>
-      </TouchableOpacity>
+    <View style={styles.flex}>
+      <Stack.Screen
+        options={{
+          title: 'Questionnaires',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingRight: 12 }}
+            >
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          )
+        }}
+      />
 
-      <Text style={styles.title}>
-        {questionnairesResource.title.en}
-      </Text>
+      <ScrollView 
+        contentContainerStyle={[
+          styles.container,
+          { paddingBottom: Math.max(insets.bottom, insets.top, tokens.spacing.xl) }
+        ]}
+      >
+        <Text style={styles.title}>
+          {questionnairesResource.title.en}
+        </Text>
 
-      <Text style={styles.subtitle}>
-        {questionnairesResource.subtitle.en}
-      </Text>
+        <Text style={styles.subtitle}>
+          {questionnairesResource.subtitle.en}
+        </Text>
 
-      {questionnairesResource.items.map((item) => (
-        <TouchableOpacity
-          key={item.id}
-          style={styles.card}
-          onPress={() => 
-            router.push(`/resources/questionnaires/${item.slug}`)
-          }
-        >
-
-          <Text style={styles.cardTitle}>{item.title}</Text>
-          <Text style={styles.cardDescription}>{item.description}</Text>
-        </TouchableOpacity>
-      ))}
-    </ScrollView>
+        {questionnairesResource.items.map((item) => (
+          <TouchableOpacity
+            key={item.id}
+            style={styles.card}
+            onPress={() => 
+              router.push(`/resources/questionnaires/${item.slug}`)
+            }
+          >
+            <Text style={styles.cardTitle}>{item.title}</Text>
+            <Text style={styles.cardDescription}>{item.description}</Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: tokens.spacing.xl,
+  flex: {
+    flex: 1,
     backgroundColor: tokens.colors.surface.background,
-    padding: 20,
   },
-  back: {
-    marginBottom: 12,
-    fontSize: tokens.typography.size.sm,
-    fontWeight: tokens.typography.weight.bold,
-    color: tokens.colors.primary,
+  container: {
+    flexGrow: 1,
+    padding: tokens.spacing.md,
   },
   title: {
     fontSize: tokens.typography.size.xxl,
-    fontWeight: tokens.typography.weight.bold,
+    fontWeight: tokens.typography.weight.semibold,
     color: tokens.colors.brand.primary,
     marginBottom: tokens.spacing.xs,
   },
@@ -91,8 +111,6 @@ const styles = StyleSheet.create({
     fontSize: tokens.typography.size.md,
     fontWeight: tokens.typography.weight.semibold,
     color: tokens.colors.text.primary,
-    flex: 1,
-    paddingRight: tokens.spacing.sm,
   },
   cardDescription: {
     marginTop: tokens.spacing.sm,
@@ -106,4 +124,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: tokens.spacing.xl,
   },
-})
+});

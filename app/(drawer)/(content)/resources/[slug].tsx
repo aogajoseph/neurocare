@@ -43,11 +43,6 @@ export default function ResourceDetailScreen() {
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}
     >
-      {/* Back Button */}
-      <TouchableOpacity onPress={() => router.back()}>
-        <Text style={styles.back}>← Back</Text>
-      </TouchableOpacity>
-
       {/* Header */}
       <Text style={styles.title}>{resource?.title[language]}</Text>
       <Text style={styles.subtitle}>{resource?.subtitle[language]}</Text>
@@ -93,13 +88,8 @@ export default function ResourceDetailScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: tokens.spacing.xl,
+    marginTop: tokens.spacing.xl,
     backgroundColor: tokens.colors.surface.background,
-  },
-  back: {
-    marginBottom: 12,
-    fontSize: tokens.typography.size.sm,
-    fontWeight: tokens.typography.weight.bold,
-    color: tokens.colors.primary,
   },
   title: {
     fontSize: tokens.typography.size.xxl,

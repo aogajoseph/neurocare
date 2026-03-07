@@ -45,6 +45,7 @@ export const spacing = {
   lg: 16,
   xl: 24,
   xxl: 32,
+  xxxl: 34,
 };
 
 export const typography = {
