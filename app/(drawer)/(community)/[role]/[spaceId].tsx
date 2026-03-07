@@ -940,9 +940,12 @@ export default function CommunitySpaceScreen() {
   );
 }
 
-// Styles unchanged
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: tokens.colors.surface.background },
+  container: { 
+    flex: 1, 
+    backgroundColor: tokens.colors.surface.background, 
+    marginBottom: tokens.spacing.xxl, 
+  },
 
   header: {
     flexDirection: 'row',
