@@ -6,7 +6,9 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { router } from 'expo-router';
+import { route,r, Stack } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
+
 import { tokens } from '@/theme/design-tokens';
 import { resources } from '@/demo/resources';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -25,69 +27,82 @@ export default function AboutNCFScreen() {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <TouchableOpacity onPress={() => router.back()}>
-        <Text style={styles.back}>← Back</Text>
-      </TouchableOpacity>
+    <>
+      <Stack.Screen
+        options={{
+          title: 'About NCF',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingRight: 12 }}
+            >
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          )
+        }}
+      />
 
-      {/* Title */}
-      <Text style={styles.title}>{resource.title[language]}</Text>
-      <Text style={styles.subtitle}>{resource.subtitle[language]}</Text>
+      <ScrollView contentContainerStyle={styles.container}>
+        {/* Title */}
+        <Text style={styles.title}>{resource.title[language]}</Text>
+        <Text style={styles.subtitle}>{resource.subtitle[language]}</Text>
 
-      {/* Hero Description */}
-      <Text style={styles.heroText}>
-        {resource.hero.description[language]}
-      </Text>
+        {/* Hero Description */}
+        <Text style={styles.heroText}>
+          {resource.hero.description[language]}
+        </Text>
 
-      {/* Stats */}
-      <View style={styles.statsContainer}>
-        {resource.stats.map((stat) => (
-          <View key={stat.id} style={styles.statCard}>
-            <Text style={styles.statValue}>{stat.value}</Text>
-            <Text style={styles.statLabel}>
-              {stat.label[language]}
+        {/* Stats */}
+        <View style={styles.statsContainer}>
+          {resource.stats.map((stat) => (
+            <View key={stat.id} style={styles.statCard}>
+              <Text style={styles.statValue}>{stat.value}</Text>
+              <Text style={styles.statLabel}>
+                {stat.label[language]}
+              </Text>
+            </View>
+          ))}
+        </View>
+
+        {/* Sections */}
+        {resource.sections.map((section) => (
+          <View key={section.id} style={styles.section}>
+            <Text style={styles.sectionTitle}>
+              {section.title[language]}
+            </Text>
+            <Text style={styles.sectionDescription}>
+              {section.description[language]}
             </Text>
           </View>
         ))}
-      </View>
 
-      {/* Sections */}
-      {resource.sections.map((section) => (
-        <View key={section.id} style={styles.section}>
-          <Text style={styles.sectionTitle}>
-            {section.title[language]}
+        {/* CTA */}
+        <View style={styles.ctaContainer}>
+          <Text style={styles.ctaTitle}>
+            {resource.callToAction.title[language]}
           </Text>
-          <Text style={styles.sectionDescription}>
-            {section.description[language]}
+          <Text style={styles.ctaDescription}>
+            {resource.callToAction.description[language]}
           </Text>
+          <TouchableOpacity
+            style={styles.ctaButton}
+            onPress={() => router.push(resource.callToAction.route)}
+          >
+            <Text style={styles.ctaButtonText}>
+              {resource.callToAction.buttonLabel[language]}
+            </Text>
+          </TouchableOpacity>
         </View>
-      ))}
-
-      {/* CTA */}
-      <View style={styles.ctaContainer}>
-        <Text style={styles.ctaTitle}>
-          {resource.callToAction.title[language]}
-        </Text>
-        <Text style={styles.ctaDescription}>
-          {resource.callToAction.description[language]}
-        </Text>
-        <TouchableOpacity
-          style={styles.ctaButton}
-          onPress={() => router.push(resource.callToAction.route)}
-        >
-          <Text style={styles.ctaButtonText}>
-            {resource.callToAction.buttonLabel[language]}
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: tokens.spacing.xl,
-    paddingVertical: tokens.spacing.lg,
+    padding: tokens.spacing.lg,
     backgroundColor: tokens.colors.surface.background,
   },
   back: {
@@ -123,7 +138,7 @@ const styles = StyleSheet.create({
   statsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: tokens.spacing.xl,
+    marginBottom: tokens.spacing.xxl,
   },
   statCard: {
     alignItems: 'center',
@@ -138,9 +153,10 @@ const styles = StyleSheet.create({
     fontSize: tokens.typography.size.sm,
     textAlign: 'center',
     marginTop: tokens.spacing.xs,
+    maxWidth: '80%'
   },
   section: {
-    marginBottom: tokens.spacing.xl,
+    marginBottom: tokens.spacing.sm,
   },
   sectionTitle: {
     fontSize: tokens.typography.size.lg,
@@ -170,7 +186,8 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.colors.brand.primary,
     paddingVertical: tokens.spacing.md,
     borderRadius: tokens.radius.md,
-    marginTop: tokens.spacing.md,
+    marginTop: tokens.spacing.lg,
+    marginBottom: tokens.spacing.xxl,
     alignItems: 'center',
   },
   ctaButtonText: {
