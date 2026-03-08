@@ -22,7 +22,8 @@ import {
 } from 'lucide-react-native';
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { useMemo, useState, useRef, useEffect } from 'react';
+import { useMemo, useState, useRef, useEffect, useLayoutEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import { tokens } from '@/theme/design-tokens';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -76,6 +77,7 @@ export default function CommunitySpaceScreen() {
   const [showUndo, setShowUndo] = useState(false);
   const [frozenUsers, setFrozenUsers] = useState<string[]>([]);
   const [userToFreeze, setUserToFreeze] = useState<string | null>(null);
+  const navigation = useNavigation();
 
   useEffect(() => {
     if (!messageToRemove) return;
@@ -156,6 +158,76 @@ export default function CommunitySpaceScreen() {
   const space = useMemo(() => {
     return communitySpaces.find((s) => s.id === spaceId && s.role === role);
   }, [spaceId, role]);
+
+  useLayoutEffect(() => {
+    if (!space) return;
+  
+    navigation.setOptions({
+      headerTitle: () => (
+        <View>
+          <Text
+            style={{
+              fontSize: tokens.typography.size.lg,
+              fontWeight: tokens.typography.weight.bold,
+              color: tokens.colors.text.primary,
+            }}
+            numberOfLines={1}
+          >
+            {space.title[language]}
+          </Text>
+  
+          <Text
+            style={{
+              fontSize: tokens.typography.size.sm,
+              color: tokens.colors.text.muted,
+            }}
+          >
+            {language === 'sw'
+              ? `Wanachama ${space.memberCount}`
+              : `${space.memberCount} Members`}
+          </Text>
+        </View>
+      ),
+  
+      headerRight: () => (
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: tokens.spacing.sm,
+            marginRight: tokens.spacing.sm,
+          }}
+        >
+          <Pressable
+            style={[
+              styles.joinLeaveButton,
+              isMember ? styles.leaveButton : styles.joinButton,
+            ]}
+            onPress={handleJoinLeave}
+          >
+            <Text
+              style={[
+                styles.joinLeaveText,
+                isMember && styles.leaveButtonText,
+              ]}
+            >
+              {isMember
+                ? language === 'sw'
+                  ? 'Ondoka'
+                  : 'Leave'
+                : language === 'sw'
+                ? 'Jiunge'
+                : 'Join'}
+            </Text>
+          </Pressable>
+  
+          <Pressable onPress={() => setShowMenu(true)}>
+            <MoreVertical size={20} color={tokens.colors.text.muted} />
+          </Pressable>
+        </View>
+      ),
+    });
+  }, [space, language, isMember]);
 
   const [spaceStatus, setSpaceStatus] = useState<'active' | 'frozen'>(
     space.status ?? 'active'
@@ -580,53 +652,6 @@ export default function CommunitySpaceScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={{ flex: 1 }}>
-          <Text style={styles.title}>
-            {space.title[language]}
-          </Text>
-          <Text style={styles.subtitle}>
-            {language === 'sw'
-              ? `Wanachama ${space.memberCount}`
-              : `${space.memberCount} Members`}
-          </Text>
-        </View>
-
-        <Pressable
-          style={[
-            styles.joinLeaveButton,
-            isMember
-              ? styles.leaveButton
-              : styles.joinButton,
-          ]}
-          onPress={handleJoinLeave}
-        >
-          <Text
-            style={[
-              styles.joinLeaveText,
-              isMember && styles.leaveButtonText,
-            ]}
-          >
-            {isMember
-              ? language === 'sw'
-                ? 'Ondoka'
-                : 'Leave'
-              : language === 'sw'
-              ? 'Jiunge'
-              : 'Join'}
-          </Text>
-        </Pressable>
-
-        {/* More button */}
-        <Pressable
-          style={styles.moreButton}
-          onPress={() => setShowMenu(true)}
-        >
-          <MoreVertical size={20} color={tokens.colors.text.muted} />
-        </Pressable>
-      </View>
-
       {/* Moderation Notice */}
       <View style={styles.moderationRibbon}>
         <Text style={styles.moderationText}>
@@ -959,7 +984,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: tokens.typography.size.xl,
+    fontSize: tokens.typography.size.lg,
     fontWeight: tokens.typography.weight.bold,
     color: tokens.colors.text.primary,
     marginBottom: tokens.spacing.xs,
@@ -988,7 +1013,7 @@ const styles = StyleSheet.create({
   },
 
   joinLeaveText: {
-    fontSize: tokens.typography.size.sm,
+    fontSize: tokens.typography.size.xs,
     fontWeight: tokens.typography.weight.semibold,
     color: tokens.colors.text.inverse,
   },
