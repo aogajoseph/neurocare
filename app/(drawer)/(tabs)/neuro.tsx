@@ -49,7 +49,7 @@ export default function NeuroScreen() {
     {
       id: 'welcome',
       text:
-        'Hi, I\'m Neuro, your Neuro Care Assistant. \nAsk me about neurological health.',
+        "Hi, I'm Neuro, your Neuro Care Assistant.\nAsk me about neurological health.",
       sender: 'assistant',
     },
   ]);
@@ -72,7 +72,6 @@ export default function NeuroScreen() {
 
     const typingId = `typing-${Date.now()}`;
 
-    // Add user message + typing indicator
     setMessages((prev) => [
       ...prev,
       userMessage,
@@ -83,13 +82,9 @@ export default function NeuroScreen() {
     const words = normalized.split(/\s+/);
 
     const match = DEMO_ASSISTANT_RESPONSES.find((r) => {
-      // 1️⃣ Exact keyword match
       if (r.keywords.some((k) => normalized.includes(k))) return true;
-
-      // 2️⃣ Known misspellings
       if (r.misspellings?.some((m) => normalized.includes(m))) return true;
 
-      // 3️⃣ Fuzzy match (distance ≤ 2)
       return words.some((word) =>
         r.keywords.some((k) => levenshtein(word, k) <= 2)
       );
@@ -99,7 +94,6 @@ export default function NeuroScreen() {
       ? match.output
       : "Sorry, I don't have an answer for that in demo mode.";
 
-    // Replace typing indicator
     setTimeout(() => {
       setMessages((prev) =>
         prev.map((msg) =>
@@ -118,7 +112,8 @@ export default function NeuroScreen() {
   return (
     <KeyboardAvoidingView
       style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={100}
     >
       <FlatList
         ref={flatListRef}
@@ -126,12 +121,13 @@ export default function NeuroScreen() {
         data={messages}
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.chat}
+        keyboardShouldPersistTaps="handled"
         onContentSizeChange={() =>
           flatListRef.current?.scrollToEnd({ animated: true })
         }
         renderItem={({ item }) => {
           const isWelcome = item.id === 'welcome';
-        
+
           return (
             <View
               style={[
@@ -158,15 +154,22 @@ export default function NeuroScreen() {
       />
 
       <View style={styles.inputBar}>
-      <TextInput
-        style={styles.input}
-        placeholder="Ask here..."
-        placeholderTextColor={tokens.colors.text.muted}
-        value={input}
-        onChangeText={setInput}
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Ask here..."
+          placeholderTextColor={tokens.colors.text.muted}
+          value={input}
+          onChangeText={setInput}
+          multiline
+          textAlignVertical="top"
+        />
+
         <TouchableOpacity onPress={sendMessage}>
-          <Ionicons name="send" size={22} color={tokens.colors.brand.primary} />
+          <Ionicons
+            name="send"
+            size={22}
+            color={tokens.colors.brand.primary}
+          />
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -179,23 +182,23 @@ const styles = StyleSheet.create({
     backgroundColor: tokens.colors.surface.background,
   },
 
+  chat: {
+    paddingHorizontal: tokens.spacing.lg,
+    paddingTop: tokens.spacing.lg,
+    paddingBottom: tokens.spacing.md,
+    flexGrow: 1,
+  },
+
   welcome: {
     paddingVertical: tokens.spacing.lg,
   },
-  
+
   welcomeText: {
     fontSize: tokens.typography.size.sm,
     fontStyle: tokens.typography.style.italic,
     fontWeight: tokens.typography.weight.medium,
     lineHeight: tokens.typography.lineHeight.tight,
     textAlign: 'left',
-  },
-
-  chat: {
-    paddingHorizontal: tokens.spacing.lg,
-    paddingTop: tokens.spacing.lg,
-    paddingBottom: tokens.spacing.md,
-    flexGrow: 1,
   },
 
   message: {
@@ -249,4 +252,4 @@ const styles = StyleSheet.create({
     fontSize: tokens.typography.size.sm,
     color: tokens.colors.text.primary,
   },
-});
+});  
