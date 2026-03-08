@@ -202,7 +202,8 @@ const styles = StyleSheet.create({
     color: tokens.colors.text.inverse,
   },
   submitButton: {
-    marginTop: tokens.spacing.xl,
+    marginTop: tokens.spacing.lg,
+    marginBottom: tokens.spacing.xxl,
     backgroundColor: tokens.colors.brand.primary,
     paddingVertical: tokens.spacing.lg,
     borderRadius: tokens.radius.md,

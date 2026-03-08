@@ -9,7 +9,9 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import { router } from 'expo-router';
+import { router, Stack } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
+
 import { tokens } from '@/theme/design-tokens';
 import { resources } from '@/demo/resources';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -46,60 +48,67 @@ export default function PartnershipsScreen() {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <TouchableOpacity onPress={() => router.back()}>
-        <Text style={styles.back}>← Back</Text>
-      </TouchableOpacity>
-
-      <Text style={styles.title}>{resource.title[language]}</Text>
-      <Text style={styles.subtitle}>{resource.subtitle[language]}</Text>
-
-      {/* Horizontal Logos */}
-      <View style={styles.partnersContainer}>
-        <Text style={styles.partnersTitle}>{resource.partnership.title[language]}</Text>
-      </View>
-      <FlatList
-        data={resource.partners}
-        horizontal
-        keyExtractor={(item) => item.id}
-        showsHorizontalScrollIndicator={false}
-        style={styles.logoList}
-        renderItem={({ item }) => (
-          <View style={styles.logoCard}>
-            <Image
-              source={item.logo}
-              style={styles.logo}
-              resizeMode="contain"
-            />
-          </View>
-        )}
+    <>
+      <Stack.Screen
+        options={{
+          title: 'Partnerships',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingRight: 12 }}
+            >
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          )
+        }}
       />
 
-      {/* CTA Section */}
-      <View style={styles.ctaContainer}>
-        <Text style={styles.ctaTitle}>{resource.cta.title[language]}</Text>
-        <Text style={styles.ctaDescription}>
-          {resource.cta.description[language]}
-        </Text>
-      </View>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.title}>{resource.title[language]}</Text>
+        <Text style={styles.subtitle}>{resource.subtitle[language]}</Text>
 
-      {/* Partnership Form */}
-      <PartnershipForm form={localizedForm} />
-    </ScrollView>
+        {/* Horizontal Logos */}
+        <View style={styles.partnersContainer}>
+          <Text style={styles.partnersTitle}>{resource.partnership.title[language]}</Text>
+        </View>
+        <FlatList
+          data={resource.partners}
+          horizontal
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+          style={styles.logoList}
+          renderItem={({ item }) => (
+            <View style={styles.logoCard}>
+              <Image
+                source={item.logo}
+                style={styles.logo}
+                resizeMode="contain"
+              />
+            </View>
+          )}
+        />
+
+        {/* CTA Section */}
+        <View style={styles.ctaContainer}>
+          <Text style={styles.ctaTitle}>{resource.cta.title[language]}</Text>
+          <Text style={styles.ctaDescription}>
+            {resource.cta.description[language]}
+          </Text>
+        </View>
+
+        {/* Partnership Form */}
+        <PartnershipForm form={localizedForm} />
+      </ScrollView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: tokens.spacing.xl,
-    paddingVertical: tokens.spacing.lg,
+    padding: tokens.spacing.lg,
     backgroundColor: tokens.colors.surface.background,
-  },
-  back: {
-    marginBottom: tokens.spacing.md,
-    fontSize: tokens.typography.size.sm,
-    fontWeight: tokens.typography.weight.bold,
-    color: tokens.colors.primary,
   },
   center: {
     flex: 1,

@@ -468,7 +468,7 @@ export const resources: ResourceEntry[] = [
       ],
 
       submitLabel: { 
-        en: 'Submit Partnership Inquiry', 
+        en: 'Submit', 
         sw: 'Tuma Ombi la Ushirikiano', 
       }, 
       
