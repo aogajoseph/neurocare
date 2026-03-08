@@ -1,7 +1,6 @@
-import { Stack } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useRouter, Stack } from 'expo-router';
 
 import RoleSpacesScreen from '@/components/community/RoleSpacesScreen';
 
