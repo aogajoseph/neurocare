@@ -8,6 +8,8 @@ import {
   StyleSheet,
   Alert,
   Switch,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import { tokens } from '@/theme/design-tokens';
 
@@ -124,10 +126,7 @@ export default function VolunteerForm({ form, onSubmit }: Props) {
         <View key={field.id} style={{ marginBottom: tokens.spacing.lg }}>
           {field.type === 'checkbox' ? (
             <View>
-              {/* Standalone title */}
               <Text style={styles.checkboxTitle}>Consent</Text>
-
-              {/* Switch + description */}
               <View style={styles.checkboxRow}>
                 <Switch
                   value={responses[field.id]}
@@ -157,7 +156,7 @@ export default function VolunteerForm({ form, onSubmit }: Props) {
                 />
               ) : field.type === 'textarea' ? (
                 <TextInput
-                  style={[styles.input, { minHeight: 100 }]}
+                  style={[styles.input, styles.textarea]}
                   value={responses[field.id]}
                   onChangeText={(text) => handleChange(field.id, text)}
                   placeholder={field.placeholder}
@@ -172,7 +171,7 @@ export default function VolunteerForm({ form, onSubmit }: Props) {
                 <View style={styles.ratingContainer}>
                   {[1, 2, 3, 4, 5].map((num) => (
                     <TouchableOpacity
-                      key={num}
+                      key ={num}
                       style={[
                         styles.ratingCircle,
                         responses[field.id] === num && styles.ratingSelected,
@@ -219,6 +218,10 @@ const styles = StyleSheet.create({
     borderRadius: tokens.radius.md,
     padding: tokens.spacing.md,
     minHeight: 44,
+  },
+  textarea: {
+    minHeight: 100,
+    textAlignVertical: 'top',
   },
   optionsContainer: {
     flexDirection: 'row',
@@ -269,10 +272,11 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     backgroundColor: tokens.colors.brand.primary,
-    paddingVertical: tokens.spacing.lg,
+    paddingVertical: tokens.spacing.md,
     borderRadius: tokens.radius.md,
     alignItems: 'center',
-    marginTop: tokens.spacing.xl,
+    marginTop: tokens.spacing.lg,
+    marginBottom: tokens.spacing.xxl,
   },
   submitText: {
     color: tokens.colors.text.inverse,
@@ -286,7 +290,8 @@ const styles = StyleSheet.create({
   checkboxRow: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    marginTop: tokens.spacing.sm,
+    marginTop: tokens.spacing.xsm,
+    maxWidth: '80%',
   },
   checkboxTitle: {
     fontWeight: tokens.typography.weight.semibold,
@@ -297,5 +302,6 @@ const styles = StyleSheet.create({
     color: tokens.colors.text.secondary,
     fontSize: tokens.typography.size.sm,
     marginLeft: tokens.spacing.sm,
+    marginTop: tokens.spacing.md,
   },
 });

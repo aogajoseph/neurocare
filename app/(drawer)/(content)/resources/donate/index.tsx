@@ -182,7 +182,6 @@ export default function DonateScreen() {
               keyboardType="numeric"
               placeholder="123"
               placeholderTextColor={tokens.colors.text.muted}
-              secureTextEntry
               style={styles.input}
             />
           </>
@@ -206,7 +205,7 @@ export default function DonateScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flexGrow: 1, 
     padding: tokens.spacing.lg,
     backgroundColor: tokens.colors.surface.background,
   },
@@ -285,6 +284,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: tokens.spacing.xl,
+    marginBottom: tokens.spacing.xxl,
     backgroundColor: tokens.colors.brand.primary,
     padding: tokens.spacing.lg,
     borderRadius: tokens.radius.md,

@@ -1,7 +1,9 @@
 // app/(drawer)/(content)/resources/volunteer/index.tsx
 import React from 'react';
 import { ScrollView, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { router } from 'expo-router';
+import { router, Stack } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
+
 import { tokens } from '@/theme/design-tokens';
 import { resources } from '@/demo/resources';
 import VolunteerForm from '@/components/resources/VolunteerForm';
@@ -49,27 +51,41 @@ export default function VolunteerScreen() {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {/* Back Button */}
-      <TouchableOpacity onPress={() => router.back()}>
-        <Text style={styles.back}>← Back</Text>
-      </TouchableOpacity>
+    <>
+      <Stack.Screen
+        options={{
+          title: 'Volunteer',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingRight: 12 }}
+            >
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          )
+        }}
+      />
 
-      {/* Title */}
-      <Text style={styles.title}>{volunteerResource.title[language]}</Text>
+      <ScrollView contentContainerStyle={styles.container}>
+        {/* Title */}
+        <Text style={styles.title}>{volunteerResource.title[language]}</Text>
 
-      {/* Subtitle */}
-      <Text style={styles.subtitle}>{volunteerResource.subtitle[language]}</Text>
+        {/* Subtitle */}
+        <Text style={styles.subtitle}>{volunteerResource.subtitle[language]}</Text>
 
-      {/* Volunteer Form */}
-      <VolunteerForm form={localizedForm} language={language} />
-    </ScrollView>
+        {/* Volunteer Form */}
+        <VolunteerForm form={localizedForm} language={language} />
+      </ScrollView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: tokens.spacing.xl,
+    flexGrow: 1,
+    paddingHorizontal: tokens.spacing.lg,
     paddingVertical: tokens.spacing.lg,
     backgroundColor: tokens.colors.surface.background,
   },
@@ -78,12 +94,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: tokens.spacing.xl,
-  },
-  back: {
-    marginBottom: tokens.spacing.md,
-    fontSize: tokens.typography.size.sm,
-    fontWeight: tokens.typography.weight.bold,
-    color: tokens.colors.primary,
   },
   title: {
     fontSize: tokens.typography.size.xxl,
