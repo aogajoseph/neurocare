@@ -6,7 +6,7 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
-import { useLocalSearchParams, router } from 'expo-router';
+import { useLocalSearchParams, router, Stack } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -108,121 +108,140 @@ export default function CaregiverDetailScreen() {
   const blocks = buildBlocks(card.sections, language);
 
   return (
-    <ScrollView
-      contentContainerStyle={[
-        styles.scroll,
-        { paddingBottom: insets.bottom + tokens.spacing.xl },
-      ]}
-      showsVerticalScrollIndicator={false}
-    >
-      {/* Banner */}
-      {card.bannerImage && (
-        <Image source={card.bannerImage} style={styles.banner} />
-      )}
+    <>
+      <Stack.Screen
+        options={{
+          title: card.title[language], 
+          headerShown: true,
+          headerBackTitleVisible: false,
+          
+          headerLeft: ({ tintColor }) => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingRight: 12 }}
+            >
+              <Ionicons name="chevron-back" size={24} color={tintColor} />
+            </TouchableOpacity>
+          ),
+        }}
+      />
 
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={styles.headerRow}>
-          {card.icon && (
-            <Ionicons
-              name={card.icon}
-              size={24}
-              color={tokens.colors.brand.primary}
-            />
+      <ScrollView
+        contentContainerStyle={[
+          styles.scroll,
+          { paddingBottom: insets.bottom + tokens.spacing.xl },
+        ]}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Banner */}
+        {card.bannerImage && (
+          <Image source={card.bannerImage} style={styles.banner} />
+        )}
+
+        {/* Header */}
+        <View style={styles.header}>
+          <View style={styles.headerRow}>
+            {card.icon && (
+              <Ionicons
+                name={card.icon}
+                size={24}
+                color={tokens.colors.brand.primary}
+              />
+            )}
+            <Text style={styles.title}>
+              {card.title[language]}
+            </Text>
+          </View>
+
+          {card.description?.[language] && (
+            <Text style={styles.description}>
+              {card.description[language]}
+            </Text>
           )}
-          <Text style={styles.title}>
-            {card.title[language]}
-          </Text>
         </View>
 
-        {card.description?.[language] && (
-          <Text style={styles.description}>
-            {card.description[language]}
-          </Text>
-        )}
-      </View>
-
-      {/* Blocks */}
-      <View style={styles.blocks}>
-        {blocks.map((block, index) => {
-          switch (block.type) {
-            case 'text':
-              return (
-                <View key={index}>
-                  <Text style={styles.blockTitle}>
-                    {block.title[language]}
-                  </Text>
-                  <Text style={styles.body}>
-                    {block.content[language]}
-                  </Text>
-                </View>
-              );
-
-            case 'bullets':
-              return (
-                <View key={index}>
-                  <Text style={styles.blockTitle}>
-                    {block.title[language]}
-                  </Text>
-                  <View style={styles.bullets}>
-                    {block.items.map((item, i) => (
-                      <Text key={i} style={styles.body}>
-                        • {item}
-                      </Text>
-                    ))}
+        {/* Blocks */}
+        <View style={styles.blocks}>
+          {blocks.map((block, index) => {
+            switch (block.type) {
+              case 'text':
+                return (
+                  <View key={index}>
+                    <Text style={styles.blockTitle}>
+                      {block.title[language]}
+                    </Text>
+                    <Text style={styles.body}>
+                      {block.content[language]}
+                    </Text>
                   </View>
-                </View>
-              );
+                );
 
-            case 'related':
-              return (
-                <View key={index}>
-                  <Text style={styles.blockTitle}>
-                    {block.title[language]}
-                  </Text>
-                  <View style={styles.related}>
-                    {block.items.map(item => (
-                      <TouchableOpacity
-                        key={item.slug}
-                        activeOpacity={0.7}
-                        onPress={() =>
-                          router.push(
-                            `/learn/caregiver/${item.slug}`
-                          )
-                        }
-                      >
-                        <View style={styles.linkInline}>
-                          <Text style={styles.link}>
-                            {item.label[language]}
-                          </Text>
-                          <Ionicons
-                            name="arrow-forward-circle-outline"
-                            size={16}
-                            color={tokens.colors.brand.link}
-                            style={styles.linkIcon}
-                          />
-                        </View>
-                      </TouchableOpacity>
-                    ))}
+              case 'bullets':
+                return (
+                  <View key={index}>
+                    <Text style={styles.blockTitle}>
+                      {block.title[language]}
+                    </Text>
+                    <View style={styles.bullets}>
+                      {block.items.map((item, i) => (
+                        <Text key={i} style={styles.body}>
+                          • {item}
+                        </Text>
+                      ))}
+                    </View>
                   </View>
-                </View>
-              );
+                );
 
-            case 'reassurance':
-              return (
-                <View key={index} style={styles.reassurance}>
-                  <Text style={styles.reassuranceText}>
-                    {block.content[language]}
-                  </Text>
-                </View>
-              );
+              case 'related':
+                return (
+                  <View key={index}>
+                    <Text style={styles.blockTitle}>
+                      {block.title[language]}
+                    </Text>
+                    <View style={styles.related}>
+                      {block.items.map(item => (
+                        <TouchableOpacity
+                          key={item.slug}
+                          activeOpacity={0.7}
+                          onPress={() =>
+                            router.push(
+                              `/learn/caregiver/${item.slug}`
+                            )
+                          }
+                        >
+                          <View style={styles.linkInline}>
+                            <Text style={styles.link}>
+                              {item.label[language]}
+                            </Text>
+                            <Ionicons
+                              name="arrow-forward-circle-outline"
+                              size={16}
+                              color={tokens.colors.brand.link}
+                              style={styles.linkIcon}
+                            />
+                          </View>
+                        </TouchableOpacity>
+                      ))}
+                    </View>
+                  </View>
+                );
 
-            default:
-              return null;
-          }
-        })}
-      </View>
-    </ScrollView>
+              case 'reassurance':
+                return (
+                  <View key={index} style={styles.reassurance}>
+                    <Text style={styles.reassuranceText}>
+                      {block.content[language]}
+                    </Text>
+                  </View>
+                );
+
+              default:
+                return null;
+            }
+          })}
+        </View>
+      </ScrollView>
+    </>
   );
 }
 

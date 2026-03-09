@@ -39,7 +39,7 @@ export default function ConditionDetailScreen() {
       <Stack.Screen options={{ title: data.hero.title[language] }} />
 
       {/* Hero */}
-      <View style={[styles.hero, { paddingTop: insets.top + tokens.spacing.lg }]}>
+      <View style={[styles.hero]}>
         <Text style={styles.title}>{data.hero.title[language]}</Text>
         <Text style={styles.subtitle}>{data.hero.subtitle[language]}</Text>
       </View>
@@ -131,7 +131,8 @@ function Bullet({ text }: { text: string }) {
 const styles = StyleSheet.create({
   hero: { 
     marginBottom: tokens.spacing.lg, 
-    paddingHorizontal: tokens.spacing.lg 
+    paddingHorizontal: tokens.spacing.lg,
+    paddingVertical: tokens.spacing.lg 
   },
   title: { 
     fontSize: tokens.typography.size.xl, 

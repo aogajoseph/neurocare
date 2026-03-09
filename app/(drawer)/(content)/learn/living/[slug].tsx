@@ -1,5 +1,12 @@
-import { ScrollView, View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
-import { useLocalSearchParams, router } from 'expo-router';
+import { 
+  ScrollView, 
+  View, 
+  Text, 
+  TouchableOpacity, 
+  Image, 
+  StyleSheet 
+} from 'react-native';
+import { useLocalSearchParams, router, Stack } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 import { livingData } from '@/demo/living';
@@ -80,85 +87,84 @@ function buildBlocks(sections: any, lang: 'en' | 'sw'): UIBlock[] {
    SCREEN
 ───────────────────────────────────────────── */
 
-export default function LivingDetailScreen() {
+export default function LivingDetailScreenWrapper() {
   const { slug } = useLocalSearchParams<{ slug: string }>();
   const { language } = useLanguage();
 
+  // Find the card for this slug
   const section = livingData.sections.find(s => s.type === 'cardList');
   const card = section?.cards.find(c => c.slug === slug);
 
-  if (!card) {
-    return (
-      <View style={styles.fallback}>
-        <Text style={styles.fallbackText}>Content not found.</Text>
-      </View>
-    );
-  }
-
-  const blocks = buildBlocks(card.sections, language);
+  if (!card) return null; // fallback can be handled in content
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.scroll}
-      showsVerticalScrollIndicator={false}
-    >
-      {card.bannerImage && (
-        <Image source={card.bannerImage} style={styles.banner} />
-      )}
+    <>
+      <Stack.Screen
+        options={{
+          title: card.title[language], 
+          headerShown: true,
+          headerBackTitleVisible: false,
+          
+          headerLeft: ({ tintColor }) => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingRight: 12 }}
+            >
+              <Ionicons name="chevron-back" size={24} color={tintColor} />
+            </TouchableOpacity>
+          ),
+        }}
+      />
 
-      <View style={styles.header}>
-        <View style={styles.headerRow}>
-          <Ionicons
-            name={card.icon}
-            size={24}
-            color={tokens.colors.brand.primary}
-          />
-          <Text style={styles.title}>{card.title[language]}</Text>
+      {/* Screen Content */}
+      <ScrollView
+        contentContainerStyle={[styles.scroll, { paddingBottom: 24 }]}
+        showsVerticalScrollIndicator={false}
+      >
+        {card.bannerImage && (
+          <Image source={card.bannerImage} style={styles.banner} />
+        )}
+
+        <View style={styles.header}>
+          <View style={styles.headerRow}>
+            <Ionicons
+              name={card.icon}
+              size={24}
+              color={tokens.colors.brand.primary}
+            />
+            <Text style={styles.title}>{card.title[language]}</Text>
+          </View>
+
+          <Text style={styles.description}>{card.description[language]}</Text>
         </View>
 
-        <Text style={styles.description}>
-          {card.description[language]}
-        </Text>
-      </View>
-
-      <View style={styles.blocks}>
-        {blocks.map((block, index) => {
-          switch (block.type) {
-            case 'text':
-              return (
-                <View key={index}>
-                  <Text style={styles.blockTitle}>
-                    {block.title[language]}
-                  </Text>
-                  <Text style={styles.body}>
-                    {block.content[language]}
-                  </Text>
-                </View>
-              );
-
-            case 'bullets':
-              return (
-                <View key={index}>
-                  <Text style={styles.blockTitle}>
-                    {block.title[language]}
-                  </Text>
-                  <View style={styles.bullets}>
-                    {block.items.map((item, i) => (
-                      <Text key={i} style={styles.body}>
-                        • {item}
-                      </Text>
-                    ))}
+        <View style={styles.blocks}>
+          {buildBlocks(card.sections, language).map((block, index) => {
+            switch (block.type) {
+              case 'text':
+                return (
+                  <View key={index}>
+                    <Text style={styles.blockTitle}>{block.title[language]}</Text>
+                    <Text style={styles.body}>{block.content[language]}</Text>
                   </View>
-                </View>
-              );
+                );
+
+              case 'bullets':
+                return (
+                  <View key={index}>
+                    <Text style={styles.blockTitle}>{block.title[language]}</Text>
+                    <View style={styles.bullets}>
+                      {block.items.map((item, i) => (
+                        <Text key={i} style={styles.body}>• {item}</Text>
+                      ))}
+                    </View>
+                  </View>
+                );
 
               case 'related':
                 return (
                   <View key={index}>
-                    <Text style={styles.blockTitle}>
-                      {block.title[language]}
-                    </Text>
-
+                    <Text style={styles.blockTitle}>{block.title[language]}</Text>
                     <View style={styles.related}>
                       {block.items.map(item => (
                         <TouchableOpacity
@@ -168,9 +174,7 @@ export default function LivingDetailScreen() {
                           activeOpacity={0.7}
                         >
                           <View style={styles.linkInline}>
-                            <Text style={styles.link}>
-                              {item.label[language]}
-                            </Text>
+                            <Text style={styles.link}>{item.label[language]}</Text>
                             <Ionicons
                               name="arrow-forward-circle-outline"
                               size={16}
@@ -183,22 +187,21 @@ export default function LivingDetailScreen() {
                     </View>
                   </View>
                 );
-              
-            case 'reassurance':
-              return (
-                <View key={index} style={styles.reassurance}>
-                  <Text style={styles.reassuranceText}>
-                    {block.content[language]}
-                  </Text>
-                </View>
-              );
 
-            default:
-              return null;
-          }
-        })}
-      </View>
-    </ScrollView>
+              case 'reassurance':
+                return (
+                  <View key={index} style={styles.reassurance}>
+                    <Text style={styles.reassuranceText}>{block.content[language]}</Text>
+                  </View>
+                );
+
+              default:
+                return null;
+            }
+          })}
+        </View>
+      </ScrollView>
+    </>
   );
 }
 

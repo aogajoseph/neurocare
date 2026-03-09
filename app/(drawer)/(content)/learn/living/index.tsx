@@ -8,7 +8,8 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { router } from 'expo-router';
+import { router, Stack } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
 
 import { livingData } from '@/demo/living';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -24,68 +25,86 @@ export default function LivingWellIndexScreen() {
   const cards = section?.cards ?? [];
 
   return (
-    <View style={[styles.root, { paddingTop: insets.top }]}>
-      <ScrollView
-        contentContainerStyle={[
-          styles.content,
-          { paddingBottom: insets.bottom + tokens.spacing.xl },
-        ]}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* ───── Hero ───── */}
-        {livingData.hero.image && (
-          <Image
-            source={livingData.hero.image}
-            style={styles.heroImage}
-          />
-        )}
-
-        <View style={styles.hero}>
-          <Text style={styles.title}>
-            {livingData.hero.title[language]}
-          </Text>
-
-          <Text style={styles.subtitle}>
-            {livingData.hero.subtitle[language]}
-          </Text>
-        </View>
-
-        {/* ───── Cards ───── */}
-        <View style={styles.cards}>
-          {cards.map(card => (
+    <>
+      <Stack.Screen
+        options={{
+          title: 'Living with Neurological Conditions',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
             <TouchableOpacity
-              key={card.slug}
-              style={styles.card}
-              activeOpacity={0.85}
-              onPress={() =>
-                router.push(`/learn/living/${card.slug}`)
-              }
+              onPress={() => router.back()}
+              style={{ paddingRight: 12 }}
             >
-              <View style={styles.cardHeader}>
-                <Ionicons
-                  name={card.icon}
-                  size={26}
-                  color={tokens.colors.brand.primary}
-                />
-                <Ionicons
-                  name="arrow-forward-circle-outline"
-                  size={20}
-                  color={tokens.colors.brand.link}
-                />
-              </View>
-
-              <Text style={styles.cardTitle}>
-                {card.title[language]}
-              </Text>
-
-              <Text style={styles.cardDescription}>
-                {card.description[language]}
-              </Text>
+              <ChevronLeft size={24} />
             </TouchableOpacity>
-          ))}
-        </View>
-      </ScrollView>
-    </View>
+          )
+        }}
+      />
+
+      <View style={[styles.root]}>
+        <ScrollView
+          contentContainerStyle={[
+            styles.content,
+            { paddingBottom: insets.bottom + tokens.spacing.xl },
+          ]}
+          showsVerticalScrollIndicator={false}
+        >
+          {/* ───── Hero ───── */}
+          {livingData.hero.image && (
+            <Image
+              source={livingData.hero.image}
+              style={styles.heroImage}
+            />
+          )}
+
+          <View style={styles.hero}>
+            <Text style={styles.title}>
+              {livingData.hero.title[language]}
+            </Text>
+
+            <Text style={styles.subtitle}>
+              {livingData.hero.subtitle[language]}
+            </Text>
+          </View>
+
+          {/* ───── Cards ───── */}
+          <View style={styles.cards}>
+            {cards.map(card => (
+              <TouchableOpacity
+                key={card.slug}
+                style={styles.card}
+                activeOpacity={0.85}
+                onPress={() =>
+                  router.push(`/learn/living/${card.slug}`)
+                }
+              >
+                <View style={styles.cardHeader}>
+                  <Ionicons
+                    name={card.icon}
+                    size={26}
+                    color={tokens.colors.brand.primary}
+                  />
+                  <Ionicons
+                    name="arrow-forward-circle-outline"
+                    size={20}
+                    color={tokens.colors.brand.link}
+                  />
+                </View>
+
+                <Text style={styles.cardTitle}>
+                  {card.title[language]}
+                </Text>
+
+                <Text style={styles.cardDescription}>
+                  {card.description[language]}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </ScrollView>
+      </View>
+    </>
   );
 }
 

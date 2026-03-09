@@ -174,7 +174,7 @@ export const livingData = {
         ───────────────────────────────────────────── */
         {
           slug: 'cognitive-support',
-          icon: 'brain-outline',
+          icon: 'bulb-outline',
           bannerImage: require('../../assets/images/cognitive-support.jpg'),
 
           title: {
