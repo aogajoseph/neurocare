@@ -32,7 +32,7 @@ export default function MythsIndexScreen() {
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => router.back()}
-              style={{ paddingRight: 12 }}
+              style={{ paddingHorizontal: 12 }}
             >
               <ChevronLeft size={24} />
             </TouchableOpacity>

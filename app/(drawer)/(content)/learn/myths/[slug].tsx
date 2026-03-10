@@ -84,14 +84,14 @@ export default function MythsDetailScreen() {
           headerLeft: ({ tintColor }) => (
             <TouchableOpacity
               onPress={() => router.back()}
-              style={{ paddingRight: 12 }}
+              style={{ paddingHorizontal: 12 }}
             >
               <Ionicons name="chevron-back" size={24} color={tintColor} />
             </TouchableOpacity>
           ),
         }}
       />
-      
+
       <View style={styles.safe}>
         <ScrollView
           contentContainerStyle={[
