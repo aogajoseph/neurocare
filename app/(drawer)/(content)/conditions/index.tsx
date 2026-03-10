@@ -7,8 +7,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useMemo, useRef, useState } from 'react';
-import { router } from 'expo-router';
+import { router, Stack } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ChevronLeft } from 'lucide-react-native';
 
 import { conditionsIndexMeta, conditionsData, Condition } from '@/demo/conditions';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -104,56 +105,71 @@ export default function ConditionsIndexScreen() {
   );
 
   return (
-    <View
-      style={[
-        styles.container,
-        { paddingTop: insets.top },
-      ]}
-    >
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.title}>
-          {conditionsIndexMeta.title[language]}
-        </Text>
-        <Text style={styles.description}>
-          {conditionsIndexMeta.description[language]}
-        </Text>
-      </View>
-
-      {/* Search */}
-      <TextInput
-        placeholder={language === 'sw' ? 'Tafuta hali...' : 'Search conditions...'}
-        value={query}
-        onChangeText={setQuery}
-        style={styles.search}
-        placeholderTextColor={tokens.colors.text.tertiary}
+    <>
+      <Stack.Screen
+        options={{
+          title: 'Neurological Conditions A - Z',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingHorizontal: 12 }}
+            >
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          )
+        }}
       />
 
-      {/* Empty State */}
-      {sections.length === 0 ? (
-        <View style={styles.empty}>
-          <Text style={styles.emptyText}>
-            {language === 'sw'
-              ? 'Hakuna matokeo yanayolingana.'
-              : 'No conditions match your search.'}
+      <View
+        style={[styles.container]}
+      >
+        {/* Header */}
+        <View style={styles.header}>
+          <Text style={styles.title}>
+            {conditionsIndexMeta.title[language]}
+          </Text>
+          <Text style={styles.description}>
+            {conditionsIndexMeta.description[language]}
           </Text>
         </View>
-      ) : (
-        <SectionList
-          ref={listRef}
-          sections={sections}
-          keyExtractor={item => item.slug}
-          renderItem={renderItem}
-          renderSectionHeader={renderSectionHeader}
-          stickySectionHeadersEnabled
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={[
-            styles.listContent,
-            { paddingBottom: tokens.spacing.xl + insets.bottom },
-          ]}
+
+        {/* Search */}
+        <TextInput
+          placeholder={language === 'sw' ? 'Tafuta hali...' : 'Search conditions...'}
+          value={query}
+          onChangeText={setQuery}
+          style={styles.search}
+          placeholderTextColor={tokens.colors.text.tertiary}
         />
-      )}
-    </View>
+
+        {/* Empty State */}
+        {sections.length === 0 ? (
+          <View style={styles.empty}>
+            <Text style={styles.emptyText}>
+              {language === 'sw'
+                ? 'Hakuna matokeo yanayolingana.'
+                : 'No conditions match your search.'}
+            </Text>
+          </View>
+        ) : (
+          <SectionList
+            ref={listRef}
+            sections={sections}
+            keyExtractor={item => item.slug}
+            renderItem={renderItem}
+            renderSectionHeader={renderSectionHeader}
+            stickySectionHeadersEnabled
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={[
+              styles.listContent,
+              { paddingBottom: tokens.spacing.xl + insets.bottom },
+            ]}
+          />
+        )}
+      </View>
+    </>
   );
 }
 
