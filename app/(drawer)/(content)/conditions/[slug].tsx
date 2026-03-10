@@ -1,8 +1,9 @@
 // app/(drawer)/(content)/conditions/[slug].tsx
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { useLocalSearchParams, Stack } from 'expo-router';
+import { router, useLocalSearchParams, Stack } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useState } from 'react';
+import { Ionicons } from '@expo/vector-icons';
 
 import { useLanguage } from '@/i18n/LanguageContext';
 import { conditionsData } from '@/demo/conditions';
@@ -36,7 +37,22 @@ export default function ConditionDetailScreen() {
 
   return (
     <>
-      <Stack.Screen options={{ title: data.hero.title[language] }} />
+      <Stack.Screen
+        options={{
+          title: data.hero.title[language],
+          headerShown: true,
+          headerBackTitleVisible: false,
+
+          headerLeft: ({ tintColor }) => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingHorizontal: 12 }}
+            >
+              <Ionicons name="chevron-back" size={24} color={tintColor} />
+            </TouchableOpacity>
+          )
+        }}
+      />
 
       {/* Hero */}
       <View style={[styles.hero]}>
