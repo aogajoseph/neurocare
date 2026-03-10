@@ -181,18 +181,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: tokens.colors.surface.background,
   },
-
   chat: {
     paddingHorizontal: tokens.spacing.lg,
     paddingTop: tokens.spacing.lg,
     paddingBottom: tokens.spacing.md,
     flexGrow: 1,
   },
-
   welcome: {
     paddingVertical: tokens.spacing.lg,
   },
-
   welcomeText: {
     fontSize: tokens.typography.size.sm,
     fontStyle: tokens.typography.style.italic,
@@ -200,7 +197,6 @@ const styles = StyleSheet.create({
     lineHeight: tokens.typography.lineHeight.tight,
     textAlign: 'left',
   },
-
   message: {
     paddingVertical: tokens.spacing.md,
     paddingHorizontal: tokens.spacing.lg,
@@ -208,30 +204,25 @@ const styles = StyleSheet.create({
     marginBottom: tokens.spacing.sm,
     maxWidth: '90%',
   },
-
   assistant: {
     backgroundColor: tokens.colors.surface.soft,
     alignSelf: 'flex-start',
     borderTopLeftRadius: 0,
   },
-
   user: {
     backgroundColor: tokens.colors.brand.primary,
     alignSelf: 'flex-end',
     borderTopRightRadius: 0,
     marginBottom: tokens.spacing.md,
   },
-
   text: {
     fontSize: tokens.typography.size.sm,
     lineHeight: tokens.typography.lineHeight.tight,
     color: tokens.colors.text.primary,
   },
-
   userText: {
     color: tokens.colors.text.inverse,
   },
-
   inputBar: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -241,7 +232,6 @@ const styles = StyleSheet.create({
     borderTopColor: tokens.colors.border.subtle,
     backgroundColor: tokens.colors.surface.background,
   },
-
   input: {
     flex: 1,
     paddingVertical: tokens.spacing.sm,

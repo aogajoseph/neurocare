@@ -7,6 +7,7 @@ import {
   Pressable,
   Alert,
   Platform,
+  KeyboardAvoidingView,
 } from 'react-native';
 
 import {
@@ -24,11 +25,14 @@ import {
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useMemo, useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { useHeaderHeight } from '@react-navigation/elements';
 
 import { tokens } from '@/theme/design-tokens';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { communitySpaces } from '@/demo/community-spaces';
 import { communityMessages, CommunityMessage } from '@/demo/community-messages';
+
+import * as ImagePicker from 'expo-image-picker';
 
 // Modals
 import SpaceModal from '@/components/community/SpaceModal';
@@ -78,6 +82,7 @@ export default function CommunitySpaceScreen() {
   const [frozenUsers, setFrozenUsers] = useState<string[]>([]);
   const [userToFreeze, setUserToFreeze] = useState<string | null>(null);
   const navigation = useNavigation();
+  const headerHeight = useHeaderHeight();
 
   useEffect(() => {
     if (!messageToRemove) return;
@@ -651,317 +656,337 @@ export default function CommunitySpaceScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      {/* Moderation Notice */}
-      <View style={styles.moderationRibbon}>
-        <Text style={styles.moderationText}>
-          {language === 'sw'
-            ? 'Nafasi hii inadhibitiwa, tafadhali uwe na heshima.'
-            : 'This space is moderated, please be respectful.'}
-        </Text>
-      </View>
-
-      {/* Space Frozen Banner */}
-      {isFrozen && (
-        <View style={styles.frozenBanner}>
-          <Text style={styles.frozenText}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{ flex: 1 }}
+      keyboardVerticalOffset={56}
+    >
+      <View style={styles.container}>
+        {/* Moderation Notice */}
+        <View style={styles.moderationRibbon}>
+          <Text style={styles.moderationText}>
             {language === 'sw'
-              ? 'Nafasi hii imegandishwa na msimamizi'
-              : 'This space is currently frozen by the moderator'}
+              ? 'Nafasi hii inadhibitiwa, tafadhali uwe na heshima.'
+              : 'This space is moderated, please be respectful.'}
           </Text>
         </View>
-      )}
 
-      {/* Messages */}
-      <FlatList
-        data={chatMessages}
-        keyExtractor={(item) => item.id}
-        renderItem={renderMessage}
-        contentContainerStyle={styles.messages}
-        ref={flatListRef}
-      />
-
-      {/* Toast */}
-      {toastMessage && (
-        <View style={styles.toast}>
-          <Text style={styles.toastText}>{toastMessage}</Text>
-        </View>
-      )}
-
-      {showUndo && (
-        <View style={styles.undoBanner}>
-          <Text style={styles.undoText}>
-            {language === 'sw' ? 'Ujumbe umeondolewa' : 'Message removed'}
-          </Text>
-
-          <Pressable onPress={handleUndoRemove}>
-            <Text style={styles.undoAction}>
-              {language === 'sw' ? 'TENGUA' : 'UNDO'}
+        {/* Space Frozen Banner */}
+        {isFrozen && (
+          <View style={styles.frozenBanner}>
+            <Text style={styles.frozenText}>
+              {language === 'sw'
+                ? 'Nafasi hii imegandishwa na msimamizi'
+                : 'This space is currently frozen by the moderator'}
             </Text>
-          </Pressable>
-        </View>
-      )}
+          </View>
+        )}
 
-      {/* Composer */}
-      {isMember ? (
-        <View
-          style={[
-            styles.composer,
-            (isFrozen || isUserFrozen) && styles.composerFrozen,
-          ]}
-        >
-          <View style={styles.inputRow}>
-            <TextInput
-              style={styles.input}
-              value={newMessage}
-              onChangeText={setNewMessage}
-              editable={!isFrozen && !isUserFrozen}
-              placeholder={
-                isFrozen
-                  ? language === 'sw'
-                    ? 'Nafasi imegandishwa'
-                    : 'Space is frozen'
-                  : isUserFrozen
+        {/* Messages */}
+        <FlatList
+          data={chatMessages}
+          keyExtractor={(item) => item.id}
+          renderItem={renderMessage}
+          contentContainerStyle={styles.messages}
+          ref={flatListRef}
+        />
+
+        {/* Toast */}
+        {toastMessage && (
+          <View style={styles.toast}>
+            <Text style={styles.toastText}>{toastMessage}</Text>
+          </View>
+        )}
+
+        {showUndo && (
+          <View style={styles.undoBanner}>
+            <Text style={styles.undoText}>
+              {language === 'sw' ? 'Ujumbe umeondolewa' : 'Message removed'}
+            </Text>
+
+            <Pressable onPress={handleUndoRemove}>
+              <Text style={styles.undoAction}>
+                {language === 'sw' ? 'TENGUA' : 'UNDO'}
+              </Text>
+            </Pressable>
+          </View>
+        )}
+
+        {/* Composer */}
+        {isMember ? (
+          <View
+            style={[
+              styles.composer,
+              (isFrozen || isUserFrozen) && styles.composerFrozen,
+            ]}
+          >
+            <View style={styles.inputRow}>
+              <TextInput
+                style={styles.input}
+                value={newMessage}
+                onChangeText={setNewMessage}
+                editable={!isFrozen && !isUserFrozen}
+                placeholder={
+                  isFrozen
                     ? language === 'sw'
-                      ? 'Umezuiwa kushiriki'
-                      : 'You are restricted'
-                    : language === 'sw'
-                      ? 'Andika ujumbe...'
-                      : 'Write a message...'
-              }
-              placeholderTextColor={tokens.colors.text.muted}
-            />
+                      ? 'Nafasi imegandishwa'
+                      : 'Space is frozen'
+                    : isUserFrozen
+                      ? language === 'sw'
+                        ? 'Umezuiwa kushiriki'
+                        : 'You are restricted'
+                      : language === 'sw'
+                        ? 'Andika ujumbe...'
+                        : 'Write a message...'
+                }
+                placeholderTextColor={tokens.colors.text.muted}
+                multiline
+              />
+
+              <Pressable
+                style={styles.attachButton}
+                disabled={isFrozen || isUserFrozen}
+                onPress={async () => {
+                  // Request permission
+                  const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+                  if (status !== 'granted') {
+                    alert('Permission to access gallery is required!');
+                    return;
+                  }
+
+                  const result = await ImagePicker.launchImageLibraryAsync({
+                    mediaTypes: ImagePicker.MediaTypeOptions.All,
+                  });
+
+                  if (!result.canceled) {
+                    alert('App is in demo mode: files cannot be attached.');
+                  }
+                }}
+              >
+                <Paperclip size={24} color={tokens.colors.text.muted} />
+              </Pressable>
+            </View>
 
             <Pressable
-              style={styles.attachButton}
+              style={[
+                styles.sendButton,
+                (isFrozen || isUserFrozen) && styles.sendButtonDisabled,
+              ]}
+              onPress={sendMessage}
               disabled={isFrozen || isUserFrozen}
             >
-              <Paperclip
-                size={24}
-                color={tokens.colors.text.muted}
-              />
-            </Pressable>
-          </View>
-
-          <Pressable
-            style={[
-              styles.sendButton,
-              (isFrozen || isUserFrozen) && styles.sendButtonDisabled,
-            ]}
-            onPress={sendMessage}
-            disabled={isFrozen || isUserFrozen}
-          >
-            <Send
-              size={18}
-              color={tokens.colors.text.inverse}
-            />
-          </Pressable>
-        </View>
-      ) : (
-        <View style={styles.composerDisabled}>
-          <Text style={styles.composerHint}>
-            {isUserFrozen
-              ? language === 'sw'
-                ? 'Umezuiwa kushiriki kwenye mazungumzo'
-                : 'You are restricted from participating'
-              : language === 'sw'
-                ? 'Jiunge ili uweze kutuma ujumbe'
-                : 'Join this space to send messages'}
-          </Text>
-        </View>
-      )}
-
-      {showMenu && (
-        <View style={styles.sheetOverlay}>
-          <Pressable
-            style={styles.sheetBackdrop}
-            onPress={() => setShowMenu(false)}
-          />
-
-          <View style={styles.sheet}>
-
-            <Pressable
-              style={styles.sheetItem}
-              onPress={() => {
-                setShowMenu(false); // close the sheet first
-                setShowSpaceModal(true); // open modal
-              }}
-            >
-              <Info size={18} color={tokens.colors.text.primary} />
-              <Text style={styles.sheetText}>
-                {language === 'sw' ? 'Kuhusu Space Hii' : 'About this Space'}
-              </Text>
-            </Pressable>
-
-            <Pressable
-              style={styles.sheetItem}
-              onPress={() => {
-                setShowMenu(false);
-                setShowMembersModal(true);
-              }}
-            >
-              <Users size={18} color={tokens.colors.text.primary} />
-              <Text style={styles.sheetText}>
-                {language === 'sw' ? 'Tazama Wanachama' : 'View Members'}
-              </Text>
-            </Pressable>
-
-            <Pressable
-              style={styles.sheetItem}
-              onPress={() => {
-                setShowMenu(false);
-                setShowShareModal(true);
-              }}
-            >
-              <Share2 size={18} color={tokens.colors.text.primary} />
-              <Text style={styles.sheetText}>
-                {language === 'sw' ? 'Shiriki Space Hii' : 'Share this Space'}
-              </Text>
-            </Pressable>
-
-            <Pressable
-              style={styles.sheetItem}
-              onPress={() => {
-                setShowMenu(false);
-                handleToggleMute();
-              }}
-            >
-              <BellOff
+              <Send
                 size={18}
-                color={isMuted ? tokens.colors.brand.primary : tokens.colors.text.muted}
+                color={tokens.colors.text.inverse}
               />
-              <Text style={styles.sheetText}>
-                {isMuted
-                  ? language === 'sw'
-                    ? 'Washa Arifa'
-                    : 'Unmute Notifications'
-                  : language === 'sw'
-                  ? 'Nyamazisha Arifa'
-                  : 'Mute Notifications'}
-              </Text>
             </Pressable>
+          </View>
+        ) : (
+          <View style={styles.composerDisabled}>
+            <Text style={styles.composerHint}>
+              {isUserFrozen
+                ? language === 'sw'
+                  ? 'Umezuiwa kushiriki kwenye mazungumzo'
+                  : 'You are restricted from participating'
+                : language === 'sw'
+                  ? 'Jiunge ili uweze kutuma ujumbe'
+                  : 'Join this space to send messages'}
+            </Text>
+          </View>
+        )}
 
+        {showMenu && (
+          <View style={styles.sheetOverlay}>
             <Pressable
-              style={styles.sheetItem}
-              onPress={() => {
-                setShowMenu(false);
-                setShowModerationModal(true);
-              }}
-            >
-              <Shield size={18} color={tokens.colors.text.primary} />
-              <Text style={styles.sheetText}>
-                {language === 'sw' ? 'Zana za Uangalizi' : 'Moderation Tools'}
-              </Text>
-            </Pressable>
-
-            <Pressable
-              style={styles.sheetItem}
-              onPress={() => {
-                setShowMenu(false);
-                setShowReportModal(true);
-              }}
-            >
-              <Flag size={18} color={tokens.colors.state.error} />
-              <Text style={[styles.sheetText, styles.destructiveText]}>
-                {language === 'sw' ? 'Ripoti Tatizo' : 'Report an Issue'}
-              </Text>
-            </Pressable>
-
-            <Pressable
-              style={[styles.sheetItem, styles.sheetCancel]}
+              style={styles.sheetBackdrop}
               onPress={() => setShowMenu(false)}
-            >
-              <Text style={styles.sheetCancelText}>
-                {language === 'sw' ? 'Ghairi' : 'Cancel'}
-              </Text>
-            </Pressable>
+            />
+
+            <View style={styles.sheet}>
+
+              <Pressable
+                style={styles.sheetItem}
+                onPress={() => {
+                  setShowMenu(false); // close the sheet first
+                  setShowSpaceModal(true); // open modal
+                }}
+              >
+                <Info size={18} color={tokens.colors.text.primary} />
+                <Text style={styles.sheetText}>
+                  {language === 'sw' ? 'Kuhusu Space Hii' : 'About this Space'}
+                </Text>
+              </Pressable>
+
+              <Pressable
+                style={styles.sheetItem}
+                onPress={() => {
+                  setShowMenu(false);
+                  setShowMembersModal(true);
+                }}
+              >
+                <Users size={18} color={tokens.colors.text.primary} />
+                <Text style={styles.sheetText}>
+                  {language === 'sw' ? 'Tazama Wanachama' : 'View Members'}
+                </Text>
+              </Pressable>
+
+              <Pressable
+                style={styles.sheetItem}
+                onPress={() => {
+                  setShowMenu(false);
+                  setShowShareModal(true);
+                }}
+              >
+                <Share2 size={18} color={tokens.colors.text.primary} />
+                <Text style={styles.sheetText}>
+                  {language === 'sw' ? 'Shiriki Space Hii' : 'Share this Space'}
+                </Text>
+              </Pressable>
+
+              <Pressable
+                style={styles.sheetItem}
+                onPress={() => {
+                  setShowMenu(false);
+                  handleToggleMute();
+                }}
+              >
+                <BellOff
+                  size={18}
+                  color={isMuted ? tokens.colors.brand.primary : tokens.colors.text.muted}
+                />
+                <Text style={styles.sheetText}>
+                  {isMuted
+                    ? language === 'sw'
+                      ? 'Washa Arifa'
+                      : 'Unmute Notifications'
+                    : language === 'sw'
+                    ? 'Nyamazisha Arifa'
+                    : 'Mute Notifications'}
+                </Text>
+              </Pressable>
+
+              <Pressable
+                style={styles.sheetItem}
+                onPress={() => {
+                  setShowMenu(false);
+                  setShowModerationModal(true);
+                }}
+              >
+                <Shield size={18} color={tokens.colors.text.primary} />
+                <Text style={styles.sheetText}>
+                  {language === 'sw' ? 'Zana za Uangalizi' : 'Moderation Tools'}
+                </Text>
+              </Pressable>
+
+              <Pressable
+                style={styles.sheetItem}
+                onPress={() => {
+                  setShowMenu(false);
+                  setShowReportModal(true);
+                }}
+              >
+                <Flag size={18} color={tokens.colors.state.error} />
+                <Text style={[styles.sheetText, styles.destructiveText]}>
+                  {language === 'sw' ? 'Ripoti Tatizo' : 'Report an Issue'}
+                </Text>
+              </Pressable>
+
+              <Pressable
+                style={[styles.sheetItem, styles.sheetCancel]}
+                onPress={() => setShowMenu(false)}
+              >
+                <Text style={styles.sheetCancelText}>
+                  {language === 'sw' ? 'Ghairi' : 'Cancel'}
+                </Text>
+              </Pressable>
+
+            </View>
 
           </View>
+        )}
 
-        </View>
-      )}
+        {showSpaceModal && (
+          <SpaceModal
+            space={space} // passes the current space object
+            onClose={() => setShowSpaceModal(false)}
+            language={language}
+          />
+        )}
 
-      {showSpaceModal && (
-        <SpaceModal
-          space={space} // passes the current space object
-          onClose={() => setShowSpaceModal(false)}
-          language={language}
-        />
-      )}
+        {showMembersModal && (
+          <MemberListModal
+            spaceId={space.id}
+            onClose={() => setShowMembersModal(false)}
+          />
+        )}
 
-      {showMembersModal && (
-        <MemberListModal
-          spaceId={space.id}
-          onClose={() => setShowMembersModal(false)}
-        />
-      )}
+        {showShareModal && space?.share && (
+          <ShareModal
+            visible={showShareModal}
+            message={space.share.message[language]}
+            onClose={() => setShowShareModal(false)}
+            language={language}
+          />
+        )}
 
-      {showShareModal && space?.share && (
-        <ShareModal
-          visible={showShareModal}
-          message={space.share.message[language]}
-          onClose={() => setShowShareModal(false)}
-          language={language}
-        />
-      )}
+        {showMessageActions && selectedMessage && (
+          <View style={styles.messageActionsOverlay}>
+            <View style={styles.messageActionsSheet}>
 
-      {showMessageActions && selectedMessage && (
-        <View style={styles.messageActionsOverlay}>
-          <View style={styles.messageActionsSheet}>
+              <Pressable
+                style={styles.messageActionItem}
+                onPress={() => {
+                  setMessageToRemove(selectedMessage.id);
+                  setShowMessageActions(false);
+                }}              
+              >
+                <Text style={styles.removeText}>
+                  {language === 'sw' ? 'Ondoa Ujumbe' : 'Remove Message'}
+                </Text>
+              </Pressable>
 
-            <Pressable
-              style={styles.messageActionItem}
-              onPress={() => {
-                setMessageToRemove(selectedMessage.id);
-                setShowMessageActions(false);
-              }}              
-            >
-              <Text style={styles.removeText}>
-                {language === 'sw' ? 'Ondoa Ujumbe' : 'Remove Message'}
-              </Text>
-            </Pressable>
+              <Pressable
+                style={styles.messageActionItem}
+                onPress={() => {
+                  setShowMessageActions(false);
+                  setSelectedMessage(null);
+                }}
+              >
+                <Text>
+                  {language === 'sw' ? 'Ghairi' : 'Cancel'}
+                </Text>
+              </Pressable>
 
-            <Pressable
-              style={styles.messageActionItem}
-              onPress={() => {
-                setShowMessageActions(false);
-                setSelectedMessage(null);
-              }}
-            >
-              <Text>
-                {language === 'sw' ? 'Ghairi' : 'Cancel'}
-              </Text>
-            </Pressable>
-
+            </View>
           </View>
-        </View>
-      )}
+        )}
 
-      <ReportIssueModal
-        visible={showReportModal}
-        onClose={() => setShowReportModal(false)}
-        language={language}
-      />
+        <ReportIssueModal
+          visible={showReportModal}
+          onClose={() => setShowReportModal(false)}
+          language={language}
+        />
 
-      <ModerationToolsModal
-        visible={showModerationModal}
-        onClose={() => setShowModerationModal(false)}
-        isModerator={role === 'moderator'}
-        onFreezeUser={(userId) => {
-          if (!isModerator) return;
-          setUserToFreeze(userId);
-        }}
-        isUserFrozen={isUserFrozen}
-        loggedInUserId={loggedInUserId}
-        onFreezeSpace={handleFreezeSpace}
-        isFrozen={isFrozen}
-        onFreezeToggle={() =>
-          setSpaceStatus(prev => (prev === 'frozen' ? 'active' : 'frozen'))
-        }
-        language={language}
-      />
+        <ModerationToolsModal
+          visible={showModerationModal}
+          onClose={() => setShowModerationModal(false)}
+          isModerator={role === 'moderator'}
+          onFreezeUser={(userId) => {
+            if (!isModerator) return;
+            setUserToFreeze(userId);
+          }}
+          isUserFrozen={isUserFrozen}
+          loggedInUserId={loggedInUserId}
+          onFreezeSpace={handleFreezeSpace}
+          isFrozen={isFrozen}
+          onFreezeToggle={() =>
+            setSpaceStatus(prev => (prev === 'frozen' ? 'active' : 'frozen'))
+          }
+          language={language}
+        />
 
-    </View>
+      </View>
+    </KeyboardAvoidingView>
   );
 }
 
