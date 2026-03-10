@@ -22,8 +22,23 @@ export default function EmergencySlugScreen({ params }: { params: { slug: string
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: tokens.colors.surface.background },
-  content: { paddingHorizontal: tokens.spacing.lg, paddingTop: tokens.spacing.md },
-  sectionTitle: { fontSize: tokens.typography.size.md, fontWeight: tokens.typography.weight.semibold, color: tokens.colors.brand.primary, marginBottom: tokens.spacing.sm },
-  sectionContent: { fontSize: tokens.typography.size.sm, lineHeight: tokens.typography.lineHeight.normal, color: tokens.colors.text.secondary },
+  root: { 
+    flex: 1, 
+    backgroundColor: tokens.colors.surface.background 
+  },
+  content: { 
+    paddingHorizontal: tokens.spacing.lg, 
+    paddingTop: tokens.spacing.md 
+  },
+  sectionTitle: { 
+    fontSize: tokens.typography.size.md, 
+    fontWeight: tokens.typography.weight.semibold, 
+    color: tokens.colors.brand.primary, 
+    marginBottom: tokens.spacing.sm 
+  },
+  sectionContent: { 
+    fontSize: tokens.typography.size.sm, 
+    lineHeight: tokens.typography.lineHeight.normal, 
+    color: tokens.colors.text.secondary 
+  },
 });

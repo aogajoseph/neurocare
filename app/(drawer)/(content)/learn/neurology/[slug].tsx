@@ -115,18 +115,7 @@ export default function NeurologyDetailScreen() {
     <>
       <Stack.Screen
         options={{
-          title: selectedCard.title[language], 
-          headerShown: true,
-          headerBackTitleVisible: false,
-          
-          headerLeft: ({ tintColor }) => (
-            <TouchableOpacity
-              onPress={() => router.back()}
-              style={{ paddingRight: 12 }}
-            >
-              <Ionicons name="chevron-back" size={24} color={tintColor} />
-            </TouchableOpacity>
-          ),
+          title: selectedCard.title[language]          
         }}
       />
 

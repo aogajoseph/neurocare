@@ -46,7 +46,7 @@ export default function ConditionDetailScreen() {
           headerLeft: ({ tintColor }) => (
             <TouchableOpacity
               onPress={() => router.back()}
-              style={{ paddingHorizontal: 12 }}
+              style={{ paddingRight: 12 }}
             >
               <Ionicons name="chevron-back" size={24} color={tintColor} />
             </TouchableOpacity>

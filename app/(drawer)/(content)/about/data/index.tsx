@@ -27,7 +27,7 @@ export default function DataSourcesScreen() {
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => router.back()}
-              style={{ paddingHorizontal: 12 }}
+              style={{ paddingRight: 12 }}
             >
               <ChevronLeft size={24} />
             </TouchableOpacity>
