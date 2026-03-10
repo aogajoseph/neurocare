@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { router } from 'expo-router';
+import { router, Stack } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
 
 import { platformData } from '@/demo/platform';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -12,56 +13,55 @@ export default function PlatformScreen() {
   const { language } = useLanguage();
 
   return (
-    <View style={[styles.root, { paddingTop: insets.top }]}>
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity
-          onPress={() => router.back()}
-          style={styles.backButton}
-          hitSlop={10}
+    <>
+      <Stack.Screen
+        options={{
+          title: 'The Neuro Care Platform',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingHorizontal: 12 }}
+            >
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          )
+        }}
+      />
+
+      <View style={[styles.root]}>
+        <ScrollView
+          contentContainerStyle={[
+            styles.content,
+            { paddingBottom: insets.bottom + tokens.spacing.xl },
+          ]}
+          showsVerticalScrollIndicator={false}
         >
-          <Ionicons
-            name="arrow-back"
-            size={22}
-            color={tokens.colors.text.primary}
-          />
-        </TouchableOpacity>
-
-        <Text style={styles.headerTitle}>
-          {platformData.hero.title[language]}
-        </Text>
-      </View>
-
-      <ScrollView
-        contentContainerStyle={[
-          styles.content,
-          { paddingBottom: insets.bottom + tokens.spacing.xl },
-        ]}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* Hero */}
-        <View style={styles.hero}>
-          <Text style={styles.title}>
-            {platformData.hero.title[language]}
-          </Text>
-          <Text style={styles.subtitle}>
-            {platformData.hero.subtitle[language]}
-          </Text>
-        </View>
-
-        {/* Sections */}
-        {platformData.sections.map(section => (
-          <View key={section.id} style={styles.section}>
-            <Text style={styles.sectionTitle}>
-              {section.title[language]}
+          {/* Hero */}
+          <View style={styles.hero}>
+            <Text style={styles.title}>
+              {platformData.hero.title[language]}
             </Text>
-            <Text style={styles.paragraph}>
-              {section.content[language]}
+            <Text style={styles.subtitle}>
+              {platformData.hero.subtitle[language]}
             </Text>
           </View>
-        ))}
-      </ScrollView>
-    </View>
+
+          {/* Sections */}
+          {platformData.sections.map(section => (
+            <View key={section.id} style={styles.section}>
+              <Text style={styles.sectionTitle}>
+                {section.title[language]}
+              </Text>
+              <Text style={styles.paragraph}>
+                {section.content[language]}
+              </Text>
+            </View>
+          ))}
+        </ScrollView>
+      </View>
+    </>
   );
 }
 

@@ -1,5 +1,13 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  ScrollView,
+  TouchableOpacity, 
+} from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { router, Stack } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
 
 import { howData } from '@/demo/how';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -10,37 +18,55 @@ export default function HowItWorksScreen() {
   const { language } = useLanguage();
 
   return (
-    <View style={[styles.root, { paddingTop: insets.top }]}>
-      <ScrollView
-        contentContainerStyle={[
-          styles.content,
-          { paddingBottom: insets.bottom + tokens.spacing.xl },
-        ]}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* Hero */}
-        <View style={styles.hero}>
-          <Text style={styles.title}>
-            {howData.hero.title[language]}
-          </Text>
-          <Text style={styles.subtitle}>
-            {howData.hero.subtitle[language]}
-          </Text>
-        </View>
-
-        {/* Steps */}
-        {howData.steps.map(step => (
-          <View key={step.id} style={styles.step}>
-            <Text style={styles.stepTitle}>
-              {step.title[language]}
+    <>
+      <Stack.Screen
+        options={{
+          title: 'How This App Works',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingHorizontal: 12 }}
+            >
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          )
+        }}
+      />
+      
+      <View style={[styles.root]}>
+        <ScrollView
+          contentContainerStyle={[
+            styles.content,
+            { paddingBottom: insets.bottom + tokens.spacing.xl },
+          ]}
+          showsVerticalScrollIndicator={false}
+        >
+          {/* Hero */}
+          <View style={styles.hero}>
+            <Text style={styles.title}>
+              {howData.hero.title[language]}
             </Text>
-            <Text style={styles.stepDescription}>
-              {step.description[language]}
+            <Text style={styles.subtitle}>
+              {howData.hero.subtitle[language]}
             </Text>
           </View>
-        ))}
-      </ScrollView>
-    </View>
+
+          {/* Steps */}
+          {howData.steps.map(step => (
+            <View key={step.id} style={styles.step}>
+              <Text style={styles.stepTitle}>
+                {step.title[language]}
+              </Text>
+              <Text style={styles.stepDescription}>
+                {step.description[language]}
+              </Text>
+            </View>
+          ))}
+        </ScrollView>
+      </View>
+    </>
   );
 }
 
