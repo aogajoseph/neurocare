@@ -1,6 +1,16 @@
 // app/(drawer)/(content)/support/index.tsx
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  ScrollView, 
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { router, Stack } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
+
 import { useLanguage } from '@/i18n/LanguageContext';
 import { helpData } from '@/demo/help';
 import { tokens } from '@/theme/design-tokens';
@@ -10,31 +20,49 @@ export default function HelpScreen() {
   const { language } = useLanguage();
 
   return (
-    <View style={[styles.root, { paddingTop: insets.top }]}>
-      <ScrollView
-        contentContainerStyle={[styles.content, { paddingBottom: insets.bottom + tokens.spacing.xl }]}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* Optional Hero Image */}
-        {helpData.hero.image && (
-          <Image source={helpData.hero.image} style={styles.heroImage} />
-        )}
+    <>
+      <Stack.Screen
+        options={{
+          title: 'Help & Support',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingHorizontal: 12 }}
+            >
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          )
+        }}
+      />
 
-        {/* Hero Title & Subtitle */}
-        <View style={styles.heroText}>
-          <Text style={styles.title}>{helpData.hero.title[language]}</Text>
-          <Text style={styles.subtitle}>{helpData.hero.subtitle[language]}</Text>
-        </View>
+      <View style={[styles.root]}>
+        <ScrollView
+          contentContainerStyle={[styles.content, { paddingBottom: insets.bottom + tokens.spacing.xl }]}
+          showsVerticalScrollIndicator={false}
+        >
+          {/* Optional Hero Image */}
+          {helpData.hero.image && (
+            <Image source={helpData.hero.image} style={styles.heroImage} />
+          )}
 
-        {/* Sections */}
-        {helpData.sections.map(section => (
-          <View key={section.id} style={styles.section}>
-            <Text style={styles.subTitle}>{section.title[language]}</Text>
-            <Text style={styles.paragraph}>{section.content[language]}</Text>
+          {/* Hero Title & Subtitle */}
+          <View style={styles.heroText}>
+            <Text style={styles.title}>{helpData.hero.title[language]}</Text>
+            <Text style={styles.subtitle}>{helpData.hero.subtitle[language]}</Text>
           </View>
-        ))}
-      </ScrollView>
-    </View>
+
+          {/* Sections */}
+          {helpData.sections.map(section => (
+            <View key={section.id} style={styles.section}>
+              <Text style={styles.subTitle}>{section.title[language]}</Text>
+              <Text style={styles.paragraph}>{section.content[language]}</Text>
+            </View>
+          ))}
+        </ScrollView>
+      </View>
+    </>
   );
 }
 

@@ -1,8 +1,14 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  ScrollView 
+} from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useLocalSearchParams, router } from 'expo-router';
+import { useLocalSearchParams, router, Stack } from 'expo-router';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { ChevronLeft } from 'lucide-react-native';
 
 import { reportData } from '@/demo/report';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -24,57 +30,61 @@ export default function ReportCategoryScreen() {
   }
 
   return (
-    <View style={[styles.root, { paddingTop: insets.top }]}>
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity
-          onPress={() => router.back()}
-          style={styles.backButton}
-          hitSlop={10}
+    <>
+      <Stack.Screen
+        options={{
+          title: section.title[language], 
+          headerShown: true,
+          headerBackTitleVisible: false,
+          
+          headerLeft: ({ tintColor }) => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingHorizontal: 12 }}
+            >
+              <Ionicons name="chevron-back" size={24} color={tintColor} />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+
+      <View style={[styles.root]}>
+        <ScrollView
+          contentContainerStyle={[
+            styles.content,
+            { paddingBottom: insets.bottom + tokens.spacing.xl },
+          ]}
+          showsVerticalScrollIndicator={false}
         >
-          <Ionicons name="arrow-back" size={22} color={tokens.colors.text.primary} />
-        </TouchableOpacity>
+          <Text style={styles.title}>
+            {section.title[language]}
+          </Text>
+          <Text style={styles.description}>
+            {section.description[language]}
+          </Text>
 
-        <Text style={styles.headerTitle}>
-          {section.title[language]}
-        </Text>
+          <View style={styles.block}>
+            <Text style={styles.blockTitle}>Contacts</Text>
+            {section.contacts.map((contact, index) => (
+              <Text key={index} style={styles.contact}>
+                {contact.type}: {contact.value}
+              </Text>
+            ))}
+          </View>
+
+          {/* Instructions */}
+          <View style={styles.block}>
+            <Text style={styles.blockTitle}>How to Report</Text>
+
+            {section.instructions[language].map((step, index) => (
+              <Text key={index} style={styles.step}>
+                {index + 1}. {step}
+              </Text>
+            ))}
+          </View>
+        </ScrollView>
       </View>
-
-      <ScrollView
-        contentContainerStyle={[
-          styles.content,
-          { paddingBottom: insets.bottom + tokens.spacing.xl },
-        ]}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* Description */}
-        <Text style={styles.description}>
-          {section.description[language]}
-        </Text>
-
-        {/* Contacts */}
-        <View style={styles.block}>
-          <Text style={styles.blockTitle}>Contacts</Text>
-
-          {section.contacts.map((contact, index) => (
-            <Text key={index} style={styles.contact}>
-              {contact.type}: {contact.value}
-            </Text>
-          ))}
-        </View>
-
-        {/* Instructions */}
-        <View style={styles.block}>
-          <Text style={styles.blockTitle}>How to Report</Text>
-
-          {section.instructions[language].map((step, index) => (
-            <Text key={index} style={styles.step}>
-              {index + 1}. {step}
-            </Text>
-          ))}
-        </View>
-      </ScrollView>
-    </View>
+    </>
   );
 }
 
@@ -83,26 +93,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: tokens.colors.surface.background,
   },
-
-  /* Header */
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: tokens.spacing.lg,
-    paddingVertical: tokens.spacing.md,
-    borderBottomWidth: 1,
-    borderBottomColor: tokens.colors.border.default,
-  },
-  backButton: {
-    marginRight: tokens.spacing.md,
-  },
-  headerTitle: {
-    fontSize: tokens.typography.size.lg,
+  title: {
+    fontSize: tokens.typography.size.xl,
     fontWeight: tokens.typography.weight.semibold,
     color: tokens.colors.text.primary,
+    marginBottom: tokens.spacing.xs,
   },
-
-  /* Content */
   content: {
     paddingHorizontal: tokens.spacing.lg,
     paddingTop: tokens.spacing.lg,

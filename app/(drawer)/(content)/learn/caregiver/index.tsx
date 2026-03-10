@@ -33,7 +33,7 @@ export default function CaregiverGuideScreen() {
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => router.back()}
-              style={{ paddingRight: 12 }}
+              style={{ paddingHorizontal: 12 }}
             >
               <ChevronLeft size={24} />
             </TouchableOpacity>
@@ -49,13 +49,11 @@ export default function CaregiverGuideScreen() {
           ]}
           showsVerticalScrollIndicator={false}
         >
-          {/* Hero Image */}
           <Image
             source={caregiverData.hero.image}
             style={styles.heroImage}
           />
 
-          {/* Intro */}
           <View style={styles.intro}>
             <Text style={styles.title}>
               {caregiverData.hero.title[language]}
@@ -65,7 +63,6 @@ export default function CaregiverGuideScreen() {
             </Text>
           </View>
 
-          {/* Cards */}
           <View style={styles.cards}>
             {cards.map(card => (
               <TouchableOpacity
