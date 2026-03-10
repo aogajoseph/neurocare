@@ -1,5 +1,13 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  ScrollView, 
+  TouchableOpacity 
+} from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { router, Stack } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
 
 import { privacyData } from '@/demo/privacy';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -10,37 +18,54 @@ export default function PrivacyScreen() {
   const { language } = useLanguage();
 
   return (
-    <View style={[styles.root, { paddingTop: insets.top }]}>
-      <ScrollView
-        contentContainerStyle={[
-          styles.content,
-          { paddingBottom: insets.bottom + tokens.spacing.xl },
-        ]}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* Hero */}
-        <View style={styles.hero}>
-          <Text style={styles.title}>
-            {privacyData.hero.title[language]}
-          </Text>
-          <Text style={styles.subtitle}>
-            {privacyData.hero.subtitle[language]}
-          </Text>
-        </View>
-
-        {/* Sections */}
-        {privacyData.sections.map(section => (
-          <View key={section.id} style={styles.section}>
-            <Text style={styles.sectionTitle}>
-              {section.title[language]}
+    <>
+      <Stack.Screen
+        options={{
+          title: 'Privacy Policy',
+          headerShown: true,
+          headerBackTitle: 'Back',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ paddingHorizontal: 12 }}
+            >
+              <ChevronLeft size={24} />
+            </TouchableOpacity>
+          )
+        }}
+      />
+      
+      <View style={[styles.root]}>
+        <ScrollView
+          contentContainerStyle={[
+            styles.content,
+            { paddingBottom: insets.bottom + tokens.spacing.xl },
+          ]}
+          showsVerticalScrollIndicator={false}
+        >
+          
+          <View style={styles.hero}>
+            <Text style={styles.title}>
+              {privacyData.hero.title[language]}
             </Text>
-            <Text style={styles.sectionDescription}>
-              {section.description[language]}
+            <Text style={styles.subtitle}>
+              {privacyData.hero.subtitle[language]}
             </Text>
           </View>
-        ))}
-      </ScrollView>
-    </View>
+
+          {privacyData.sections.map(section => (
+            <View key={section.id} style={styles.section}>
+              <Text style={styles.sectionTitle}>
+                {section.title[language]}
+              </Text>
+              <Text style={styles.sectionDescription}>
+                {section.description[language]}
+              </Text>
+            </View>
+          ))}
+        </ScrollView>
+      </View>
+    </>
   );
 }
 
@@ -65,7 +90,7 @@ const styles = StyleSheet.create({
     fontSize: tokens.typography.size.xl,
     fontWeight: tokens.typography.weight.semibold,
     color: tokens.colors.text.primary,
-    marginBottom: tokens.spacing.sm,
+    marginBottom: tokens.spacing.xs,
   },
 
   subtitle: {
