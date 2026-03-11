@@ -40,16 +40,22 @@ Key principles:
 ## Screenshots
 
 ### Drawer
-![Drawer](./assets/screenshots/drawer.jpeg)
+![Drawer](./assets/screenshots/drawer.png)
 
 ### Home
-![Home Screen](./assets/screenshots/home.jpeg)
+![Home Screen](./assets/screenshots/home.png)
 
 ### Community
-![Community Resources](./assets/screenshots/community.jpeg)
+![Community Screen](./assets/screenshots/community.png)
 
-### Neuro Assistant
-![Neuro](./assets/screenshots/neuro.jpeg)
+### Community Spaces
+![Community Spaces](./assets/screenshots/spaces.png)
+
+### Resources
+![Resources Screen](./assets/screenshots/resources.png)
+
+### Neuro
+![Neuro (AI Agent)](./assets/screenshots/neuro.png)
 
 ## Status
 
@@ -58,11 +64,5 @@ This project is under active development and follows a phased implementation app
 2. Navigation hierarchy.
 3. UI wiring.
 4. UX refinement.
-
-## Related Repositories
-
-- Backend API: [neurocare-backend](https://github.com/aogajoseph/neurocare-backend/)
-
----
 
 Built with a focus on clarity, accessibility and long-term maintainability.
