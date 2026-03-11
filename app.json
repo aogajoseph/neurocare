@@ -4,7 +4,9 @@
     "slug": "neuro-care",
     "version": "1.0.0",
     "orientation": "portrait",
+
     "icon": "./assets/images/icon.png",
+
     "scheme": "ncfmobileapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -30,12 +32,19 @@
 
     "android": {
       "package": "org.neurocare.app",
+
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
+    },
+
+    "androidStatusBar": {
+      "translucent": false,
+      "backgroundColor": "#ffffff"
     },
 
     "web": {
