@@ -6,7 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { route,r, Stack } from 'expo-router';
+import { router, Stack } from 'expo-router';
 import { ChevronLeft } from 'lucide-react-native';
 
 import { tokens } from '@/theme/design-tokens';
