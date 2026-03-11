@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
   menu: {
     width: 220,
     backgroundColor: '#fff',
-    borderRadius: 16,
-    paddingVertical: 10,
+    borderRadius: 12,
+    paddingVertical: 6,
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 12,
