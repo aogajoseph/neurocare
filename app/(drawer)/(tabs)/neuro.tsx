@@ -49,7 +49,7 @@ export default function NeuroScreen() {
     {
       id: 'welcome',
       text:
-        "Hi, I'm Neuro, your Neuro Care Assistant.\nAsk me about neurological health.",
+        "Hi, I'm Neuro, your Neuro Care Assistant.\nAsk me about Neurological Health.",
       sender: 'assistant',
     },
   ]);
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     fontStyle: tokens.typography.style.italic,
     fontWeight: tokens.typography.weight.medium,
     lineHeight: tokens.typography.lineHeight.tight,
-    textAlign: 'left',
+    textAlign: 'center',
   },
   message: {
     paddingVertical: tokens.spacing.md,
