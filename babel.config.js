@@ -3,14 +3,14 @@ module.exports = function (api) {
   return {
     presets: ['babel-preset-expo'],
     plugins: [
-      'expo-router/babel',
       [
         'module-resolver',
         {
           alias: {
             '@': './src',
+            '@assets': './assets',
           },
-          extensions: ['.ts', '.tsx', '.js', '.jsx'],
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.mp4'],
         },
       ],
     ],

@@ -1,22 +1,22 @@
+import { ResizeMode, Video } from 'expo-av';
+import { Stack, useRouter } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
 import React from 'react';
 import {
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
+    Platform,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
 } from 'react-native';
-import { Platform } from 'react-native';
-import { Video, ResizeMode } from 'expo-av';
-import { useRouter, Stack } from 'expo-router';
-import { ChevronLeft } from 'lucide-react-native';
 
 import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
 
 const videoSources: Record<string, any> = {
-  'tv-1': require('../../../../../assets/videos/home_therapy.mp4'),
-  'tv-2': require('../../../../../assets/videos/understanding_neurology.mp4'),
+  'tv-1': require('@assets/videos/home_therapy.mp4'),
+  'tv-2': require('@assets/videos/understanding_neurology.mp4'),
 };
 
 export default function TrainingsScreen() {

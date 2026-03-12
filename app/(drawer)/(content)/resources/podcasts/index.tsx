@@ -1,22 +1,22 @@
+import { ResizeMode, Video } from 'expo-av';
+import { Stack, useRouter } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
 import React from 'react';
 import {
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
+    Platform,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
 } from 'react-native';
-import { Platform } from 'react-native';
-import { Video, ResizeMode } from 'expo-av';
-import { useRouter, Stack } from 'expo-router';
-import { ChevronLeft } from 'lucide-react-native';
 
 import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
 
 const videoSources: Record<string, any> = {
-  'p-1': require('../../../../../assets/videos/neuro_connect_intro.mp4'),
-  'p-2': require('../../../../../assets/videos/neuro_connect_ep1.mp4'),
+  'p-1': require('@assets/videos/neuro_connect_intro.mp4'),
+  'p-2': require('@assets/videos/neuro_connect_ep1.mp4'),
 };
 
 export default function PodcastsScreen() {

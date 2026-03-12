@@ -1,22 +1,22 @@
+import { ResizeMode, Video } from 'expo-av';
+import { Stack, useRouter } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
 import React from 'react';
 import {
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
+    Platform,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
 } from 'react-native';
-import { Platform } from 'react-native';
-import { Video, ResizeMode } from 'expo-av';
-import { useRouter, Stack } from 'expo-router';
-import { ChevronLeft } from 'lucide-react-native';
 
 import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
 
 const videoSources: Record<string, any> = {
-  't-1': require('../../../../../assets/videos/neurology_qa.mp4'),
-  't-2': require('../../../../../assets/videos/mental_health.mp4'),
+  't-1': require('@assets/videos/neurology_qa.mp4'),
+  't-2': require('@assets/videos/mental_health.mp4'),
 };
 
 export default function TalksScreen() {

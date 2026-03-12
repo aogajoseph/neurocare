@@ -4,62 +4,55 @@
     "slug": "neuro-care",
     "version": "1.0.0",
     "orientation": "portrait",
-
     "icon": "./assets/images/icon.png",
-
     "scheme": "ncfmobileapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-
     "runtimeVersion": {
       "policy": "appVersion"
     },
-
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-
     "splash": {
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "org.neurocare.app"
     },
-
     "android": {
       "package": "org.neurocare.app",
-
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
-
     "androidStatusBar": {
       "translucent": false,
       "backgroundColor": "#ffffff"
     },
-
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-
     "plugins": [
       "expo-router",
       "expo-font"
     ],
-
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "204a0488-aeb3-403d-80e5-9201a5874f80"
+      }
     }
   }
 }
