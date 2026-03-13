@@ -13,11 +13,13 @@ import {
 
 import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
+import { VIDEOS } from '@/assets/videos';
 
 const videoSources: Record<string, any> = {
-  't-1': require('assets/videos/neurology_qa.mp4'),
-  't-2': require('assets/videos/mental_health.mp4'),
+  't-1': VIDEOS.neurologyQa,
+  't-2': VIDEOS.mentalHealth,
 };
+
 
 export default function TalksScreen() {
   const router = useRouter();

@@ -13,10 +13,11 @@ import {
 
 import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
+import { VIDEOS } from '@/assets/videos';
 
 const videoSources: Record<string, any> = {
-  'w-1': require('assets/videos/webinar_1.mp4'),
-  'w-2': require('assets/videos/webinar_2.mp4'),
+  'w-1': VIDEOS.webinar1,
+  'w-2': VIDEOS.webinar2,
 };
 
 export default function WebinarsScreen() {

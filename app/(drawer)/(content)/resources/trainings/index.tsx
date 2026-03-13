@@ -13,10 +13,11 @@ import {
 
 import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
+import { VIDEOS } from '@/assets/videos';
 
 const videoSources: Record<string, any> = {
-  'tv-1': require('assets/videos/home_therapy.mp4'),
-  'tv-2': require('assets/videos/understanding_neurology.mp4'),
+  'tv-1': VIDEOS.homeTherapy,
+  'tv-2': VIDEOS.understandingNeurology,
 };
 
 export default function TrainingsScreen() {
