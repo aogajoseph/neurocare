@@ -15,8 +15,8 @@ import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
 
 const videoSources: Record<string, any> = {
-  'p-1': require('@assets/videos/neuro_connect_intro.mp4'),
-  'p-2': require('@assets/videos/neuro_connect_ep1.mp4'),
+  'p-1': require('assets/videos/neuro_connect_intro.mp4'),
+  'p-2': require('assets/videos/neuro_connect_ep1.mp4'),
 };
 
 export default function PodcastsScreen() {

@@ -13,10 +13,11 @@ import {
 
 import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
+import { VIDEOS } from '@/assets/videos';
 
 const videoSources: Record<string, any> = {
-  'e-1': require('@assets/videos/neuro_awards.mp4'),
-  'e-2': require('@assets/videos/sbh_day.mp4'),
+  'e-1': VIDEOS.neuroAwards,
+  'e-2': VIDEOS.sbhDay,
 };
 
 export default function EventsScreen() {
@@ -26,7 +27,7 @@ export default function EventsScreen() {
 
   if (!eventsResource) {
     return (
-      <View style={styles.center}>
+      <View style={styles.center}> 
         <Text>Events resource not found.</Text>
       </View>
     );

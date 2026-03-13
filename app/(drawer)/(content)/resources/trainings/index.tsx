@@ -15,8 +15,8 @@ import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
 
 const videoSources: Record<string, any> = {
-  'tv-1': require('@assets/videos/home_therapy.mp4'),
-  'tv-2': require('@assets/videos/understanding_neurology.mp4'),
+  'tv-1': require('assets/videos/home_therapy.mp4'),
+  'tv-2': require('assets/videos/understanding_neurology.mp4'),
 };
 
 export default function TrainingsScreen() {

@@ -15,8 +15,8 @@ import { resources } from '@/demo/resources';
 import { tokens } from '@/theme/design-tokens';
 
 const videoSources: Record<string, any> = {
-  'w-1': require('@assets/videos/webinar_1.mp4'),
-  'w-2': require('@assets/videos/webinar_2.mp4'),
+  'w-1': require('assets/videos/webinar_1.mp4'),
+  'w-2': require('assets/videos/webinar_2.mp4'),
 };
 
 export default function WebinarsScreen() {
