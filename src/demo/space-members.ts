@@ -1,0 +1,16 @@
+export const spaceMembers: Record<string, string[]> = {
+  'caregiver-guidance': ['m1', 'c1', 'c2', 'c3', 'c4', 'c5'],
+  'understanding-neuro-care': ['m2', 'c6', 'c7', 'c8', 'c9', 'c10'], 
+  'caregiving-basics': ['m3', 'c11', 'c12', 'c13', 'c14', 'c15'], 
+  'caregiver-peer-support': ['m4', 'c16', 'c17', 'c18', 'c19', 'c20'],
+  'care-resources': ['m5', 'c21', 'c22', 'c23', 'c24', 'c25'],
+  'assistive-tools': ['m6', 'c26', 'c27', 'c28', 'c29', 'c30'],
+  'ask-health-pro': ['m7', 'c31', 'c32', 'c33', 'c34', 'c35'],
+  'caring-for-caregiver': ['m8', 'c36', 'c37', 'c38', 'c39', 'c40'],
+  'pwd-peer-circle': ['m9', 'c41', 'c42', 'c43', 'c44', 'c45'],
+  'living-well': ['m10', 'c46', 'c47', 'c48', 'c49', 'c50'],
+  'symptoms-daily-life': ['m11', 'c51', 'c52', 'c53', 'c54', 'c55'],
+  'clinical-practitioners': ['m12', 'c56', 'c57', 'c58', 'c59', 'c60'],
+  'rehab-support': ['m13', 'c61', 'c62', 'c63', 'c64', 'c65'],
+  'professional-learning': ['m14', 'c66', 'c67', 'c68', 'c69', 'c70'],
+};
