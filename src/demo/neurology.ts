@@ -1,4 +1,6 @@
 // Demo content for Neurology page with English and Swahili translations
+import { VIDEOS } from '@/assets/videos';
+
 export const neurologyData = {
   hero: {
     title: { en: "Understanding Neurology", sw: "Kuelewa Neurologia" },
@@ -83,7 +85,7 @@ export const neurologyData = {
       id: 'livingWith',
       type: 'video',
       title: { en: 'Living Well with Neurological Conditions', sw: 'Kuishi na Hali za Neurologia' },
-      videoUrl: require('../../assets/videos/living.mp4'),
+      videoUrl: VIDEOS.livingWell,
       description: {
         en: 'Many people live full and meaningful lives with neurological conditions. Support from healthcare providers, caregivers and access to accurate information plays a vital role in improving quality of life.',
         sw: 'Watu wengi wanaishi maisha kamili na yenye maana pamoja na hali za neurologia. Msaada kutoka kwa watoa huduma za afya, walezi na upatikanaji wa taarifa sahihi unachangia kuboresha ubora wa maisha.',
