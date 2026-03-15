@@ -8,6 +8,8 @@ import {
   StyleSheet,
   Alert,
   Switch,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import { tokens } from '@/theme/design-tokens';
 
@@ -125,17 +127,13 @@ export default function VolunteerForm({ form, onSubmit }: Props) {
           {field.type === 'checkbox' ? (
             <View>
               <Text style={styles.checkboxTitle}>Consent</Text>
-              <TouchableOpacity 
-                style={styles.checkboxRow}
-                activeOpacity={0.8}
-                onPress={() => handleChange(field.id, !responses[field.id])} 
-              >
+              <View style={styles.checkboxRow}>
                 <Switch
                   value={responses[field.id]}
                   onValueChange={(val) => handleChange(field.id, val)}
                 />
                 <Text style={styles.checkboxDesc}>{field.label}</Text>
-              </TouchableOpacity>
+              </View>
             </View>
           ) : (
             <>
@@ -295,21 +293,15 @@ const styles = StyleSheet.create({
     marginTop: tokens.spacing.xsm,
     maxWidth: '80%',
   },
-  checkboxRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: tokens.spacing.xsm,
-    maxWidth: '100%',
-  },
   checkboxTitle: {
     fontWeight: tokens.typography.weight.semibold,
     fontSize: tokens.typography.size.md,
-    marginTop: tokens.spacing.sm,
+    marginTop: tokens.spacing.md,
+    marginBottom: tokens.spacing.md,
   },
   checkboxDesc: {
-    flex: 1,
     color: tokens.colors.text.secondary,
     fontSize: tokens.typography.size.sm,
     marginLeft: tokens.spacing.sm,
-  }
+  },
 });

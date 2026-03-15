@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: tokens.typography.size.xxl,
-    fontWeight: tokens.typography.weight.bold,
+    fontWeight: tokens.typography.weight.semibold,
     color: tokens.colors.brand.primary,
     marginBottom: tokens.spacing.sm,
   },

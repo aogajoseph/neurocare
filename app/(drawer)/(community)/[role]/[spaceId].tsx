@@ -993,7 +993,8 @@ export default function CommunitySpaceScreen() {
 const styles = StyleSheet.create({
   container: { 
     flex: 1, 
-    backgroundColor: tokens.colors.surface.background,
+    backgroundColor: tokens.colors.surface.background, 
+    marginBottom: tokens.spacing.xxl, 
   },
 
   header: {
@@ -1111,7 +1112,7 @@ const styles = StyleSheet.create({
 
   toast: {
     position: 'absolute',
-    bottom: 90,
+    bottom: 90, // sits above composer
     alignSelf: 'center',
     backgroundColor: tokens.colors.surface.card,
     paddingHorizontal: tokens.spacing.lg,
@@ -1146,10 +1147,10 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   
+
   messages: {
     flexGrow: 1,
     padding: tokens.spacing.lg,
-    paddingBottom: tokens.spacing.xxl,
   },
 
   messageContainer: {
@@ -1303,6 +1304,7 @@ const styles = StyleSheet.create({
 
   composerDisabled: {
     padding: tokens.spacing.md,
+    marginBottom: tokens.spacing.md,
     borderTopWidth: 1,
     borderColor: tokens.colors.border.subtle,
     backgroundColor: tokens.colors.surface.soft,
